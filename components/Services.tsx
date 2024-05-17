@@ -9,7 +9,6 @@ const cardData = [
   },
   {
     id: "02",
-
     title: "Job Description Development:",
     desctiption:
       "Understand client’s hiring needs, culture, and tech requirements Analyze position responsibilities, qualifications, and skills.",
@@ -21,6 +20,7 @@ const cardData = [
   },
   {
     id: "04",
+    icon: "/logo.png",
     title: "Screening and Evaluation",
     desctiption: "john",
   },
@@ -62,11 +62,10 @@ export default function Services() {
           <div className="flex gap-5 max-md:flex-col max-md:gap-0">
             {cardData.map((card, idx) => (
               <Card
-                id={idx}
                 key={idx}
-                imgSrc={card.image}
+                id={card.id}
                 title={card?.title}
-                description={card?.description}
+                description={card.desctiption}
               />
             ))}
           </div>

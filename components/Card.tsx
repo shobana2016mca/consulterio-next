@@ -1,8 +1,5 @@
-import Image from "next/image";
-
 type CardProps = {
-  id: string;
-  imgSrc: string;
+  id: string | undefined;
   title: string;
   description: string;
 };
