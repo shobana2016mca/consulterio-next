@@ -11,22 +11,26 @@ const cardData = [
     id: "02",
     title: "Job Description Development:",
     desctiption:
-      "Understand client’s hiring needs, culture, and tech requirements Analyze position responsibilities, qualifications, and skills.",
+      "Craft compelling descriptions attracting top talent.Highlight key responsibilities and growth opportunities.",
   },
   {
     id: "03",
     title: "Candidate Sourcing",
-    desctiption: "john",
+    desctiption:
+      "Utilize diverse channels for sourcing.Employ advanced search techniques for passive candidates.",
   },
   {
     id: "04",
     icon: "/logo.png",
     title: "Screening and Evaluation",
-    desctiption: "john",
+    desctiption:
+      "Review resumes and shortlist candidates.Conduct screenings and technical assessments.",
   },
   {
+    id: "05",
     title: "Interview Coordination",
-    desctiption: "john",
+    desctiption:
+      "Schedule interviews and support parties.Collect feedback to inform decisions.",
   },
   {
     id: "06",
@@ -38,7 +42,7 @@ const cardData = [
     id: "07",
     title: "Follow-Up and Feedback!",
     desctiption:
-      "Maintain communication for satisfaction.Gather feedback to enhance practices.",
+      "Maintain communication for satisfaction.Gather feedback to enhance practices..",
   },
   {
     id: "08",
@@ -52,14 +56,14 @@ export default function Services() {
   return (
     <section className="flex justify-center items-center self-stretch px-16 py-20 w-full bg-stone-50 max-md:px-5 max-md:max-w-full">
       <article className="flex flex-col items-center mt-20 mb-12 w-full max-w-[1438px] max-md:my-10 max-md:max-w-full">
-        <h3 className="text-3xl font-extrabold tracking-widest text-teal-400 uppercase">
+        <h3 className="text-3xl font-extrabold tracking-widest text-black uppercase">
           Process I Plan
         </h3>
         <h4 className="mt-8 text-5xl text-center capitalize text-sky-950 max-md:max-w-full max-md:text-4xl">
           Assist you to find a job that matches with your goal
         </h4>
         <section className="self-stretch mt-20 max-md:mt-10 max-md:max-w-full">
-          <div className="flex gap-5 max-md:flex-col max-md:gap-0">
+          <div className="grid grid-cols-4 gap-4">
             {cardData.map((card, idx) => (
               <Card
                 key={idx}
