@@ -1,130 +1,225 @@
+import { calcDate } from "@/lib/utils";
 import config from "@/tailwind.config";
-import { Document, Page, StyleSheet, Text, View } from "@react-pdf/renderer";
+import {
+  Document,
+  Page,
+  StyleSheet,
+  Text,
+  View,
+  Image,
+} from "@react-pdf/renderer";
 import { createTw } from "react-pdf-tailwind";
 
 // const AsyncReactPdf = dynamic(() => import('@react-pdf/renderer'), { ssr: false });
 
 // The 'theme' object is your Tailwind theme config
-const tw = createTw(config);
-
-// const styles = StyleSheet.create({
-//   page: { padding: 30 },
-//   section: { marginBottom: 10 },
-//   heading: { fontSize: 20, marginBottom: 10 },
-//   text: { fontSize: 12 },
-//   table: {
-//     display: 'table',
-//     width: 'auto',
-//     borderStyle: 'solid',
-//     borderWidth: 1,
-//     borderRightWidth: 0,
-//     borderBottomWidth: 0,
-//   },
-//   tableRow: { flexDirection: 'row' },
-//   tableColHeader: {
-//     width: '25%',
-//     borderStyle: 'solid',
-//     borderWidth: 1,
-//     borderLeftWidth: 0,
-//     borderTopWidth: 0,
-//     backgroundColor: '#d3d3d3',
-//   },
-//   tableCol: {
-//     width: '25%',
-//     borderStyle: 'solid',
-//     borderWidth: 1,
-//     borderLeftWidth: 0,
-//     borderTopWidth: 0,
-//   },
-//   tableCellHeader: { margin: 5, fontSize: 12, fontWeight: 'bold' },
-//   tableCell: { margin: 5, fontSize: 12 },
-// });
+const tw = createTw({
+  theme: {
+    fontFamily: {
+      sans: ["Helvetica", "Comic Sans"],
+    },
+    extend: {
+      colors: {
+        custom: "#bada55",
+      },
+    },
+  },
+});
 
 const styles = StyleSheet.create({
-  container: {
-    ...tw("p-4"),
-  },
-  title: {
-    ...tw("text-lg font-bold mb-4"),
-  },
-  address: {
-    ...tw("mb-4"),
-  },
-  details: {
-    ...tw("flex justify-between mb-4"),
-  },
-  orderNumber: {
-    ...tw("font-bold"),
-  },
-  invoiceDetails: {
-    ...tw("font-bold"),
-  },
-  amount: {
-    ...tw("font-bold"),
-  },
-  signature: {
-    ...tw("mt-8"),
+  image: {
+    width: "100%",
+    height: "100%",
   },
 });
 
 export default function InvoicePDF({ data, calculations }: any) {
   return (
-    <Document>
-      <Page size="A4">
-        <View style={styles.container}>
-          <Text style={styles.title}>Invoice/Cash Memo</Text>
-          <Text style={styles.title}>amazon.in Tax Invoice</Text>
-
-          <View style={styles.address}>
-            <Text>Sold By:</Text>
-            <Text>Cloudtail India Private Limited</Text>
-            <Text>
-              Sy No. 524/1234.6, 525123456, 526/3.4,5.6,527 of Madivala village
-              and Sy no 51/1
-            </Text>
-            <Text>of Thattanahali village, Kasaba Hobli, Anekal Taluk,</Text>
-            <Text>Bangalore Urban District</Text>
-            <Text>Bangalore, Karnataka, 562107</Text>
+    <>
+      {/* <Document>
+        <Page style={tw("p-10 text-sm font-sans")}>
+          <View style={tw("flex flex-row justify-between mb-6")}>
+            <Image style={tw("w-48 h-24")} src="/invoice-logo.png" />
+            <View style={tw("text-right")}>
+              <Text style={tw("font-bold")}>Sold By :</Text>
+              <Text>Varasiddhi Silk Exports</Text>
+              <Text>75, 3rd Cross, Lalbagh Road</Text>
+              <Text>BENGALURU, KARNATAKA, 560027</Text>
+              <Text>IN</Text>
+              <Text>PAN No: XXXXXXXXX</Text>
+              <Text>GST Registration No: 29XXXXXXXXX1ZY</Text>
+            </View>
           </View>
 
-          <Text style={styles.address}>Shipping Address.</Text>
-
-          <View style={styles.details}>
-            <Text>PAN No: AAQCS4259Q</Text>
-            <Text>GST Registration No: 29AAQCS4250Q1Z6</Text>
-          </View>
-
-          <View style={styles.details}>
-            <Text>Order Number:</Text>
-            <Text>Invoice Number:</Text>
-          </View>
-
-          <View style={styles.details}>
-            <Text>Order Date</Text>
-            <Text>Invoice Details:</Text>
-          </View>
-
-          <View style={styles.details}>
-            <Text>Invoice Date:</Text>
-            <Text>BE font fax Tax roar</Text>
-          </View>
-
-          <View style={styles.details}>
-            <Text>Description</Text>
-            <Text>price</Text>
-            <Text>Rate Type (Amount)</Text>
-          </View>
-
-          <View style={styles.details}>
-            <Text>[One Thousand Seven Hundred And Nineteen only]</Text>
-          </View>
-
-          <Text style={styles.signature}>
-            For Cloudtail India Private Limited:
+          <Text style={tw("text-xl mb-4 text-center font-bold")}>
+            Tax Invoice/Bill of Supply/Cash Memo (Original for Recipient)
           </Text>
-          <Text style={styles.signature}>Authorized Signatory</Text>
-        </View>
-      </Page>
-    </Document>
+
+          <View style={tw("mb-4")}>
+            <Text>Quotaion Number: {crypto.randomUUID()}</Text>
+            <Text>Quotation Date: {calcDate(new Date())}</Text>
+          </View>
+
+          <View style={tw("mb-4")}>
+            <Text style={tw("font-bold")}>Billing Address :</Text>
+            <Text>Madhu B</Text>
+            <Text>
+              Eurofins IT Solutions India Pvt Ltd., 1st Floor, Maruti Platinum,
+              Lakshminarayana Pura, AECS Layout
+            </Text>
+            <Text>BENGALURU, KARNATAKA, 560037</Text>
+            <Text>IN</Text>
+            <Text>State/UT Code: 29</Text>
+          </View>
+
+          <View style={tw("mb-4")}>
+            <Text style={tw("font-bold")}>Shipping Address :</Text>
+            <Text>Madhu B</Text>
+            <Text>
+              Eurofins IT Solutions India Pvt Ltd., 1st Floor, Maruti Platinum,
+              Lakshminarayana Pura, AECS Layout
+            </Text>
+            <Text>BENGALURU, KARNATAKA, 560037</Text>
+            <Text>IN</Text>
+            <Text>State/UT Code: 29</Text>
+            <Text>Place of supply: KARNATAKA</Text>
+            <Text>Place of delivery: KARNATAKA</Text>
+          </View>
+
+          <View style={tw("mb-4")}>
+            <View style={tw("flex flex-row border-b border-black font-bold")}>
+              <Text style={tw("w-1/12 p-2")}>Sl. No</Text>
+              <Text style={tw("w-7/12 p-2")}>Description</Text>
+              <Text style={tw("w-2/12 p-2")}>Unit Price</Text>
+              <Text style={tw("w-2/12 p-2")}>Total Amount</Text>
+            </View>
+            <View style={tw("flex flex-row border-b border-black")}>
+              <Text style={tw("w-1/12 p-2")}>1</Text>
+              <Text style={tw("w-7/12 p-2")}>
+                Varasiddhi Silks Men's Formal Shirt (SH-05-42, Navy Blue, 42)
+              </Text>
+              <Text style={tw("w-2/12 p-2")}>₹338.10</Text>
+              <Text style={tw("w-2/12 p-2")}>₹365.00</Text>
+            </View>
+            <View style={tw("flex flex-row border-b border-black")}>
+              <Text style={tw("w-1/12 p-2")}>2</Text>
+              <Text style={tw("w-7/12 p-2")}>
+                Varasiddhi Silks Men's Formal Shirt (SH-05-40, Navy Blue, 40)
+              </Text>
+              <Text style={tw("w-2/12 p-2")}>₹338.10</Text>
+              <Text style={tw("w-2/12 p-2")}>₹365.00</Text>
+            </View>
+            <View style={tw("flex flex-row border-b border-black")}>
+              <Text style={tw("w-1/12 p-2")}></Text>
+              <Text style={tw("w-7/12 p-2")}>Shipping Charges</Text>
+              <Text style={tw("w-2/12 p-2")}>&#8377;30.96</Text>
+              <Text style={tw("w-2/12 p-2")}>&#8377;32.50</Text>
+            </View>
+          </View>
+
+          <View style={tw("flex justify-end")}>
+            <Text style={tw("font-bold text-right")}>Total: ₹1,195.00</Text>
+          </View>
+
+          <View style={tw("mt-4")}>
+            <Text>Whether tax is payable under reverse charge - No</Text>
+          </View>
+        </Page>
+      </Document> */}
+
+      <Document>
+        <Page style={tw("p-10 text-sm font-sans")}>
+          <View style={tw("flex flex-row justify-between mb-6")}>
+            <Image
+              style={tw("w-24")}
+              src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg"
+            />
+            <View style={tw("text-right")}>
+              <Text style={tw("font-bold")}>Sold By :</Text>
+              <Text>Varasiddhi Silk Exports</Text>
+              <Text>75, 3rd Cross, Lalbagh Road</Text>
+              <Text>BENGALURU, KARNATAKA, 560027</Text>
+              <Text>IN</Text>
+              <Text>PAN No: AACFV3325K</Text>
+              <Text>GST Registration No: 29AACFV3325K1ZY</Text>
+            </View>
+          </View>
+
+          <Text style={tw("text-xl mb-4 text-center font-bold")}>
+            Tax Invoice/Bill of Supply/Cash Memo (Original for Recipient)
+          </Text>
+
+          <View style={tw("mb-4")}>
+            <Text>Order Number: 403-3225714-7676307</Text>
+            <Text>Order Date: 28.10.2019</Text>
+          </View>
+
+          <View style={tw("mb-4")}>
+            <Text style={tw("font-bold")}>Billing Address :</Text>
+            <Text>Madhu B</Text>
+            <Text>
+              Eurofins IT Solutions India Pvt Ltd., 1st Floor, Maruti Platinum,
+              Lakshminarayana Pura, AECS Layout
+            </Text>
+            <Text>BENGALURU, KARNATAKA, 560037</Text>
+            <Text>IN</Text>
+            <Text>State/UT Code: 29</Text>
+          </View>
+
+          <View style={tw("mb-4")}>
+            <Text style={tw("font-bold")}>Shipping Address :</Text>
+            <Text>Madhu B</Text>
+            <Text>
+              Eurofins IT Solutions India Pvt Ltd., 1st Floor, Maruti Platinum,
+              Lakshminarayana Pura, AECS Layout
+            </Text>
+            <Text>BENGALURU, KARNATAKA, 560037</Text>
+            <Text>IN</Text>
+            <Text>State/UT Code: 29</Text>
+            <Text>Place of supply: KARNATAKA</Text>
+            <Text>Place of delivery: KARNATAKA</Text>
+          </View>
+
+          <View style={tw("mb-4")}>
+            <View style={tw("flex flex-row border-b border-black font-bold")}>
+              <Text style={tw("w-1/12 p-2")}>Sl. No</Text>
+              <Text style={tw("w-7/12 p-2")}>Description</Text>
+              <Text style={tw("w-2/12 p-2")}>Unit Price</Text>
+              <Text style={tw("w-2/12 p-2")}>Total Amount</Text>
+            </View>
+            <View style={tw("flex flex-row border-b border-black")}>
+              <Text style={tw("w-1/12 p-2")}>1</Text>
+              <Text style={tw("w-7/12 p-2")}>
+                Varasiddhi Silks Men's Formal Shirt (SH-05-42, Navy Blue, 42)
+              </Text>
+              <Text style={tw("w-2/12 p-2")}>&#8377; &nbsp; 338.10</Text>
+              <Text style={tw("w-2/12 p-2")}>₹365.00</Text>
+            </View>
+            <View style={tw("flex flex-row border-b border-black")}>
+              <Text style={tw("w-1/12 p-2")}>2</Text>
+              <Text style={tw("w-7/12 p-2")}>
+                Varasiddhi Silks Men's Formal Shirt (SH-05-40, Navy Blue, 40)
+              </Text>
+              <Text style={tw("w-2/12 p-2")}>₹338.10</Text>
+              <Text style={tw("w-2/12 p-2")}>₹365.00</Text>
+            </View>
+            <View style={tw("flex flex-row border-b border-black")}>
+              <Text style={tw("w-1/12 p-2")}></Text>
+              <Text style={tw("w-7/12 p-2")}>Shipping Charges</Text>
+              <Text style={tw("w-2/12 p-2")}>₹30.96</Text>
+              <Text style={tw("w-2/12 p-2")}>₹32.50</Text>
+            </View>
+          </View>
+
+          <View style={tw("flex justify-end")}>
+            <Text style={tw("font-bold text-right")}>Total: ₹1,195.00</Text>
+          </View>
+
+          <View style={tw("mt-4")}>
+            <Text>Whether tax is payable under reverse charge - No</Text>
+          </View>
+        </Page>
+      </Document>
+    </>
   );
 }

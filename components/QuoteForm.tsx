@@ -8,6 +8,7 @@ import InvoicePDF from "./InvoicePDF";
 type Inputs = {
   enquirerName: string;
   companyName: string;
+  email: string;
   location: string;
   jobRole: string;
   monthlySalary: number;
@@ -108,6 +109,24 @@ export default function QuoteForm() {
               <FormError error={errors?.companyName.message} />
             )}
           </div>
+        </div>
+
+        <div className={"flex flex-col gap-2"}>
+          <label htmlFor="email" className={"text-sm font-semibold"}>
+            Your email
+          </label>
+          <input
+            id="email"
+            type="email"
+            className="w-full resize-y overflow-auto rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:border-blue-500 focus:outline-none hover:border-blue-500"
+            placeholder="Ex: example@gmail.com"
+            {...register("email", {
+              required: "This field is required",
+            })}
+          />
+          {errors.companyName && (
+            <FormError error={errors?.companyName.message} />
+          )}
         </div>
 
         <div className={"flex gap-2"}>
