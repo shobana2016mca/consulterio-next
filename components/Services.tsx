@@ -63,7 +63,7 @@ export default function Services() {
           Assist you to find a job that matches with your goal
         </h4>
         <section className="self-stretch mt-20 max-md:mt-10 max-md:max-w-full">
-          <div className="grid grid-cols-4 gap-4">
+          <div className="grid xs:grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 grid-cols-4 gap-4">
             {cardData.map((card, idx) => (
               <Card
                 key={idx}
