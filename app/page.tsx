@@ -14,10 +14,9 @@ export default function Home() {
         <Hero />
         {/* <Mission /> */}
         <About />
-
         <Services />
         <Reviews />
-        <Testimonial />
+        {/* <Testimonial /> */}
         {/* <Jobs /> */}
         {/* <ContactUs /> */}
       </div>

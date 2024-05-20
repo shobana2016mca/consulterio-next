@@ -50,6 +50,12 @@ const cardData = [
     desctiption:
       "Refine processes based on trends and feedback.Stay updated on industry best practices.",
   },
+  {
+    id: "09",
+    title: "Continuous Improvement",
+    desctiption:
+      "Refine processes based on trends and feedback.Stay updated on industry best practices.",
+  },
 ];
 
 export default function Services() {
