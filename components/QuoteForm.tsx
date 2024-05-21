@@ -4,26 +4,7 @@ import { PDFDownloadLink } from "@react-pdf/renderer";
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import InvoicePDF from "./InvoicePDF";
-
-type Inputs = {
-  enquirerName: string;
-  companyName: string;
-  email: string;
-  location: string;
-  jobRole: string;
-  monthlySalary: number;
-  annualSalary: number;
-  peopleCount: string;
-  about: string;
-};
-
-type Calculations = {
-  commission: number;
-  taxAmount: number;
-  CGST: number;
-  SGST: number;
-  netSalary: number;
-};
+import { CalculationsType, QuoteFormInputsType } from "@/types";
 
 export default function QuoteForm() {
   const {
@@ -33,41 +14,117 @@ export default function QuoteForm() {
     formState: { errors },
     setValue,
     getValues,
-  } = useForm<Inputs>({
-    defaultValues: {
-      enquirerName: "Jhon Doe",
-      companyName: "XYZ Company",
-      location: "Chennai",
-      jobRole: "Project manager",
-      // monthlySalary: 0,
-      // annualSalary: 0,
-      peopleCount: "",
-      about: "lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    },
+    reset,
+  } = useForm<QuoteFormInputsType>({
+    // defaultValues: {
+    //   enquirerName: "Jhon Doe",
+    //   companyName: "XYZ Company",
+    //   location: "Chennai",
+    //   jobRole: "Project manager",
+    //   // monthlySalary: 0,
+    //   // annualSalary: 0,
+    //   peopleCount: "",
+    //   about: "lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    // },
   });
   // const [instance, updateInstance] = usePDF({ document: '' });
-  const [formData, setFormData] = useState<Inputs>();
-  const [calculations, setCalculations] = useState<Calculations>();
+  const [formData, setFormData] = useState<QuoteFormInputsType>();
+  const [calculations, setCalculations] = useState<CalculationsType>();
 
-  const onSubmit: SubmitHandler<Inputs> = (data: Inputs) => {
+  const onSubmit: SubmitHandler<QuoteFormInputsType> = (
+    data: QuoteFormInputsType
+  ) => {
     console.log(data);
-    const annualSalary = data.annualSalary;
-    const commission = Math.round((annualSalary / 100) * 8.33);
-    const taxAmount = Math.round((annualSalary / 100) * 18);
-    const CGST = Math.round((annualSalary / 100) * 9);
-    const SGST = Math.round((annualSalary / 100) * 9);
-    const netSalary = annualSalary - taxAmount - commission;
+
+    // const monthlySalary = data.monthlySalary; // 10000
+    // const annualSalary = data.annualSalary; // 12 * 10000 = 120000
+
+    // const commission = Number(((annualSalary / 108.33) * 100).toFixed(2)); // 9227.36
+    // const afterCommissionAnnualSalary = Number(
+    //   (annualSalary - commission).toFixed(2)
+    // ); // 110772.64
+
+    // const afterTaxAnnualSalary = Number(
+    //   ((annualSalary / 118) * 100).toFixed(2)
+    // ); //
+    // const taxAmount = Number(((annualSalary * 100) / 118).toFixed(2)); //18305.08
+
+    // const CGST = Math.round((annualSalary / 109) * 100);
+    // const SGST = Math.round((annualSalary / 109) * 100);
+    // const netSalary = annualSalary - taxAmount - commission;
+    const monthlySalary = data.monthlySalary;
+    const annualSalary = 12 * monthlySalary;
+
+    const afterTaxMonthly = Number(((monthlySalary / 118) * 100).toFixed(2));
+    const monthlyCGST = Number((afterTaxMonthly / 2).toFixed(2));
+    const monthlySGST = Number((afterTaxMonthly / 2).toFixed(2));
+    const totalMonthlyTax = monthlySalary - afterTaxMonthly;
+
+    const afterTaxAnnually = Number(((annualSalary / 118) * 100).toFixed(2));
+    const annualCGST = Number((afterTaxAnnually / 2).toFixed(2));
+    const annualSGST = Number((afterTaxAnnually / 2).toFixed(2));
+    const totalAnnuallyTax = annualSalary - afterTaxAnnually;
+
+    console.log("before monthly", monthlySalary);
+    console.log("monthlyTax", monthlySalary - afterTaxMonthly);
+    console.log("after paid monthly", afterTaxMonthly);
+
+    console.log("before annual", annualSalary);
+    console.log("annual tax", annualSalary - afterTaxAnnually);
+    console.log("after paid annual", afterTaxAnnually);
+
+    const beforePayCommission = afterTaxAnnually; //101694.92
+    const commission = Number(
+      (afterTaxAnnually - (afterTaxAnnually / 108.33) * 100).toFixed(2)
+    );
+    const afterPayCommission = Number(
+      ((afterTaxAnnually / 108.33) * 100).toFixed(2)
+    );
+
+    const nettSalary = afterPayCommission;
+
+    //93,875.11 net salary
+    // 7,819.79 commision
+    console.log(beforePayCommission);
+    console.log(commission);
+    console.log(afterPayCommission);
 
     setFormData(data);
-    setCalculations({ commission, taxAmount, CGST, SGST, netSalary });
+    setCalculations({
+      afterTaxMonthly,
+      monthlyCGST,
+      monthlySGST,
+      totalMonthlyTax,
+      afterTaxAnnually,
+      annualCGST,
+      annualSGST,
+      totalAnnuallyTax,
+      beforePayCommission,
+      commission,
+      afterPayCommission,
+      nettSalary,
+    });
 
-    console.log("monthlySalary:", data.monthlySalary);
-    console.log("Annual Salary:", annualSalary);
-    console.log("Tax Amount:", taxAmount);
-    console.log("CTax:", CGST);
-    console.log("STax:", SGST);
-    console.log("Commission:", commission);
-    console.log("Net Salary:", netSalary);
+    // console.log("monthlySalary:", data.monthlySalary); //10000
+    // console.log("monthlySalaryBeforeTax:", data.monthlySalary); // 8474.58 + 1525.42 /2
+    // console.log(
+    //   "monthlySalaryAfterTax:",
+    //   ((data.monthlySalary / 118) * 100).toFixed(2)
+    // ); //8474.58
+
+    // console.log("Annual Salary:", annualSalary); //120000
+    // console.log("Annual Salary Before Tax:", annualSalary); // 101694.92 + 18305.08 /2
+    // console.log(
+    //   "Annual Salary After Tax:",
+    //   ((data.annualSalary / 118) * 100).toFixed(2)
+    // ); //101694.92
+
+    // console.log("Tax Amount In total:", taxAmount);
+    // console.log("CTax:", CGST);
+    // console.log("STax:", SGST);
+    // console.log("Commission:", commission); // 9227.36 + 110772.64=> base
+    // console.log("Net Salary:", netSalary);
+    reset();
   };
   // console.log(instance);
   return (
@@ -124,9 +181,7 @@ export default function QuoteForm() {
               required: "This field is required",
             })}
           />
-          {errors.companyName && (
-            <FormError error={errors?.companyName.message} />
-          )}
+          {errors.email && <FormError error={errors?.email.message} />}
         </div>
 
         <div className={"flex gap-2"}>
@@ -235,23 +290,26 @@ export default function QuoteForm() {
             {...register("about")}
           ></textarea>
         </div>
-
-        <button className="w-full rounded-lg border border-blue-700 bg-blue-700 p-3 text-center font-medium text-white outline-none transition focus:ring hover:border-blue-700 hover:bg-blue-600 hover:text-white">
-          Send
-        </button>
+        {!formData && !calculations && (
+          <button className="w-full rounded-lg border border-blue-700 bg-blue-700 p-3 text-center font-medium text-white outline-none transition focus:ring hover:border-blue-700 hover:bg-blue-600 hover:text-white">
+            Send
+          </button>
+        )}
+        {formData && calculations && (
+          <PDFDownloadLink
+            document={
+              <InvoicePDF data={formData} calculations={calculations} />
+            }
+            fileName="invoice.pdf"
+            className="w-full flex justify-center items-center rounded-lg border border-blue-700 bg-blue-700 p-3 text-center font-medium text-white outline-none transition focus:ring hover:border-blue-700 hover:bg-blue-600 hover:text-white"
+          >
+            {({ loading }) =>
+              loading ? "Loading document..." : "Download Invoice"
+            }
+          </PDFDownloadLink>
+        )}
       </form>
 
-      {formData && calculations && (
-        <PDFDownloadLink
-          document={<InvoicePDF data={formData} calculations={calculations} />}
-          fileName="invoice.pdf"
-          className="w-full rounded-lg border border-blue-700 bg-blue-700 p-3 text-center font-medium text-white outline-none transition focus:ring hover:border-blue-700 hover:bg-blue-600 hover:text-white"
-        >
-          {({ loading }) =>
-            loading ? "Loading document..." : "Download Invoice"
-          }
-        </PDFDownloadLink>
-      )}
       {/* {instance.url !== null && (
         <a
           href={instance.url}

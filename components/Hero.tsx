@@ -9,17 +9,17 @@ export default function Hero() {
           alt="Background Image"
           width={1919}
           height={960}
-          className="object-cover absolute z-10 h-full"
+          className="object-contain absolute z-10 h-full"
         />
         <div className=" w-full h-full bg-sky-950 bg-opacity-90 absolute z-20" />
 
-        <div className="flex absolute z-30 flex-col justify-center items-end px-16 py-24 w-full h-full max-md:px-5 max-md:max-w-full">
+        <div className="flex absolute z-30 flex-col justify-center xs:mt-48 sm:mt-36 items-end px-16 py-24 w-full h-full max-md:px-5 max-md:max-w-full">
           <div className="flex flex-col mt-32 mb-20 ml-20 max-w-full w-[724px] max-md:my-10">
-            <h2 className="text-3xl tracking-widest max-md:max-w-full">
+            <h2 className="text-4xl font-bold tracking-widest max-md:max-w-full">
               Unlock Your Company’s Potential with Expert HR Recruitment
               Solutions
             </h2>
-            <h1 className="mt-9 text-2xl max-md:max-w-full max-md:text-2xl xs:text-xl">
+            <h1 className="mt-9 lg:text-lg max-md:max-w-full max-md:text-2xl xs:text-xl">
               <p className="text-white">
                 Be the driving force behind software companies and corporate
                 giants by joining us as an HR recruitment consultant. Shape the
