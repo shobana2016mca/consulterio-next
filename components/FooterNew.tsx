@@ -1,22 +1,13 @@
-import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <footer className='w-full bg-sky-950'>
+    <footer className='w-full'>
       <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
         {/* <!--Grid--> */}
         <div className='grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 py-10 max-md:max-w-sm max-md:mx-auto'>
           <div className='col-span-full mb-10 lg:col-span-2 lg:mb-0'>
-            <Link href={'/'}>
-              <Image
-                src={'/logo.png'}
-                alt='footer-text'
-                height={24}
-                width={210}
-              />
-            </Link>
-            {/* <Link
+            <Link
               href='#'
               className='cursor-pointer flex justify-center lg:justify-start'>
               <svg
@@ -89,8 +80,8 @@ export default function Footer() {
                   </linearGradient>
                 </defs>
               </svg>
-            </Link> */}
-            <p className='py-8 text-sm text-gray-200 lg:max-w-xs text-center lg:text-left'>
+            </Link>
+            <p className='py-8 text-sm text-gray-500 lg:max-w-xs text-center lg:text-left'>
               Trusted in more than 100 countries & 5 million customers. Have any
               query ?
             </p>
@@ -102,28 +93,28 @@ export default function Footer() {
           </div>
           {/* <!--End Col--> */}
           <div className='lg:mx-auto'>
-            <h4 className='text-lg text-gray-300 font-medium mb-7 '>
+            <h4 className='text-lg text-gray-900 font-medium mb-7 '>
               Pagedone
             </h4>
             <ul className='text-sm  transition-all duration-500'>
               <li className='mb-6'>
                 <Link
                   href='#'
-                  className='cursor-pointer text-gray-300 hover:text-gray-500'>
+                  className='cursor-pointer text-gray-600 hover:text-gray-900'>
                   Home
                 </Link>
               </li>
               <li className='mb-6'>
                 <Link
                   href='#'
-                  className='cursor-pointer text-gray-300 hover:text-gray-500'>
+                  className='cursor-pointer  text-gray-600 hover:text-gray-900'>
                   About
                 </Link>
               </li>
               <li>
                 <Link
                   href='#'
-                  className='cursor-pointer text-gray-300 hover:text-gray-500'>
+                  className='cursor-pointer  text-gray-600 hover:text-gray-900'>
                   Pricing
                 </Link>
               </li>
@@ -131,26 +122,26 @@ export default function Footer() {
           </div>
           {/* <!--End Col--> */}
           <div className='lg:mx-auto'>
-            <h4 className='text-lg text-gray-300 font-medium mb-7'>Products</h4>
+            <h4 className='text-lg text-gray-900 font-medium mb-7'>Products</h4>
             <ul className='text-sm  transition-all duration-500'>
               <li className='mb-6'>
                 <Link
                   href='#'
-                  className='cursor-pointer text-gray-300 hover:text-gray-500'>
+                  className='cursor-pointer text-gray-600 hover:text-gray-900'>
                   Figma UI System
                 </Link>
               </li>
               <li className='mb-6'>
                 <Link
                   href='#'
-                  className='cursor-pointer text-gray-300 hover:text-gray-500'>
+                  className='cursor-pointer  text-gray-600 hover:text-gray-900'>
                   Icons Assets
                 </Link>
               </li>
               <li>
                 <Link
                   href='#'
-                  className='cursor-pointer text-gray-300 hover:text-gray-500'>
+                  className='cursor-pointer  text-gray-600 hover:text-gray-900'>
                   Responsive Blocks
                 </Link>
               </li>
@@ -158,26 +149,26 @@ export default function Footer() {
           </div>
           {/* <!--End Col--> */}
           <div className='lg:mx-auto'>
-            <h4 className='text-lg text-gray-300 font-medium mb-7'>Support</h4>
+            <h4 className='text-lg text-gray-900 font-medium mb-7'>Support</h4>
             <ul className='text-sm  transition-all duration-500'>
               <li className='mb-6'>
                 <Link
                   href='#'
-                  className='cursor-pointer text-gray-300 hover:text-gray-500'>
+                  className='cursor-pointer text-gray-600 hover:text-gray-900'>
                   Customer Support
                 </Link>
               </li>
               <li className='mb-6'>
                 <Link
                   href='#'
-                  className='cursor-pointer text-gray-300 hover:text-gray-500'>
+                  className='cursor-pointer  text-gray-600 hover:text-gray-900'>
                   Terms & Conditions
                 </Link>
               </li>
               <li>
                 <Link
                   href='#'
-                  className='cursor-pointer text-gray-300 hover:text-gray-500'>
+                  className='cursor-pointer  text-gray-600 hover:text-gray-900'>
                   Privacy Policy
                 </Link>
               </li>
@@ -185,10 +176,10 @@ export default function Footer() {
           </div>
           {/* <!--End Col--> */}
           <div className='lg:mx-auto'>
-            <h4 className='text-lg text-gray-300 font-medium mb-7'>
+            <h4 className='text-lg text-gray-900 font-medium mb-7'>
               Subscribe
             </h4>
-            <p className='text-sm text-gray-300 leading-6 mb-7'>
+            <p className='text-sm text-gray-500 leading-6 mb-7'>
               Subscribe to get the latest news from us
             </p>
             <Link
@@ -317,5 +308,3 @@ export default function Footer() {
     </footer>
   );
 }
-
-// bg-sky-950

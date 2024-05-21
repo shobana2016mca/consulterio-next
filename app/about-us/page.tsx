@@ -1,3 +1,5 @@
+import SwiperAbout from '@/components/SwiperAbout';
+import Image from 'next/image';
 import * as React from 'react';
 
 export default function AboutPage({
@@ -8,9 +10,79 @@ export default function AboutPage({
   searchParams: any;
 }) {
   return (
-    <div>
-      <MyComponent />
-    </div>
+    <>
+      <section className='py-14 lg:py-24 relative'>
+        <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative '>
+          <div className='grid grid-cols-1 lg:grid-cols-2 gap-9'>
+            <div className='img-box'>
+              <Image
+                src='https://pagedone.io/asset/uploads/1702034769.png'
+                alt='About Us tailwind page'
+                className='max-lg:mx-auto'
+                width={592}
+                height={481}
+              />
+            </div>
+            <div className='lg:pl-[100px] flex items-center'>
+              <div className='data w-full'>
+                <h2 className='font-manrope font-bold text-4xl lg:text-5xl text-black mb-9 max-lg:text-center relative'>
+                  About Us{' '}
+                </h2>
+                <p className='font-normal text-xl leading-8 text-gray-500 max-lg:text-center max-w-2xl mx-auto'>
+                  Driven by a passion for seamless user experiences, we&apos;ve
+                  meticulously curated pagedone to empower creators, designers,
+                  and developers alike. Our mission is to provide a
+                  comprehensive toolkit, enabling you to build intuitive,
+                  beautiful interfaces that resonate with users on every
+                  interaction.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className='py-14 lg:py-24 relative'>
+        <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative '>
+          <div className='grid grid-cols-1 lg:grid-cols-2 lg:gap-9 '>
+            <div className='lg:pr-24 flex items-center'>
+              <div className='data w-full'>
+                <Image
+                  src='https://pagedone.io/asset/uploads/1702034785.png'
+                  alt='About Us tailwind page'
+                  className='block lg:hidden mb-9 mx-auto'
+                  width={592}
+                  height={481}
+                />
+                <h2 className='font-manrope font-bold text-4xl lg:text-5xl text-black mb-9 max-lg:text-center'>
+                  We are Creative Since 2005
+                </h2>
+                <p className='font-normal text-xl leading-8 text-gray-500 max-lg:text-center max-w-2xl mx-auto'>
+                  Pagedone isn&apos;t just a collection of components and
+                  guidelines; it&apos;s a philosophy. We go beyond aesthetics,
+                  prioritizing accessibility, scalability, and usability. Every
+                  element, from the tiniest detail to the grandest layout, is
+                  meticulously crafted to enhance functionality and elevate user
+                  satisfaction.
+                </p>
+              </div>
+            </div>
+            <div className='img-box'>
+              <Image
+                src='https://pagedone.io/asset/uploads/1702034785.png'
+                alt='About Us tailwind page'
+                className='hidden lg:block '
+                width={592}
+                height={481}
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <SwiperAbout />
+      {/* <MyComponent /> */}
+    </>
   );
 }
 
@@ -28,11 +100,13 @@ const TeamMember: React.FC<TeamMemberProps> = ({
   imgAlt,
 }) => (
   <div className='flex flex-col grow pb-9 w-full bg-white shadow-sm max-md:mt-8'>
-    <img
+    <Image
       loading='lazy'
       src={imgSrc}
       alt={imgAlt}
       className='w-full aspect-[1.1]'
+      width={50}
+      height={50}
     />
     <div className='flex flex-col self-start mt-9 ml-8 max-md:ml-2.5'>
       <div className='text-3xl text-sky-950'>{name}</div>
@@ -91,17 +165,6 @@ const MyComponent: React.FC = () => {
 
   return (
     <div className='flex flex-col items-center bg-white'>
-      <header className='flex justify-center items-center self-stretch p-16 w-full text-4xl font-extrabold text-white whitespace-nowrap bg-sky-950 max-md:px-5 max-md:max-w-full'>
-        <div className='flex gap-5 w-full max-w-[1472px] max-md:flex-wrap max-md:max-w-full'>
-          <h1 className='flex-auto self-start mt-5'>Recruit.</h1>
-          <img
-            loading='lazy'
-            src='https://cdn.builder.io/api/v1/image/assets/TEMP/8db00bd89bf415a7ae4a94bccbc1dc438d5acef4ee3cb0d9a997bd8c9595b415?apiKey=54709c8bd30b4ce38ba82e61049e17ec&'
-            alt=''
-            className='shrink-0 aspect-square w-[50px]'
-          />
-        </div>
-      </header>
       <section className='flex overflow-hidden relative flex-col justify-center self-stretch w-full text-7xl text-white uppercase whitespace-nowrap min-h-[498px] max-md:max-w-full max-md:text-4xl'>
         <img
           loading='lazy'
@@ -251,19 +314,6 @@ const MyComponent: React.FC = () => {
           className='shrink-0 aspect-square w-[31px]'
         />
       </div>
-      <footer className='flex justify-center items-center self-stretch px-16 py-14 mt-48 w-full text-white bg-sky-950 max-md:px-5 max-md:mt-10 max-md:max-w-full'>
-        <div className='flex gap-5 w-full max-w-[1422px] max-md:flex-wrap max-md:max-w-full'>
-          <div className='flex-auto text-4xl font-extrabold'>Recruit.</div>
-          <div className='flex gap-5 my-auto text-right'>
-            <div className='grow text-xl tracking-wider'>
-              Designed and built by
-            </div>
-            <div className='flex-auto text-2xl font-bold tracking-widest'>
-              Terry Cheng
-            </div>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 };
