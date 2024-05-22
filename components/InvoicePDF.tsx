@@ -1,4 +1,4 @@
-import { calcDate } from '@/lib/utils';
+import { calcDate } from "@/lib/utils";
 import {
   Document,
   Image,
@@ -6,10 +6,10 @@ import {
   StyleSheet,
   Text,
   View,
-} from '@react-pdf/renderer';
-import { createTw } from 'react-pdf-tailwind';
+} from "@react-pdf/renderer";
+import { createTw } from "react-pdf-tailwind";
 
-import { InvoivePDFPropType } from '@/types';
+import { InvoivePDFPropType } from "@/types";
 
 // const AsyncReactPdf = dynamic(() => import('@react-pdf/renderer'), { ssr: false });
 
@@ -17,11 +17,11 @@ import { InvoivePDFPropType } from '@/types';
 const tw = createTw({
   theme: {
     fontFamily: {
-      sans: ['Helvetica', 'Comic Sans'],
+      sans: ["Helvetica", "Comic Sans"],
     },
     extend: {
       colors: {
-        custom: '#bada55',
+        custom: "#bada55",
       },
     },
   },
@@ -29,8 +29,8 @@ const tw = createTw({
 
 const styles = StyleSheet.create({
   image: {
-    width: '100%',
-    height: '100%',
+    width: "100%",
+    height: "100%",
   },
 });
 
@@ -38,11 +38,15 @@ export default function InvoicePDF({ data, calculations }: InvoivePDFPropType) {
   return (
     <>
       <Document>
-        <Page style={tw('p-10 text-sm font-sans')}>
-          <View style={tw('flex flex-row justify-between mb-6')}>
-            <Image style={tw('w-48 h-24')} src='/invoice-logo.png' />
-            <View style={tw('text-right')}>
-              <Text style={tw('font-bold')}>Sold By :</Text>
+        <Page style={tw("p-10 text-sm font-sans")}>
+          <View style={tw("flex flex-row justify-between mb-6")}>
+            <Image
+              style={tw("w-48 h-24")}
+              src="/invoice-logo.png"
+              alt="Consulterio"
+            />
+            <View style={tw("text-right")}>
+              <Text style={tw("font-bold")}>Sold By :</Text>
               <Text>Consultero</Text>
               <Text>Vadapalani</Text>
               <Text>Chennai.</Text>
@@ -52,17 +56,17 @@ export default function InvoicePDF({ data, calculations }: InvoivePDFPropType) {
             </View>
           </View>
 
-          <Text style={tw('text-xl mb-4 text-center font-bold')}>
+          <Text style={tw("text-xl mb-4 text-center font-bold")}>
             Tax Invoice (Original for Recipient)
           </Text>
 
-          <View style={tw('mb-4')}>
+          <View style={tw("mb-4")}>
             <Text>Quotaion Number: {crypto.randomUUID()}</Text>
             <Text>Quotation Date: {calcDate(new Date())}</Text>
           </View>
 
-          <View style={tw('mb-4')}>
-            <Text style={tw('font-bold')}>Billing Address :</Text>
+          <View style={tw("mb-4")}>
+            <Text style={tw("font-bold")}>Billing Address :</Text>
             <Text>{data.enquirerName}</Text>
             <Text>
               {/* Eurofins IT Solutions India Pvt Ltd., 1st Floor, Maruti Platinum,
@@ -88,53 +92,53 @@ export default function InvoicePDF({ data, calculations }: InvoivePDFPropType) {
             <Text>Place of delivery: KARNATAKA</Text>
           </View> */}
 
-          <View style={tw('mb-4')}>
-            <View style={tw('flex flex-row border-b border-black font-bold')}>
-              <Text style={tw('w-1/12 p-2')}>Sl. No</Text>
-              <Text style={tw('w-7/12 p-2')}>Details</Text>
-              <Text style={tw('w-2/12 p-2')}>Amount</Text>
-              <Text style={tw('w-2/12 p-2')}>Total Amount</Text>
+          <View style={tw("mb-4")}>
+            <View style={tw("flex flex-row border-b border-black font-bold")}>
+              <Text style={tw("w-1/12 p-2")}>Sl. No</Text>
+              <Text style={tw("w-7/12 p-2")}>Details</Text>
+              <Text style={tw("w-2/12 p-2")}>Amount</Text>
+              <Text style={tw("w-2/12 p-2")}>Total Amount</Text>
             </View>
-            <View style={tw('flex flex-row border-b border-black')}>
-              <Text style={tw('w-1/12 p-2')}>1</Text>
-              <Text style={tw('w-7/12 p-2')}>
+            <View style={tw("flex flex-row border-b border-black")}>
+              <Text style={tw("w-1/12 p-2")}>1</Text>
+              <Text style={tw("w-7/12 p-2")}>
                 {/* Varasiddhi Silks Men's Formal Shirt (SH-05-42, Navy Blue, 42) */}
                 Monthly Salary
               </Text>
-              <Text style={tw('w-2/12 p-2')}>
+              <Text style={tw("w-2/12 p-2")}>
                 {calculations.afterTaxMonthly}
               </Text>
-              <Text style={tw('w-2/12 p-2')}>
+              <Text style={tw("w-2/12 p-2")}>
                 {/* ₹365.00{" "} */}
                 {data.monthlySalary}
               </Text>
             </View>
-            <View style={tw('flex flex-row border-b border-black')}>
-              <Text style={tw('w-1/12 p-2')}>2</Text>
-              <Text style={tw('w-7/12 p-2')}>
+            <View style={tw("flex flex-row border-b border-black")}>
+              <Text style={tw("w-1/12 p-2")}>2</Text>
+              <Text style={tw("w-7/12 p-2")}>
                 {/* Varasiddhi Silks Men's Formal Shirt (SH-05-40, Navy Blue, 40) */}
                 Annual Salary
               </Text>
-              <Text style={tw('w-2/12 p-2')}>
+              <Text style={tw("w-2/12 p-2")}>
                 {calculations.afterTaxAnnually}
               </Text>
-              <Text style={tw('w-2/12 p-2')}>{data.annualSalary}</Text>
+              <Text style={tw("w-2/12 p-2")}>{data.annualSalary}</Text>
             </View>
-            <View style={tw('flex flex-row border-b border-black')}>
-              <Text style={tw('w-1/12 p-2')}>3</Text>
-              <Text style={tw('w-7/12 p-2')}>Commission Charges</Text>
-              <Text style={tw('w-2/12 p-2')}>8.33%</Text>
-              <Text style={tw('w-2/12 p-2')}>{calculations.commission}</Text>
+            <View style={tw("flex flex-row border-b border-black")}>
+              <Text style={tw("w-1/12 p-2")}>3</Text>
+              <Text style={tw("w-7/12 p-2")}>Commission Charges</Text>
+              <Text style={tw("w-2/12 p-2")}>8.33%</Text>
+              <Text style={tw("w-2/12 p-2")}>{calculations.commission}</Text>
             </View>
           </View>
 
-          <View style={tw('flex justify-end')}>
-            <Text style={tw('font-bold text-right')}>
+          <View style={tw("flex justify-end")}>
+            <Text style={tw("font-bold text-right")}>
               Total: {calculations.nettSalary}
             </Text>
           </View>
 
-          <View style={tw('mt-4')}>
+          <View style={tw("mt-4")}>
             <Text>Whether tax is payable under reverse charge - No</Text>
           </View>
         </Page>
