@@ -18,18 +18,18 @@ export default function QuoteForm() {
     getValues,
     reset,
   } = useForm<QuoteFormInputsType>({
-    defaultValues: {
-      enquirerName: 'Jhon Doe',
-      companyName: 'XYZ Company',
-      email: 'jhondoe123@gmail.com',
-      phoneNo: '9999911111',
-      location: 'Chennai',
-      jobRole: 'Project manager',
-      monthlySalary: 14000,
-      // annualSalary: 0,
-      peopleCount: '',
-      about: 'lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    },
+    // defaultValues: {
+    //   enquirerName: 'Jhon Doe',
+    //   companyName: 'XYZ Company',
+    //   email: 'jhondoe123@gmail.com',
+    //   phoneNo: '9999911111',
+    //   location: 'Chennai',
+    //   jobRole: 'Project manager',
+    //   monthlySalary: 14000,
+    //   // annualSalary: 0,
+    //   peopleCount: '',
+    //   about: 'lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    // },
   });
   // const [instance, updateInstance] = usePDF({ document: '' });
   const [formData, setFormData] = useState<QuoteFormInputsType>();
