@@ -39,3 +39,11 @@ export type Brand = {
   imageLight?: string;
   featureLogo: string;
 };
+
+export type EmailContent = {
+  subject: string;
+  text: string;
+  html: string;
+};
+
+export type SendTo = string | string[];

@@ -1,9 +1,11 @@
 'use client';
 
+import { createQuote } from '@/lib/get.query.actions';
 import { CalculationsType, QuoteFormInputsType } from '@/types';
 import { PDFDownloadLink } from '@react-pdf/renderer';
 import { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
 import InvoicePDF from './InvoicePDF';
 
 export default function QuoteForm() {
@@ -16,22 +18,24 @@ export default function QuoteForm() {
     getValues,
     reset,
   } = useForm<QuoteFormInputsType>({
-    // defaultValues: {
-    //   enquirerName: "Jhon Doe",
-    //   companyName: "XYZ Company",
-    //   location: "Chennai",
-    //   jobRole: "Project manager",
-    //   // monthlySalary: 0,
-    //   // annualSalary: 0,
-    //   peopleCount: "",
-    //   about: "lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    // },
+    defaultValues: {
+      enquirerName: 'Jhon Doe',
+      companyName: 'XYZ Company',
+      email: 'jhondoe123@gmail.com',
+      phoneNo: '9999911111',
+      location: 'Chennai',
+      jobRole: 'Project manager',
+      monthlySalary: 14000,
+      // annualSalary: 0,
+      peopleCount: '',
+      about: 'lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    },
   });
   // const [instance, updateInstance] = usePDF({ document: '' });
   const [formData, setFormData] = useState<QuoteFormInputsType>();
   const [calculations, setCalculations] = useState<CalculationsType>();
 
-  const onSubmit: SubmitHandler<QuoteFormInputsType> = (
+  const onSubmit: SubmitHandler<QuoteFormInputsType> = async (
     data: QuoteFormInputsType
   ) => {
     console.log(data);
@@ -124,7 +128,46 @@ export default function QuoteForm() {
     // console.log("STax:", SGST);
     // console.log("Commission:", commission); // 9227.36 + 110772.64=> base
     // console.log("Net Salary:", netSalary);
-    reset();
+    const emailContent = {
+      subject: 'New Quote Request',
+      text: ' New Quote Request from ' + data.enquirerName,
+      html: `
+      <h1>New Quote Request</h1>
+      <hr />
+
+      <p>Enquirer Name: ${data.enquirerName}</p>
+      <p>Company Name: ${data.companyName}</p>
+      <p>Email: ${data.email}</p>
+      <p>Phone No: ${data.phoneNo}</p>
+      <p>Location: ${data.location}</p>
+      <p>Job Role: ${data.jobRole}</p>
+      <p>Monthly Salary: ${data.monthlySalary}</p>
+      <p>People Count: ${data.peopleCount}</p>
+      <p>About: ${data.about}</p>
+      <hr />
+      <p>Annual Salary: ${annualSalary}</p>
+      <p>After Tax Monthly: ${afterTaxMonthly}</p>
+      <p>Monthly CGST: ${monthlyCGST}</p>
+      <p>Monthly SGST: ${monthlySGST}</p>
+      <p>Total Monthly Tax: ${totalMonthlyTax}</p>
+      <p>After Tax Annually: ${afterTaxAnnually}</p>
+      <p>Annual CGST: ${annualCGST}</p>
+      <p>Annual SGST: ${annualSGST}</p>
+      <p>Total Annually Tax: ${totalAnnuallyTax}</p>
+      <p>Before Pay Commission: ${beforePayCommission}</p>
+      <p>Commission: ${commission}</p>
+      <p>After Pay Commission: ${afterPayCommission}</p>
+      <p>Net Salary: ${nettSalary}</p>
+      `,
+    };
+
+    const result = await createQuote({ emailContent, user: data.email });
+    if (result.status === 'success') {
+      toast.success('Email sent successfully');
+    } else {
+      toast.error('Email sent failed');
+    }
+    // reset();
   };
   // console.log(instance);
   return (
@@ -176,6 +219,7 @@ export default function QuoteForm() {
             <input
               id='email'
               type='email'
+              autoComplete='email'
               className='w-full resize-y overflow-auto rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:border-blue-500 focus:outline-none hover:border-blue-500'
               placeholder='Ex: example@gmail.com'
               {...register('email', {
