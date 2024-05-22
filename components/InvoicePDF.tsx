@@ -35,6 +35,10 @@ const styles = StyleSheet.create({
   },
 });
 
+function classNames(...classes: string[]) {
+  return classes.filter(Boolean).join(" ");
+}
+
 export default function InvoicePDF({ data, calculations }: InvoivePDFPropType) {
   return (
     <>
@@ -42,6 +46,15 @@ export default function InvoicePDF({ data, calculations }: InvoivePDFPropType) {
         <Page style={tw("p-10 text-sm font-sans")}>
           <View style={tw("flex flex-row justify-between mb-6")}>
             <Image style={tw("w-48 h-24")} src="/invoice-logo.png" />
+            {/* <img
+              className={classNames("w-48 h-24")}
+              src="/invoice-logo.png"
+              alt="invoice-image"
+              width={498}
+              height={166}
+              fetchPriority="high"
+              decoding="async"
+            /> */}
             {/* <Image
               className={"w-48 h-24"}
               src="/invoice-logo.png"
