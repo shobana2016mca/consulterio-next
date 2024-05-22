@@ -213,7 +213,7 @@ export default function Footer() {
                   stroke="#4F46E5"
                   stroke-width="1.8"
                   stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeLinejoin="round"
                 />
               </svg>
             </Link>

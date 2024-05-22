@@ -70,7 +70,7 @@ export default function AboutPage({
             <div className="img-box">
               <Image
                 src="https://pagedone.io/asset/uploads/1702034785.png"
-                alt="About Us tailwind page"
+                alt="Consulterio"
                 className="hidden lg:block "
                 width={592}
                 height={481}

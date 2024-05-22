@@ -40,11 +40,7 @@ export default function InvoicePDF({ data, calculations }: InvoivePDFPropType) {
       <Document>
         <Page style={tw("p-10 text-sm font-sans")}>
           <View style={tw("flex flex-row justify-between mb-6")}>
-            <Image
-              style={tw("w-48 h-24")}
-              src="/invoice-logo.png"
-              alt="Consulterio"
-            />
+            <Image style={tw("w-48 h-24")} src="/invoice-logo.png" />
             <View style={tw("text-right")}>
               <Text style={tw("font-bold")}>Sold By :</Text>
               <Text>Consultero</Text>
