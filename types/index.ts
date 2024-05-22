@@ -2,6 +2,7 @@ export type QuoteFormInputsType = {
   enquirerName: string;
   companyName: string;
   email: string;
+  phoneNo: string;
   location: string;
   jobRole: string;
   monthlySalary: number;
@@ -28,4 +29,13 @@ export type CalculationsType = {
 export type InvoivePDFPropType = {
   data: QuoteFormInputsType;
   calculations: CalculationsType;
+};
+
+export type Brand = {
+  id: number;
+  name: string;
+  href: string;
+  image: string;
+  imageLight?: string;
+  featureLogo: string;
 };

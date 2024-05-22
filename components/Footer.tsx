@@ -6,14 +6,15 @@ export default function Footer() {
     <footer className='w-full bg-sky-950'>
       <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
         {/* <!--Grid--> */}
-        <div className='grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 py-10 max-md:max-w-sm max-md:mx-auto'>
+        <div className='grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 py-10 max-md:max-w-sm max-md:mx-auto'>
           <div className='col-span-full mb-10 lg:col-span-2 lg:mb-0'>
-            <Link href={'/'}>
+            <Link href={'/'} className={'h-14 w-full inline-flex'}>
               <Image
                 src={'/logo.png'}
                 alt='footer-text'
                 height={24}
                 width={210}
+                className='object-contain w-auto h-full'
               />
             </Link>
             {/* <Link
@@ -74,8 +75,8 @@ export default function Footer() {
                     x2='1.11152'
                     y2='33.4573'
                     gradientUnits='userSpaceOnUse'>
-                    <stop stop-color='#7C3AED' />
-                    <stop offset='0.993738' stop-color='#4F46E5' />
+                    <stop stopColor='#7C3AED' />
+                    <stop offset='0.993738' stopColor='#4F46E5' />
                   </linearGradient>
                   <linearGradient
                     id='paint1_linear_9129_4680'
@@ -84,8 +85,8 @@ export default function Footer() {
                     x2='1.11152'
                     y2='33.4573'
                     gradientUnits='userSpaceOnUse'>
-                    <stop stop-color='#7C3AED' />
-                    <stop offset='0.993738' stop-color='#4F46E5' />
+                    <stop stopColor='#7C3AED' />
+                    <stop offset='0.993738' stopColor='#4F46E5' />
                   </linearGradient>
                 </defs>
               </svg>
@@ -103,7 +104,7 @@ export default function Footer() {
           {/* <!--End Col--> */}
           <div className='lg:mx-auto'>
             <h4 className='text-lg text-gray-300 font-medium mb-7 '>
-              Pagedone
+              Quick Links
             </h4>
             <ul className='text-sm  transition-all duration-500'>
               <li className='mb-6'>
@@ -130,7 +131,7 @@ export default function Footer() {
             </ul>
           </div>
           {/* <!--End Col--> */}
-          <div className='lg:mx-auto'>
+          {/* <div className='lg:mx-auto'>
             <h4 className='text-lg text-gray-300 font-medium mb-7'>Products</h4>
             <ul className='text-sm  transition-all duration-500'>
               <li className='mb-6'>
@@ -155,7 +156,7 @@ export default function Footer() {
                 </Link>
               </li>
             </ul>
-          </div>
+          </div> */}
           {/* <!--End Col--> */}
           <div className='lg:mx-auto'>
             <h4 className='text-lg text-gray-300 font-medium mb-7'>Support</h4>
@@ -267,12 +268,12 @@ export default function Footer() {
                       x2='-0.441125'
                       y2='-6.99847e-07'
                       gradientUnits='userSpaceOnUse'>
-                      <stop stop-color='#FBE18A' />
-                      <stop offset='0.21' stop-color='#FCBB45' />
-                      <stop offset='0.38' stop-color='#F75274' />
-                      <stop offset='0.52' stop-color='#D53692' />
-                      <stop offset='0.74' stop-color='#8F39CE' />
-                      <stop offset='1' stop-color='#5B4FE9' />
+                      <stop stopColor='#FBE18A' />
+                      <stop offset='0.21' stopColor='#FCBB45' />
+                      <stop offset='0.38' stopColor='#F75274' />
+                      <stop offset='0.52' stopColor='#D53692' />
+                      <stop offset='0.74' stopColor='#8F39CE' />
+                      <stop offset='1' stopColor='#5B4FE9' />
                     </linearGradient>
                     <clipPath id='clip0_8797_65643'>
                       <rect width='26' height='26' rx='13' fill='white' />

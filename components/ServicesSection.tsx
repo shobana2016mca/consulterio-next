@@ -57,37 +57,7 @@ const cardData = [
   },
 ];
 
-export default function Services() {
-  return (
-    <>
-      {/* <section className="flex justify-center items-center self-stretch px-16 py-20 w-full bg-stone-50 max-md:px-5 max-md:max-w-full">
-      <article className="flex flex-col items-center mt-20 mb-12 w-full max-w-[1438px] max-md:my-10 max-md:max-w-full">
-        <h3 className="text-3xl font-extrabold tracking-widest text-black uppercase">
-          Process I Plan
-        </h3>
-        <h4 className="mt-8 text-5xl text-center capitalize text-sky-950 max-md:max-w-full max-md:text-4xl">
-          Assist you to find a job that matches with your goal
-        </h4>
-        <section className="self-stretch mt-20 max-md:mt-10 max-md:max-w-full">
-          <div className="grid xs:grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 grid-cols-4 gap-4">
-            {cardData.map((card, idx) => (
-              <Card
-                key={idx}
-                id={card.id}
-                title={card?.title}
-                description={card.desctiption}
-              />
-            ))}
-          </div>
-        </section>
-      </article>
-      </section> */}
-      <ServiceCard />
-    </>
-  );
-}
-
-function ServiceCard() {
+export default function ServicesSection() {
   return (
     <section className='py-24'>
       <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
@@ -96,7 +66,7 @@ function ServiceCard() {
             Features
           </span>
           <h2 className='text-4xl text-center font-bold text-gray-900 py-5'>
-            Revolutionary Features
+            Our Services
           </h2>
           <p className='text-lg font-normal text-gray-500 max-w-md md:max-w-2xl mx-auto'>
             Provides advanced features like time tracking, integrating with

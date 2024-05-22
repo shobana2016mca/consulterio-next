@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-export default function Hero() {
+export default function HeroSection() {
   return (
     <section className='flex overflow-hidden relative flex-col justify-center self-stretch w-full text-white max-md:max-w-full'>
       <div className='relative h-screen'>

@@ -47,7 +47,7 @@ const testimonials = [
   },
 ];
 
-export default function Testimonial() {
+export default function TestimonialSection() {
   return (
     <>
       {/* <Swiper
@@ -140,7 +140,7 @@ function TestimonialCard() {
               </span>
             </h2>
             {/* <!-- Slider controls --> */}
-            <div className='flex items-center justify-center lg:justify-start gap-10'>
+            <div className='flex items-center justify-center lg:justify-start gap-4'>
               <button
                 id='slider-button-left'
                 className='group flex justify-center items-center border border-solid border-indigo-600 w-12 h-12 transition-all duration-500 rounded-lg hover:bg-indigo-600'

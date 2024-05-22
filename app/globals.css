@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @layer utilities {
-  .swiper-wrapper {
+  /* .swiper-wrapper {
     height: max-content !important;
     width: max-content;
   }
@@ -110,5 +110,5 @@
   .teamswiper .swiper-button-prev svg {
     width: 24px !important;
     height: 24px !important;
-  }
+  } */
 }

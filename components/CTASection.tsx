@@ -1,4 +1,4 @@
-export default function CTA() {
+export default function CTASection() {
   return (
     <section className='py-20 '>
       <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>

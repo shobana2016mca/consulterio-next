@@ -3,9 +3,9 @@ import QuoteForm from '@/components/QuoteForm';
 export default function GetAQuote() {
   return (
     <main>
-      <section className=' py-12 text-gray-800 sm:py-24'>
-        <div className='mx-auto flex max-w-md flex-col rounded-lg lg:max-w-screen-xl lg:flex-row'>
-          <div className='px-4 lg:pr-24 flex-1 flex flex-col items-stretch'>
+      <section className='text-gray-800'>
+        <div className='grid grid-cols-1 lg:grid-cols-2 p-4 md:p-8 lg:p-16 gap-8'>
+          <div className='flex flex-col items-stretch p-4 md:p-6 lg:p-12'>
             <p className='mb-2 text-blue-600'>Have Custom Needs</p>
             <h3 className='mb-5 text-3xl font-semibold'>Get Custom Pricing</h3>
             <p className='mb-16 text-lg text-gray-600'>
@@ -87,7 +87,7 @@ export default function GetAQuote() {
             </div>
           </div>
 
-          <div className='border border-gray-100 shadow-gray-500/20 mt-8 mb-8 max-w-md bg-white shadow-sm sm:rounded-lg sm:shadow-lg lg:mt-0'>
+          <div className='border border-gray-100 shadow-gray-500/20 mt-8 mb-8 bg-white shadow-sm sm:rounded-lg sm:shadow-lg lg:mt-0'>
             <div className='relative border-b border-gray-300 p-4 py-8 sm:px-8'>
               <h3 className='mb-1 inline-block text-3xl font-medium'>
                 <span className='mr-4'>Get a quote!</span>
