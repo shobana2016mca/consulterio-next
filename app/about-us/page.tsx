@@ -166,7 +166,7 @@ const MyComponent: React.FC = () => {
   return (
     <div className="flex flex-col items-center bg-white">
       <section className="flex overflow-hidden relative flex-col justify-center self-stretch w-full text-7xl text-white uppercase whitespace-nowrap min-h-[498px] max-md:max-w-full max-md:text-4xl">
-        <img
+        <Image
           loading="lazy"
           src="https://cdn.builder.io/api/v1/image/assets/TEMP/e39ed372ff095855e0793bff77f72edba3348e4f35963723926cc1df7501f8bb?apiKey=54709c8bd30b4ce38ba82e61049e17ec&"
           alt=""
@@ -206,7 +206,7 @@ const MyComponent: React.FC = () => {
           </div>
           <aside className="flex flex-col ml-5 w-[38%] max-md:ml-0 max-md:w-full">
             <div className="flex flex-col grow px-5 text-xl font-bold tracking-wider leading-8 text-right text-black max-md:mt-10 max-md:max-w-full">
-              <img
+              <Image
                 loading="lazy"
                 src="https://cdn.builder.io/api/v1/image/assets/TEMP/b9c4c9c2373543c7223db5587f50ce5f692c1f66b3083755eb77508674d9496b?apiKey=54709c8bd30b4ce38ba82e61049e17ec&"
                 alt="Portrait of Laila Britney"
