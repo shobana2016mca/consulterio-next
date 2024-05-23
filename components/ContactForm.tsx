@@ -49,7 +49,7 @@ export default function ContactForm() {
     if (result.status === 'success') {
       toast.success(result.message);
     } else if (result.status === 'error') {
-      toast.error(result.message);
+      toast.error('Something went wrong. Please try again.');
     } else {
       toast('Failed to send your query.');
     }

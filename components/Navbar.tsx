@@ -1,5 +1,7 @@
 'use client';
 
+import { ArrowRight } from '@/assets/icons';
+import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/nextjs';
 import {
   Disclosure,
   DisclosureButton,
@@ -79,11 +81,29 @@ export default function Navbar() {
                   </div>
                 </div>
                 <div className='absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0'>
-                  <button
-                    type='button'
-                    className='relative rounded-full bg-sky-950 p-1 text-white hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800'>
-                    Work with us
-                  </button>
+                  <SignedIn>
+                    {/* Mount the UserButton component */}
+                    <UserButton
+                      afterMultiSessionSingleSignOutUrl='/'
+                      afterSignOutUrl='/'
+                      afterSwitchSessionUrl='/'
+                    />
+                  </SignedIn>
+                  <SignedOut>
+                    <SignInButton
+                      mode='modal'
+                      forceRedirectUrl={'/'}
+                      fallbackRedirectUrl={'/'}
+                      signUpForceRedirectUrl={'/'}
+                      signUpFallbackRedirectUrl={'/'}>
+                      <button className='flex items-center justify-center space-x-2 rounded-md ring-1 ring-sky-900 px-4 py-2 font-medium text-sky-600 transition bg-sky-950 hover:bg-sky-700 hover:text-white group'>
+                        <span> Get Started </span>
+                        <span>
+                          <ArrowRight className='w-3 h-3 transform group-hover:translate-x-1 transition-transform ' />
+                        </span>
+                      </button>
+                    </SignInButton>
+                  </SignedOut>
 
                   {/* Profile dropdown */}
                 </div>

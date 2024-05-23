@@ -7,7 +7,7 @@ export type QuoteFormInputsType = {
   jobRole: string;
   monthlySalary: number;
   annualSalary: number;
-  peopleCount: string;
+  noOfEmployees: string;
   about: string;
 };
 

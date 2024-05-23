@@ -1,11 +1,16 @@
 'use server';
 
+import Contact from '@/models/Contact.model';
+import User from '@/models/User.model';
+import { currentUser } from '@clerk/nextjs/server';
 import { sendMail } from './nodemailer';
 import { actionResponse } from './utils';
 
 export async function createContact(formData: FormData) {
   try {
     // console.log(Object.fromEntries(formData.entries()));
+
+    const user = await currentUser();
 
     if (!formData) {
       return actionResponse('fail', 'There is no data to send a query', null);
@@ -47,6 +52,47 @@ export async function createContact(formData: FormData) {
     };
 
     //save to database
+    const newContact = await Contact.create({
+      fullName: fullName as string,
+      email: email as string,
+      phone: phoneNo as string,
+      communicationMethod: communicationMethod as string,
+      message: message as string,
+      user: user?.id,
+    });
+
+    // if user is logged in, update the query with the user id
+    // if (user) {
+    //   await Contact.updateOne(
+    //     { email: email as string },
+    //     {
+    //       $set: {
+    //         user: user.id,
+    //       },
+    //     },
+    //     { upsert: true}
+    //   );
+    // }
+    if (user) {
+      // await Contact.updateOne(
+      //   { email: email as string },
+      //   {
+      //     $set: {
+      //       user: user.id,
+      //     },
+      //   },
+      //   { upsert: true}
+      // );
+      await User.findOneAndUpdate(
+        { clerkId: user.id },
+        {
+          $push: {
+            queries: newContact._id,
+          },
+        },
+        { new: true }
+      );
+    }
 
     // send email
     await sendMail(emailContent, email as string);
@@ -54,6 +100,7 @@ export async function createContact(formData: FormData) {
     return actionResponse('success', 'Successfully sent your query.', null);
   } catch (err) {
     if (err instanceof Error) {
+      console.error(err.message);
       return actionResponse('error', err.message, null);
     }
     return actionResponse('fail', 'Failed to send your query.', null);

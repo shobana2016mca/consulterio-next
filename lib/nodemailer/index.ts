@@ -24,7 +24,8 @@ export async function sendMail(emailContent: EmailContent, sendTo: SendTo) {
       html: emailContent.html, // html body
     });
 
-    console.log('Message sent: %s', info.messageId);
+    // console.log('Message sent: %s', info.messageId);
+    console.log('Email Sent...📨');
     return actionResponse('success', 'Message sent', null);
   } catch (err: any) {
     return actionResponse('fail', err.message, null);

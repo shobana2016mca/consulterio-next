@@ -18,64 +18,49 @@ export default function QuoteForm() {
     getValues,
     reset,
   } = useForm<QuoteFormInputsType>({
-    // defaultValues: {
-    //   enquirerName: 'Jhon Doe',
-    //   companyName: 'XYZ Company',
-    //   email: 'jhondoe123@gmail.com',
-    //   phoneNo: '9999911111',
-    //   location: 'Chennai',
-    //   jobRole: 'Project manager',
-    //   monthlySalary: 14000,
-    //   // annualSalary: 0,
-    //   peopleCount: '',
-    //   about: 'lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    // },
+    defaultValues: {
+      enquirerName: 'Jhon Doe',
+      companyName: 'XYZ Company',
+      email: 'jhondoe123@gmail.com',
+      phoneNo: '9999911111',
+      location: 'Chennai',
+      jobRole: 'Project manager',
+      monthlySalary: 14000,
+      // annualSalary: 0,
+      noOfEmployees: '',
+      about: 'lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    },
   });
-  // const [instance, updateInstance] = usePDF({ document: '' });
-  const [formData, setFormData] = useState<QuoteFormInputsType>();
+  const [formValues, setFormValues] = useState<QuoteFormInputsType>();
   const [calculations, setCalculations] = useState<CalculationsType>();
+  const [invoiceBlob, setInvoiceBlob] = useState<Blob | undefined>();
+  const [invoiceUrl, setInvoiceUrl] = useState<String | undefined>();
 
   const onSubmit: SubmitHandler<QuoteFormInputsType> = async (
     data: QuoteFormInputsType
   ) => {
-    console.log(data);
+    // console.log(data);
 
-    // const monthlySalary = data.monthlySalary; // 10000
-    // const annualSalary = data.annualSalary; // 12 * 10000 = 120000
-
-    // const commission = Number(((annualSalary / 108.33) * 100).toFixed(2)); // 9227.36
-    // const afterCommissionAnnualSalary = Number(
-    //   (annualSalary - commission).toFixed(2)
-    // ); // 110772.64
-
-    // const afterTaxAnnualSalary = Number(
-    //   ((annualSalary / 118) * 100).toFixed(2)
-    // ); //
-    // const taxAmount = Number(((annualSalary * 100) / 118).toFixed(2)); //18305.08
-
-    // const CGST = Math.round((annualSalary / 109) * 100);
-    // const SGST = Math.round((annualSalary / 109) * 100);
-    // const netSalary = annualSalary - taxAmount - commission;
     const monthlySalary = data.monthlySalary;
     const annualSalary = 12 * monthlySalary;
 
     const afterTaxMonthly = Number(((monthlySalary / 118) * 100).toFixed(2));
-    const monthlyCGST = Number((afterTaxMonthly / 2).toFixed(2));
-    const monthlySGST = Number((afterTaxMonthly / 2).toFixed(2));
     const totalMonthlyTax = monthlySalary - afterTaxMonthly;
+    const monthlyCGST = Number((totalMonthlyTax / 2).toFixed(2));
+    const monthlySGST = Number((totalMonthlyTax / 2).toFixed(2));
 
     const afterTaxAnnually = Number(((annualSalary / 118) * 100).toFixed(2));
-    const annualCGST = Number((afterTaxAnnually / 2).toFixed(2));
-    const annualSGST = Number((afterTaxAnnually / 2).toFixed(2));
     const totalAnnuallyTax = annualSalary - afterTaxAnnually;
+    const annualCGST = Number((totalAnnuallyTax / 2).toFixed(2));
+    const annualSGST = Number((totalAnnuallyTax / 2).toFixed(2));
 
-    console.log('before monthly', monthlySalary);
-    console.log('monthlyTax', monthlySalary - afterTaxMonthly);
-    console.log('after paid monthly', afterTaxMonthly);
+    // console.log('before monthly', monthlySalary);
+    // console.log('monthlyTax', monthlySalary - afterTaxMonthly);
+    // console.log('after paid monthly', afterTaxMonthly);
 
-    console.log('before annual', annualSalary);
-    console.log('annual tax', annualSalary - afterTaxAnnually);
-    console.log('after paid annual', afterTaxAnnually);
+    // console.log('before annual', annualSalary);
+    // console.log('annual tax', annualSalary - afterTaxAnnually);
+    // console.log('after paid annual', afterTaxAnnually);
 
     const beforePayCommission = afterTaxAnnually; //101694.92
     const commission = Number(
@@ -89,11 +74,11 @@ export default function QuoteForm() {
 
     //93,875.11 net salary
     // 7,819.79 commision
-    console.log(beforePayCommission);
-    console.log(commission);
-    console.log(afterPayCommission);
+    // console.log(beforePayCommission);
+    // console.log(commission);
+    // console.log(afterPayCommission);
 
-    setFormData(data);
+    setFormValues(data);
     setCalculations({
       afterTaxMonthly,
       monthlyCGST,
@@ -142,7 +127,7 @@ export default function QuoteForm() {
       <p>Location: ${data.location}</p>
       <p>Job Role: ${data.jobRole}</p>
       <p>Monthly Salary: ${data.monthlySalary}</p>
-      <p>People Count: ${data.peopleCount}</p>
+      <p>People Count: ${data.noOfEmployees}</p>
       <p>About: ${data.about}</p>
       <hr />
       <p>Annual Salary: ${annualSalary}</p>
@@ -161,14 +146,51 @@ export default function QuoteForm() {
       `,
     };
 
-    const result = await createQuote({ emailContent, user: data.email });
+    const formData = new FormData();
+    formData.append('enquirerName', data.enquirerName);
+    formData.append('companyName', data.companyName);
+    formData.append('email', data.email);
+    formData.append('phoneNo', data.phoneNo);
+    formData.append('location', data.location);
+    formData.append('jobRole', data.jobRole);
+    formData.append('monthlySalary', data.monthlySalary.toString());
+    formData.append('annualSalary', annualSalary.toString());
+    formData.append('noOfEmployees', data.noOfEmployees);
+    formData.append('about', data.about);
+
+    formData.append('beforeMonthlySalary', monthlySalary.toString());
+    formData.append('totalMonthlyTax', totalMonthlyTax.toString());
+    formData.append('monthlyCGST', monthlyCGST.toString());
+    formData.append('monthlySGST', monthlySGST.toString());
+    formData.append('afterMonthlysalary', afterTaxMonthly.toString());
+
+    formData.append('beforeAnnualSalary', annualSalary.toString());
+    formData.append('totalAnnuallyTax', totalAnnuallyTax.toString());
+    formData.append('annualCGST', annualCGST.toString());
+    formData.append('annualSGST', annualSGST.toString());
+    formData.append('afterAnnualSalary', afterTaxAnnually.toString());
+
+    formData.append('beforePayCommission', beforePayCommission.toString());
+    formData.append('commission', commission.toString());
+    formData.append('afterPayCommission', afterPayCommission.toString());
+    formData.append('nettSalary', nettSalary.toString());
+
+    const result = await createQuote(formData);
     if (result.status === 'success') {
       toast.success('Email sent successfully');
     } else {
       toast.error('Email sent failed');
     }
     // reset();
+    // setFormValues(undefined);
+    // setCalculations(undefined);
+
+    // console.log(invoiceBlob, invoiceUrl);
   };
+
+  // const [instance, updateInstance] = usePDF({
+  //   document: InvoicePDF({ data: formValues, calculations }),
+  // });
   // console.log(instance);
   return (
     <>
@@ -322,7 +344,7 @@ export default function QuoteForm() {
           <select
             className='rounded-lg border px-2 py-2 shadow-sm outline-none focus:ring'
             id='peopleCount'
-            {...register('peopleCount', {
+            {...register('noOfEmployees', {
               validate: (value) => {
                 if (!value) {
                   return 'This field is required';
@@ -334,8 +356,8 @@ export default function QuoteForm() {
             <option value='11-20'>11-20</option>
             <option value='50-100'>50-100</option>
           </select>
-          {errors.peopleCount && (
-            <FormError error={errors?.peopleCount.message} />
+          {errors.noOfEmployees && (
+            <FormError error={errors?.noOfEmployees.message} />
           )}
         </div>
 
@@ -349,20 +371,31 @@ export default function QuoteForm() {
             className='mb-8 w-full resize-none overflow-auto rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:border-blue-500 focus:outline-none hover:border-blue-500'
             {...register('about')}></textarea>
         </div>
-        {!formData && !calculations && (
+        {!formValues && !calculations && (
           <button className='w-full rounded-lg border border-blue-700 bg-blue-700 p-3 text-center font-medium text-white outline-none transition focus:ring hover:border-blue-700 hover:bg-blue-600 hover:text-white'>
             Send
           </button>
         )}
-        {formData && calculations && (
+        {/* <button className='w-full rounded-lg border border-blue-700 bg-blue-700 p-3 text-center font-medium text-white outline-none transition focus:ring hover:border-blue-700 hover:bg-blue-600 hover:text-white'>
+          Send
+        </button> */}
+
+        {formValues && calculations && (
           <PDFDownloadLink
             document={
-              <InvoicePDF data={formData} calculations={calculations} />
+              <InvoicePDF data={formValues} calculations={calculations} />
             }
             fileName='invoice.pdf'
-            className='w-full flex justify-center items-center rounded-lg border border-blue-700 bg-blue-700 p-3 text-center font-medium text-white outline-none transition focus:ring hover:border-blue-700 hover:bg-blue-600 hover:text-white'>
-            {({ loading }) =>
-              loading ? 'Loading document...' : 'Download Invoice'
+            className='w-full flex justify-center items-center rounded-lg border border-blue-700 bg-blue-700 p-3 text-center font-medium text-white outline-none transition focus:ring hover:border-blue-700 hover:bg-blue-600 hover:text-white'
+            onChange={(e) => {
+              console.log(e);
+            }}>
+            {({ loading, error, blob, url }) =>
+              loading ? (
+                <span> Loading document... </span>
+              ) : (
+                <span> Download Invoice</span>
+              )
             }
           </PDFDownloadLink>
         )}
