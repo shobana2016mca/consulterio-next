@@ -18,18 +18,18 @@ export default function QuoteForm() {
     getValues,
     reset,
   } = useForm<QuoteFormInputsType>({
-    defaultValues: {
-      enquirerName: 'Jhon Doe',
-      companyName: 'XYZ Company',
-      email: 'jhondoe123@gmail.com',
-      phoneNo: '9999911111',
-      location: 'Chennai',
-      jobRole: 'Project manager',
-      monthlySalary: 14000,
-      // annualSalary: 0,
-      noOfEmployees: '',
-      about: 'lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    },
+    // defaultValues: {
+    //   enquirerName: 'Jhon Doe',
+    //   companyName: 'XYZ Company',
+    //   email: 'jhondoe123@gmail.com',
+    //   phoneNo: '9999911111',
+    //   location: 'Chennai',
+    //   jobRole: 'Project manager',
+    //   monthlySalary: 14000,
+    //   // annualSalary: 0,
+    //   noOfEmployees: '',
+    //   about: 'lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    // },
   });
   const [formValues, setFormValues] = useState<QuoteFormInputsType>();
   const [calculations, setCalculations] = useState<CalculationsType>();
@@ -181,9 +181,9 @@ export default function QuoteForm() {
     } else {
       toast.error('Email sent failed');
     }
-    // reset();
-    // setFormValues(undefined);
-    // setCalculations(undefined);
+    reset();
+    setFormValues(undefined);
+    setCalculations(undefined);
 
     // console.log(invoiceBlob, invoiceUrl);
   };

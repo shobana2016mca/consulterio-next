@@ -1,4 +1,6 @@
+import QuoteTemplate from '@/email/ContactUsTemplate';
 import { EmailContent, SendTo } from '@/types';
+import { render } from '@react-email/render';
 import nodemailer from 'nodemailer';
 import { actionResponse } from '../utils';
 
@@ -14,6 +16,7 @@ const transporter = nodemailer.createTransport({
 });
 
 export async function sendMail(emailContent: EmailContent, sendTo: SendTo) {
+  const emailHtml = render(<QuoteTemplate email={sendTo} />);
   try {
     // send mail with defined transport object
     const info = await transporter.sendMail({
@@ -21,7 +24,7 @@ export async function sendMail(emailContent: EmailContent, sendTo: SendTo) {
       to: `${process.env.EMAIL_ADDRESS}, ${sendTo}`, // list of receivers
       subject: emailContent.subject, // Subject line
       text: `${emailContent.text} user was contact us`, // plain text body
-      html: emailContent.html, // html body
+      html: emailHtml, // html body
     });
 
     // console.log('Message sent: %s', info.messageId);
