@@ -12,6 +12,7 @@ import {
   Preview,
   Row,
   Section,
+  Tailwind,
   Text,
 } from '@react-email/components';
 import crypto from 'crypto';
@@ -25,116 +26,116 @@ export const QuoteReceiptEmail = ({ data }: { data: EmailDataContent }) => (
     <Head />
     <Preview>Quote Receipt</Preview>
 
-    <Body style={main}>
-      <Container style={container}>
-        <Section>
-          <Row>
-            <Column>
-              <Img
-                src={`${baseUrl}/invoice-logo.png`}
-                width='auto'
-                height='auto'
+    <Tailwind>
+      <Body style={main}>
+        <Container style={container}>
+          <Section>
+            <Row>
+              <Column
                 style={{
-                  width: '100%',
+                  width: '15rem',
                   height: '5rem',
                   aspectRatio: '16/9',
-                }}
-                alt='Consultero Logo'
-                // className='w-full h-16 aspect-video'
-              />
-            </Column>
+                }}>
+                <Img
+                  src={`${baseUrl}/invoice-logo.png`}
+                  width='100%'
+                  height='100%'
+                  alt='Consultero Logo'
+                />
+              </Column>
 
-            <Column align='right' style={tableCell}>
-              <Text style={heading}>Receipt</Text>
-            </Column>
-          </Row>
-        </Section>
-        <Section>
-          <Text style={cupomText}>
-            {/* Hello ${fullName}, Thank you for contacting us. We have received
+              <Column align='right' style={tableCell}>
+                <Text style={heading}>Receipt</Text>
+              </Column>
+            </Row>
+          </Section>
+          <Section>
+            <Text style={cupomText}>
+              {/* Hello ${fullName}, Thank you for contacting us. We have received
             your query and will get back to you soon. Regards, Support Team.
             Full Name: ${fullName}
             Email: ${email}
             Phone No: ${phoneNo}
             Communication Method: ${communicationMethod}
             Message: ${message} */}
-            Hello {data.enquirerName}, Thank you for contacting us. We have
-            received your Quotation.
-            {/* <sup style={supStyle}>1</sup>{' '}
+              Hello {data.enquirerName}, Thank you for contacting us. We have
+              received your Quotation.
+              {/* <sup style={supStyle}>1</sup>{' '}
             <Link href='#'>Apply and use in minutes</Link>
             <sup style={supStyle}>2</sup> */}
-          </Text>
-        </Section>
-        <Section style={informationTable}>
-          <Row style={informationTableRow}>
-            <Column colSpan={2}>
-              <Section>
-                <Row>
-                  <Column style={informationTableColumn}>
-                    <Text style={informationTableLabel}>APPLE ID</Text>
-                    <Link
-                      style={{
-                        ...informationTableValue,
-                        color: '#15c',
-                        textDecoration: 'underline',
-                      }}>
-                      {data.userId}
-                    </Link>
-                  </Column>
-                </Row>
+            </Text>
+          </Section>
+          <Section style={informationTable}>
+            <Row style={informationTableRow}>
+              <Column colSpan={2}>
+                <Section>
+                  <Row>
+                    <Column style={informationTableColumn}>
+                      <Text style={informationTableLabel}>APPLE ID</Text>
+                      <Link
+                        style={{
+                          ...informationTableValue,
+                          color: '#15c',
+                          textDecoration: 'underline',
+                        }}>
+                        {data.userId}
+                      </Link>
+                    </Column>
+                  </Row>
 
-                <Row>
-                  <Column style={informationTableColumn}>
-                    <Text style={informationTableLabel}>INVOICE DATE</Text>
-                    <Text style={informationTableValue}>
-                      {calcDate(new Date())}
-                    </Text>
-                  </Column>
-                </Row>
+                  <Row>
+                    <Column style={informationTableColumn}>
+                      <Text style={informationTableLabel}>INVOICE DATE</Text>
+                      <Text style={informationTableValue}>
+                        {calcDate(new Date())}
+                      </Text>
+                    </Column>
+                  </Row>
 
-                <Row>
-                  <Column style={informationTableColumn}>
-                    <Text style={informationTableLabel}>ORDER ID</Text>
-                    <Link
-                      style={{
-                        ...informationTableValue,
-                        color: '#15c',
-                        textDecoration: 'underline',
-                      }}>
-                      {crypto.randomBytes(10).toString('hex')}
-                    </Link>
-                  </Column>
-                  <Column style={informationTableColumn}>
-                    <Text style={informationTableLabel}>DOCUMENT NO.</Text>
-                    <Text style={informationTableValue}>
-                      {crypto.randomBytes(10).toString('hex')}
-                    </Text>
-                  </Column>
-                </Row>
-              </Section>
-            </Column>
-            <Column style={informationTableColumn} colSpan={2}>
-              <Text style={informationTableLabel}>BILLED TO</Text>
-              {/* <Text style={informationTableValue}>
+                  <Row>
+                    <Column style={informationTableColumn}>
+                      <Text style={informationTableLabel}>ORDER ID</Text>
+                      <Link
+                        style={{
+                          ...informationTableValue,
+                          color: '#15c',
+                          textDecoration: 'underline',
+                        }}>
+                        {crypto.randomBytes(10).toString('hex')}
+                      </Link>
+                    </Column>
+                    <Column style={informationTableColumn}>
+                      <Text style={informationTableLabel}>DOCUMENT NO.</Text>
+                      <Text style={informationTableValue}>
+                        {crypto.randomBytes(10).toString('hex')}
+                      </Text>
+                    </Column>
+                  </Row>
+                </Section>
+              </Column>
+              <Column style={informationTableColumn} colSpan={2}>
+                <Text style={informationTableLabel}>BILLED TO</Text>
+                {/* <Text style={informationTableValue}>
                 Visa .... 7461 (Apple Pay)
               </Text> */}
-              <Text style={informationTableValue}>{data.enquirerName}</Text>
-              {/* <Text style={informationTableValue}>2125 Chestnut St</Text> */}
-              {/* <Text style={informationTableValue}>San Francisco, CA 94123</Text> */}
-              {/* <Text style={informationTableValue}>USA</Text> */}
-              <Text style={informationTableValue}>{data.companyName}</Text>
-              <Text style={informationTableValue}>{data.email}</Text>
-              <Text style={informationTableValue}>{data.phoneNo}</Text>
-              <Text style={informationTableValue}>{data.location}</Text>
-              <Text style={informationTableValue}>{data.jobRole}</Text>
-            </Column>
-          </Row>
-        </Section>
-        <Section style={productTitleTable}>
-          <Text style={productsTitle}>Quote Information</Text>
-        </Section>
-        <Section>
-          {/* <Row>
+                <Text style={informationTableValue}>{data.enquirerName}</Text>
+                {/* <Text style={informationTableValue}>2125 Chestnut St</Text> */}
+                {/* <Text style={informationTableValue}>San Francisco, CA 94123</Text> */}
+                {/* <Text style={informationTableValue}>USA</Text> */}
+                <Text style={informationTableValue}>{data.companyName}</Text>
+                <Text style={informationTableValue}>{data.email}</Text>
+                <Text style={informationTableValue}>{data.phoneNo}</Text>
+                <Text style={informationTableValue}>{data.location}</Text>
+                <Text style={informationTableValue}>{data.jobRole}</Text>
+              </Column>
+            </Row>
+          </Section>
+          <Section style={productTitleTable}>
+            <Text style={productsTitle}>Quote Information</Text>
+          </Section>
+          <Section>
+            {/* <Row>
             <Column style={{ width: '64px' }}>
               <Img
                 src={`${baseUrl}/static/apple-hbo-max-icon.jpeg`}
@@ -168,61 +169,75 @@ export const QuoteReceiptEmail = ({ data }: { data: EmailDataContent }) => (
             </Column>
           </Row> */}
 
-          <Row>
-            <Column style={{ paddingLeft: '22px' }}>
-              <Text style={productTitle}>Monthly Salary</Text>
-              <Text style={productDescription}>{data.afterMonthlysalary}</Text>
-              <Text style={productDescription}>{data.monthlyCGST}</Text>
-              <Text style={productDescription}>{data.monthlySGST}</Text>
-            </Column>
-            <Column style={productPriceWrapper} align='right'>
-              <Text style={productPrice}>
-                &#8377; {data.beforeMonthlySalary}
-              </Text>
-            </Column>
-          </Row>
+            <Row>
+              <Column
+                style={{ paddingLeft: '22px' }}
+                className={'grid gap-y-2'}>
+                <Text style={productTitle}>Monthly Salary</Text>
+                <Text style={productDescription}>
+                  Basic: {data.afterMonthlysalary}
+                </Text>
+                <Text style={productDescription}>CGST: {data.monthlyCGST}</Text>
+                <Text style={productDescription}>SGST: {data.monthlySGST}</Text>
+              </Column>
+              <Column style={productPriceWrapper} align='right'>
+                <Text style={productPrice}>
+                  &#8377; {data.beforeMonthlySalary}
+                </Text>
+              </Column>
+            </Row>
+            <Hr style={productPriceLine} />
+            <Row>
+              <Column
+                style={{ paddingLeft: '22px' }}
+                className={'grid gap-y-2'}>
+                <Text style={productTitle}>Annual Salary</Text>
+                <Text style={productDescription}>
+                  Basic: {data.afterAnnualSalary}
+                </Text>
+                <Text style={productDescription}>CGST: {data.annualCGST}</Text>
+                <Text style={productDescription}>SGST: {data.annualSGST}</Text>
+              </Column>
+              <Column style={productPriceWrapper} align='right'>
+                <Text style={productPrice}>
+                  &#8377; {data.beforeAnnualSalary}
+                </Text>
+              </Column>
+            </Row>
+            <Hr style={productPriceLine} />
+            <Row>
+              <Column
+                style={{ paddingLeft: '22px' }}
+                className={'grid gap-y-2'}>
+                <Text style={productTitle}>Commission</Text>
+                <Text style={productDescription}>
+                  Basic: {data.afterPayCommission}
+                </Text>
+                <Text style={productDescription}>
+                  Commission Amt.: {data.commission}
+                </Text>
+              </Column>
+              <Column style={productPriceWrapper} align='right'>
+                <Text style={productPrice}>
+                  &#8377; {data.beforePayCommission}
+                </Text>
+              </Column>
+            </Row>
+          </Section>
           <Hr style={productPriceLine} />
-          <Row>
-            <Column style={{ paddingLeft: '22px' }}>
-              <Text style={productTitle}>Annual Salary</Text>
-              <Text style={productDescription}>{data.afterAnnualSalary}</Text>
-              <Text style={productDescription}>{data.annualCGST}</Text>
-              <Text style={productDescription}>{data.annualSGST}</Text>
-            </Column>
-            <Column style={productPriceWrapper} align='right'>
-              <Text style={productPrice}>
-                &#8377; {data.beforeAnnualSalary}
-              </Text>
-            </Column>
-          </Row>
-          <Hr style={productPriceLine} />
-          <Row>
-            <Column style={{ paddingLeft: '22px' }}>
-              <Text style={productTitle}>Commission</Text>
-              <Text style={productDescription}>{data.afterPayCommission}</Text>
-              <Text style={productDescription}>{data.commission}</Text>
-            </Column>
-            <Column style={productPriceWrapper} align='right'>
-              <Text style={productPrice}>
-                &#8377; {data.beforePayCommission}
-              </Text>
-            </Column>
-          </Row>
-        </Section>
-        <Hr style={productPriceLine} />
-        <Section align='right'>
-          <Row>
-            <Column style={tableCell} align='right'>
-              <Text style={productPriceTotal}>TOTAL</Text>
-            </Column>
-            <Column style={productPriceVerticalLine}></Column>
-            <Column style={productPriceLargeWrapper}>
-              <Text style={productPriceLarge}>&#8377; {data.nettSalary}</Text>
-            </Column>
-          </Row>
-        </Section>
-        <Hr style={productPriceLineBottom} />
-        {/* <Section>
+          <Section align='right'>
+            <Row>
+              <Column style={tableCell} align='right'>
+                <Text style={productPriceTotal}>TOTAL</Text>
+              </Column>
+              <Column style={productPriceVerticalLine}></Column>
+              <Column style={productPriceLargeWrapper}>
+                <Text style={productPriceLarge}>&#8377; {data.nettSalary}</Text>
+              </Column>
+            </Row>
+          </Section>
+          <Hr style={productPriceLineBottom} />
+          {/* <Section>
           <Row>
             <Column align='center' style={block}>
               <Img
@@ -235,7 +250,7 @@ export const QuoteReceiptEmail = ({ data }: { data: EmailDataContent }) => (
           </Row>
         </Section> */}
 
-        {/* <Section>
+          {/* <Section>
           <Row>
             <Column align='center' style={ctaTitle}>
               <Text style={ctaText}>Save 3% on all your Apple purchases.</Text>
@@ -320,30 +335,37 @@ export const QuoteReceiptEmail = ({ data }: { data: EmailDataContent }) => (
             Account Settings.
           </Link>
         </Text> */}
-        <Section>
-          <Row>
-            <Column align='center' style={footerIcon}>
-              <Img
-                src={`${baseUrl}/invoice-logo-2.png`}
-                width='auto'
-                height='auto'
-                alt='Consultero Logo'
-                className='w-full h-16'
-              />
-            </Column>
-          </Row>
-        </Section>
-        <Text style={footerLinksWrapper}>
-          {/* <Link href='#'>Account Settings</Link> •{' '} */}
-          <Link href='#'>Terms and Conditions</Link> •{' '}
-          <Link href='#'>Privacy Policy </Link>
-        </Text>
-        <Text style={footerCopyright}>
-          Copyright © {new Date().getFullYear()} <br />{' '}
-          <Link href='#'>All rights reserved</Link>
-        </Text>
-      </Container>
-    </Body>
+          <Section>
+            <Row className='aspect-video w-48 h-20'>
+              <Column
+                style={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  margin: '20px 0 0 0',
+                  width: '12rem',
+                }}>
+                <Img
+                  src={`${baseUrl}/invoice-logo.png`}
+                  width='100%'
+                  height='100%'
+                  alt='Consultero Logo'
+                />
+              </Column>
+            </Row>
+          </Section>
+          <Text style={footerLinksWrapper}>
+            {/* <Link href='#'>Account Settings</Link> •{' '} */}
+            <Link href='#'>Terms and Conditions</Link> •{' '}
+            <Link href='#'>Privacy Policy </Link>
+          </Text>
+          <Text style={footerCopyright}>
+            Copyright © {new Date().getFullYear()} <br />{' '}
+            <Link href='#'>All rights reserved</Link>
+          </Text>
+        </Container>
+      </Body>
+    </Tailwind>
   </Html>
 );
 
@@ -441,10 +463,10 @@ const productIcon = {
   border: '1px solid rgba(128,128,128,0.2)',
 };
 
-const productTitle = { fontSize: '12px', fontWeight: '600', ...resetText };
+const productTitle = { fontSize: '16px', fontWeight: '600', ...resetText };
 
 const productDescription = {
-  fontSize: '12px',
+  fontSize: '15px',
   color: 'rgb(102,102,102)',
   ...resetText,
 };
@@ -465,14 +487,14 @@ const divisor = {
 const productPriceTotal = {
   margin: '0',
   color: 'rgb(102,102,102)',
-  fontSize: '10px',
+  fontSize: '14px',
   fontWeight: '600',
   padding: '0px 30px 0px 0px',
   textAlign: 'right' as const,
 };
 
 const productPrice = {
-  fontSize: '12px',
+  fontSize: '16px',
   fontWeight: '600',
   margin: '0',
 };
@@ -543,10 +565,16 @@ const footerTextCenter = {
 
 const footerLink = { color: 'rgb(0,115,255)' };
 
+const footerContainer = {
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  margin: '20px 0 0 0',
+};
+
 const footerIcon = {
-  display: 'block',
-  margin: '40px 0 0 0',
-  aspectRatio: '1/1',
+  width: '12rem',
+  height: '8rem',
 };
 
 const footerLinksWrapper = {

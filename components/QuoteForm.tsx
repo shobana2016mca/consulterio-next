@@ -18,18 +18,18 @@ export default function QuoteForm() {
     getValues,
     reset,
   } = useForm<QuoteFormInputsType>({
-    defaultValues: {
-      enquirerName: 'Jhon Doe',
-      companyName: 'XYZ Company',
-      email: 'jhondoe123@gmail.com',
-      phoneNo: '9999911111',
-      location: 'Chennai',
-      jobRole: 'Project manager',
-      monthlySalary: 10000,
-      annualSalary: 120000,
-      noOfEmployees: '2-10',
-      about: 'lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    },
+    // defaultValues: {
+    //   enquirerName: 'Jhon Doe',
+    //   companyName: 'XYZ Company',
+    //   email: 'jhondoe123@gmail.com',
+    //   phoneNo: '9999911111',
+    //   location: 'Chennai',
+    //   jobRole: 'Project manager',
+    //   monthlySalary: 10000,
+    //   annualSalary: 120000,
+    //   noOfEmployees: '2-10',
+    //   about: 'lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    // },
   });
   const [formValues, setFormValues] = useState<QuoteFormInputsType>();
   const [calculations, setCalculations] = useState<CalculationsType>();
