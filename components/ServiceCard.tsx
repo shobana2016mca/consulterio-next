@@ -1,12 +1,6 @@
-export default function ServiceCard({
-  icon,
-  title,
-  details,
-}: {
-  icon: any;
-  title: any;
-  details: any;
-}) {
+import { ServiceCardType } from '@/types';
+
+export default function ServiceCard({ icon, title, details }: ServiceCardType) {
   return (
     <>
       <div className='rounded-[20px] bg-sky-100 p-10 shadow-2 hover:shadow-lg md:px-7 xl:px-10 cursor-pointer'>

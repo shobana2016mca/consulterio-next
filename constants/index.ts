@@ -1,4 +1,10 @@
-import { ServiceIcon } from '@/assets/icons';
+import {
+  ServiceCardIcon1,
+  ServiceCardIcon2,
+  ServiceCardIcon3,
+  ServiceCardIcon4,
+  ServiceIcon,
+} from '@/assets/icons';
 
 export const resultInNumber = [
   {
@@ -74,6 +80,48 @@ export const services = [
     details:
       'To ensure your complete satisfaction, we offer replacement support for up to two months. If a hired candidate leaves or does not meet your expectations within this period, we will find a suitable replacement at no additional cost.',
     icon: ServiceIcon,
+  },
+];
+
+export const serviceCardData = [
+  {
+    id: crypto.randomUUID(),
+    icon: ServiceCardIcon1,
+    title: 'Revolutionary Projectview',
+    details: 'plan and structure work how you want. Quickly organizing tasks.',
+    bgClasses: 'bg-indigo-50 group-hover:bg-indigo-600',
+    iconClasses:
+      'stroke-indigo-600 transition-all duration-500 group-hover:stroke-white',
+  },
+  {
+    id: crypto.randomUUID(),
+    icon: ServiceCardIcon2,
+    title: 'App Integrations',
+    details:
+      'Bring all your tools and data together. Also join with hundreds of other apps.',
+    bgClasses: 'bg-pink-50 group-hover:bg-pink-600',
+    iconClasses:
+      'stroke-pink-600 transition-all duration-500 group-hover:stroke-white',
+  },
+  {
+    id: crypto.randomUUID(),
+    icon: ServiceCardIcon3,
+    title: 'Data Reporting',
+    details:
+      'Get real time insight into progress and allows teams to track their work habits',
+    bgClasses: 'bg-teal-50 group-hover:bg-teal-600',
+    iconClasses:
+      'stroke-teal-600 transition-all duration-500 group-hover:stroke-white',
+  },
+  {
+    id: crypto.randomUUID(),
+    icon: ServiceCardIcon4,
+    title: 'Workflow Builder',
+    details:
+      'Automated processes to coordinate your teams and increase communication.',
+    bgClasses: 'bg-orange-50 group-hover:bg-orange-600',
+    iconClasses:
+      'stroke-orange-600 transition-all duration-500 group-hover:stroke-white',
   },
 ];
 

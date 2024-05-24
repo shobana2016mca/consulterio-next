@@ -1,3 +1,20 @@
+import { SVGProps } from 'react';
+
+export type ServiceCardType = {
+  icon: React.ReactNode;
+  title: string;
+  details: string;
+};
+
+export type ServiceSectionCardPropsType = {
+  id: string;
+  icon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+  title: string;
+  details: string;
+  bgClasses: string;
+  iconClasses: string;
+};
+
 export type QuoteFormInputsType = {
   enquirerName: string;
   companyName: string;

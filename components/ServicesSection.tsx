@@ -1,61 +1,5 @@
-/// create this data i 'll call you are you here?
-const cardData = [
-  {
-    id: '01',
-    title: 'Client Consultation and Needs Analysis',
-    desctiption:
-      'Understand client’s hiring needs, culture, and tech requirements Analyze position responsibilities, qualifications, and skills.',
-  },
-  {
-    id: '02',
-    title: 'Job Description Development:',
-    desctiption:
-      'Craft compelling descriptions attracting top talent.Highlight key responsibilities and growth opportunities.',
-  },
-  {
-    id: '03',
-    title: 'Candidate Sourcing',
-    desctiption:
-      'Utilize diverse channels for sourcing.Employ advanced search techniques for passive candidates.',
-  },
-  {
-    id: '04',
-    icon: '/logo.png',
-    title: 'Screening and Evaluation',
-    desctiption:
-      'Review resumes and shortlist candidates.Conduct screenings and technical assessments.',
-  },
-  {
-    id: '05',
-    title: 'Interview Coordination',
-    desctiption:
-      'Schedule interviews and support parties.Collect feedback to inform decisions.',
-  },
-  {
-    id: '06',
-    title: 'Offer Negotiation and Closure',
-    desctiption:
-      'Facilitate communication and negotiate offers.Ensure smooth transition and onboarding',
-  },
-  {
-    id: '07',
-    title: 'Follow-Up and Feedback!',
-    desctiption:
-      'Maintain communication for satisfaction.Gather feedback to enhance practices..',
-  },
-  {
-    id: '08',
-    title: 'Continuous Improvement',
-    desctiption:
-      'Refine processes based on trends and feedback.Stay updated on industry best practices.',
-  },
-  {
-    id: '09',
-    title: 'Continuous Improvement',
-    desctiption:
-      'Refine processes based on trends and feedback.Stay updated on industry best practices.',
-  },
-];
+import EnquiryModalContextProvider from '@/contexts/EnquiryFormModalContext';
+import ServiceSectionCard from './ServiceSectionCard';
 
 export default function ServicesSection() {
   return (
@@ -73,7 +17,10 @@ export default function ServicesSection() {
             third party apps (calendar / Google drive), creating subtasks.
           </p>
         </div>
-        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8'>
+        <EnquiryModalContextProvider>
+          <ServiceSectionCard />
+        </EnquiryModalContextProvider>
+        {/* <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8'>
           <div className='relative text-center group p-8'>
             <div className='bg-indigo-50 rounded-lg flex justify-center items-center mb-5 w-20 h-20 mx-auto cursor-pointer transition-all duration-500 group-hover:bg-indigo-600'>
               <svg
@@ -288,7 +235,7 @@ export default function ServicesSection() {
               communication.
             </p>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );
