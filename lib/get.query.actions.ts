@@ -97,7 +97,7 @@ export async function createQuote(formData: FormData) {
     );
 
     // Send email to user with quote
-    await sendMail(emailContent, data.email, emailContentData);
+    await sendMail(emailContent, data.email, emailContentData, 'quote');
     return actionResponse('success', 'Successfully get quote', null);
   } catch (err) {
     if (err instanceof Error) {

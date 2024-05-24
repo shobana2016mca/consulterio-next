@@ -1,5 +1,6 @@
+import ContactUsEmail from '@/email/ContactUsEmail';
 import QuoteReceiptEmail from '@/email/QuoteReceiptEmail';
-import { EmailContent, EmailDataContent, SendTo } from '@/types';
+import { EmailContent, SendTo } from '@/types';
 import { render } from '@react-email/render';
 import nodemailer from 'nodemailer';
 import { actionResponse } from '../utils';
@@ -18,10 +19,21 @@ const transporter = nodemailer.createTransport({
 export async function sendMail(
   emailContent: EmailContent,
   sendTo: SendTo,
-  emailData: EmailDataContent
+  emailData: any,
+  type: 'contact' | 'quote'
 ) {
   try {
-    const emailHtml = render(<QuoteReceiptEmail data={emailData} />);
+    let emailHtml;
+
+    if (type === 'contact') {
+      emailHtml = render(<ContactUsEmail data={emailData} />);
+    }
+    if (type === 'quote') {
+      emailHtml = render(<QuoteReceiptEmail data={emailData} />);
+    }
+
+    // const emailHtml = render(<ContactUsEmail data={emailData} />);
+    // const emailHtml = render(<QuoteReceiptEmail data={emailData} />);
 
     // send mail with defined transport object
     const info = await transporter.sendMail({

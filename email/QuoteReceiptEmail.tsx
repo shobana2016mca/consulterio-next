@@ -1,5 +1,5 @@
 import { calcDate } from '@/lib/utils';
-import { EmailDataContent } from '@/types';
+import { QuoteDataContent } from '@/types';
 import {
   Body,
   Column,
@@ -19,9 +19,9 @@ import crypto from 'crypto';
 
 const baseUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
-  : '';
+  : ``;
 
-export const QuoteReceiptEmail = ({ data }: { data: EmailDataContent }) => (
+export const QuoteReceiptEmail = ({ data }: { data: QuoteDataContent }) => (
   <Html>
     <Head />
     <Preview>Quote Receipt</Preview>

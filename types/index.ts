@@ -74,7 +74,7 @@ export type GenerateEmailContent = {
   nettSalary: string;
 };
 
-export type EmailDataContent = {
+export type QuoteDataContent = {
   enquirerName: string;
   companyName: string;
   email: string;
@@ -99,4 +99,13 @@ export type EmailDataContent = {
   afterPayCommission: string;
   nettSalary: string;
   userId: string;
+};
+
+export type ContactUsDataContent = {
+  enquirerName: string;
+  email: string;
+  phoneNo: string;
+  communicationMethod: string;
+  message: string;
+  updatedAt: Date;
 };
