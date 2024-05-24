@@ -1,4 +1,4 @@
-import QuoteTemplate from '@/email/ContactUsTemplate';
+import { ContactUsTemplate } from '@/email/ContactUsTemplate';
 import { EmailContent, SendTo } from '@/types';
 import { render } from '@react-email/render';
 import nodemailer from 'nodemailer';
@@ -16,7 +16,7 @@ const transporter = nodemailer.createTransport({
 });
 
 export async function sendMail(emailContent: EmailContent, sendTo: SendTo) {
-  const emailHtml = render(<QuoteTemplate email={sendTo} />);
+  const emailHtml = render(<ContactUsTemplate email={sendTo} />);
   try {
     // send mail with defined transport object
     const info = await transporter.sendMail({

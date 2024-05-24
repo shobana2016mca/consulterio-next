@@ -17,7 +17,7 @@ const baseUrl = process.env.NEXT_PUBLIC_SERVER_URL
   ? `https://${process.env.NEXT_PUBLIC_SERVER_URL}`
   : '';
 
-export const ContactUsTemplate = ({ email }: { email: string | string[] }) => (
+export const AppleReceiptEmail = () => (
   <Html>
     <Head />
     <Preview>Apple Receipt</Preview>
@@ -288,7 +288,7 @@ export const ContactUsTemplate = ({ email }: { email: string | string[] }) => (
   </Html>
 );
 
-export default ContactUsTemplate;
+export default AppleReceiptEmail;
 
 const main = {
   fontFamily: '"Helvetica Neue",Helvetica,Arial,sans-serif',
