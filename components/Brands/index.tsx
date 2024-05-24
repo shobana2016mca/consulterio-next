@@ -5,7 +5,7 @@ import brandsData from './brandsData';
 
 const Brands = () => {
   return (
-    <section className=''>
+    <section className='max-w-screen-xl w-full mx-auto py-20'>
       <div className='flex flex-col justify-center items-center'>
         <h4 className={'text-stone-700 uppercase font-semibold text-lg'}>
           AS FEATURED IN

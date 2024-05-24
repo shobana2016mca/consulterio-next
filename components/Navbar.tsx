@@ -1,7 +1,7 @@
 'use client';
 
 import { ArrowRight } from '@/assets/icons';
-import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/nextjs';
+import { SignedIn, SignedOut, SignUpButton, UserButton } from '@clerk/nextjs';
 import {
   Disclosure,
   DisclosureButton,
@@ -89,21 +89,29 @@ export default function Navbar() {
                       afterSwitchSessionUrl='/'
                     />
                   </SignedIn>
-                  <SignedOut>
-                    <SignInButton
-                      mode='modal'
-                      forceRedirectUrl={'/'}
-                      fallbackRedirectUrl={'/'}
-                      signUpForceRedirectUrl={'/'}
-                      signUpFallbackRedirectUrl={'/'}>
-                      <button className='flex items-center justify-center space-x-2 rounded-md ring-1 ring-sky-900 px-4 py-2 font-medium text-sky-600 transition bg-sky-950 hover:bg-sky-700 hover:text-white group'>
-                        <span> Get Started </span>
-                        <span>
-                          <ArrowRight className='w-3 h-3 transform group-hover:translate-x-1 transition-transform ' />
-                        </span>
-                      </button>
-                    </SignInButton>
-                  </SignedOut>
+                  <div className={'hidden xs:block'}>
+                    <SignedOut>
+                      <SignUpButton
+                        mode='modal'
+                        forceRedirectUrl={'/'}
+                        fallbackRedirectUrl={'/'}
+                        signInForceRedirectUrl={'/'}
+                        signInFallbackRedirectUrl={'/'}>
+                        <button className='flex items-center justify-center space-x-2 rounded-md ring-1 ring-sky-900 px-2 py-1 md:px-4 md:py-2 text-sky-600 transition bg-sky-950 hover:bg-sky-700 hover:text-white group'>
+                          <span
+                            className={
+                              'text-sm md:text-base lg:text-lg font-normal md:font-medium'
+                            }>
+                            {' '}
+                            Get Started{' '}
+                          </span>
+                          <span className={'hidden sm:block'}>
+                            <ArrowRight className='w-3 h-3 transform group-hover:translate-x-1 transition-transform ' />
+                          </span>
+                        </button>
+                      </SignUpButton>
+                    </SignedOut>
+                  </div>
 
                   {/* Profile dropdown */}
                 </div>
@@ -130,6 +138,27 @@ export default function Navbar() {
                     </DisclosureButton>
                   );
                 })}
+                <SignedOut>
+                  <SignUpButton
+                    mode='modal'
+                    forceRedirectUrl={'/'}
+                    fallbackRedirectUrl={'/'}
+                    signInForceRedirectUrl={'/'}
+                    signInFallbackRedirectUrl={'/'}>
+                    <button className='flex items-center justify-center space-x-2 rounded-md ring-1 ring-sky-900 px-2 py-1 md:px-4 md:py-2 text-sky-600 transition bg-sky-950 hover:bg-sky-700 hover:text-white group'>
+                      <span
+                        className={
+                          'text-sm md:text-base lg:text-lg font-normal md:font-medium'
+                        }>
+                        {' '}
+                        Get Started{' '}
+                      </span>
+                      <span>
+                        <ArrowRight className='w-3 h-3 transform group-hover:translate-x-1 transition-transform ' />
+                      </span>
+                    </button>
+                  </SignUpButton>
+                </SignedOut>
               </div>
             </DisclosurePanel>
           </>
