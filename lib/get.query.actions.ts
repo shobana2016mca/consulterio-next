@@ -1,37 +1,15 @@
 'use server';
 
+import { GenerateEmailContent } from '@/types';
+
 import Quote from '@/models/Quote.model';
 import User from '@/models/User.model';
+
 import { currentUser } from '@clerk/nextjs/server';
+
 import { connectDB } from './connectDB';
 import { sendMail } from './nodemailer';
 import { actionResponse } from './utils';
-
-type GenerateEmailContent = {
-  enquirerName: string;
-  companyName: string;
-  email: string;
-  phoneNo: string;
-  location: string;
-  jobRole: string;
-  noOfEmployees: string;
-  about?: string;
-
-  beforeMonthlySalary: string;
-  totalMonthlyTax: string;
-  monthlyCGST: string;
-  monthlySGST: string;
-  afterMonthlysalary: string;
-  beforeAnnualSalary: string;
-  totalAnnuallyTax: string;
-  annualCGST: string;
-  annualSGST: string;
-  afterAnnualSalary: string;
-  beforePayCommission: string;
-  commission: string;
-  afterPayCommission: string;
-  nettSalary: string;
-};
 
 function generateEmailContent(data: GenerateEmailContent) {
   // console.log('data:', data);
@@ -94,6 +72,12 @@ export async function createQuote(formData: FormData) {
       formData.entries()
     ) as unknown as GenerateEmailContent;
 
+    const emailContentData = {
+      ...data,
+      // userId: existingUser?._id,
+      userId: user.id,
+    };
+
     // Generate email content
     const emailContent = generateEmailContent(data);
 
@@ -113,7 +97,7 @@ export async function createQuote(formData: FormData) {
     );
 
     // Send email to user with quote
-    await sendMail(emailContent, data.email);
+    await sendMail(emailContent, data.email, emailContentData);
     return actionResponse('success', 'Successfully get quote', null);
   } catch (err) {
     if (err instanceof Error) {

@@ -1,3 +1,5 @@
+import { calcDate } from '@/lib/utils';
+import { EmailDataContent } from '@/types';
 import {
   Body,
   Column,
@@ -12,15 +14,16 @@ import {
   Section,
   Text,
 } from '@react-email/components';
+import crypto from 'crypto';
 
-const baseUrl = process.env.NEXT_PUBLIC_SERVER_URL
-  ? `https://${process.env.NEXT_PUBLIC_SERVER_URL}`
+const baseUrl = process.env.VERCEL_URL
+  ? `https://${process.env.VERCEL_URL}`
   : '';
 
-export const AppleReceiptEmail = () => (
+export const QuoteReceiptEmail = ({ data }: { data: EmailDataContent }) => (
   <Html>
     <Head />
-    <Preview>Apple Receipt</Preview>
+    <Preview>Quote Receipt</Preview>
 
     <Body style={main}>
       <Container style={container}>
@@ -28,10 +31,16 @@ export const AppleReceiptEmail = () => (
           <Row>
             <Column>
               <Img
-                src={`${baseUrl}/static/apple-logo.png`}
-                width='42'
-                height='42'
-                alt='Apple Logo'
+                src={`${baseUrl}/invoice-logo.png`}
+                width='auto'
+                height='auto'
+                style={{
+                  width: '100%',
+                  height: '5rem',
+                  aspectRatio: '16/9',
+                }}
+                alt='Consultero Logo'
+                // className='w-full h-16 aspect-video'
               />
             </Column>
 
@@ -42,12 +51,18 @@ export const AppleReceiptEmail = () => (
         </Section>
         <Section>
           <Text style={cupomText}>
-            Save 3% on all your Apple purchases with Apple Card.
-            <sup style={supStyle}>1</sup>{' '}
-            <Link href='https://www.apple.com/apple-card'>
-              Apply and use in minutes
-            </Link>
-            <sup style={supStyle}>2</sup>
+            {/* Hello ${fullName}, Thank you for contacting us. We have received
+            your query and will get back to you soon. Regards, Support Team.
+            Full Name: ${fullName}
+            Email: ${email}
+            Phone No: ${phoneNo}
+            Communication Method: ${communicationMethod}
+            Message: ${message} */}
+            Hello {data.enquirerName}, Thank you for contacting us. We have
+            received your Quotation.
+            {/* <sup style={supStyle}>1</sup>{' '}
+            <Link href='#'>Apply and use in minutes</Link>
+            <sup style={supStyle}>2</sup> */}
           </Text>
         </Section>
         <Section style={informationTable}>
@@ -63,7 +78,7 @@ export const AppleReceiptEmail = () => (
                         color: '#15c',
                         textDecoration: 'underline',
                       }}>
-                      alan.turing@gmail.com
+                      {data.userId}
                     </Link>
                   </Column>
                 </Row>
@@ -71,7 +86,9 @@ export const AppleReceiptEmail = () => (
                 <Row>
                   <Column style={informationTableColumn}>
                     <Text style={informationTableLabel}>INVOICE DATE</Text>
-                    <Text style={informationTableValue}>18 Jan 2023</Text>
+                    <Text style={informationTableValue}>
+                      {calcDate(new Date())}
+                    </Text>
                   </Column>
                 </Row>
 
@@ -84,33 +101,40 @@ export const AppleReceiptEmail = () => (
                         color: '#15c',
                         textDecoration: 'underline',
                       }}>
-                      ML4F5L8522
+                      {crypto.randomBytes(10).toString('hex')}
                     </Link>
                   </Column>
                   <Column style={informationTableColumn}>
                     <Text style={informationTableLabel}>DOCUMENT NO.</Text>
-                    <Text style={informationTableValue}>186623754793</Text>
+                    <Text style={informationTableValue}>
+                      {crypto.randomBytes(10).toString('hex')}
+                    </Text>
                   </Column>
                 </Row>
               </Section>
             </Column>
             <Column style={informationTableColumn} colSpan={2}>
               <Text style={informationTableLabel}>BILLED TO</Text>
-              <Text style={informationTableValue}>
+              {/* <Text style={informationTableValue}>
                 Visa .... 7461 (Apple Pay)
-              </Text>
-              <Text style={informationTableValue}>Alan Turing</Text>
-              <Text style={informationTableValue}>2125 Chestnut St</Text>
-              <Text style={informationTableValue}>San Francisco, CA 94123</Text>
-              <Text style={informationTableValue}>USA</Text>
+              </Text> */}
+              <Text style={informationTableValue}>{data.enquirerName}</Text>
+              {/* <Text style={informationTableValue}>2125 Chestnut St</Text> */}
+              {/* <Text style={informationTableValue}>San Francisco, CA 94123</Text> */}
+              {/* <Text style={informationTableValue}>USA</Text> */}
+              <Text style={informationTableValue}>{data.companyName}</Text>
+              <Text style={informationTableValue}>{data.email}</Text>
+              <Text style={informationTableValue}>{data.phoneNo}</Text>
+              <Text style={informationTableValue}>{data.location}</Text>
+              <Text style={informationTableValue}>{data.jobRole}</Text>
             </Column>
           </Row>
         </Section>
         <Section style={productTitleTable}>
-          <Text style={productsTitle}>App Store</Text>
+          <Text style={productsTitle}>Quote Information</Text>
         </Section>
         <Section>
-          <Row>
+          {/* <Row>
             <Column style={{ width: '64px' }}>
               <Img
                 src={`${baseUrl}/static/apple-hbo-max-icon.jpeg`}
@@ -140,7 +164,48 @@ export const AppleReceiptEmail = () => (
             </Column>
 
             <Column style={productPriceWrapper} align='right'>
-              <Text style={productPrice}>$14.99</Text>
+              <Text style={productPrice}>&#8377; {data.nettSalary}</Text>
+            </Column>
+          </Row> */}
+
+          <Row>
+            <Column style={{ paddingLeft: '22px' }}>
+              <Text style={productTitle}>Monthly Salary</Text>
+              <Text style={productDescription}>{data.afterMonthlysalary}</Text>
+              <Text style={productDescription}>{data.monthlyCGST}</Text>
+              <Text style={productDescription}>{data.monthlySGST}</Text>
+            </Column>
+            <Column style={productPriceWrapper} align='right'>
+              <Text style={productPrice}>
+                &#8377; {data.beforeMonthlySalary}
+              </Text>
+            </Column>
+          </Row>
+          <Hr style={productPriceLine} />
+          <Row>
+            <Column style={{ paddingLeft: '22px' }}>
+              <Text style={productTitle}>Annual Salary</Text>
+              <Text style={productDescription}>{data.afterAnnualSalary}</Text>
+              <Text style={productDescription}>{data.annualCGST}</Text>
+              <Text style={productDescription}>{data.annualSGST}</Text>
+            </Column>
+            <Column style={productPriceWrapper} align='right'>
+              <Text style={productPrice}>
+                &#8377; {data.beforeAnnualSalary}
+              </Text>
+            </Column>
+          </Row>
+          <Hr style={productPriceLine} />
+          <Row>
+            <Column style={{ paddingLeft: '22px' }}>
+              <Text style={productTitle}>Commission</Text>
+              <Text style={productDescription}>{data.afterPayCommission}</Text>
+              <Text style={productDescription}>{data.commission}</Text>
+            </Column>
+            <Column style={productPriceWrapper} align='right'>
+              <Text style={productPrice}>
+                &#8377; {data.beforePayCommission}
+              </Text>
             </Column>
           </Row>
         </Section>
@@ -152,24 +217,25 @@ export const AppleReceiptEmail = () => (
             </Column>
             <Column style={productPriceVerticalLine}></Column>
             <Column style={productPriceLargeWrapper}>
-              <Text style={productPriceLarge}>$14.99</Text>
+              <Text style={productPriceLarge}>&#8377; {data.nettSalary}</Text>
             </Column>
           </Row>
         </Section>
         <Hr style={productPriceLineBottom} />
-        <Section>
+        {/* <Section>
           <Row>
             <Column align='center' style={block}>
               <Img
-                src={`${baseUrl}/static/apple-card-icon.png`}
+                src={`${baseUrl}/black-logo.png`}
                 width='60'
                 height='17'
-                alt='Apple Card'
+                alt='consultero logo'
               />
             </Column>
           </Row>
-        </Section>
-        <Section>
+        </Section> */}
+
+        {/* <Section>
           <Row>
             <Column align='center' style={ctaTitle}>
               <Text style={ctaText}>Save 3% on all your Apple purchases.</Text>
@@ -253,42 +319,35 @@ export const AppleReceiptEmail = () => (
           <Link href='https://finance-app.itunes.apple.com/account/subscriptions?unsupportedRedirectUrl=https://apps.apple.com/US/invoice'>
             Account Settings.
           </Link>
-        </Text>
+        </Text> */}
         <Section>
           <Row>
             <Column align='center' style={footerIcon}>
               <Img
-                src={`${baseUrl}/static/apple-logo.png`}
-                width='26'
-                height='26'
-                alt='Apple Card'
+                src={`${baseUrl}/invoice-logo-2.png`}
+                width='auto'
+                height='auto'
+                alt='Consultero Logo'
+                className='w-full h-16'
               />
             </Column>
           </Row>
         </Section>
         <Text style={footerLinksWrapper}>
-          <Link href='https://buy.itunes.apple.com/WebObjects/MZFinance.woa/wa/accountSummary?mt=8'>
-            Account Settings
-          </Link>{' '}
-          •{' '}
-          <Link href='https://www.apple.com/legal/itunes/us/sales.html'>
-            Terms of Sale
-          </Link>{' '}
-          •{' '}
-          <Link href='https://www.apple.com/legal/privacy/'>
-            Privacy Policy{' '}
-          </Link>
+          {/* <Link href='#'>Account Settings</Link> •{' '} */}
+          <Link href='#'>Terms and Conditions</Link> •{' '}
+          <Link href='#'>Privacy Policy </Link>
         </Text>
         <Text style={footerCopyright}>
-          Copyright © 2023 Apple Inc. <br />{' '}
-          <Link href='https://www.apple.com/legal/'>All rights reserved</Link>
+          Copyright © {new Date().getFullYear()} <br />{' '}
+          <Link href='#'>All rights reserved</Link>
         </Text>
       </Container>
     </Body>
   </Html>
 );
 
-export default AppleReceiptEmail;
+export default QuoteReceiptEmail;
 
 const main = {
   fontFamily: '"Helvetica Neue",Helvetica,Arial,sans-serif',
@@ -484,7 +543,11 @@ const footerTextCenter = {
 
 const footerLink = { color: 'rgb(0,115,255)' };
 
-const footerIcon = { display: 'block', margin: '40px 0 0 0' };
+const footerIcon = {
+  display: 'block',
+  margin: '40px 0 0 0',
+  aspectRatio: '1/1',
+};
 
 const footerLinksWrapper = {
   margin: '8px 0 0 0',

@@ -3,7 +3,6 @@
 import Contact from '@/models/Contact.model';
 import User from '@/models/User.model';
 import { currentUser } from '@clerk/nextjs/server';
-import { sendMail } from './nodemailer';
 import { actionResponse } from './utils';
 
 export async function createContact(formData: FormData) {
@@ -95,7 +94,7 @@ export async function createContact(formData: FormData) {
     }
 
     // send email
-    await sendMail(emailContent, email as string);
+    // await sendMail(emailContent, email as string);
 
     return actionResponse('success', 'Successfully sent your query.', null);
   } catch (err) {

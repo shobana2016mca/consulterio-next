@@ -47,3 +47,56 @@ export type EmailContent = {
 };
 
 export type SendTo = string | string[];
+
+export type GenerateEmailContent = {
+  enquirerName: string;
+  companyName: string;
+  email: string;
+  phoneNo: string;
+  location: string;
+  jobRole: string;
+  noOfEmployees: string;
+  about?: string;
+
+  beforeMonthlySalary: string;
+  totalMonthlyTax: string;
+  monthlyCGST: string;
+  monthlySGST: string;
+  afterMonthlysalary: string;
+  beforeAnnualSalary: string;
+  totalAnnuallyTax: string;
+  annualCGST: string;
+  annualSGST: string;
+  afterAnnualSalary: string;
+  beforePayCommission: string;
+  commission: string;
+  afterPayCommission: string;
+  nettSalary: string;
+};
+
+export type EmailDataContent = {
+  enquirerName: string;
+  companyName: string;
+  email: string;
+  phoneNo: string;
+  location: string;
+  jobRole: string;
+  noOfEmployees: string;
+  about?: string;
+
+  beforeMonthlySalary: string;
+  totalMonthlyTax: string;
+  monthlyCGST: string;
+  monthlySGST: string;
+  afterMonthlysalary: string;
+  beforeAnnualSalary: string;
+  totalAnnuallyTax: string;
+  annualCGST: string;
+  annualSGST: string;
+  afterAnnualSalary: string;
+  beforePayCommission: string;
+  commission: string;
+  afterPayCommission: string;
+  nettSalary: string;
+  userId: string;
+};
