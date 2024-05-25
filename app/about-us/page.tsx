@@ -35,17 +35,17 @@ export default function AboutPage({
                   including industry leaders like TCS and Capgemini.
                 </p>
                 <p className="font-normal text-xl leading-8 text-gray-500 max-lg:text-center max-w-2xl mx-auto">
-                  Our mission is to drive your company's growth by connecting
-                  you with the right candidates who not only meet your
-                  requirements but also contribute to your long-term success. We
-                  take pride in our personalized approach, ensuring that every
-                  hiring solution is tailored to fit your unique needs. At
-                  Consultero, we believe that the right talent can propel your
-                  business to new heights. Whether you are a startup or an
-                  established corporation, our team is committed to supporting
-                  your journey with expertise, dedication, and a passion for
-                  excellence. Discover the Consultero advantage today and let us
-                  help you build the future of your business.
+                  Our mission is to drive your company&apos;s growth by
+                  connecting you with the right candidates who not only meet
+                  your requirements but also contribute to your long-term
+                  success. We take pride in our personalized approach, ensuring
+                  that every hiring solution is tailored to fit your unique
+                  needs. At Consultero, we believe that the right talent can
+                  propel your business to new heights. Whether you are a startup
+                  or an established corporation, our team is committed to
+                  supporting your journey with expertise, dedication, and a
+                  passion for excellence. Discover the Consultero advantage
+                  today and let us help you build the future of your business.
                 </p>
               </div>
             </div>
@@ -83,7 +83,7 @@ export default function AboutPage({
                   time-to-hire and ensuring a perfect fit for every role. With
                   Consultero, you can trust that your recruitment process will
                   be handled with precision and care, leading to improved
-                  outcomes and a stronger, more capable workforce.
+                  outcomes and a stronger, more capable workforce.
                 </p>
               </div>
             </div>
