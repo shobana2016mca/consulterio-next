@@ -45,7 +45,7 @@ export default function AboutPage({
                   or an established corporation, our team is committed to
                   supporting your journey with expertise, dedication, and a
                   passion for excellence. Discover the Consultero advantage
-                  today and let us help you build the future of your business.
+                  today and let us help you build the future of your business.
                 </p>
               </div>
             </div>
