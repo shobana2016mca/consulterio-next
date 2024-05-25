@@ -20,7 +20,7 @@ export async function sendMail(
   emailContent: EmailContent,
   sendTo: SendTo,
   emailData: any,
-  type: 'contact' | 'quote'
+  type: 'contact' | 'quote' | 'enquiry'
 ) {
   try {
     let emailHtml;
@@ -31,9 +31,18 @@ export async function sendMail(
     if (type === 'quote') {
       emailHtml = render(<QuoteReceiptEmail data={emailData} />);
     }
-
-    // const emailHtml = render(<ContactUsEmail data={emailData} />);
-    // const emailHtml = render(<QuoteReceiptEmail data={emailData} />);
+    if (type === 'enquiry') {
+      // send mail with defined transport object
+      const info = await transporter.sendMail({
+        from: `${process.env.EMAIL_ADDRESS}`, // sender address company mail
+        to: `${process.env.EMAIL_ADDRESS}, ${sendTo}`, // list of receivers
+        subject: emailContent.subject, // Subject line
+        text: `${emailContent.text} user was contact us`, // plain text body
+        html: emailContent.html, // html body
+      });
+      console.log('Email Sent...📨');
+      return actionResponse('success', 'Message sent', null);
+    }
 
     // send mail with defined transport object
     const info = await transporter.sendMail({

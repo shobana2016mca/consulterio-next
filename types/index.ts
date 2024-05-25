@@ -43,6 +43,13 @@ export type CalculationsType = {
   nettSalary: number;
 };
 
+export type EnquiryFormInputType = {
+  fullName: string;
+  companyName: string;
+  email: string;
+  phoneNo: string;
+};
+
 export type InvoivePDFPropType = {
   data: QuoteFormInputsType;
   calculations: CalculationsType;

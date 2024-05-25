@@ -10,7 +10,7 @@ export default function ContactFormMap() {
         marginHeight={0}
         marginWidth={0}
         scrolling='no'
-        src='https://maps.google.com/maps?width=100%&height=600&hl=en&q=%C4%B0zmir+(My%20Business%20Name)&ie=UTF8&t=&z=14&iwloc=B&output=embed'></iframe>
+        src='https://maps.google.com/maps?width=100%&height=600&hl=en&q=chennai+(My%20Business%20Name)&ie=UTF8&t=&z=14&iwloc=B&output=embed'></iframe>
     </div>
   );
 }

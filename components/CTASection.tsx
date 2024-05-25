@@ -10,19 +10,26 @@ export default function CTASection() {
             Join our community of subscribers and receive regular updates
             delivered straight to your inbox. It&apos;s quick, easy, and free
           </p>
-          <div className='max-w-md mx-auto lg:bg-transparent lg:border border-gray-300 rounded-3xl max-lg:py-3 lg:rounded-full lg:h-12 lg:p-1.5 lg:flex-row gap-6 lg:gap-0 flex-col flex items-center justify-between'>
-            <input
-              type='text'
-              name='email'
-              className='py-2 px-6 bg-transparent rounded-full max-lg:border border-gray-300  text-gray-100 max-lg:text-center placeholder:text-gray-400 focus:outline-none flex-1 w-full lg:w-auto lg:py-2 lg:px-6 lg:bg-transparent'
-              placeholder='Enter your email..'
-            />
-            <button
-              type='submit'
-              className='py-2 px-5 text-sm bg-indigo-500 shadow-md rounded-full  text-white font-semibold hover:bg-indigo-700'>
-              Subscribe
-            </button>
-          </div>
+          <form action='#'>
+            <div className='max-w-md mx-auto lg:bg-transparent lg:border border-gray-300 rounded-3xl max-lg:py-3 lg:rounded-full lg:h-12 lg:p-1.5 lg:flex-row gap-6 lg:gap-0 flex-col flex items-center justify-between'>
+              <label htmlFor='ctaEmail' className='sr-only'>
+                Email
+              </label>
+              <input
+                type='text'
+                id='ctaEmail'
+                name='ctaEmail'
+                autoComplete='email'
+                className='py-2 px-6 bg-transparent rounded-full max-lg:border border-gray-300  text-gray-100 max-lg:text-center placeholder:text-gray-400 focus:outline-none flex-1 w-full lg:w-auto lg:py-2 lg:px-6 lg:bg-transparent'
+                placeholder='Enter your email..'
+              />
+              <button
+                type='button'
+                className='py-2 px-5 text-sm bg-indigo-500 shadow-md rounded-full  text-white font-semibold hover:bg-indigo-700'>
+                Subscribe
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </section>

@@ -8,6 +8,7 @@ import {
 import 'animate.css';
 import { Fragment } from 'react';
 
+import { MapPinIcon, MessageIcon, PhoneIcon } from '@/assets/icons';
 import { useEnquiryModalContext } from '@/contexts/EnquiryFormModalContext';
 import { classNames } from '@/lib/utils';
 import EnquiryForm from './EnquiryForm';
@@ -61,7 +62,63 @@ export default function EnquiryFormModal() {
                   </button>
                 </div>
                 <div className='mt-2'>
-                  <EnquiryForm />
+                  <div
+                    className='grid md:grid-cols-2 items-center lg:grid-cols-3 max-w-6xl mx-auto py-6 
+      bg-white font-manrope'>
+                    <div>
+                      <h2 className='text-[#333] text-xl font-semibold'>
+                        Enquiry Form
+                      </h2>
+                      <div className='px-4 space-y-10 mt-8'>
+                        <div className='flex'>
+                          <div className='w-8 h-8 flex items-center shrink-0 rounded border p-1.5'>
+                            {<MessageIcon className='w-full' />}
+                          </div>
+                          <div className='ml-4'>
+                            <h4 className='text-[#333] text-base font-semibold'>
+                              Chat to us
+                            </h4>
+                            <p className='text-xs'>
+                              Chat with our team to help.
+                            </p>
+                            <p className='text-sm font-semibold mt-4'>
+                              exmple@gmail.com
+                            </p>
+                          </div>
+                        </div>
+                        <div className='flex'>
+                          <div className='w-8 h-8 flex items-center shrink-0 rounded border p-1.5'>
+                            {<MapPinIcon className='w-full' />}
+                          </div>
+                          <div className='ml-4'>
+                            <h4 className='text-[#333] text-base font-semibold'>
+                              Visit us
+                            </h4>
+                            <p className='text-xs'>Visit our office HQ.</p>
+                            <p className='text-sm font-semibold mt-4'>
+                              123 Street 256 House
+                            </p>
+                          </div>
+                        </div>
+                        <div className='flex'>
+                          <div className='w-8 h-8 flex items-center shrink-0 rounded border p-1.5'>
+                            {<PhoneIcon className='w-full' />}
+                          </div>
+                          <div className='ml-4'>
+                            <h4 className='text-[#333] text-base font-semibold'>
+                              Call us
+                            </h4>
+                            <p className='text-xs'>Monday to Friday.</p>
+                            <p className='text-sm font-semibold mt-4'>
+                              +158 996 888
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    {/* Form */}
+                    <EnquiryForm />
+                  </div>
                 </div>
 
                 {/* <div className='mt-4 flex items-center justify-center w-full'>
