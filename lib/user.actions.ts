@@ -6,6 +6,26 @@ import { revalidatePath } from 'next/cache';
 import { connectDB } from './connectDB';
 import { actionResponse } from './utils';
 
+type UserType = {
+  clerkId: string;
+  email: string;
+  username: string;
+  firstName: string | null;
+  lastName: string | null;
+  photo: string;
+};
+
+export async function createUser(user: UserType) {
+  try {
+    return JSON.parse(JSON.stringify(user));
+  } catch (error) {
+    if (error instanceof Error) {
+      return actionResponse('error', error.message, null);
+    }
+    return actionResponse('fail', 'Failed to create user', null);
+  }
+}
+
 export async function updateUser(user: IUser) {
   try {
     // connect db
