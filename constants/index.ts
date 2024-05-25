@@ -13,6 +13,11 @@ import { MdDeveloperBoard } from "react-icons/md";
 import { MdHighQuality } from "react-icons/md";
 import { FaCalculator } from "react-icons/fa";
 import { FaUserTie } from "react-icons/fa6";
+import { FaUsers } from "react-icons/fa";
+import { FaCalendarAlt } from "react-icons/fa";
+import { BsCalendar2CheckFill } from "react-icons/bs";
+import { FaWpforms } from "react-icons/fa";
+import { MdSupportAgent } from "react-icons/md";
 
 export const resultInNumber = [
   {
@@ -59,35 +64,35 @@ export const services = [
     title: "Recruitment Process",
     details:
       "We manage the entire recruitment process, from understanding your requirements to sourcing the perfect candidates. Our thorough approach ensures that you receive only the most qualified and suitable candidates for your roles.",
-    icon: ServiceIcon,
+    icon: FaUsers,
   },
   {
     id: crypto.randomUUID(),
     title: "Scheduling Candidates",
     details:
       "Our team handles the scheduling of candidates for interviews, coordinating with both the candidates and your team to find the most convenient times. We ensure a seamless and organized scheduling process, saving you time and effort.",
-    icon: ServiceIcon,
+    icon: FaCalendarAlt,
   },
   {
     id: crypto.randomUUID(),
     title: "Conducting Interviews",
     details:
       "We conduct initial interviews to screen and assess candidates, ensuring they meet your specific criteria. This helps streamline your hiring process by presenting you with only the best-fit candidates for further evaluation.",
-    icon: ServiceIcon,
+    icon: BsCalendar2CheckFill,
   },
   {
     id: crypto.randomUUID(),
     title: "Following Up Till Joining",
     details:
       "Our support doesn't end with the offer letter. We stay in touch with candidates throughout the entire process, ensuring a smooth transition from offer acceptance to joining your organization. We address any concerns and provide continuous support to both you and the candidates.",
-    icon: ServiceIcon,
+    icon: FaWpforms,
   },
   {
     id: crypto.randomUUID(),
     title: "Replacement Support for 2 Months",
     details:
       "To ensure your complete satisfaction, we offer replacement support for up to two months. If a hired candidate leaves or does not meet your expectations within this period, we will find a suitable replacement at no additional cost.",
-    icon: ServiceIcon,
+    icon: MdSupportAgent,
   },
 ];
 
