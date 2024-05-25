@@ -113,7 +113,7 @@ export const serviceCardData = [
     details: "",
     bgClasses: "bg-pink-50 group-hover:bg-pink-600",
     iconClasses:
-      "stroke-pink-600 transition-all duration-500 group-hover:stroke-white",
+      "text-pink-600 transition-all duration-500 group-hover:text-white",
   },
 
   {
@@ -123,34 +123,34 @@ export const serviceCardData = [
     details: "",
     bgClasses: "bg-orange-50 group-hover:bg-orange-600",
     iconClasses:
-      "stroke-orange-600 transition-all duration-500 group-hover:stroke-white",
+      "text-orange-600 transition-all duration-500 group-hover:text-white",
   },
   {
     id: crypto.randomUUID(),
     icon: GiTrophy,
     title: " Customer Success ",
     details: "",
-    bgClasses: "bg-indigo-50 group-hover:bg-indigo-600",
+    bgClasses: "bg-teal-50 group-hover:bg-teal-600",
     iconClasses:
-      "stroke-indigo-600 transition-all duration-500 group-hover:stroke-white",
+      "text-teal-600 transition-all duration-500 group-hover:text-white",
   },
   {
     id: crypto.randomUUID(),
     icon: BiAnalyse,
     title: "Business analyst",
     details: "",
-    bgClasses: "bg-pink-50 group-hover:bg-pink-600",
+    bgClasses: "bg-indigo-50 group-hover:bg-indigo-600",
     iconClasses:
-      "stroke-pink-600 transition-all duration-500 group-hover:stroke-white",
+      "text-indigo-600 transition-all duration-500 group-hover:text-white",
   },
   {
     id: crypto.randomUUID(),
     icon: ServiceCardIcon3,
     title: "Sales and marketing ",
     details: "",
-    bgClasses: "bg-teal-50 group-hover:bg-teal-600",
+    bgClasses: "bg-pink-50 group-hover:bg-pink-600",
     iconClasses:
-      "stroke-teal-600 transition-all duration-500 group-hover:stroke-white",
+      "stroke-pink-600 transition-all duration-500 group-hover:stroke-white",
   },
   {
     id: crypto.randomUUID(),
@@ -159,53 +159,17 @@ export const serviceCardData = [
     details: "",
     bgClasses: "bg-orange-50 group-hover:bg-orange-600",
     iconClasses:
-      "stroke-orange-600 transition-all duration-500 group-hover:stroke-white",
+      "text-orange-600 transition-all duration-500 group-hover:text-white",
   },
   {
     id: crypto.randomUUID(),
     icon: FaUserTie,
-    title: "Human resources",
+    title: "Human resources",
     details: "",
     bgClasses: "bg-teal-50 group-hover:bg-teal-600",
     iconClasses:
-      "stroke-teal-600 transition-all duration-500 group-hover:stroke-white",
+      "text-teal-600 transition-all duration-500 group-hover:text-white",
   },
-  // {
-  //   id: crypto.randomUUID(),
-  //   icon: ServiceCardIcon1,
-  //   title: "Customer Success",
-  //   details: "",
-  //   bgClasses: "bg-purple-100 group-hover:bg-purple-600",
-  //   iconClasses:
-  //     "stroke-purple-600 transition-all duration-500 group-hover:stroke-white",
-  // },
-  // {
-  //   id: crypto.randomUUID(),
-  //   icon: ServiceCardIcon2,
-  //   title: "Sales and marketing",
-  //   details: "",
-  //   bgClasses: "bg-indigo-50 group-hover:bg-indigo-600",
-  //   iconClasses:
-  //     "stroke-indigo-600 transition-all duration-500 group-hover:stroke-white",
-  // },
-  // {
-  //   id: crypto.randomUUID(),
-  //   icon: ServiceCardIcon3,
-  //   title: "Finance and accountant",
-  //   details: "",
-  //   bgClasses: "bg-emerald-50 group-hover:bg-emerald-600",
-  //   iconClasses:
-  //     "stroke-emerald-600 transition-all duration-500 group-hover:stroke-white",
-  // },
-  // {
-  //   id: crypto.randomUUID(),
-  //   icon: ServiceCardIcon4,
-  //   title: "Human resources",
-  //   details: "",
-  //   bgClasses: "bg-rose-50 group-hover:bg-rose-600",
-  //   iconClasses:
-  //     "stroke-rose-600 transition-all duration-500 group-hover:stroke-white",
-  // },
 ];
 
 export const approaches = [
