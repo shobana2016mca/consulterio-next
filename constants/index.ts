@@ -5,6 +5,14 @@ import {
   ServiceCardIcon4,
   ServiceIcon,
 } from "@/assets/icons";
+import { UserIcon } from "@heroicons/react/24/outline";
+import { GiTrophy } from "react-icons/gi";
+import { BiAnalyse } from "react-icons/bi";
+import { GrUserManager } from "react-icons/gr";
+import { MdDeveloperBoard } from "react-icons/md";
+import { MdHighQuality } from "react-icons/md";
+import { FaCalculator } from "react-icons/fa";
+import { FaUserTie } from "react-icons/fa6";
 
 export const resultInNumber = [
   {
@@ -86,19 +94,46 @@ export const services = [
 export const serviceCardData = [
   {
     id: crypto.randomUUID(),
-    icon: ServiceCardIcon1,
-    title: "Revolutionary Projectview",
-    details: "plan and structure work how you want. Quickly organizing tasks.",
+    icon: GrUserManager,
+    title: " Product manager",
+    details: "",
     bgClasses: "bg-indigo-50 group-hover:bg-indigo-600",
     iconClasses:
       "stroke-indigo-600 transition-all duration-500 group-hover:stroke-white",
   },
   {
     id: crypto.randomUUID(),
-    icon: ServiceCardIcon2,
-    title: "App Integrations",
-    details:
-      "Bring all your tools and data together. Also join with hundreds of other apps.",
+    icon: MdDeveloperBoard,
+    title: "Software Developer ",
+    details: "",
+    bgClasses: "bg-pink-50 group-hover:bg-pink-600",
+    iconClasses:
+      "stroke-pink-600 transition-all duration-500 group-hover:stroke-white",
+  },
+
+  {
+    id: crypto.randomUUID(),
+    icon: MdHighQuality,
+    title: "Quality analyst",
+    details: "",
+    bgClasses: "bg-orange-50 group-hover:bg-orange-600",
+    iconClasses:
+      "stroke-orange-600 transition-all duration-500 group-hover:stroke-white",
+  },
+  {
+    id: crypto.randomUUID(),
+    icon: GiTrophy,
+    title: " Customer Success ",
+    details: "",
+    bgClasses: "bg-indigo-50 group-hover:bg-indigo-600",
+    iconClasses:
+      "stroke-indigo-600 transition-all duration-500 group-hover:stroke-white",
+  },
+  {
+    id: crypto.randomUUID(),
+    icon: BiAnalyse,
+    title: "Business analyst",
+    details: "",
     bgClasses: "bg-pink-50 group-hover:bg-pink-600",
     iconClasses:
       "stroke-pink-600 transition-all duration-500 group-hover:stroke-white",
@@ -106,63 +141,66 @@ export const serviceCardData = [
   {
     id: crypto.randomUUID(),
     icon: ServiceCardIcon3,
-    title: "Data Reporting",
-    details:
-      "Get real time insight into progress and allows teams to track their work habits",
+    title: "Sales and marketing ",
+    details: "",
     bgClasses: "bg-teal-50 group-hover:bg-teal-600",
     iconClasses:
       "stroke-teal-600 transition-all duration-500 group-hover:stroke-white",
   },
   {
     id: crypto.randomUUID(),
-    icon: ServiceCardIcon4,
-    title: "Workflow Builder",
-    details:
-      "Automated processes to coordinate your teams and increase communication.",
+    icon: FaCalculator,
+    title: "Finance and accountant",
+    details: "",
     bgClasses: "bg-orange-50 group-hover:bg-orange-600",
     iconClasses:
       "stroke-orange-600 transition-all duration-500 group-hover:stroke-white",
   },
   {
     id: crypto.randomUUID(),
-    icon: ServiceCardIcon4,
-    title: "Workflow Builder",
-    details:
-      "Automated processes to coordinate your teams and increase communication.",
-    bgClasses: "bg-orange-50 group-hover:bg-orange-600",
+    icon: FaUserTie,
+    title: "Human resources",
+    details: "",
+    bgClasses: "bg-teal-50 group-hover:bg-teal-600",
     iconClasses:
-      "stroke-orange-600 transition-all duration-500 group-hover:stroke-white",
+      "stroke-teal-600 transition-all duration-500 group-hover:stroke-white",
   },
-  {
-    id: crypto.randomUUID(),
-    icon: ServiceCardIcon4,
-    title: "Workflow Builder",
-    details:
-      "Automated processes to coordinate your teams and increase communication.",
-    bgClasses: "bg-orange-50 group-hover:bg-orange-600",
-    iconClasses:
-      "stroke-orange-600 transition-all duration-500 group-hover:stroke-white",
-  },
-  {
-    id: crypto.randomUUID(),
-    icon: ServiceCardIcon4,
-    title: "Workflow Builder",
-    details:
-      "Automated processes to coordinate your teams and increase communication.",
-    bgClasses: "bg-orange-50 group-hover:bg-orange-600",
-    iconClasses:
-      "stroke-orange-600 transition-all duration-500 group-hover:stroke-white",
-  },
-  {
-    id: crypto.randomUUID(),
-    icon: ServiceCardIcon4,
-    title: "Workflow Builder",
-    details:
-      "Automated processes to coordinate your teams and increase communication.",
-    bgClasses: "bg-orange-50 group-hover:bg-orange-600",
-    iconClasses:
-      "stroke-orange-600 transition-all duration-500 group-hover:stroke-white",
-  },
+  // {
+  //   id: crypto.randomUUID(),
+  //   icon: ServiceCardIcon1,
+  //   title: "Customer Success",
+  //   details: "",
+  //   bgClasses: "bg-purple-100 group-hover:bg-purple-600",
+  //   iconClasses:
+  //     "stroke-purple-600 transition-all duration-500 group-hover:stroke-white",
+  // },
+  // {
+  //   id: crypto.randomUUID(),
+  //   icon: ServiceCardIcon2,
+  //   title: "Sales and marketing",
+  //   details: "",
+  //   bgClasses: "bg-indigo-50 group-hover:bg-indigo-600",
+  //   iconClasses:
+  //     "stroke-indigo-600 transition-all duration-500 group-hover:stroke-white",
+  // },
+  // {
+  //   id: crypto.randomUUID(),
+  //   icon: ServiceCardIcon3,
+  //   title: "Finance and accountant",
+  //   details: "",
+  //   bgClasses: "bg-emerald-50 group-hover:bg-emerald-600",
+  //   iconClasses:
+  //     "stroke-emerald-600 transition-all duration-500 group-hover:stroke-white",
+  // },
+  // {
+  //   id: crypto.randomUUID(),
+  //   icon: ServiceCardIcon4,
+  //   title: "Human resources",
+  //   details: "",
+  //   bgClasses: "bg-rose-50 group-hover:bg-rose-600",
+  //   iconClasses:
+  //     "stroke-rose-600 transition-all duration-500 group-hover:stroke-white",
+  // },
 ];
 
 export const approaches = [

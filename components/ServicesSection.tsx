@@ -1,20 +1,21 @@
-import EnquiryModalContextProvider from '@/contexts/EnquiryFormModalContext';
-import ServiceSectionCard from './ServiceSectionCard';
+import EnquiryModalContextProvider from "@/contexts/EnquiryFormModalContext";
+import ServiceSectionCard from "./ServiceSectionCard";
 
 export default function ServicesSection() {
   return (
-    <section className='py-24'>
-      <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
-        <div className='mb-14 text-center'>
-          <span className='py-1 px-4 bg-indigo-100 rounded-full text-xs font-medium text-indigo-600 text-center'>
+    <section className="py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mb-14 text-center">
+          {/* <span className="py-1 px-4 bg-indigo-100 rounded-full text-xs font-medium text-indigo-600 text-center">
             Features
-          </span>
-          <h2 className='text-4xl text-center font-bold text-gray-900 py-5'>
-            Our Services
+          </span> */}
+          <h2 className="text-4xl text-center font-bold text-gray-900 py-5">
+            Key job roles in various departments.
           </h2>
-          <p className='text-lg font-normal text-gray-500 max-w-md md:max-w-2xl mx-auto'>
-            Provides advanced features like time tracking, integrating with
-            third party apps (calendar / Google drive), creating subtasks.
+          <p className="text-lg font-normal text-gray-500 max-w-md md:max-w-2xl mx-auto">
+            Beyond technical roles, both SAS companies and product software
+            companies have a variety of important positions across other
+            departments.
           </p>
         </div>
         <EnquiryModalContextProvider>
