@@ -30,8 +30,8 @@ export default function Footer() {
               <PagedoneLogo className='w-40 h-8' />
             </Link> */}
             <p className='py-8 text-sm text-gray-200 lg:max-w-xs text-center lg:text-left'>
-              Trusted in more than 100 countries & 5 million customers. Have any
-              query ?
+              Trusted in 5 countries, 10k candidates & 250+ companies have taken
+              our service.
             </p>
             <Link
               href='/contact-us'

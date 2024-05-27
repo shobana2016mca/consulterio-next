@@ -203,7 +203,7 @@ export default function QuoteForm() {
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)} className='p-4 sm:p-8 space-y-4'>
-        <div className={'grid grid-cols-2 gap-2'}>
+        <div className={'grid grid-cols-1 sm:grid-cols-2 gap-2'}>
           <div className={'flex flex-col gap-2'}>
             <label htmlFor='enquirerName' className={'text-sm font-semibold'}>
               Enquirer Name
@@ -241,7 +241,7 @@ export default function QuoteForm() {
           </div>
         </div>
 
-        <div className={'grid grid-cols-2 gap-2'}>
+        <div className={'grid grid-cols-1 sm:grid-cols-2 gap-2'}>
           <div className={'flex flex-col gap-2'}>
             <label htmlFor='email' className={'text-sm font-semibold'}>
               Your email
@@ -275,7 +275,7 @@ export default function QuoteForm() {
           </div>
         </div>
 
-        <div className={'grid grid-cols-2 gap-2'}>
+        <div className={'grid grid-cols-1 sm:grid-cols-2 gap-2'}>
           <div className={'flex flex-col gap-2'}>
             <label htmlFor='location' className={'text-sm font-semibold'}>
               Location
@@ -308,7 +308,7 @@ export default function QuoteForm() {
           </div>
         </div>
 
-        <div className={'grid grid-cols-2 gap-2'}>
+        <div className={'grid grid-cols-1 sm:grid-cols-2 gap-2'}>
           <div className={'flex flex-col gap-2'}>
             <label htmlFor='monthlySalary' className={'text-sm font-semibold'}>
               Monthly Salary

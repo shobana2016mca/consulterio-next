@@ -11,7 +11,7 @@ const Brands = () => {
           AS FEATURED IN
         </h4>
         <div className='w-full px-4'>
-          <div className='grid grid-cols-4 gap-4 justify-items-center'>
+          <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 justify-items-center'>
             {brandsData.map((brand) => (
               <SingleBrand key={brand.id} brand={brand} />
             ))}

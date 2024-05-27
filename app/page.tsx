@@ -5,15 +5,15 @@ import HeroSection from '@/components/HeroSection';
 import OurResultInNumbers from '@/components/OurResultInNumbers';
 import ServicesSection from '@/components/ServicesSection';
 import Video from '@/components/video';
-import { updateUser } from '@/lib/user.actions';
-import { currentUser } from '@clerk/nextjs/server';
 
 export default async function Home() {
-  const user = await currentUser();
+  // const user = await currentUser();
 
-  if (user) {
-    await updateUser(user);
-  }
+  // if (user !== null) {
+  //   await updateUser(user);
+  // } else {
+  //   return redirect('/');
+  // }
 
   return (
     <main>

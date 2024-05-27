@@ -26,7 +26,7 @@ export default function ServiceSection() {
             </div>
           </div>
 
-          <div className='grid grid-cols-3 p-8 gap-8 justify-items-center'>
+          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-8 gap-8 justify-items-center'>
             {services.map((service) => (
               <ServiceCard
                 key={service.id}

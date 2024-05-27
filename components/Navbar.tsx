@@ -55,6 +55,7 @@ export default function Navbar() {
                         alt='Your Company'
                         width={100}
                         height={100}
+                        priority={true}
                       />
                     </Link>
                   </div>

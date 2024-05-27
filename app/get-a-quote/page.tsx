@@ -7,8 +7,10 @@ export default function GetAQuote() {
         <div className='grid grid-cols-1 lg:grid-cols-2 p-4 md:p-8 lg:p-16 gap-8'>
           <div className='flex flex-col items-stretch p-4 md:p-6 lg:p-12'>
             <p className='mb-2 text-blue-600'>Have Custom Needs</p>
-            <h3 className='mb-5 text-3xl font-semibold'>Get Custom Pricing</h3>
-            <p className='mb-16 text-lg text-gray-600'>
+            <h3 className='mb-5 text-base md:text-2xl lg:text-3xl font-semibold'>
+              Get Custom Pricing
+            </h3>
+            <p className='mb-16 text-sm md:text-base lg:text-lg text-gray-600'>
               Lorem ipsum dolor, sit amet consectetur adipisicing elit.
               Consectetur, corrupti asperiores voluptatum labore eligendi
               quisquam. Id quae, laboriosam saepe facere ea asperiores!
@@ -89,9 +91,9 @@ export default function GetAQuote() {
 
           <div className='border border-gray-100 shadow-gray-500/20 mt-8 mb-8 bg-white shadow-sm sm:rounded-lg sm:shadow-lg lg:mt-0'>
             <div className='relative border-b border-gray-300 p-4 py-8 sm:px-8'>
-              <h3 className='mb-1 inline-block text-3xl font-medium'>
+              <h3 className='mb-1 inline-block text-base md:text-2xl lg:text-3xl font-medium'>
                 <span className='mr-4'>Get a quote!</span>
-                <span className='inline-block rounded-md bg-blue-100 px-2 py-1 text-sm text-blue-700 sm:inline'>
+                <span className='inline-block rounded-md bg-blue-100 px-1 py-0.5 lg:px-2 lg:py-1 lg:text-sm text-xs text-blue-700 sm:inline'>
                   Quick Response
                 </span>
               </h3>
