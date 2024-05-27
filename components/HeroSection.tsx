@@ -10,7 +10,7 @@ export default function HeroSection() {
           alt='Background Image'
           width={1919}
           height={960}
-          priority
+          priority={true}
           className='object-cover absolute z-10 w-full h-full'
         />
         <div className=' w-full h-full bg-sky-950 bg-opacity-90 absolute z-20' />

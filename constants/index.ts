@@ -5,6 +5,19 @@ import {
   ServiceCardIcon4,
   ServiceIcon,
 } from "@/assets/icons";
+import { UserIcon } from "@heroicons/react/24/outline";
+import { GiTrophy } from "react-icons/gi";
+import { BiAnalyse } from "react-icons/bi";
+import { GrUserManager } from "react-icons/gr";
+import { MdDeveloperBoard } from "react-icons/md";
+import { MdHighQuality } from "react-icons/md";
+import { FaCalculator } from "react-icons/fa";
+import { FaUserTie } from "react-icons/fa6";
+import { FaUsers } from "react-icons/fa";
+import { FaCalendarAlt } from "react-icons/fa";
+import { BsCalendar2CheckFill } from "react-icons/bs";
+import { FaWpforms } from "react-icons/fa";
+import { MdSupportAgent } from "react-icons/md";
 
 export const resultInNumber = [
   {
@@ -51,117 +64,111 @@ export const services = [
     title: "Recruitment Process",
     details:
       "We manage the entire recruitment process, from understanding your requirements to sourcing the perfect candidates. Our thorough approach ensures that you receive only the most qualified and suitable candidates for your roles.",
-    icon: ServiceIcon,
+    icon: FaUsers,
   },
   {
     id: crypto.randomUUID(),
     title: "Scheduling Candidates",
     details:
       "Our team handles the scheduling of candidates for interviews, coordinating with both the candidates and your team to find the most convenient times. We ensure a seamless and organized scheduling process, saving you time and effort.",
-    icon: ServiceIcon,
+    icon: FaCalendarAlt,
   },
   {
     id: crypto.randomUUID(),
     title: "Conducting Interviews",
     details:
       "We conduct initial interviews to screen and assess candidates, ensuring they meet your specific criteria. This helps streamline your hiring process by presenting you with only the best-fit candidates for further evaluation.",
-    icon: ServiceIcon,
+    icon: BsCalendar2CheckFill,
   },
   {
     id: crypto.randomUUID(),
     title: "Following Up Till Joining",
     details:
       "Our support doesn't end with the offer letter. We stay in touch with candidates throughout the entire process, ensuring a smooth transition from offer acceptance to joining your organization. We address any concerns and provide continuous support to both you and the candidates.",
-    icon: ServiceIcon,
+    icon: FaWpforms,
   },
   {
     id: crypto.randomUUID(),
     title: "Replacement Support for 2 Months",
     details:
       "To ensure your complete satisfaction, we offer replacement support for up to two months. If a hired candidate leaves or does not meet your expectations within this period, we will find a suitable replacement at no additional cost.",
-    icon: ServiceIcon,
+    icon: MdSupportAgent,
   },
 ];
 
 export const serviceCardData = [
   {
     id: crypto.randomUUID(),
-    icon: ServiceCardIcon1,
-    title: "Revolutionary Projectview",
-    details: "plan and structure work how you want. Quickly organizing tasks.",
+    icon: GrUserManager,
+    title: " Product manager",
+    details: "",
     bgClasses: "bg-indigo-50 group-hover:bg-indigo-600",
     iconClasses:
       "stroke-indigo-600 transition-all duration-500 group-hover:stroke-white",
   },
   {
     id: crypto.randomUUID(),
-    icon: ServiceCardIcon2,
-    title: "App Integrations",
-    details:
-      "Bring all your tools and data together. Also join with hundreds of other apps.",
+    icon: MdDeveloperBoard,
+    title: "Software Developer ",
+    details: "",
+    bgClasses: "bg-pink-50 group-hover:bg-pink-600",
+    iconClasses:
+      "text-pink-600 transition-all duration-500 group-hover:text-white",
+  },
+
+  {
+    id: crypto.randomUUID(),
+    icon: MdHighQuality,
+    title: "Quality analyst",
+    details: "",
+    bgClasses: "bg-orange-50 group-hover:bg-orange-600",
+    iconClasses:
+      "text-orange-600 transition-all duration-500 group-hover:text-white",
+  },
+  {
+    id: crypto.randomUUID(),
+    icon: GiTrophy,
+    title: " Customer Success ",
+    details: "",
+    bgClasses: "bg-teal-50 group-hover:bg-teal-600",
+    iconClasses:
+      "text-teal-600 transition-all duration-500 group-hover:text-white",
+  },
+  {
+    id: crypto.randomUUID(),
+    icon: BiAnalyse,
+    title: "Business analyst",
+    details: "",
+    bgClasses: "bg-indigo-50 group-hover:bg-indigo-600",
+    iconClasses:
+      "text-indigo-600 transition-all duration-500 group-hover:text-white",
+  },
+  {
+    id: crypto.randomUUID(),
+    icon: ServiceCardIcon3,
+    title: "Sales and marketing ",
+    details: "",
     bgClasses: "bg-pink-50 group-hover:bg-pink-600",
     iconClasses:
       "stroke-pink-600 transition-all duration-500 group-hover:stroke-white",
   },
   {
     id: crypto.randomUUID(),
-    icon: ServiceCardIcon3,
-    title: "Data Reporting",
-    details:
-      "Get real time insight into progress and allows teams to track their work habits",
+    icon: FaCalculator,
+    title: "Finance and accountant",
+    details: "",
+    bgClasses: "bg-orange-50 group-hover:bg-orange-600",
+    iconClasses:
+      "text-orange-600 transition-all duration-500 group-hover:text-white",
+  },
+  {
+    id: crypto.randomUUID(),
+    icon: FaUserTie,
+    title: "Human resources",
+    details: "",
     bgClasses: "bg-teal-50 group-hover:bg-teal-600",
     iconClasses:
-      "stroke-teal-600 transition-all duration-500 group-hover:stroke-white",
-  },
-  {
-    id: crypto.randomUUID(),
-    icon: ServiceCardIcon4,
-    title: "Workflow Builder",
-    details:
-      "Automated processes to coordinate your teams and increase communication.",
-    bgClasses: "bg-orange-50 group-hover:bg-orange-600",
-    iconClasses:
-      "stroke-orange-600 transition-all duration-500 group-hover:stroke-white",
-  },
-  {
-    id: crypto.randomUUID(),
-    icon: ServiceCardIcon4,
-    title: "Workflow Builder",
-    details:
-      "Automated processes to coordinate your teams and increase communication.",
-    bgClasses: "bg-orange-50 group-hover:bg-orange-600",
-    iconClasses:
-      "stroke-orange-600 transition-all duration-500 group-hover:stroke-white",
-  },
-  {
-    id: crypto.randomUUID(),
-    icon: ServiceCardIcon4,
-    title: "Workflow Builder",
-    details:
-      "Automated processes to coordinate your teams and increase communication.",
-    bgClasses: "bg-orange-50 group-hover:bg-orange-600",
-    iconClasses:
-      "stroke-orange-600 transition-all duration-500 group-hover:stroke-white",
-  },
-  {
-    id: crypto.randomUUID(),
-    icon: ServiceCardIcon4,
-    title: "Workflow Builder",
-    details:
-      "Automated processes to coordinate your teams and increase communication.",
-    bgClasses: "bg-orange-50 group-hover:bg-orange-600",
-    iconClasses:
-      "stroke-orange-600 transition-all duration-500 group-hover:stroke-white",
-  },
-  {
-    id: crypto.randomUUID(),
-    icon: ServiceCardIcon4,
-    title: "Workflow Builder",
-    details:
-      "Automated processes to coordinate your teams and increase communication.",
-    bgClasses: "bg-orange-50 group-hover:bg-orange-600",
-    iconClasses:
-      "stroke-orange-600 transition-all duration-500 group-hover:stroke-white",
+      "text-teal-600 transition-all duration-500 group-hover:text-white",
   },
 ];
 

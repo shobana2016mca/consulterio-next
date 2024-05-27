@@ -32,7 +32,7 @@ export default function ServiceSection() {
                 key={service.id}
                 title={service.title}
                 details={service.details}
-                icon={<service.icon />}
+                icon={<service.icon className='size-10 text-white' />}
               />
             ))}
           </div>
