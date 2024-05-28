@@ -11,9 +11,10 @@ export default function GetAQuote() {
               Get Custom Pricing
             </h3>
             <p className='mb-16 text-sm md:text-base lg:text-lg text-gray-600'>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              Consectetur, corrupti asperiores voluptatum labore eligendi
-              quisquam. Id quae, laboriosam saepe facere ea asperiores!
+              &quot;Welcome to our consultero! We are committed to providing the
+              best service possible. Our team works tirelessly to ensure
+              customer satisfaction. We value your feedback and strive to
+              improve our services based on it. Thank you for choosing us!&quot;
             </p>
             <div className='mb-5 flex font-medium'>
               <div className='mr-4'>
