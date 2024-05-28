@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-import { clerkClient, WebhookEvent } from '@clerk/nextjs/server';
+import { WebhookEvent } from '@clerk/nextjs/server';
 import { headers } from 'next/headers';
 import { NextResponse } from 'next/server';
 import { Webhook } from 'svix';
@@ -57,29 +57,36 @@ export async function POST(req: Request) {
 
   // CREATE
   if (eventType === 'user.created') {
-    const { id, email_addresses, image_url, first_name, last_name, username } =
-      evt.data;
+    const {
+      id,
+      email_addresses,
+      image_url,
+      first_name,
+      last_name,
+      username,
+      has_image,
+    } = evt.data;
 
-    const user = {
-      clerkId: id,
-      username: username,
-      firstName: first_name,
-      lastName: last_name,
-      email: email_addresses[0]?.email_address,
-      hasImage: has_image,
-      avatar: image_url,
-    };
+    // const user = {
+    //   clerkId: id,
+    //   username: username,
+    //   firstName: first_name,
+    //   lastName: last_name,
+    //   email: email_addresses[0]?.email_address,
+    //   hasImage: has_image,
+    //   avatar: image_url,
+    // };
 
     // const newUser = await createUser(user);
 
     // Set public metadata
-    if (newUser) {
-      await clerkClient.users.updateUserMetadata(id, {
-        publicMetadata: {
-          userId: newUser._id,
-        },
-      });
-    }
+    // if (newUser) {
+    //   await clerkClient.users.updateUserMetadata(id, {
+    //     publicMetadata: {
+    //       userId: newUser._id,
+    //     },
+    //   });
+    // }
 
     return NextResponse.json({ message: 'OK' });
     // return NextResponse.json({ message: 'OK', user: newUser });
@@ -99,9 +106,10 @@ export async function POST(req: Request) {
     //   photo: image_url,
     // };
 
-    const updatedUser = await updateUser(id, user);
+    // const updatedUser = await updateUser(id, user);
 
-    return NextResponse.json({ message: 'OK', user: updatedUser });
+    // return NextResponse.json({ message: 'OK', user: updatedUser });
+    // return NextResponse.json({ message: 'OK' });
   }
 
   // DELETE
