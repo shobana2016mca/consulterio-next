@@ -59,9 +59,9 @@ export default function RootLayout({
             </div>
           </ClerkLoading>
           <ClerkLoaded>{children}</ClerkLoaded>
+          <WhatsAppButton />
           <Footer />
           <Toaster />
-          <WhatsAppButton />
         </body>
       </html>
     </ClerkProvider>
