@@ -133,3 +133,10 @@ export type ContactUsDataContent = {
   message: string;
   updatedAt: Date;
 };
+
+export type AccordionProps = {
+  children: React.ReactNode;
+  question: string;
+  id: string;
+  active: boolean;
+};

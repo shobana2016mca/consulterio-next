@@ -10,6 +10,7 @@ const isPublicRoute = createRouteMatcher([
   '/terms-of-conditions(.*)',
   '/about-us(.*)',
   '/customer-support(.*)',
+  '/workshop',
 ]);
 
 const isProtectedRoute = createRouteMatcher([

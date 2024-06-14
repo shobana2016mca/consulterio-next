@@ -21,9 +21,17 @@ const nextConfig = {
         protocol: 'https',
         port: '',
       },
+      {
+        hostname: 'askproject.net',
+        pathname: '/evecon/wp-content/**',
+        protocol: 'https',
+        port: '',
+      },
     ],
   },
 };
+
+// https://askproject.net/evecon/wp-content/uploads/sites/126/2023/01/conference-room-HNX75CA.jpg
 
 // (https://cdn.builder.io/api/v1/image/assets/TEMP/8db00bd89bf415a7ae4a94bccbc1dc438d5acef4ee3cb0d9a997bd8c9595b415?apiKey=54709c8bd30b4ce38ba82e61049e17ec&)
 //https://pagedone.io/asset/uploads/1702034769.png
