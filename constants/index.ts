@@ -283,6 +283,7 @@ export const instructor = {
   designation: 'Recruitment Consultant',
   company: 'XYZ Corp',
   experience: '10 years',
+  profileImage: 'https://avatar.iran.liara.run/public/boy',
   education: [
     {
       degree: 'B.Tech',
@@ -322,7 +323,7 @@ export const testimonials = [
     name: 'John Doe',
     designation: 'Software Engineer',
     company: 'ABC Corp',
-    testimonial:
+    content:
       '``The Interview Mastery course was a game-changer for me. The practical tips and mock interviews helped me feel prepared and confident. I landed my dream job within a month of completing the course!``',
   },
   {
@@ -330,7 +331,7 @@ export const testimonials = [
     name: 'Jane Smith',
     designation: 'Marketing Manager',
     company: 'DEF Corp',
-    testimonial:
+    content:
       '``I cannot recommend the Interview Mastery course enough. The instructors were knowledgeable and supportive, and the course content was incredibly valuable. I aced my interviews and received multiple job offers!``',
   },
   {
@@ -338,7 +339,7 @@ export const testimonials = [
     name: 'David Johnson',
     designation: 'Business Analyst',
     company: 'GHI Corp',
-    testimonial:
+    content:
       '``The Interview Mastery course exceeded my expectations. The instructors were engaging and insightful, and the practical exercises helped me refine my interview skills. I am now more confident and prepared for any interview situation.``',
   },
   {
@@ -346,7 +347,39 @@ export const testimonials = [
     name: 'Sarah Williams',
     designation: 'Project Manager',
     company: 'JKL Corp',
-    testimonial:
+    content:
+      '``I am so grateful for the Interview Mastery course. The instructors were professional and supportive, and the course content was relevant and practical. I learned valuable skills that have helped me secure a promotion and advance my career.``',
+  },
+  {
+    id: crypto.randomUUID(),
+    name: 'Michael Brown',
+    designation: 'Sales Executive',
+    company: 'MNO Corp',
+    content:
+      '``The Interview Mastery course was a game-changer for me. The practical tips and mock interviews helped me feel prepared and confident. I landed my dream job within a month of completing the course!``',
+  },
+  {
+    id: crypto.randomUUID(),
+    name: 'Emily Davis',
+    designation: 'HR Manager',
+    company: 'PQR Corp',
+    content:
+      '``I cannot recommend the Interview Mastery course enough. The instructors were knowledgeable and supportive, and the course content was incredibly valuable. I aced my interviews and received multiple job offers!``',
+  },
+  {
+    id: crypto.randomUUID(),
+    name: 'Daniel Wilson',
+    designation: 'Finance Analyst',
+    company: 'STU Corp',
+    content:
+      '``The Interview Mastery course exceeded my expectations. The instructors were engaging and insightful, and the practical exercises helped me refine my interview skills. I am now more confident and prepared for any interview situation.``',
+  },
+  {
+    id: crypto.randomUUID(),
+    name: 'Olivia Martinez',
+    designation: 'Operations Manager',
+    company: 'VWX Corp',
+    content:
       '``I am so grateful for the Interview Mastery course. The instructors were professional and supportive, and the course content was relevant and practical. I learned valuable skills that have helped me secure a promotion and advance my career.``',
   },
 ];
@@ -387,3 +420,25 @@ export const faqs = [
     active: false,
   },
 ];
+
+export const batchDetails = {
+  weekday: {
+    time: '9:30pm to 10:30pm',
+    days: 'Monday to Friday',
+    minStudents: 5,
+    maxStudents: 30,
+  },
+  weekend: {
+    time: '2:00pm to 4:30pm',
+    days: 'Saturday to Sunday',
+    minStudents: 5,
+    maxStudents: 30,
+  },
+  duration: '3 months',
+  startDate: '15th August 2022',
+  endDate: '15th November 2022',
+  fees: 10000,
+  discount: 2000,
+  finalFees: 8000,
+  registrationLink: '/enroll',
+};

@@ -27,9 +27,17 @@ const nextConfig = {
         protocol: 'https',
         port: '',
       },
+      {
+        hostname: 'avatar.iran.liara.run',
+        pathname: '/public/**',
+        protocol: 'https',
+        port: '',
+      },
     ],
   },
 };
+
+// https://avatar.iran.liara.run/public
 
 // https://askproject.net/evecon/wp-content/uploads/sites/126/2023/01/conference-room-HNX75CA.jpg
 

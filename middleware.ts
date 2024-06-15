@@ -11,18 +11,19 @@ const isPublicRoute = createRouteMatcher([
   '/about-us(.*)',
   '/customer-support(.*)',
   '/workshop',
+  '/enroll',
 ]);
 
 const isProtectedRoute = createRouteMatcher([
   '/get-a-quote(.*)',
   '/services(.*)',
+  '/dashboard(.*)',
 ]);
 
 export default clerkMiddleware((auth, request) => {
   if (!isPublicRoute(request)) {
     auth().protect();
   }
-
   if (isProtectedRoute(request)) auth().protect();
 });
 
