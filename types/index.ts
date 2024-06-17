@@ -140,3 +140,9 @@ export type AccordionProps = {
   id: string;
   active: boolean;
 };
+
+export type EnrollmentInputs = {
+  fullName: string;
+  phone: string;
+  email: string;
+};

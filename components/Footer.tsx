@@ -11,11 +11,15 @@ import Link from 'next/link';
 export default function Footer() {
   return (
     <footer className='w-full bg-sky-950'>
-      <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
+      <div className='mx-auto max-w-[85rem] px-4 lg:px-0'>
         {/* <!--Grid--> */}
-        <div className='grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 py-10 max-md:max-w-sm max-md:mx-auto'>
-          <div className='col-span-full mb-10 lg:col-span-2 lg:mb-0'>
-            <Link href={'/'} className={'h-14 w-full inline-flex'}>
+        <div className='grid grid-cols-1 lg:grid-cols-4 py-10 gap-4'>
+          <div className='col-span-full lg:col-span-1 lg:justify-self-center p-4 lg:p-0'>
+            <Link
+              href={'/'}
+              className={
+                'h-14 w-full inline-flex lg:justify-start justify-center'
+              }>
               <Image
                 src={'/logo.png'}
                 alt='footer-text'
@@ -40,7 +44,7 @@ export default function Footer() {
             </Link>
           </div>
           {/* <!--End Col--> */}
-          <div className='lg:mx-auto'>
+          <div className='col-span-full lg:col-span-1 self-center justify-self-center p-4 lg:p-0'>
             <h4 className='text-lg text-gray-300 font-medium mb-7 '>
               Quick Links
             </h4>
@@ -68,35 +72,9 @@ export default function Footer() {
               </li>
             </ul>
           </div>
+
           {/* <!--End Col--> */}
-          {/* <div className='lg:mx-auto'>
-            <h4 className='text-lg text-gray-300 font-medium mb-7'>Products</h4>
-            <ul className='text-sm  transition-all duration-500'>
-              <li className='mb-6'>
-                <Link
-                  href='#'
-                  className='cursor-pointer text-gray-300 hover:text-gray-500'>
-                  Figma UI System
-                </Link>
-              </li>
-              <li className='mb-6'>
-                <Link
-                  href='#'
-                  className='cursor-pointer text-gray-300 hover:text-gray-500'>
-                  Icons Assets
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href='#'
-                  className='cursor-pointer text-gray-300 hover:text-gray-500'>
-                  Responsive Blocks
-                </Link>
-              </li>
-            </ul>
-          </div> */}
-          {/* <!--End Col--> */}
-          <div className='lg:mx-auto'>
+          <div className='col-span-full lg:col-span-1 self-center justify-self-center p-4 lg:p-0'>
             <h4 className='text-lg text-gray-300 font-medium mb-7'>Support</h4>
             <ul className='text-sm  transition-all duration-500'>
               <li className='mb-6'>
@@ -123,7 +101,7 @@ export default function Footer() {
             </ul>
           </div>
           {/* <!--End Col--> */}
-          <div className='lg:mx-auto'>
+          <div className='col-span-full lg:col-span-1 self-center justify-self-center p-4 lg:p-0'>
             <h4 className='text-lg text-gray-300 font-medium mb-7'>
               Subscribe
             </h4>

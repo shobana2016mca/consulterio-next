@@ -26,7 +26,7 @@ export default function CourseCurriculam() {
                     'text-stone-700 bg-stone-50 flex items-center gap-2 p-2 rounded-md shadow-md hover:shadow-lg transition-shadow cursor-pointer'
                   }>
                   <span className={'inline-block'}>
-                    <HiCheckCircle className={'fill-green-500'} />
+                    <HiCheckCircle className={'fill-blue-800'} />
                   </span>
                   <span
                     className={'text-xs md:text-sm inline-block font-normal'}>

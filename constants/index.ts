@@ -442,3 +442,24 @@ export const batchDetails = {
   finalFees: 8000,
   registrationLink: '/enroll',
 };
+
+export const workshopBenefits = [
+  {
+    id: crypto.randomUUID(),
+    title: 'Exclusive Certificates',
+    description:
+      'Earn a Certificate of Professional Development and a Certificate of Achievement in Communication and Presentation Skills upon completion.',
+  },
+  {
+    id: crypto.randomUUID(),
+    title: 'Proven Results',
+    description:
+      'Participants have reported an average salary hike of up to 20% after applying the skills learned in our workshop.',
+  },
+  {
+    id: crypto.randomUUID(),
+    title: 'Increased Success Rate',
+    description:
+      'Enhance your chances of clearing interviews by up to 70% with our comprehensive training and personalized feedback.',
+  },
+];

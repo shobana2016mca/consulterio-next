@@ -33,9 +33,17 @@ const nextConfig = {
         protocol: 'https',
         port: '',
       },
+      {
+        hostname: 'cdn.razorpay.com',
+        pathname: '/static/assets/**',
+        protocol: 'https',
+        port: '',
+      },
     ],
   },
 };
+
+// https://cdn.razorpay.com/static/assets/logo/rzp_payment_icon.svg
 
 // https://avatar.iran.liara.run/public
 
