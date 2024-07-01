@@ -14,7 +14,7 @@ export default function EnrollmentPage({
     <main>
       <Banner />
 
-      <section>
+      <section className={'my-8 lg:my-16'}>
         <SectionWrapper>
           <div className={'grid grid-cols-2 gap-4 w-full'}>
             <div className={'col-span-full md:col-span-1 grid content-center'}>
