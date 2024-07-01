@@ -40,10 +40,10 @@ export default function TestimonialCard() {
           1024: { slidesPerView: 2.3 },
           1280: { slidesPerView: 2.4 },
         }}
-        autoplay={{
-          delay: 2500,
-          disableOnInteraction: false,
-        }}
+        // autoplay={{
+        //   delay: 2500,
+        //   disableOnInteraction: false,
+        // }}
         a11y={{ enabled: true }}
         // _beforeBreakpoint={{
         //   640: { slidesPerView: 1 },
@@ -59,13 +59,13 @@ export default function TestimonialCard() {
         grabCursor={true}
         navigation={false}
         pagination={true}
-        className={'w-full h-fit'}>
+        className={''}>
         {testimonials.map((testimonial) => (
           <SwiperSlide key={testimonial.id} className={'w-full h-full my-12'}>
             <div className='text-left shadow-lg p-4 rounded-md'>
-              <div className='mb-4 text-black'>
+              <div className='mb-4 text-black aspect-video h-full w-full grid content-center'>
                 <BlockquoteIcon className='mb-2' />
-                <p className='mt-2 text-base leading-6'>
+                <p className='mt-2 text-base leading-6 line-clamp-5'>
                   {testimonial.content}
                 </p>
                 <div className='text-sm mt-5'>

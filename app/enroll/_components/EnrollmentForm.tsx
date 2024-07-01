@@ -24,12 +24,12 @@ export default function EnrollmentForm() {
       <CheckOutForm key={'check_out_form'} />,
     ]);
 
-  const onSubmit: SubmitHandler<EnrollmentInputs> = (
+  const onSubmit: SubmitHandler<EnrollmentInputs> = async (
     data: EnrollmentInputs
   ) => {
     console.log(data);
     if (!isLastStep) return next();
-
+    //
     methods.reset();
   };
   return (

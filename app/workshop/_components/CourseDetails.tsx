@@ -9,15 +9,15 @@ export default function CourseDetails() {
   return (
     <section>
       <SectionWrapper>
-        <div className={'grid grid-cols-8 gap-x-8'}>
-          <div className={'col-span-full lg:col-span-6 space-y-8 m-4'}>
+        <div className={'grid grid-cols-8 gap-4 xl:gap-x-8'}>
+          <div className={'col-span-full xl:col-span-6 space-y-8 m-4'}>
             <CourseOverview />
 
             <CourseBenifits />
 
             <CourseCurriculam />
           </div>
-          <div className={'col-span-full lg:col-span-2 space-y-8'}>
+          <div className={'col-span-full xl:col-span-2 space-y-8'}>
             <InstructorProfileCard />
 
             <BatchDetailsCard />
