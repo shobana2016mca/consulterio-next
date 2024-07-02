@@ -1,5 +1,5 @@
-import SectionWrapper from '@/components/SectionWrapper';
-import { batchDetails } from '@/constants';
+import SectionWrapper from '@/app/_components/SectionWrapper';
+import { batchDetails } from '@/app/_constants';
 import { RiUserShared2Line } from 'react-icons/ri';
 import SectionSubHeading from './SectionSubHeading';
 import TermsAndConditionCard from './TermsAndConditionCard';
@@ -14,8 +14,8 @@ export default function BatchScheduleSection() {
           Batch Schedule
         </SectionSubHeading>
 
-        <div className='mt-4 grid grid-cols-1 justify-items-center content-center gap-4 md:grid-cols-2 p-4'>
-          <div className='space-y-2'>
+        <div className='mt-4 grid grid-cols-1 justify-items-center content-center gap-4 md:grid-cols-2 p-4 max-w-2xl mx-auto'>
+          <div className='space-y-2 col-span-full md:col-span-1 w-full text-center'>
             <h3 className='font-bold'>Weekday Batch</h3>
             <p>
               <span className='font-semibold'>Time:</span>{' '}
@@ -34,7 +34,7 @@ export default function BatchScheduleSection() {
               {batchDetails.weekday.maxStudents}
             </p>
           </div>
-          <div className='space-y-2'>
+          <div className='space-y-2 col-span-full md:col-span-1 w-full text-center'>
             <h3 className='font-bold'>Weekend Batch</h3>
             <p>
               <span className='font-semibold'>Time:</span>{' '}

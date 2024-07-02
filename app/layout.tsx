@@ -1,6 +1,6 @@
-import Footer from '@/components/Footer';
-import Navbar from '@/components/Navbar';
-import WhatsAppButton from '@/components/WhatsAppButton';
+import Footer from '@/app/_components/Footer';
+import Navbar from '@/app/_components/Navbar';
+import WhatsAppButton from '@/app/_components/WhatsAppButton';
 import { ClerkLoaded, ClerkLoading, ClerkProvider } from '@clerk/nextjs';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';

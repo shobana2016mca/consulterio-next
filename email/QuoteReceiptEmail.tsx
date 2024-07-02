@@ -1,5 +1,4 @@
-import { calcDate } from '@/lib/utils';
-import { QuoteDataContent } from '@/types';
+import { calcDate } from '@/app/_lib/utils';
 import {
   Body,
   Column,

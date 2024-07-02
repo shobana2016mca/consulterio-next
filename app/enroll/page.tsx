@@ -1,15 +1,9 @@
-import SectionWrapper from '@/components/SectionWrapper';
-import { workshopBenefits } from '@/constants';
+import SectionWrapper from '@/app/_components/SectionWrapper';
+import { workshopBenefits } from '@/app/_constants';
 import { FaCertificate } from 'react-icons/fa6';
 import EnrollmentForm from './_components/EnrollmentForm';
 
-export default function EnrollmentPage({
-  params,
-  searchParams,
-}: {
-  params: any;
-  searchParams: any;
-}) {
+export default function EnrollmentPage() {
   return (
     <main>
       <Banner />
@@ -65,11 +59,11 @@ function Banner() {
     <section className='bg-gradient-to-r from-blue-700 to-[#B06AB3] font-sans'>
       <SectionWrapper>
         <div className='grid gap-y-4 items-center text-center px-4 py-12'>
-          <h2 className='text-white text-2xl lg:text-3xl font-bold mb-4'>
+          <h2 className='text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4'>
             Congrats! You are just one step away from becoming an Interview
             Mastery workshop
           </h2>
-          <p className='text-white text-lg text-center'>
+          <p className='text-white text-2xl font-semibold animate-pulse text-center'>
             Enroll now to get started with the course and become an expert and
             crack the interviews.
           </p>

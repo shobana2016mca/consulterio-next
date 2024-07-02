@@ -1,5 +1,5 @@
-import ContactForm from '@/components/ContactForm';
-import ContactFormMap from '@/components/ContactFormMap';
+import ContactForm from '@/app/_components/ContactForm';
+import ContactFormMap from '@/app/_components/ContactFormMap';
 import Link from 'next/link';
 
 export default function ContactUsPage() {

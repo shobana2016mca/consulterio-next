@@ -1,4 +1,4 @@
-import SectionWrapper from '@/components/SectionWrapper';
+import SectionWrapper from '@/app/_components/SectionWrapper';
 import Link from 'next/link';
 
 export default function EnrollSection() {

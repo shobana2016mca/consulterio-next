@@ -1,6 +1,6 @@
 'use client';
 
-import { BlockquoteIcon } from '@/assets/icons';
+import { BlockquoteIcon } from '@/app/_assets/icons';
 import Link from 'next/link';
 import { Swiper, SwiperSlide } from 'swiper/react';
 // import type {  } from 'swiper/types';
@@ -14,7 +14,7 @@ import {
 } from 'swiper/modules';
 
 // Import Swiper styles
-import { testimonials } from '@/constants';
+import { testimonials } from '@/app/_constants';
 import 'swiper/css';
 import 'swiper/css/autoplay';
 import 'swiper/css/free-mode';
@@ -40,10 +40,10 @@ export default function TestimonialCard() {
           1024: { slidesPerView: 2.3 },
           1280: { slidesPerView: 2.4 },
         }}
-        // autoplay={{
-        //   delay: 2500,
-        //   disableOnInteraction: false,
-        // }}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
         a11y={{ enabled: true }}
         // _beforeBreakpoint={{
         //   640: { slidesPerView: 1 },
@@ -61,7 +61,7 @@ export default function TestimonialCard() {
         pagination={true}
         className={''}>
         {testimonials.map((testimonial) => (
-          <SwiperSlide key={testimonial.id} className={'w-full h-full my-12'}>
+          <SwiperSlide key={testimonial.id} className={'w-full h-full my-16'}>
             <div className='text-left shadow-lg p-4 rounded-md'>
               <div className='mb-4 text-black aspect-video h-full w-full grid content-center'>
                 <BlockquoteIcon className='mb-2' />

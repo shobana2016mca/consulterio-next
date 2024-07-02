@@ -1,4 +1,4 @@
-import SectionWrapper from '@/components/SectionWrapper';
+import SectionWrapper from '@/app/_components/SectionWrapper';
 import Image from 'next/image';
 import { GrCertificate } from 'react-icons/gr';
 import SectionSubHeading from './SectionSubHeading';
@@ -12,9 +12,9 @@ export default function CertificateSection() {
           iconRight={<GrCertificate className='fill-yellow' />}>
           Course Completion Certificate
         </SectionSubHeading>
-        <div className={'relative aspect-video'}>
+        <div className={'relative aspect-video mt-12'}>
           <Image
-            src='/certificate.png'
+            src='/images/certificate.png'
             alt='certificate-image'
             fill
             sizes='(min-width: 640px) 640px, 100vw'

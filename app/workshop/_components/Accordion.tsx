@@ -1,6 +1,5 @@
 'use client';
 
-import { AccordionProps } from '@/types';
 import { useState } from 'react';
 
 export default function Accordion({

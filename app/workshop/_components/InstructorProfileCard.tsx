@@ -1,4 +1,4 @@
-import { instructor } from '@/constants';
+import { instructor } from '@/app/_constants';
 import Image from 'next/image';
 import { FaUniversity } from 'react-icons/fa';
 import { FaUserGraduate } from 'react-icons/fa6';

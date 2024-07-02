@@ -1,4 +1,4 @@
-import SectionWrapper from '@/components/SectionWrapper';
+import SectionWrapper from '@/app/_components/SectionWrapper';
 import BatchDetailsCard from './BatchDetailsCard';
 import CourseBenifits from './CourseBenifits';
 import CourseCurriculam from './CourseCurriculam';

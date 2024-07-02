@@ -1,4 +1,4 @@
-import { benifits } from '@/constants';
+import { benifits } from '@/app/_constants';
 import { BsStars } from 'react-icons/bs';
 
 export default function CourseBenifits() {

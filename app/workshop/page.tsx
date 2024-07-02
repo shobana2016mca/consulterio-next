@@ -1,4 +1,4 @@
-import SectionWrapper from '@/components/SectionWrapper';
+import SectionWrapper from '@/app/_components/SectionWrapper';
 import Link from 'next/link';
 import BannerSection from './_components/BannerSection';
 import BatchScheduleSection from './_components/BatchScheduleSection';
@@ -9,13 +9,7 @@ import FaqSection from './_components/FaqSection';
 import TestimonialSection from './_components/TestimonialSection';
 import TimerSection from './_components/TimerSection';
 
-export default function WorkshopPage({
-  params,
-  searchParams,
-}: {
-  params: any;
-  searchParams: any;
-}) {
+export default function WorkshopPage() {
   return (
     <main className={'space-y-16'}>
       {/* Banner */}

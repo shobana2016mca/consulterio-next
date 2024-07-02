@@ -1,4 +1,4 @@
-import { batchDetails } from '@/constants';
+import { batchDetails } from '@/app/_constants';
 import Link from 'next/link';
 
 export default function BatchDetailsCard() {
@@ -36,7 +36,7 @@ export default function BatchDetailsCard() {
 
       <Link
         href={batchDetails.registrationLink}
-        target='_blank'
+        // target='_blank'
         rel='noopener noreferrer'
         className='bg-red-600 col-span-full font-medium text-center text-white px-4 py-2 rounded-full shadow-lg hover:shadow-sm hover:bg-red-500 transition-all delay-150 duration-500 ease-in-out'>
         Register Now

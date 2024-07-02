@@ -1,4 +1,4 @@
-import SectionWrapper from '@/components/SectionWrapper';
+import SectionWrapper from '@/app/_components/SectionWrapper';
 import SectionBannerCover from './SectionBannerCover';
 
 export default function BannerSection() {

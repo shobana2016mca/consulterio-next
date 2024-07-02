@@ -1,0 +1,21 @@
+{
+    "name": "Consultero",
+    "short_name": "Consultero",
+    "start_url": "https://www.consultero.in",
+    "display": "standalone",
+    "description": "Consultero is a platform for online consultation for interviews and career guidance.",
+    "icons": [
+        {
+            "src": "/android-chrome-48x48.png",
+            "sizes": "48x48",
+            "type": "image/png"
+        },
+        {
+            "src": "/apple-touch-icon.png",
+            "sizes": "60x60",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#082f49",
+    "background_color": "#082f49"
+}

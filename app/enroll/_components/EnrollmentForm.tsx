@@ -2,14 +2,62 @@
 
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 
+import { classNames } from '@/app/_lib/utils';
 import { useMultistepForm } from '@/app/hooks/useMultistepForm';
-import { classNames } from '@/lib/utils';
 
-import { EnrollmentInputs } from '@/types';
+// Use batchDetails in your code
+import { createOrder } from '@/app/_lib/payment.actions';
+import { useRouter } from 'next/navigation';
 import CheckOutForm from './CheckOutForm';
 import UserInfoForm from './UserInfoForm';
 
+type BatchDetails = {
+  weekday: {
+    time: string;
+    days: string;
+    minStudents: number;
+    maxStudents: number;
+  };
+  weekend: {
+    time: string;
+    days: string;
+    minStudents: number;
+    maxStudents: number;
+  };
+  duration: string;
+  startDate: string;
+  endDate: string;
+  fees: number;
+  discount: number;
+  finalFees: number;
+  registrationLink: string;
+  [key: string]: any; // Add index signature
+};
+const batchDetails: BatchDetails = {
+  weekday: {
+    time: '9:30pm to 10:30pm',
+    days: 'Monday to Friday',
+    minStudents: 5,
+    maxStudents: 30,
+  },
+  weekend: {
+    time: '2:00pm to 4:30pm',
+    days: 'Saturday to Sunday',
+    minStudents: 5,
+    maxStudents: 30,
+  },
+  duration: '3 months',
+  startDate: '15th August 2022',
+  endDate: '15th November 2022',
+  fees: 999,
+  discount: 400,
+  finalFees: 499,
+  registrationLink: '/enroll',
+};
+
 export default function EnrollmentForm() {
+  const router = useRouter();
+
   const methods = useForm<EnrollmentInputs>({
     defaultValues: {
       fullName: 'John Doe',
@@ -27,9 +75,20 @@ export default function EnrollmentForm() {
   const onSubmit: SubmitHandler<EnrollmentInputs> = async (
     data: EnrollmentInputs
   ) => {
-    console.log(data);
     if (!isLastStep) return next();
-    //
+    // console.log(data);
+
+    const formData = new FormData();
+
+    formData.append('fullName', data.fullName);
+    formData.append('phone', data.phone);
+    formData.append('email', data.email);
+    formData.append('amount', String(batchDetails.finalFees));
+    // console.log(Object.fromEntries(formData.entries()));
+    // call server action
+    const result = await createOrder(formData);
+    // console.log(result);
+    router.replace(result.short_url);
     methods.reset();
   };
   return (
@@ -46,9 +105,10 @@ export default function EnrollmentForm() {
                     : 'text-gray-700',
                   'flex w-full justify-center py-4'
                 )}
-                onClick={() => {
-                  !isFirstStep && back();
-                }}>
+                // onClick={() => {
+                //   !isFirstStep && back();
+                // }}
+              >
                 User Details
               </button>
             </li>
@@ -61,7 +121,8 @@ export default function EnrollmentForm() {
                     : 'text-gray-700',
                   'flex w-full justify-center py-4'
                 )}
-                onClick={next}>
+                // onClick={next}
+              >
                 Check Out
               </button>
             </li>

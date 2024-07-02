@@ -1,5 +1,5 @@
-import OurApproachSection from '@/components/OurApproachSection';
-import ServiceSection from '@/components/ServiceSection';
+import OurApproachSection from '@/app/_components/OurApproachSection';
+import ServiceSection from '@/app/_components/ServiceSection';
 
 function ServicesPage() {
   return (

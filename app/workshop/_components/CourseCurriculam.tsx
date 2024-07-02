@@ -1,4 +1,4 @@
-import { curriculums } from '@/constants';
+import { curriculums } from '@/app/_constants';
 import { BsStars } from 'react-icons/bs';
 import { HiCheckCircle } from 'react-icons/hi2';
 

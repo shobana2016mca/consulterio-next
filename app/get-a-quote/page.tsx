@@ -1,4 +1,4 @@
-import QuoteForm from '@/components/QuoteForm';
+import QuoteForm from '@/app/_components/QuoteForm';
 
 export default function GetAQuote() {
   return (

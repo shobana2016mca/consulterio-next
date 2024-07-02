@@ -1,9 +1,3 @@
-type SectionSubHeadingProps = {
-  children: React.ReactNode;
-  iconLeft: React.ReactNode;
-  iconRight: React.ReactNode;
-};
-
 export default function SectionSubHeading({
   children,
   iconLeft,

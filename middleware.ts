@@ -12,6 +12,8 @@ const isPublicRoute = createRouteMatcher([
   '/customer-support(.*)',
   '/workshop',
   '/enroll',
+  '/success',
+  '/failure',
 ]);
 
 const isProtectedRoute = createRouteMatcher([
@@ -25,6 +27,9 @@ export default clerkMiddleware((auth, request) => {
     auth().protect();
   }
   if (isProtectedRoute(request)) auth().protect();
+
+  // console.log('Request', request.url.split('?')[1]);
+  // cookies().set('razorpay', request.url.split('?')[1]);
 });
 
 export const config = {

@@ -1,6 +1,5 @@
-import FormError from '@/components/FormError';
-import { FormWrapper } from '@/components/FormWrapper';
-import { EnrollmentInputs } from '@/types';
+import FormError from '@/app/_components/FormError';
+import { FormWrapper } from '@/app/_components/FormWrapper';
 import { useFormContext } from 'react-hook-form';
 
 export default function UserInfoForm() {

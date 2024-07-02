@@ -1,10 +1,10 @@
-import AboutSection from '@/components/AboutSection';
-import Brands from '@/components/Brands';
-import CTASection from '@/components/CTASection';
-import HeroSection from '@/components/HeroSection';
-import OurResultInNumbers from '@/components/OurResultInNumbers';
-import ServicesSection from '@/components/ServicesSection';
-import Video from '@/components/video';
+import AboutSection from '@/app/_components/AboutSection';
+import Brands from '@/app/_components/Brands';
+import CTASection from '@/app/_components/CTASection';
+import HeroSection from '@/app/_components/HeroSection';
+import OurResultInNumbers from '@/app/_components/OurResultInNumbers';
+import ServicesSection from '@/app/_components/ServicesSection';
+import Video from '@/app/_components/video';
 
 export default async function Home() {
   // const user = await currentUser();

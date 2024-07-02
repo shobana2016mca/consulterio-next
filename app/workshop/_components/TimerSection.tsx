@@ -1,4 +1,4 @@
-import SectionWrapper from '@/components/SectionWrapper';
+import SectionWrapper from '@/app/_components/SectionWrapper';
 import { BiTimer } from 'react-icons/bi';
 import SectionSubHeading from './SectionSubHeading';
 import TimerCard from './TimerCard';

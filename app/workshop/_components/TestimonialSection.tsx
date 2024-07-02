@@ -1,4 +1,4 @@
-import SectionWrapper from '@/components/SectionWrapper';
+import SectionWrapper from '@/app/_components/SectionWrapper';
 import { FaQuoteLeft, FaQuoteRight } from 'react-icons/fa6';
 import SectionSubHeading from './SectionSubHeading';
 import TestimonialCard from './TestimonialCard';

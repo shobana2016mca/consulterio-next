@@ -1,4 +1,3 @@
-import { ContactUsDataContent } from '@/types';
 import {
   Body,
   Column,

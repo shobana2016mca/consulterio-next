@@ -1,5 +1,5 @@
-import SectionWrapper from '@/components/SectionWrapper';
-import { faqs } from '@/constants';
+import SectionWrapper from '@/app/_components/SectionWrapper';
+import { faqs } from '@/app/_constants';
 import { FaQuestion } from 'react-icons/fa6';
 import Accordion from './Accordion';
 import SectionSubHeading from './SectionSubHeading';

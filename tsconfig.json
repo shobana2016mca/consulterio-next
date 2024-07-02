@@ -32,7 +32,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "constants/index.tss"
+    "app/_constants/index.ts"
   ],
   "exclude": [
     "node_modules"
