@@ -8,6 +8,7 @@ import { useMultistepForm } from '@/app/hooks/useMultistepForm';
 // Use batchDetails in your code
 import { createOrder } from '@/app/_lib/payment.actions';
 import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 import CheckOutForm from './CheckOutForm';
 import UserInfoForm from './UserInfoForm';
 
@@ -56,6 +57,7 @@ const batchDetails: BatchDetails = {
 };
 
 export default function EnrollmentForm() {
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const router = useRouter();
 
   const methods = useForm<EnrollmentInputs>({
@@ -86,10 +88,12 @@ export default function EnrollmentForm() {
     formData.append('amount', String(batchDetails.finalFees));
     // console.log(Object.fromEntries(formData.entries()));
     // call server action
+    setIsLoading(true);
     const result = await createOrder(formData);
     // console.log(result);
-    router.replace(result.short_url);
     methods.reset();
+    router.replace(result.short_url);
+    setIsLoading(false);
   };
   return (
     <FormProvider {...methods}>
@@ -142,8 +146,14 @@ export default function EnrollmentForm() {
           <button
             type='submit'
             className='rounded w-full border-0 bg-blue-950 py-2 px-6 text-lg text-white hover:bg-blue-900 focus:outline-none'>
-            {isLastStep ? 'Pay Fees & Register' : 'Next Step'}
+            {isLastStep ? (
+              <>{isLoading ? 'Processing...' : 'Pay Fees & Register'}</>
+            ) : (
+              'Next Step'
+            )}
+            {/* {isLastStep ? 'Pay Fees & Register' : 'Next Step'} */}
           </button>
+          {/* <EnrollmentSubmitButton isLastStep={isLastStep} /> */}
         </div>
       </form>
     </FormProvider>

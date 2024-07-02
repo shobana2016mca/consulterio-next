@@ -1,0 +1,86 @@
+{
+    "name": "Consultero",
+    "short_name": "Consultero",
+    "id": "/",
+    "start_url": "https://www.consultero.in",
+    "display": "standalone",
+    "description": "Consultero is a platform for online consultation for interviews and career guidance.",
+    "icons": [
+        {
+            "src": "/manifest/apple-touch-icon-57x57.png",
+            "sizes": "57x57",
+            "type": "image/png"
+        },
+        {
+            "src": "/manifest/apple-touch-icon-60x60.png",
+            "sizes": "60x60",
+            "type": "image/png"
+        },
+        {
+            "src": "/manifest/apple-touch-icon-72x72.png",
+            "sizes": "72x72",
+            "type": "image/png"
+        },
+        {
+            "src": "/manifest/apple-touch-icon-76x76.png",
+            "sizes": "76x76",
+            "type": "image/png"
+        },
+        {
+            "src": "/manifest/apple-touch-icon-114x114.png",
+            "sizes": "114x114",
+            "type": "image/png"
+        },
+        {
+            "src": "/manifest/apple-touch-icon-120x120.png",
+            "sizes": "120x120",
+            "type": "image/png"
+        },
+        {
+            "src": "/manifest/apple-touch-icon-144x144.png",
+            "sizes": "144x144",
+            "type": "image/png"
+        },
+        {
+            "src": "/manifest/favicon-16x16.png",
+            "sizes": "16x16",
+            "type": "image/png"
+        },
+        {
+            "src": "/manifest/favicon-32x32.png",
+            "sizes": "32x32",
+            "type": "image/png"
+        },
+        {
+            "src": "/manifest/favicon-96x96.png",
+            "sizes": "96x96",
+            "type": "image/png"
+        },
+        {
+            "src": "/manifest/favicon-128x128.png",
+            "sizes": "128x128",
+            "type": "image/png"
+        },
+        {
+            "src": "/manifest/favicon-196x196.png",
+            "sizes": "196x196",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#082f49",
+    "background_color": "#082f49",
+    "screenshots": [
+        {
+            "src": "/images/screenshot1.png",
+            "type": "image/png",
+            "sizes": "540x720",
+            "form_factor": "narrow"
+        },
+        {
+            "src": "/images/screenshot2.jpg",
+            "type": "image/jpg",
+            "sizes": "720x540",
+            "form_factor": "wide"
+        }
+    ]
+}

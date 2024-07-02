@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default function SectionBannerCover() {
   return (
-    <div className={'aspect-[17/9] lg:aspect-[24/9]'}>
+    <div className={'aspect-[17/9] lg:aspect-[24/9] relative'}>
       <Image
         src={
           'https://askproject.net/evecon/wp-content/uploads/sites/126/2023/01/conference-room-HNX75CA.jpg'
