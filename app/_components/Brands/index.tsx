@@ -1,22 +1,25 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import SectionWrapper from '../SectionWrapper';
 import brandsData from './brandsData';
 
 const Brands = () => {
   return (
-    <section className='max-w-screen-xl w-full mx-auto py-20'>
-      <div className='flex flex-col justify-center items-center'>
-        <h4 className={'text-stone-700 uppercase font-semibold text-lg'}>
-          AS FEATURED IN
-        </h4>
-        <div className='w-full px-4'>
-          <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 justify-items-center'>
-            {brandsData.map((brand) => (
-              <SingleBrand key={brand.id} brand={brand} />
-            ))}
+    <section className=''>
+      <SectionWrapper>
+        <div className='flex flex-col justify-center items-center'>
+          <h4 className={'text-stone-700 uppercase font-semibold text-lg'}>
+            AS FEATURED IN
+          </h4>
+          <div className='w-full'>
+            <div className='grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 justify-items-center'>
+              {brandsData.map((brand) => (
+                <SingleBrand key={brand.id} brand={brand} />
+              ))}
+            </div>
           </div>
         </div>
-      </div>
+      </SectionWrapper>
     </section>
   );
 };

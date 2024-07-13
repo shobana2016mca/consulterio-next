@@ -1,7 +1,13 @@
 import SectionWrapper from '@/app/_components/SectionWrapper';
 import { workshopBenefits } from '@/app/_constants';
+import { Metadata } from 'next';
 import { FaCertificate } from 'react-icons/fa6';
 import EnrollmentForm from './_components/EnrollmentForm';
+
+export const metadata: Metadata = {
+  title: 'Consultero | Enrollment',
+  description: 'Enroll in our Interview Mastery workshop',
+};
 
 export default function EnrollmentPage() {
   return (

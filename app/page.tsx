@@ -5,6 +5,12 @@ import HeroSection from '@/app/_components/HeroSection';
 import OurResultInNumbers from '@/app/_components/OurResultInNumbers';
 import ServicesSection from '@/app/_components/ServicesSection';
 import Video from '@/app/_components/video';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Consultero | Home',
+  description: 'Home page of Consultero',
+};
 
 export default async function Home() {
   // const user = await currentUser();
@@ -16,17 +22,15 @@ export default async function Home() {
   // }
 
   return (
-    <main>
-      <div className='flex flex-col items-center bg-white'>
-        <HeroSection />
-        <Brands />
-        <AboutSection />
-        <OurResultInNumbers />
-        <ServicesSection />
-        <Video />
-        {/* <TestimonialSection /> */}
-        <CTASection />
-      </div>
+    <main className='space-y-12 bg-white'>
+      <HeroSection />
+      <Brands />
+      <AboutSection />
+      <OurResultInNumbers />
+      <ServicesSection />
+      <Video />
+      {/* <TestimonialSection /> */}
+      <CTASection />
     </main>
   );
 }

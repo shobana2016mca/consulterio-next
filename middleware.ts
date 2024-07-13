@@ -14,6 +14,7 @@ const isPublicRoute = createRouteMatcher([
   '/enroll',
   '/success',
   '/failure',
+  '/workers',
 ]);
 
 const isProtectedRoute = createRouteMatcher([

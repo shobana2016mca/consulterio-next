@@ -7,11 +7,12 @@ import {
 } from '@/app/_assets/icons';
 import Image from 'next/image';
 import Link from 'next/link';
+import SectionWrapper from './SectionWrapper';
 
 export default function Footer() {
   return (
     <footer className='w-full bg-sky-950'>
-      <div className='mx-auto max-w-[85rem] px-4 lg:px-0'>
+      <SectionWrapper>
         {/* <!--Grid--> */}
         <div className='grid grid-cols-1 lg:grid-cols-4 py-10 gap-4'>
           <div className='col-span-full lg:col-span-1 lg:justify-self-center p-4 lg:p-0'>
@@ -43,8 +44,9 @@ export default function Footer() {
               Contact us
             </Link>
           </div>
+
           {/* <!--End Col--> */}
-          <div className='col-span-full lg:col-span-1 self-center justify-self-center p-4 lg:p-0'>
+          <div className='col-span-full md:col-span-1 self-center justify-self-center p-4 lg:p-0 w-full'>
             <h4 className='text-lg text-gray-300 font-medium mb-7 '>
               Quick Links
             </h4>
@@ -74,7 +76,7 @@ export default function Footer() {
           </div>
 
           {/* <!--End Col--> */}
-          <div className='col-span-full lg:col-span-1 self-center justify-self-center p-4 lg:p-0'>
+          <div className='col-span-full md:col-span-1 self-center justify-self-center p-4 lg:p-0 w-full'>
             <h4 className='text-lg text-gray-300 font-medium mb-7'>Support</h4>
             <ul className='text-sm  transition-all duration-500'>
               <li className='mb-6'>
@@ -100,8 +102,9 @@ export default function Footer() {
               </li>
             </ul>
           </div>
+
           {/* <!--End Col--> */}
-          <div className='col-span-full lg:col-span-1 self-center justify-self-center p-4 lg:p-0'>
+          <div className='col-span-full lg:col-span-1 self-center justify-self-center p-4 lg:p-0 w-full'>
             <h4 className='text-lg text-gray-300 font-medium mb-7'>
               Subscribe
             </h4>
@@ -109,9 +112,9 @@ export default function Footer() {
               Subscribe to get the latest news from us
             </p>
             <Link
-              href='/contact-us'
+              href='#!'
               className='flex cursor-pointer items-center justify-center gap-2 border border-indigo-600 rounded-full py-3 px-6 w-fit text-sm text-indigo-600 font-semibold transition-all duration-500 hover:bg-indigo-50'>
-              Contact us
+              Subscribe
               <ArrowRight />
             </Link>
           </div>
@@ -146,7 +149,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-      </div>
+      </SectionWrapper>
     </footer>
   );
 }

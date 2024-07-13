@@ -5,9 +5,15 @@ import BatchScheduleSection from './_components/BatchScheduleSection';
 import CertificateSection from './_components/CertificateSection';
 import CourseDetails from './_components/CourseDetails';
 
+import { Metadata } from 'next';
 import FaqSection from './_components/FaqSection';
 import TestimonialSection from './_components/TestimonialSection';
 import TimerSection from './_components/TimerSection';
+
+export const metadata:Metadata = {
+  title: 'Consultero | Workshop',
+  description: 'Join our premium workshop and upgrade your skills',
+}
 
 export default function WorkshopPage() {
   return (

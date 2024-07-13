@@ -86,6 +86,7 @@ export default function EnrollmentForm() {
     formData.append('phone', data.phone);
     formData.append('email', data.email);
     formData.append('amount', String(batchDetails.finalFees));
+    formData.append('batch', data.batch);
     // console.log(Object.fromEntries(formData.entries()));
     // call server action
     setIsLoading(true);

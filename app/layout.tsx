@@ -30,71 +30,71 @@ export default function RootLayout({
         <link
           rel='apple-touch-icon-precomposed'
           sizes='57x57'
-          href='apple-touch-icon-57x57.png'
+          href='/manifest/apple-touch-icon-57x57.png'
         />
         <link
           rel='apple-touch-icon-precomposed'
           sizes='114x114'
-          href='apple-touch-icon-114x114.png'
+          href='/manifest/apple-touch-icon-114x114.png'
         />
         <link
           rel='apple-touch-icon-precomposed'
           sizes='72x72'
-          href='apple-touch-icon-72x72.png'
+          href='/manifest/apple-touch-icon-72x72.png'
         />
         <link
           rel='apple-touch-icon-precomposed'
           sizes='144x144'
-          href='apple-touch-icon-144x144.png'
+          href='/manifest/apple-touch-icon-144x144.png'
         />
         <link
           rel='apple-touch-icon-precomposed'
           sizes='60x60'
-          href='apple-touch-icon-60x60.png'
+          href='/manifest/apple-touch-icon-60x60.png'
         />
         <link
           rel='apple-touch-icon-precomposed'
           sizes='120x120'
-          href='apple-touch-icon-120x120.png'
+          href='/manifest/apple-touch-icon-120x120.png'
         />
         <link
           rel='apple-touch-icon-precomposed'
           sizes='76x76'
-          href='apple-touch-icon-76x76.png'
+          href='/manifest/apple-touch-icon-76x76.png'
         />
         <link
           rel='apple-touch-icon-precomposed'
           sizes='152x152'
-          href='apple-touch-icon-152x152.png'
+          href='/manifest/apple-touch-icon-152x152.png'
         />
         <link
           rel='icon'
           type='image/png'
-          href='favicon-196x196.png'
+          href='/manifest/favicon-196x196.png'
           sizes='196x196'
         />
         <link
           rel='icon'
           type='image/png'
-          href='favicon-96x96.png'
+          href='/manifest/favicon-96x96.png'
           sizes='96x96'
         />
         <link
           rel='icon'
           type='image/png'
-          href='favicon-32x32.png'
+          href='/manifest/favicon-32x32.png'
           sizes='32x32'
         />
         <link
           rel='icon'
           type='image/png'
-          href='favicon-16x16.png'
+          href='/manifest/favicon-16x16.png'
           sizes='16x16'
         />
         <link
           rel='icon'
           type='image/png'
-          href='favicon-128x128.png'
+          href='/manifest/favicon-128x128.png'
           sizes='128x128'
         />
         <meta name='application-name' content='&nbsp;' />
@@ -129,13 +129,14 @@ export default function RootLayout({
               className={
                 'h-screen grid place-items-center bg-white/30 backdrop-blur-sm'
               }>
-              <ImSpinner2 className={'size-12 animate-spin stroke-sky-700'} />
+              <ImSpinner2 className={'size-12 animate-spin stroke-blue-700'} />
             </div>
           </ClerkLoading>
           <ClerkLoaded>{children}</ClerkLoaded>
           <WhatsAppButton />
           <Footer />
           <Toaster />
+          {/* <Script src='/worker.js' /> */}
         </body>
       </html>
     </ClerkProvider>

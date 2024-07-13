@@ -1,7 +1,9 @@
+import SectionWrapper from './SectionWrapper';
+
 export default function CTASection() {
   return (
-    <section className='py-20 '>
-      <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
+    <section className='pb-12'>
+      <SectionWrapper>
         <div className='bg-indigo-600 rounded-2xl p-8 xl:p-11'>
           <h2 className='font-manrope text-4xl text-white text-center font-bold mb-4'>
             Subscribe to the latest offer
@@ -31,7 +33,7 @@ export default function CTASection() {
             </div>
           </form>
         </div>
-      </div>
+      </SectionWrapper>
     </section>
   );
 }

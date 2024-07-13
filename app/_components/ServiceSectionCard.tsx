@@ -12,7 +12,7 @@ export default function ServiceSectionCard() {
   return (
     <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8'>
       {serviceCardData.map((data) => {
-        console.log('colors', data.bgClasses);
+        // console.log('colors', data.bgClasses);
         return (
           <Fragment key={data.id}>
             <div

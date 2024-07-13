@@ -1,10 +1,11 @@
 import EnquiryModalContextProvider from '@/app/_contexts/EnquiryFormModalContext';
+import SectionWrapper from './SectionWrapper';
 import ServiceSectionCard from './ServiceSectionCard';
 
 export default function ServicesSection() {
   return (
-    <section className='py-24'>
-      <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
+    <section className=''>
+      <SectionWrapper>
         <div className='mb-14 text-center'>
           {/* <span className="py-1 px-4 bg-indigo-100 rounded-full text-xs font-medium text-indigo-600 text-center">
             Features
@@ -259,7 +260,7 @@ export default function ServicesSection() {
             </p>
           </div>
         </div> */}
-      </div>
+      </SectionWrapper>
     </section>
   );
 }

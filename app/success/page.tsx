@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { verifyPayment } from '../_lib/payment.actions';
+import { getToken } from '../_lib/meeting.actions';
 // import { validatePaymentVerification } from 'razorpay/dist/utils/razorpay-utils';
 
 /*
@@ -40,11 +40,13 @@ export default async function SuccessPage({
   //   console.log(validate);
   // }
 
-  await verifyPayment(
-    searchParams.razorpay_payment_link_reference_id,
-    searchParams.razorpay_payment_id,
-    searchParams.razorpay_signature
-  );
+  // await verifyPayment(
+  //   searchParams.razorpay_payment_link_reference_id,
+  //   searchParams.razorpay_payment_id,
+  //   searchParams.razorpay_signature
+  // );
+
+  // await getToken();
 
   return (
     <main>
@@ -58,15 +60,19 @@ export default async function SuccessPage({
             Payment Link Reference ID:{' '}
             {searchParams.razorpay_payment_link_reference_id}
           </p>
-          <div className={'flex items-center justify-center'}>
-            <Link
-              href={'/'}
-              className={
-                'px-6 py-4 rounded-lg shadow-lg bg-blue-500 text-white text-sm'
-              }>
-              Go back to home
-            </Link>
-          </div>
+          <form action={getToken}>
+            <div className={'flex items-center justify-center'}>
+              <Link
+                href={'/'}
+                className={
+                  'px-6 py-4 rounded-lg shadow-lg bg-blue-500 text-white text-sm'
+                }>
+                Go back to home
+              </Link>
+            </div>
+
+            <button>Get Token</button>
+          </form>
         </div>
       </section>
     </main>
