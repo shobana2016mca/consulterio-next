@@ -31,14 +31,22 @@ export default function TestimonialCard() {
         // onSwiper={(swiper) => console.log(swiper)}
         modules={[Autoplay, Navigation, Pagination, A11y, FreeMode]}
         breakpoints={{
+          // 320: { slidesPerView: 1.2 },
+          // 480: { slidesPerView: 1.3 },
+          // 567: { slidesPerView: 1.4 },
+          // 640: { slidesPerView: 1.5 },
+          // 768: { slidesPerView: 2.1 },
+          // 992: { slidesPerView: 2.2 },
+          // 1024: { slidesPerView: 2.3 },
+          // 1280: { slidesPerView: 2.4 },
           320: { slidesPerView: 1.2 },
-          480: { slidesPerView: 1.3 },
-          567: { slidesPerView: 1.4 },
+          480: { slidesPerView: 1.2 },
+          567: { slidesPerView: 1.2 },
           640: { slidesPerView: 1.5 },
-          768: { slidesPerView: 2.1 },
+          768: { slidesPerView: 1.8 },
           992: { slidesPerView: 2.2 },
           1024: { slidesPerView: 2.3 },
-          1280: { slidesPerView: 2.4 },
+          1280: { slidesPerView: 3 },
         }}
         autoplay={{
           delay: 2500,
@@ -63,9 +71,9 @@ export default function TestimonialCard() {
         {testimonials.map((testimonial) => (
           <SwiperSlide key={testimonial.id} className={'w-full h-full my-16'}>
             <div className='text-left shadow-lg p-4 rounded-md'>
-              <div className='mb-4 text-black aspect-video h-full w-full grid content-center'>
+              <div className='mb-4 text-black aspect-[3/2] h-full w-full grid content-center'>
                 <BlockquoteIcon className='mb-2' />
-                <p className='mt-2 text-base leading-6 line-clamp-5'>
+                <p className='mt-2 text-sm leading-6 line-clamp-5'>
                   {testimonial.content}
                 </p>
                 <div className='text-sm mt-5'>

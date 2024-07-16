@@ -3,13 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbo",
+    "dev": "next dev --turbo --experimental-https",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "email": "cp .env.local ./node_modules/react-email && email dev --dir ./email --port 3001"
   },
   "dependencies": {
+    "@adobe/pdfservices-node-sdk": "^4.0.1",
     "@clerk/nextjs": "^5.1.0",
     "@headlessui/react": "^2.0.3",
     "@heroicons/react": "^2.1.3",

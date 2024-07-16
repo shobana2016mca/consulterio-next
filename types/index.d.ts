@@ -204,3 +204,12 @@ declare type IdType =
 declare type ChildrenPropType = {
   children: React.ReactNode;
 };
+
+declare type UserType = {
+  clerkId: string;
+  email: string;
+  username: string;
+  firstName: string | null;
+  lastName: string | null;
+  avatar: string;
+};

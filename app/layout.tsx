@@ -133,9 +133,9 @@ export default function RootLayout({
             </div>
           </ClerkLoading>
           <ClerkLoaded>{children}</ClerkLoaded>
-          <WhatsAppButton />
           <Footer />
           <Toaster />
+          <WhatsAppButton />
           {/* <Script src='/worker.js' /> */}
         </body>
       </html>

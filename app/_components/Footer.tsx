@@ -67,9 +67,9 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href='#'
+                  href='/workshop'
                   className='cursor-pointer text-gray-300 hover:text-gray-500'>
-                  Pricing
+                  Batch Details
                 </Link>
               </li>
             </ul>

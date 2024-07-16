@@ -86,10 +86,10 @@ export default function Navbar() {
                   <div className={'hidden sm:block'}>
                     <SignedOut>
                       <SignUpButton
-                        mode='modal'
-                        forceRedirectUrl={'/'}
+                        mode='redirect'
+                        forceRedirectUrl={'/sign-in'}
                         fallbackRedirectUrl={'/'}
-                        signInForceRedirectUrl={'/'}
+                        signInForceRedirectUrl={'/sign-in'}
                         signInFallbackRedirectUrl={'/'}>
                         <button className='flex items-center justify-center space-x-2 rounded-md ring-1 ring-sky-900 px-2 py-1 md:px-4 md:py-2 text-sky-600 transition bg-sky-950 hover:bg-sky-700 hover:text-white group'>
                           <span

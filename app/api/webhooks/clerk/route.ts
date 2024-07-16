@@ -1,5 +1,6 @@
 /* eslint-disable camelcase */
-import { WebhookEvent } from '@clerk/nextjs/server';
+import { createUser, updateUser } from '@/app/_lib/user.actions';
+import { clerkClient, WebhookEvent } from '@clerk/nextjs/server';
 import { headers } from 'next/headers';
 import { NextResponse } from 'next/server';
 import { Webhook } from 'svix';
@@ -31,6 +32,8 @@ export async function POST(req: Request) {
   // Get the body
   const payload = await req.json();
   const body = JSON.stringify(payload);
+
+  console.log('payload', payload);
 
   // Create a new Svix instance with your secret.
   const wh = new Webhook(WEBHOOK_SECRET);
@@ -67,48 +70,50 @@ export async function POST(req: Request) {
       has_image,
     } = evt.data;
 
-    // const user = {
-    //   clerkId: id,
-    //   username: username,
-    //   firstName: first_name,
-    //   lastName: last_name,
-    //   email: email_addresses[0]?.email_address,
-    //   hasImage: has_image,
-    //   avatar: image_url,
-    // };
+    console.log('event', evt.data);
 
-    // const newUser = await createUser(user);
+    const user = {
+      clerkId: id,
+      username: username,
+      firstName: first_name,
+      lastName: last_name,
+      email: email_addresses[0]?.email_address,
+      hasImage: has_image,
+      avatar: image_url,
+    };
+
+    const newUser = await createUser(user as UserType);
 
     // Set public metadata
-    // if (newUser) {
-    //   await clerkClient.users.updateUserMetadata(id, {
-    //     publicMetadata: {
-    //       userId: newUser._id,
-    //     },
-    //   });
-    // }
+    if (newUser) {
+      await clerkClient.users.updateUserMetadata(id, {
+        publicMetadata: {
+          userId: newUser._id,
+        },
+      });
+    }
 
-    return NextResponse.json({ message: 'OK' });
-    // return NextResponse.json({ message: 'OK', user: newUser });
+    // return NextResponse.json({ message: 'OK' });
+    return NextResponse.json({ message: 'OK', user: newUser });
   }
 
   // UPDATE
   if (eventType === 'user.updated') {
     console.log(evt.data);
-    return NextResponse.json({ message: 'OK' });
+    // return NextResponse.json({ message: 'OK' });
 
-    // const { id, image_url, first_name, last_name, username } = evt.data;
+    const { id, image_url, first_name, last_name, username } = evt.data;
 
-    // const user = {
-    //   firstName: first_name,
-    //   lastName: last_name,
-    //   username: username!,
-    //   photo: image_url,
-    // };
+    const user = {
+      firstName: first_name,
+      lastName: last_name,
+      username: username!,
+      avatar: image_url,
+    };
 
-    // const updatedUser = await updateUser(id, user);
+    const updatedUser = await updateUser(id, user as UserType);
 
-    // return NextResponse.json({ message: 'OK', user: updatedUser });
+    return NextResponse.json({ message: 'OK', user: updatedUser });
     // return NextResponse.json({ message: 'OK' });
   }
 
@@ -116,7 +121,7 @@ export async function POST(req: Request) {
   if (eventType === 'user.deleted') {
     console.log(evt.data);
     return NextResponse.json({ message: 'OK' });
-    // const { id } = evt.data;
+    const { id } = evt.data;
 
     // const deletedUser = await deleteUser(id!);
 
