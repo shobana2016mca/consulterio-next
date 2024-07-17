@@ -2,7 +2,7 @@ const brandsData: Brand[] = [
   {
     id: 1,
     name: 'Formbold',
-    href: 'https://formbold.com',
+    href: '#',
     image: '/images/brands/formbold.svg',
     imageLight: '/images/brands/formbold-light.svg',
     featureLogo: '/images/feature-images/feature-1.png',
@@ -10,7 +10,7 @@ const brandsData: Brand[] = [
   {
     id: 2,
     name: 'UIdeck',
-    href: 'https://uideck.com',
+    href: '#',
     image: '/images/brands/uideck.svg',
     imageLight: '/images/brands/uideck-light.svg',
     featureLogo: '/images/feature-images/feature-2.png',
@@ -18,7 +18,7 @@ const brandsData: Brand[] = [
   {
     id: 3,
     name: 'Tailgrids',
-    href: 'https://tailgrids.com',
+    href: '#',
     image: '/images/brands/tailgrids.svg',
     imageLight: '/images/brands/tailgrids-light.svg',
     featureLogo: '/images/feature-images/feature-3.png',
@@ -26,7 +26,7 @@ const brandsData: Brand[] = [
   {
     id: 4,
     name: 'Lineicons',
-    href: 'https://lineicons.com',
+    href: '#',
     image: '/images/brands/lineicons.svg',
     imageLight: '/images/brands/lineicons-light.svg',
     featureLogo: '/images/feature-images/feature-4.svg',
@@ -34,7 +34,7 @@ const brandsData: Brand[] = [
   {
     id: 5,
     name: 'Tailadmin',
-    href: 'https://tailadmin.com',
+    href: '#',
     image: '/images/brands/tailadmin.svg',
     imageLight: '/images/brands/tailadmin-light.svg',
     featureLogo: '/images/feature-images/feature-5.png',
@@ -42,7 +42,7 @@ const brandsData: Brand[] = [
   {
     id: 6,
     name: 'PlainAdmin',
-    href: 'https://plainadmin.com',
+    href: '#',
     image: '/images/brands/plainadmin.svg',
     imageLight: '/images/brands/plainadmin-light.svg',
     featureLogo: '/images/feature-images/feature-6.webp',
@@ -50,7 +50,7 @@ const brandsData: Brand[] = [
   {
     id: 7,
     name: 'PlainAdmin',
-    href: 'https://plainadmin.com',
+    href: '#',
     image: '/images/brands/plainadmin.svg',
     imageLight: '/images/brands/plainadmin-light.svg',
     featureLogo: '/images/feature-images/feature-7.jpeg',
@@ -58,7 +58,7 @@ const brandsData: Brand[] = [
   {
     id: 8,
     name: 'PlainAdmin',
-    href: 'https://plainadmin.com',
+    href: '#',
     image: '/images/brands/plainadmin.svg',
     imageLight: '/images/brands/plainadmin-light.svg',
     featureLogo: '/images/feature-images/feature-8.svg',

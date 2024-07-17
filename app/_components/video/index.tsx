@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import SectionHeading from '../SectionHeading';
 // import SectionTitle from '../Common/SectionTitle';
 
 // import ModalVideo from 'react-modal-video';
@@ -21,12 +22,10 @@ const SectionTitle = ({
   return (
     <>
       <div
-        className={`w-full ${center ? 'mx-auto text-center' : ''}`}
-        style={{ maxWidth: width, marginBottom: mb }}>
-        <h2 className='mb-4 text-3xl font-bold !leading-tight text-black sm:text-4xl md:text-[45px]'>
-          {title}
-        </h2>
-        <p className='text-base !leading-relaxed text-body-color md:text-lg'>
+        className={`w-full ${center ? 'mx-auto text-center space-y-4' : ''}`}
+        style={{ maxWidth: width }}>
+        <SectionHeading center>{title}</SectionHeading>
+        <p className='font-normal text-sm md:text-lg lg:text-xl leading-5 md:leading-6 lg:leading-8 text-gray-500 text-center'>
           {paragraph}
         </p>
       </div>
@@ -38,13 +37,13 @@ const Video = () => {
   // const [isOpen, setOpen] = useState(false);
 
   return (
-    <section className='relative z-10 py-16 md:py-20 lg:py-28 w-full'>
-      <div className=''>
+    <section className='relative z-10 pb-4 md:pb-6 lg:pb-8 w-full'>
+      <div className='space-y-4 md:space-y-8 lg:space-y-12'>
         <SectionTitle
           title='We are ready to help'
           paragraph='There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form.'
           center
-          mb='80px'
+          // mb='80px'
         />
 
         <div className='flex flex-wrap'>

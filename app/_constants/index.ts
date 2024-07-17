@@ -16,6 +16,15 @@ import {
   MdSupportAgent,
 } from 'react-icons/md';
 
+export const navigation = [
+  { name: 'Home', href: '/', current: true },
+  { name: 'About us', href: '/about-us', current: false },
+  { name: 'Services', href: '/services', current: false },
+  { name: 'Contact us', href: '/contact-us', current: false },
+  { name: 'Get a quote', href: '/get-a-quote', current: false },
+  { name: 'Workshop', href: '/workshop', current: false },
+];
+
 export const resultInNumber = [
   {
     id: crypto.randomUUID(),

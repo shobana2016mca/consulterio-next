@@ -1,14 +1,15 @@
+import SectionHeading from './SectionHeading';
 import SectionWrapper from './SectionWrapper';
 
 export default function CTASection() {
   return (
     <section className='pb-12'>
       <SectionWrapper>
-        <div className='bg-indigo-600 rounded-2xl p-8 xl:p-11'>
-          <h2 className='font-manrope text-4xl text-white text-center font-bold mb-4'>
+        <div className='bg-indigo-600 rounded-2xl p-8 xl:p-11 space-y-4 md:space-y-6 lg:space-y-8'>
+          <SectionHeading center color='text-white'>
             Subscribe to the latest offer
-          </h2>
-          <p className='text-indigo-200 text-center mb-11 max-lg:max-w-2xl mx-auto'>
+          </SectionHeading>
+          <p className='text-indigo-200 text-center font-normal text-sm md:text-lg lg:text-xl leading-5 md:leading-6 lg:leading-8'>
             Join our community of subscribers and receive regular updates
             delivered straight to your inbox. It&apos;s quick, easy, and free
           </p>

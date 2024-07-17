@@ -8,7 +8,10 @@ const Brands = () => {
     <section className=''>
       <SectionWrapper>
         <div className='flex flex-col justify-center items-center'>
-          <h4 className={'text-stone-700 uppercase font-semibold text-lg'}>
+          <h4
+            className={
+              'text-stone-700 uppercase font-medium lg:font-semibold text-sm md:text-base lg:text-lg'
+            }>
             AS FEATURED IN
           </h4>
           <div className='w-full'>
@@ -33,8 +36,8 @@ const SingleBrand = ({ brand }: { brand: Brand }) => {
     <div className=''>
       <Link
         href={href}
-        target='_blank'
-        rel='nofollow noreferrer'
+        // target='_blank'
+        // rel='nofollow noreferrer'
         className='relative h-10 w-full opacity-70 transition hover:opacity-100'>
         {/* <img src={imageLight} alt={name} className='hidden dark:block' /> */}
         <div className={'aspect-square size-28'}>

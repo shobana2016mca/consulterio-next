@@ -1,4 +1,5 @@
 import EnquiryModalContextProvider from '@/app/_contexts/EnquiryFormModalContext';
+import SectionHeading from './SectionHeading';
 import SectionWrapper from './SectionWrapper';
 import ServiceSectionCard from './ServiceSectionCard';
 
@@ -6,14 +7,11 @@ export default function ServicesSection() {
   return (
     <section className=''>
       <SectionWrapper>
-        <div className='mb-14 text-center'>
-          {/* <span className="py-1 px-4 bg-indigo-100 rounded-full text-xs font-medium text-indigo-600 text-center">
-            Features
-          </span> */}
-          <h2 className='text-4xl text-center font-bold text-gray-900 py-5'>
+        <div className='space-y-4 md:space-y-6 lg:space-y-8'>
+          <SectionHeading center>
             Key job roles in various departments.
-          </h2>
-          <p className='text-lg font-normal text-gray-500 max-w-md md:max-w-2xl mx-auto'>
+          </SectionHeading>
+          <p className='font-normal text-sm md:text-lg lg:text-xl leading-5 md:leading-6 lg:leading-8 text-gray-500 text-center'>
             Beyond technical roles, both SAS companies and product software
             companies have a variety of important positions across other
             departments.

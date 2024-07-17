@@ -54,24 +54,24 @@ function ImageOverlay() {
 function HeroContent() {
   return (
     <div className=' grid gap-y-4 lg:gap-y-8'>
-      <h1 className='text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold tracking-widest max-md:max-w-full text-white'>
+      <h1 className='text-sm xs:text-base sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold tracking-widest max-md:max-w-full text-white'>
         Unlock Your Company&apos;s Potential with Expert HR Recruitment
         Solutions
       </h1>
-      <p className='xs:text-sm md:text-base lg:text-lg xl:text-xl font-medium max-md:max-w-full max-md:text-2xl text-white'>
+      <p className='text-xs xs:text-sm md:text-base lg:text-lg xl:text-xl font-medium text-white'>
         Be the driving force behind software companies and corporate giants by
         joining us as an HR recruitment consultant. Shape the future of
         innovation, foster growth, and make a lasting impact on global
         businesses. Elevate your career and be a catalyst for success in the
-        dynamic tech landscape
+        dynamic tech landscape.
       </p>
       <Link
         href={'/about-us'}
-        className='px-6 lg:px-8 py-2 lg:py-4 text-white flex items-center gap-x-4 border border-white rounded-md justify-self-start hover:shadow-lg transition-all delay-150 duration-500 ease-in-out'>
-        <span className='xs:text-sm font-semibold md:text-base lg:text-2xl'>
+        className='px-4 py-1.5 sm:px-6 lg:px-8 sm:py-2 lg:py-4 text-white flex items-center gap-x-4 border border-white rounded-md justify-self-start hover:shadow-lg hover:bg-white hover:text-sky-950 transition-all delay-150 duration-500 ease-in-out'>
+        <span className='text-xs xs:text-sm font-medium md:font-semibold md:text-base lg:text-2xl'>
           Let work Together
         </span>
-        <ArrowRightCircleIcon className='size-8' />
+        <ArrowRightCircleIcon className='size-4 md:size-4 lg:size-8' />
       </Link>
     </div>
   );

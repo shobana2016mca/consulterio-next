@@ -1,11 +1,10 @@
 import Footer from '@/app/_components/Footer';
 import Navbar from '@/app/_components/Navbar';
 import WhatsAppButton from '@/app/_components/WhatsAppButton';
-import { ClerkLoaded, ClerkLoading, ClerkProvider } from '@clerk/nextjs';
+import { ClerkProvider } from '@clerk/nextjs';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { Toaster } from 'react-hot-toast';
-import { ImSpinner2 } from 'react-icons/im';
 import './globals.css';
 
 const inter = Inter({
@@ -124,15 +123,17 @@ export default function RootLayout({
         <meta name='theme-color' content='#ffffff' />
         <body className={`${inter.variable} antialiased relative`}>
           <Navbar />
-          <ClerkLoading>
-            <div
-              className={
-                'h-screen grid place-items-center bg-white/30 backdrop-blur-sm'
-              }>
-              <ImSpinner2 className={'size-12 animate-spin stroke-blue-700'} />
-            </div>
-          </ClerkLoading>
-          <ClerkLoaded>{children}</ClerkLoaded>
+          {/* <ClerkLoading> */}
+          {/* <div
+            className={
+              'h-screen grid place-items-center bg-white/30 backdrop-blur-sm'
+            }>
+            <ImSpinner2 className={'size-12 animate-spin stroke-blue-700'} />
+          </div> */}
+          {/* </ClerkLoading> */}
+          {/* <ClerkLoaded> */}
+          {children}
+          {/* </ClerkLoaded> */}
           <Footer />
           <Toaster />
           <WhatsAppButton />

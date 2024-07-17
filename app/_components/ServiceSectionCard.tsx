@@ -24,7 +24,7 @@ export default function ServiceSectionCard() {
                 )}>
                 <data.icon className={`${data.iconClasses} size-10`} />
               </div>
-              <h4 className='text-lg font-medium text-gray-900 mb-3 capitalize'>
+              <h4 className='text-sm md:text-base lg:text-lg font-medium text-gray-900 mb-3 capitalize'>
                 {data.title}
               </h4>
               <p className='text-sm font-normal text-gray-500'>
