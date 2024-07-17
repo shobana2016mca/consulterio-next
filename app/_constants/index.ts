@@ -35,7 +35,8 @@ export const resultInNumber = [
     description2:
       "Partner with us and experience the difference as we help fuel your company's journey to 100% growth. Together, we're not just filling positions - we're building the future.",
     description3: 'Discover how we can contribute to your success today!',
-    description4: '',
+    description4:
+      'The journey to success is paved with the right team. At Consultero, we believe in the transformative power of aligning the right talent with your unique business needs.',
   },
   {
     id: crypto.randomUUID(),

@@ -5,6 +5,7 @@ import HeroSection from '@/app/_components/HeroSection';
 import ServicesSection from '@/app/_components/ServicesSection';
 import Video from '@/app/_components/video';
 import { Metadata } from 'next';
+import OurResultInNumbers from './_components/OurResultInNumbers';
 
 export const metadata: Metadata = {
   title: 'Consultero | Home',
@@ -21,11 +22,11 @@ export default async function Home() {
   // }
 
   return (
-    <main className='space-y-4 md:space-y-8 lg:space-y-12 bg-white'>
+    <main className='space-y-8 lg:space-y-12 bg-white'>
       <HeroSection />
       <Brands />
       <AboutSection />
-      {/* <OurResultInNumbers /> */}
+      <OurResultInNumbers />
       <ServicesSection />
       <Video />
       <CTASection />

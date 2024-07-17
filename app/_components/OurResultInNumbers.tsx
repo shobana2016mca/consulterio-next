@@ -6,7 +6,7 @@ export default function OurResultInNumbers() {
   return (
     <section className=''>
       <SectionWrapper>
-        <SectionHeading center>Our results in numbers</SectionHeading>
+        <SectionHeading center>Our Results In Numbers</SectionHeading>
         <ResultInNumberCard />
       </SectionWrapper>
     </section>

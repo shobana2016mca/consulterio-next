@@ -35,7 +35,7 @@ export default function AboutSection() {
             </div>
           </div>
           <div className='grid grid-cols-1 lg:grid-cols-2 gap-9 '>
-            <div className='grid gap-y-4 xl:gap-y-8'>
+            <div className='grid gap-y-4 xl:gap-y-8 content-center'>
               <SectionHeading>
                 Effective Recruitment Solutions Since 2018
               </SectionHeading>
