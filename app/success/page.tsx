@@ -55,6 +55,8 @@ export default async function SuccessPage({
   params,
   searchParams,
 }: PageParamsPropType) {
+  const isDev = process.env.NODE_ENV === 'development';
+
   // await check();
   // function verifyPayment() {
   //   const validate = validatePaymentVerification(
@@ -100,7 +102,7 @@ export default async function SuccessPage({
               </Link>
             </div>
 
-            <button>Get Token</button>
+            {isDev ? <button>Get Token</button> : null}
           </form>
 
           {/* <form action={createPdfFromDocx}>

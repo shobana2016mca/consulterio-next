@@ -172,6 +172,8 @@ const MyComponent: React.FC = () => {
           loading='lazy'
           src='https://cdn.builder.io/api/v1/image/assets/TEMP/e39ed372ff095855e0793bff77f72edba3348e4f35963723926cc1df7501f8bb?apiKey=54709c8bd30b4ce38ba82e61049e17ec&'
           alt=''
+          width={1429}
+          height={498}
           className='object-cover absolute inset-0 size-full'
         />
         <div className='relative justify-center items-start pt-56 pr-16 pb-44 pl-36 w-full bg-sky-950 bg-opacity-90 max-md:py-10 max-md:pr-5 max-md:pl-8 max-md:max-w-full max-md:text-4xl'>
@@ -212,6 +214,8 @@ const MyComponent: React.FC = () => {
                 loading='lazy'
                 src='https://cdn.builder.io/api/v1/image/assets/TEMP/b9c4c9c2373543c7223db5587f50ce5f692c1f66b3083755eb77508674d9496b?apiKey=54709c8bd30b4ce38ba82e61049e17ec&'
                 alt='Portrait of Laila Britney'
+                width={50}
+                height={50}
                 className='w-full aspect-[0.8] max-md:max-w-full'
               />
               <div className='mt-6'>
@@ -314,6 +318,8 @@ const MyComponent: React.FC = () => {
           src='https://cdn.builder.io/api/v1/image/assets/TEMP/af10187f69ef8004524ffff2f5d3b0c16a643e4f26fb91179b852f3297e3a054?apiKey=54709c8bd30b4ce38ba82e61049e17ec&'
           alt='Submit Icon'
           className='shrink-0 aspect-square w-[31px]'
+          width={31}
+          height={31}
         />
       </div>
     </div>

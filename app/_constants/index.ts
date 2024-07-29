@@ -445,11 +445,19 @@ export const batchDetails = {
     maxStudents: 30,
   },
   duration: '3 months',
-  startDate: '15th August 2022',
-  endDate: '15th November 2022',
-  fees: 999,
-  discount: 400,
-  finalFees: 499,
+  startDate: new Intl.DateTimeFormat('en-US', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  }).format(new Date()), // today's date
+  endDate: new Intl.DateTimeFormat('en-US', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  }).format(new Date(new Date().setMonth(new Date().getMonth() + 1))), // 1 months from now
+  fees: 1499,
+  discount: 500,
+  finalFees: 999,
   registrationLink: '/enroll',
 };
 
