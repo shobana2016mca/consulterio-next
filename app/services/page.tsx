@@ -1,5 +1,5 @@
-import OurApproachSection from '@/app/_components/OurApproachSection';
-import ServiceSection from '@/app/_components/ServiceSection';
+import OurApproachSection from '@/app/services/_components/OurApproachSection';
+import ServiceSection from '@/app/services/_components/ServiceSection';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 function ServicesPage() {
   return (
-    <main className={'space-y-8'}>
+    <main className={'space-y-8 mb-20'}>
       <ServiceSection />
       <OurApproachSection />
     </main>

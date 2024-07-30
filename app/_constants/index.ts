@@ -16,6 +16,11 @@ import {
   MdSupportAgent,
 } from 'react-icons/md';
 
+import { AiOutlineSolution } from 'react-icons/ai';
+import { BiSupport } from 'react-icons/bi';
+import { FaRupeeSign } from 'react-icons/fa';
+import { MdOutlineElectricalServices } from 'react-icons/md';
+
 export const navigation = [
   { name: 'Home', href: '/', current: true },
   { name: 'About us', href: '/about-us', current: false },
@@ -23,6 +28,37 @@ export const navigation = [
   { name: 'Contact us', href: '/contact-us', current: false },
   { name: 'Get a quote', href: '/get-a-quote', current: false },
   { name: 'Workshop', href: '/workshop', current: false },
+];
+
+export const quotePageContent = [
+  {
+    id: crypto.randomUUID(),
+    title: 'Custom Pricing',
+    description:
+      'Get custom pricing for your needs. We are committed to providing the best service possible. Our team works tirelessly to ensure customer satisfaction. We value your feedback and strive to improve our services based on it. Thank you for choosing us!',
+    icon: FaRupeeSign,
+  },
+  {
+    id: crypto.randomUUID(),
+    title: 'Custom Support',
+    description:
+      'Get custom support for your needs. We are committed to providing the best service possible. Our team works tirelessly to ensure customer satisfaction. We value your feedback and strive to improve our services based on it. Thank you for choosing us!',
+    icon: BiSupport,
+  },
+  {
+    id: crypto.randomUUID(),
+    title: 'Custom Requirements',
+    description:
+      'Get custom requirements for your needs. We are committed to providing the best service possible. Our team works tirelessly to ensure customer satisfaction. We value your feedback and strive to improve our services based on it. Thank you for choosing us!',
+    icon: MdOutlineElectricalServices,
+  },
+  {
+    id: crypto.randomUUID(),
+    title: 'Custom Solutions',
+    description:
+      'Get custom solutions for your needs. We are committed to providing the best service possible. Our team works tirelessly to ensure customer satisfaction. We value your feedback and strive to improve our services based on it. Thank you for choosing us!',
+    icon: AiOutlineSolution,
+  },
 ];
 
 export const resultInNumber = [

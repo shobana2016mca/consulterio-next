@@ -3,7 +3,7 @@
 import { createContact } from '@/app/_lib/contact.actions';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
-import FormError from './FormError';
+import FormError from '../../_components/FormError';
 
 export default function ContactForm() {
   const {

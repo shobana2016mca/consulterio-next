@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbo --experimental-https set-NODE_ENV=development",
+    "serve": "next dev && set-NODE_ENV=development",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",

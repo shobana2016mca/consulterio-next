@@ -213,3 +213,12 @@ declare type UserType = {
   lastName: string | null;
   avatar: string;
 };
+
+declare type QuoteServicesProps = {
+  content: {
+    id: string;
+    title: string;
+    description: string;
+    icon: (props: React.SVGProps<SVGSVGElement>) => JSX.Element;
+  };
+};
