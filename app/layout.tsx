@@ -24,7 +24,33 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
+    <ClerkProvider
+      appearance={{
+        layout: {
+          termsPageUrl: '/terms-of-conditions',
+        },
+        // signIn: {
+        //   variables: {
+        //     colorPrimary: '#172554',
+        //     colorText: '#333',
+        //   },
+        // },
+        // signUp: {
+        //   variables: {
+        //     colorPrimary: '#172554',
+        //     colorText: '#333',
+        //   },
+        // },
+        elements: {
+          formButtonPrimary: 'bg-blue-950 hover:bg-blue-900',
+          logoImage: {
+            width: 150,
+            height: 50,
+            marginBottom: 20,
+            marginTop: 20,
+          },
+        },
+      }}>
       <html lang='en'>
         <link
           rel='apple-touch-icon-precomposed'
