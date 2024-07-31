@@ -1,5 +1,16 @@
 import { Metadata } from 'next';
 import Image from 'next/image';
+import Link from 'next/link';
+import { BsArrowUpRightSquare } from 'react-icons/bs';
+import { FaChalkboardTeacher, FaHandshake } from 'react-icons/fa';
+import { FaRegCircleCheck, FaRegCirclePlay } from 'react-icons/fa6';
+import { GiSkills } from 'react-icons/gi';
+import { GoCommentDiscussion } from 'react-icons/go';
+import {
+  MdManageAccounts,
+  MdOutlineConnectWithoutContact,
+} from 'react-icons/md';
+import { RiGuideFill } from 'react-icons/ri';
 import SectionHeading from '../_components/SectionHeading';
 import SectionWrapper from '../_components/SectionWrapper';
 
@@ -8,10 +19,74 @@ export const metadata: Metadata = {
   description: 'About us page for Consultero',
 };
 
+const aboutUsLists = [
+  {
+    id: crypto.randomUUID(),
+    listItem:
+      ' We specialize in connecting top talent with leading organizations',
+  },
+  {
+    id: crypto.randomUUID(),
+    listItem:
+      ' We provide unparalleled recruitment services, delivering the right candidates at the right time and at an affordable price',
+  },
+  {
+    id: crypto.randomUUID(),
+    listItem:
+      ' We take a personalized approach to each project, understanding the unique needs of every client',
+  },
+];
+
+const whyChooseUsLists = [
+  {
+    id: crypto.randomUUID(),
+    title: 'Leadership Training',
+    description:
+      'We provide leadership training programs to help your team grow and succeed',
+    icon: FaHandshake,
+  },
+  {
+    id: crypto.randomUUID(),
+    title: 'Recruitment Solutions',
+    description:
+      'Our recruitment solutions are tailored to your needs, ensuring you find the right candidates every time',
+    icon: FaChalkboardTeacher,
+  },
+  {
+    id: crypto.randomUUID(),
+    title: 'Career Development',
+    description:
+      'We offer career development services to help your employees reach their full potential',
+    icon: RiGuideFill,
+  },
+  {
+    id: crypto.randomUUID(),
+    title: 'Employee Engagement',
+    description:
+      'Our employee engagement programs are designed to boost morale and productivity',
+    icon: MdManageAccounts,
+  },
+  {
+    id: crypto.randomUUID(),
+    title: 'HR Consulting',
+    description:
+      'We provide HR consulting services to help you navigate complex HR issues',
+    icon: GoCommentDiscussion,
+  },
+  {
+    id: crypto.randomUUID(),
+    title: 'Talent Acquisition',
+    description:
+      'We offer talent acquisition services to help you find the right candidates for your business',
+    icon: GiSkills,
+  },
+];
+
 export default function AboutPage() {
   return (
-    <main>
-      <section>
+    <main className={'space-y-16'}>
+      <AboutUs />
+      {/* <section>
         <SectionWrapper>
           <div className={'space-y-16 py-8'}>
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-9'>
@@ -20,8 +95,7 @@ export default function AboutPage() {
                   src='https://pagedone.io/asset/uploads/1702034769.png'
                   alt='About Us tailwind page'
                   className='object-cover w-full h-full rounded-md'
-                  // width={592}
-                  // height={481}
+                  
                   fill
                   sizes='(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 592px'
                 />
@@ -71,257 +145,275 @@ export default function AboutPage() {
                   src='https://pagedone.io/asset/uploads/1702034785.png'
                   alt='About Us tailwind page'
                   className='object-cover w-full h-full rounded-md'
-                  // width={592}
-                  // height={481}
                   fill
                   sizes='(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 592px'
                 />
               </div>
             </div>
           </div>
-
-          {/* <SwiperAbout /> */}
-          {/* <MyComponent /> */}
         </SectionWrapper>
-      </section>
+      </section> */}
+
+      <WhyChooseUs />
+
+      <WhoWeAre />
+
+      <AboutCTA />
     </main>
   );
 }
 
-type TeamMemberProps = {
-  name: string;
-  role: string;
-  imgSrc: string;
-  imgAlt: string;
-};
-
-const TeamMember: React.FC<TeamMemberProps> = ({
-  name,
-  role,
-  imgSrc,
-  imgAlt,
-}) => (
-  <div className='flex flex-col grow pb-9 w-full bg-white shadow-sm max-md:mt-8'>
-    <Image
-      loading='lazy'
-      src={imgSrc}
-      alt={imgAlt}
-      className='w-full aspect-[1.1]'
-      width={50}
-      height={50}
-    />
-    <div className='flex flex-col self-start mt-9 ml-8 max-md:ml-2.5'>
-      <div className='text-3xl text-sky-950'>{name}</div>
-      <div className='mt-4 text-xl tracking-wider leading-8 text-black'>
-        {role}
-      </div>
-    </div>
-  </div>
-);
-
-const MyComponent: React.FC = () => {
-  const teamMembers = [
-    {
-      name: 'Emil Yancy',
-      role: 'Team Leader',
-      imgSrc:
-        'https://cdn.builder.io/api/v1/image/assets/TEMP/151a22c52a8a2c45ea0796f21a17b3fdbefab496e3424e813150452838338262?apiKey=54709c8bd30b4ce38ba82e61049e17ec&',
-      imgAlt: 'Portrait of Emil Yancy',
-    },
-    {
-      name: 'Coty Robin',
-      role: 'Senior Recruitor',
-      imgSrc:
-        'https://cdn.builder.io/api/v1/image/assets/TEMP/1592a4821d7aedaf758f5756430d67960f86b4b544ef43a4fbcda48d0994d10d?apiKey=54709c8bd30b4ce38ba82e61049e17ec&',
-      imgAlt: 'Portrait of Coty Robin',
-    },
-    {
-      name: 'Missie Moira',
-      role: 'Senior Recruitor',
-      imgSrc:
-        'https://cdn.builder.io/api/v1/image/assets/TEMP/8ac0751f6e7a34adf97c553c81d66bb96a366eebf8cc239df3bb54b130276935?apiKey=54709c8bd30b4ce38ba82e61049e17ec&',
-      imgAlt: 'Portrait ofie Moira',
-    },
-    {
-      name: 'Presley Kiera',
-      role: 'Senior Recruitor',
-      imgSrc:
-        'https://cdn.builder.io/api/v1/image/assets/TEMP/dabbcc1d8eadc3ba89aa5bfa72f73a81cdb35b789d0b620325bb5c72ccfa7314?apiKey=54709c8bd30b4ce38ba82e61049e17ec&',
-      imgAlt: 'Portrait of Presley Kiera',
-    },
-    {
-      name: 'Dave Jools',
-      role: 'Junior Recruitor',
-      imgSrc:
-        'https://cdn.builder.io/api/v1/image/assets/TEMP/49ccdf2f6b29ad5ecdd8ed2e704bf416e2d418c11a0e36836839100b79f877a9?apiKey=54709c8bd30b4ce38ba82e61049e17ec&',
-      imgAlt: 'Portrait of Dave Jools',
-    },
-    {
-      name: 'Ilene Leone',
-      role: 'Junior Recruitor',
-      imgSrc:
-        'https://cdn.builder.io/api/v1/image/assets/TEMP/0bdbd58782472cb35b3e84a3086c40214f9ada9f566a15858a41e80a7c7497e1?apiKey=54709c8bd30b4ce38ba82e61049e17ec&',
-      imgAlt: 'Portrait of Ilene Leone',
-    },
-  ];
-
+function AboutUs() {
   return (
-    <div className='flex flex-col items-center bg-white'>
-      <section className='flex overflow-hidden relative flex-col justify-center self-stretch w-full text-7xl text-white uppercase whitespace-nowrap min-h-[498px] max-md:max-w-full max-md:text-4xl'>
-        <Image
-          loading='lazy'
-          src='https://cdn.builder.io/api/v1/image/assets/TEMP/e39ed372ff095855e0793bff77f72edba3348e4f35963723926cc1df7501f8bb?apiKey=54709c8bd30b4ce38ba82e61049e17ec&'
-          alt=''
-          width={1429}
-          height={498}
-          className='object-cover absolute inset-0 size-full'
-        />
-        <div className='relative justify-center items-start pt-56 pr-16 pb-44 pl-36 w-full bg-sky-950 bg-opacity-90 max-md:py-10 max-md:pr-5 max-md:pl-8 max-md:max-w-full max-md:text-4xl'>
-          About
-        </div>
-      </section>
-      <section className='mt-56 w-full max-w-[1429px] max-md:mt-10 max-md:max-w-full'>
-        <div className='flex gap-5 max-md:flex-col max-md:gap-0'>
-          <div className='flex flex-col w-[62%] max-md:ml-0 max-md:w-full'>
-            <div className='flex flex-col px-5 mt-6 max-md:mt-10 max-md:max-w-full'>
-              <div className='text-3xl font-extrabold tracking-widest text-teal-400 uppercase max-md:max-w-full'>
-                Message from CEO
-              </div>
-              <div className='mt-11 text-6xl text-sky-950 max-md:mt-10 max-md:max-w-full max-md:text-4xl'>
-                We are here to support your career.
-              </div>
-              <p className='mt-14 text-xl tracking-wider leading-8 text-black max-md:mt-10 max-md:max-w-full'>
-                Lorem ipsum dolor sit amet consectetur. Tellus euismod commodo
-                ridiculus at pretium egestas ullamcorper ornare. At sit ut nec
-                nunc accumsan risus vestibulum nisi. Vitae faucibus facilisis
-                sit quis egestas. Magna consectetur sit sagittis auctor sed
-                massa vulputate. Lobortis mollis sed viverra in integer
-                dictumst. Fringilla massa id integer.
-                <br />
-                <br />
-                Feugiat suspendisse nulla risus lectus. Suscipit et gravida
-                vehicula ut orci gravida volutpat ut. Amet sit est tincidunt sed
-                luctus diam. Viverra massa neque dictum a. Bibendum quis eget mi
-                vitae. Proin dolor felis viverra sed est nisl dictum. Massa sed
-                mi a tincidunt. Morbi vestibulum nam elementum commodo posuere
-                mattis vitae. Et vestibulum quam tincidunt.
+    <section className={'mt-8'}>
+      <SectionWrapper>
+        <div className={'grid grid-cols-3 gap-y-4 lg:gap-x-4'}>
+          <div
+            className={
+              'col-span-full lg:col-span-1 relative p-4 aspect-square lg:aspect-auto'
+            }>
+            <Image
+              src={'/about-us-bg.png'}
+              fill
+              alt={'About Us background'}
+              className={'object-cover w-full h-full'}
+              sizes='(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 592px'
+              priority
+            />
+            <Image
+              src={'/about-us-lady.png'}
+              fill
+              alt='About Us Person'
+              className='object-contain lg:object-cover w-full h-full'
+              sizes='(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 592px'
+              priority
+            />
+          </div>
+          <div
+            className={
+              'col-span-full lg:col-span-2 p-4 self-center grid gap-y-4'
+            }>
+            <SectionHeading>A New Experience in Human Resources</SectionHeading>
+            <p className='font-normal text-sm md:text-lg lg:text-xl leading-5 md:leading-6 lg:leading-8 text-gray-500'>
+              Consultero is a leading provider of HR recruitment solutions for
+              software-based and corporate companies. Our team of experts
+              specializes in connecting top talent with leading organizations,
+              ensuring they find the perfect fit for their needs. Established in
+              2016, Consultero has been committed to revolutionizing the
+              recruitment process for our clients. Our expertise and dedication
+              have consistently led to streamlined hiring procedures, ensuring
+              that companies not only find the right candidates but do so
+              efficiently and effectively.
+            </p>
+
+            <div>
+              <ul>
+                {aboutUsLists.map((list) => (
+                  <li key={list.id} className='flex items-center gap-2 mt-4'>
+                    <FaRegCircleCheck className='text-blue-900 size-4 lg:size-6' />
+                    <span className='font-normal text-sm md:text-base lg:text-lg text-gray-500'>
+                      {list.listItem}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+
+              <p className='font-normal text-sm md:text-lg lg:text-xl leading-5 md:leading-6 lg:leading-8 text-gray-500 mt-4'>
+                At Consultero, we understand the critical role that talent plays
+                in the success of any business. That&apos;s why our mission is
+                to provide unparalleled recruitment services, delivering the
+                right candidates at the right time and at an affordable price.
               </p>
             </div>
           </div>
-          <aside className='flex flex-col ml-5 w-[38%] max-md:ml-0 max-md:w-full'>
-            <div className='flex flex-col grow px-5 text-xl font-bold tracking-wider leading-8 text-right text-black max-md:mt-10 max-md:max-w-full'>
-              <Image
-                loading='lazy'
-                src='https://cdn.builder.io/api/v1/image/assets/TEMP/b9c4c9c2373543c7223db5587f50ce5f692c1f66b3083755eb77508674d9496b?apiKey=54709c8bd30b4ce38ba82e61049e17ec&'
-                alt='Portrait of Laila Britney'
-                width={50}
-                height={50}
-                className='w-full aspect-[0.8] max-md:max-w-full'
-              />
-              <div className='mt-6'>
-                Laila Britney
-                <br />
-                <span className='font-light'>CEO OF RECUIT</span>
-              </div>
-            </div>
-          </aside>
         </div>
-      </section>
-      <section className='flex justify-center items-center self-stretch px-16 py-20 mt-44 w-full bg-stone-50 max-md:px-5 max-md:mt-10 max-md:max-w-full'>
-        <div className='flex flex-col items-center my-7 w-full max-w-[1440px] max-md:max-w-full'>
-          <div className='text-3xl font-extrabold tracking-widest text-teal-400 uppercase'>
-            Our Team
-          </div>
-          <div className='mt-8 text-5xl text-center capitalize text-sky-950 max-md:max-w-full max-md:text-4xl'>
-            We are Career specialists
-          </div>
-          <div className='self-stretch mt-24 max-md:mt-10 max-md:max-w-full'>
-            <div className='flex gap-5 max-md:flex-col max-md:gap-0'>
-              {teamMembers.slice(0, 4).map((member, index) => (
-                <TeamMember
-                  key={index}
-                  name={member.name}
-                  role={member.role}
-                  imgSrc={member.imgSrc}
-                  imgAlt={member.imgAlt}
-                />
-              ))}
-            </div>
-          </div>
-          <div className='mt-12 max-w-full w-[704px] max-md:mt-10'>
-            <div className='flex gap-5 max-md:flex-col max-md:gap-0'>
-              {teamMembers.slice(4).map((member, index) => (
-                <TeamMember
-                  key={index}
-                  name={member.name}
-                  role={member.role}
-                  imgSrc={member.imgSrc}
-                  imgAlt={member.imgAlt}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-      <section className='mt-36 ml-20 text-xl tracking-wider text-black max-md:mt-10'>
-        <label htmlFor='fullName' className='sr-only'>
-          Full Name
-        </label>
-        <input
-          className='w-full max-w-[690px] bg-white rounded-xl border border-solid border-zinc-300 h-[81px]'
-          type='text'
-          id='fullName'
-          placeholder='Full Name'
-          aria-label='Full Name'
-        />
-      </section>
-      <section>
-        <div className='mt-9 ml-14 text-xl tracking-wider text-black'>
-          Email
-        </div>
-        <div className='w-full max-w-[1440px] max-md:max-w-full'>
-          <div className='flex gap-5 max-md:flex-col max-md:gap-0'>
-            <div className='flex flex-col w-6/12 max-md:ml-0 max-md:w-full'>
-              <div className='flex flex-col grow px-5 max-md:mt-10 max-md:max-w-full'>
-                <div className='text-5xl capitalize text-sky-950 max-md:max-w-full max-md:text-4xl'>
-                  Looking for a new opportunity?
+      </SectionWrapper>
+    </section>
+  );
+}
+
+function WhyChooseUs() {
+  return (
+    <section>
+      <SectionWrapper>
+        <div className={'space-y-6 xl:space-y-12'}>
+          <SectionHeading center>
+            Why Choose Consultero Services?
+          </SectionHeading>
+
+          <div
+            className={
+              'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8'
+            }>
+            {whyChooseUsLists.map((list) => (
+              <div
+                className='flex items-center gap-4 lg:gap-8 ring-1 ring-slate-300 p-4 rounded-lg shadow-md cursor-pointer transition-transform transform-gpu hover:scale-105'
+                key={list.id}>
+                <div className={'bg-blue-500 rounded-full p-2 lg:p-4'}>
+                  <list.icon className='text-white size-6 lg:size-12' />
                 </div>
-                <p className='mt-12 text-xl tracking-wider text-black max-md:mt-10 max-md:max-w-full'>
-                  Lorem ipsum dolor sit amet consectetur. Turpis sed pulvinar
-                  sed blandit rhoncus tellus senectus at quis. Mi at fermentum
-                  imperdiet velit magna a aliquam. Faucibus et quam ac elit
-                  placerat tristique vulputate.
+                <div>
+                  <h3 className='font-semibold text-base md:text-lg lg:text-xl text-gray-800'>
+                    {list.title}
+                  </h3>
+                  <p className='font-normal text-sm md:text-base text-gray-500'>
+                    {list.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </SectionWrapper>
+    </section>
+  );
+}
+
+function WhoWeAre() {
+  return (
+    <section>
+      <SectionWrapper>
+        <div
+          className={
+            'grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8 aspect-[26/9]'
+          }>
+          <div
+            className={
+              'col-span-full lg:col-span-1 relative aspect-video lg:aspect-auto'
+            }>
+            <Image
+              src={'/who-we-are.jpg'}
+              fill
+              alt={'About Us background'}
+              className={'object-cover w-full h-full rounded-md'}
+              sizes='(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 592px'
+            />
+
+            <div
+              className={
+                'absolute inline-grid place-items-center w-full h-full'
+              }>
+              <button
+                className={
+                  'bg-blue-200 p-8 rounded-full flex items-center gap-4 text-white font-medium animate-pingg'
+                }>
+                <span className={'animate-ping'}>
+                  <FaRegCirclePlay
+                    className={'fill-blue-800 stroke-white stroke-1 size-6'}
+                  />
+                </span>
+                <span className={'sr-only'}>Watch Video</span>
+              </button>
+            </div>
+          </div>
+          <div className={'col-span-full lg:col-span-1 grid gap-y-4'}>
+            <span
+              className={
+                'uppercase text-center lg:text-start text-slate-400 font-medium'
+              }>
+              Who we are
+            </span>
+            <SectionHeading>
+              We Choose a Human Resources Services
+            </SectionHeading>
+            <h3>
+              Train people quickly well with e-business.So they highly efficient
+              manufactured products.
+            </h3>
+            <p>
+              Our advisers provides a broad menu service that identifies the
+              task your requirements in the organization job and designs the
+              task description with skill requirements for the task.
+            </p>
+
+            <ul className={'grid gap-y-4'}>
+              <li className={'flex items-center gap-x-4'}>
+                <BsArrowUpRightSquare className={'size-4 lg:size-6'} />
+                <span>Highly experienced Emphires employees</span>
+              </li>
+              <li className={'flex items-center gap-x-4'}>
+                <BsArrowUpRightSquare className={'size-4 lg:size-6'} />
+                <span>In easy way to train employees for clients</span>
+              </li>
+              <li className={'flex items-center gap-x-4'}>
+                <BsArrowUpRightSquare className={'size-4 lg:size-6'} />
+                <span>Our employees are expert and professional</span>
+              </li>
+            </ul>
+
+            <Link
+              href={'/contact-us'}
+              className='px-4 py-2 lg:px-8 lg:py-4 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-medium lg:font-bold rounded-full transition-transform transform-gpu hover:-translate-y-1 hover:shadow-lg justify-self-start text-sm md:text-base lg:text-xl'>
+              Contact Here!
+            </Link>
+          </div>
+        </div>
+      </SectionWrapper>
+    </section>
+  );
+}
+
+function AboutCTA() {
+  return (
+    <section>
+      <div
+        className={
+          'relative aspect-video sm:aspect-[24/9] md:aspect-[28/9] lg:aspect-[36/9]'
+        }>
+        <Image
+          src={'/about-cta.jpg'}
+          fill
+          alt={'About Us background'}
+          className={'object-cover w-full h-full'}
+          sizes='(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 592px'
+        />
+        <div className={'absolute w-full h-full grid items-center'}>
+          <SectionWrapper>
+            <div
+              className={
+                'grid grid-cols-12 gap-y-4 sm:gap-y-6 xl:gap-y-0 w-full sspace-x-8'
+              }>
+              <div className={'hidden xl:block lg:col-span-2 self-center'}>
+                <MdOutlineConnectWithoutContact
+                  className={'text-white size-full'}
+                />
+              </div>
+
+              <div
+                className={
+                  'col-span-full xl:col-span-8 grid gap-y-1 md:gap-y-2 lg:gap-y-4'
+                }>
+                <h4
+                  className={
+                    'text-white font-bold text-lg xs:text-xl md:text-2xl lg:text-3xl xl:text-4xl'
+                  }>
+                  Would you like to know more about our services?
+                </h4>
+                <p
+                  className={
+                    'text-blue-600 font-bold text-lg xs:text-xl md:text-2xl lg:text-3xl xl:text-4xl'
+                  }>
+                  +91 739-702-2565
+                </p>
+                <p
+                  className={
+                    'text-blue-600 font-bold text-lg xs:text-xl md:text-2xl lg:text-3xl xl:text-4xl'
+                  }>
+                  marketingconsultero@gmail.com
                 </p>
               </div>
-            </div>
-            <div className='flex flex-col ml-5 w-6/12 max-md:ml-0 max-md:w-full'>
-              <div className='flex flex-col grow px-5 mt-4 text-xl tracking-wider text-black max-md:mt-10 max-md:max-w-full'>
-                <label htmlFor='contactNumber' className='sr-only'>
-                  Contact Number
-                </label>
-                <input
-                  className='shrink-0 bg-white rounded-xl border border-solid border-zinc-300 h-[81px] max-md:max-w-full'
-                  type='text'
-                  id='contactNumber'
-                  placeholder='Contact Number'
-                  aria-label='Contact Number'
-                />
+
+              <div className={'col-span-full xl:col-span-2 self-center'}>
+                <Link
+                  className='px-6 py-2 min-w-[120px] text-center text-white border-none ring-1 ring-blue-600 rounded bg-blue-700 hover:bg-white hover:text-blue-600 active:bg-blue-500 focus:outline-none focus:ring'
+                  href='/get-a-quote'>
+                  Book a consultation
+                </Link>
               </div>
             </div>
-          </div>
+          </SectionWrapper>
         </div>
-      </section>
-      <div className='flex gap-5 justify-between px-8 py-5 mt-16 ml-32 text-xl tracking-wider text-black whitespace-nowrap bg-teal-400 max-md:px-5 max-md:mt-10'>
-        <button className='my-auto'>Submit</button>
-        <Image
-          loading='lazy'
-          src='https://cdn.builder.io/api/v1/image/assets/TEMP/af10187f69ef8004524ffff2f5d3b0c16a643e4f26fb91179b852f3297e3a054?apiKey=54709c8bd30b4ce38ba82e61049e17ec&'
-          alt='Submit Icon'
-          className='shrink-0 aspect-square w-[31px]'
-          width={31}
-          height={31}
-        />
       </div>
-    </div>
+    </section>
   );
-};
+}

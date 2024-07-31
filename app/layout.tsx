@@ -5,6 +5,7 @@ import { ClerkProvider } from '@clerk/nextjs';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { Toaster } from 'react-hot-toast';
+import Chat from './_components/Chat';
 import './globals.css';
 
 const inter = Inter({
@@ -163,7 +164,8 @@ export default function RootLayout({
           <Footer />
           <Toaster />
           <WhatsAppButton />
-          {/* <Script src='/worker.js' /> */}
+
+          <Chat />
         </body>
       </html>
     </ClerkProvider>
