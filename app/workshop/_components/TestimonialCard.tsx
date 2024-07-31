@@ -4,6 +4,7 @@ import { BlockquoteIcon } from '@/app/_assets/icons';
 import Link from 'next/link';
 import { Swiper, SwiperSlide } from 'swiper/react';
 // import type {  } from 'swiper/types';
+// import { SwiperOptions } from 'swiper/types';
 
 import {
   A11y,

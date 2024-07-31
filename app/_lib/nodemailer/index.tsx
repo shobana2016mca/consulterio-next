@@ -1,5 +1,6 @@
-import ContactUsEmail from '@/email/ContactUsEmail';
-import QuoteReceiptEmail from '@/email/QuoteReceiptEmail';
+import ContactUsEmail from '@/eemail/ContactUsEmail';
+import QuoteReceiptEmail from '@/eemail/QuoteReceiptEmail';
+import WelcomeEmail from '@/emails/WelcomeEmail';
 import { render } from '@react-email/render';
 import nodemailer from 'nodemailer';
 import { actionResponse } from '../utils';
@@ -44,15 +45,16 @@ export async function sendMail(
     }
 
     if (type === 'welcome') {
+      emailHtml = render(<WelcomeEmail data={emailData} />);
       // send mail with defined transport object
-      const info = await transporter.sendMail({
-        from: `${process.env.EMAIL_ADDRESS}`, // sender address company mail
-        to: `${process.env.EMAIL_ADDRESS}, ${sendTo}`, // list of receivers
-        subject: emailContent.subject, // Subject line
-        text: `${emailContent.text} user was contact us`, // plain text body
-        html: emailContent.html, // html body
-      });
-      console.log('Email Sent...📨');
+      // const info = await transporter.sendMail({
+      //   from: `${process.env.EMAIL_ADDRESS}`, // sender address company mail
+      //   to: `${process.env.EMAIL_ADDRESS}, ${sendTo}`, // list of receivers
+      //   subject: emailContent.subject, // Subject line
+      //   text: `${emailContent.text} user was contact us`, // plain text body
+      //   html: emailContent.html, // html body
+      // });
+      // console.log('Email Sent...📨');
       return actionResponse('success', 'Message sent', null);
     }
 

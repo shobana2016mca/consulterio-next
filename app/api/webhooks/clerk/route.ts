@@ -93,6 +93,24 @@ export async function POST(req: Request) {
       });
     }
 
+    //  send the welcome mail
+    // const emailData = {
+    //   enquirerName: first_name,
+    //   email: email_addresses[0]?.email_address,
+    //   updatedAt: new Date(),
+    // };
+
+    // await sendMail(
+    //   {
+    //     subject: 'Welcome to our platform',
+    //     text: 'Welcome to our platform, ',
+    //     html: '<h1>Welcome to our platform</h1>',
+    //   },
+    //   email_addresses[0]?.email_address,
+    //   emailData,
+    //   'welcome'
+    // );
+
     // return NextResponse.json({ message: 'OK' });
     return NextResponse.json({ message: 'OK', user: newUser });
   }
@@ -112,6 +130,24 @@ export async function POST(req: Request) {
     };
 
     const updatedUser = await updateUser(id, user as UserType);
+
+    //  send the welcome mail
+    // const emailData = {
+    //   enquirerName: first_name,
+    //   email: updatedUser.email,
+    //   updatedAt: new Date(),
+    // };
+
+    // await sendMail(
+    //   {
+    //     subject: 'Profile Update',
+    //     text: 'Your profile has been updated',
+    //     html: '<h1>Your profile has been updated</h1>',
+    //   },
+    //   updatedUser.email,
+    //   emailData,
+    //   'welcome'
+    // );
 
     return NextResponse.json({ message: 'OK', user: updatedUser });
     // return NextResponse.json({ message: 'OK' });

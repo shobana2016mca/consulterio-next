@@ -3,6 +3,7 @@
 import User from '@/app/_lib/models/User.model';
 import { revalidatePath } from 'next/cache';
 import { connectDB } from './connectDB';
+import { sendMail } from './nodemailer';
 import { actionResponse } from './utils';
 
 export async function createUser(user: UserType) {
@@ -10,6 +11,16 @@ export async function createUser(user: UserType) {
     await connectDB();
 
     const newUser = await User.create(user);
+
+    // send welcome email
+    const emailContent = {
+      subject: 'Welcome to Consultero - Your Partner in Recruitment Excellence',
+      text: `Hello Dear, ${user.firstName},`,
+      html: `<h2>Hello ${user.firstName},</h2>`,
+    };
+
+    const welcome = await sendMail(emailContent, user.email, user, 'welcome');
+    console.log('welcome mail', welcome);
 
     return JSON.parse(JSON.stringify(newUser));
   } catch (error) {
@@ -27,6 +38,21 @@ export async function updateUser(clerkId: string, user: UserType) {
     const updatedUser = await User.findOneAndUpdate({ clerkId }, user, {
       new: true,
     });
+
+    // send profile update email
+    const emailContent = {
+      subject: 'Profile Update',
+      text: 'Your profile has been updated',
+      html: '<h1>Your profile has been updated</h1>',
+    };
+
+    const profileUpdate = await sendMail(
+      emailContent,
+      user.email,
+      user,
+      'welcome'
+    );
+    console.log('profileupdate', profileUpdate);
 
     if (!updatedUser) {
       throw new Error('User update failed');

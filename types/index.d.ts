@@ -161,6 +161,13 @@ declare type ContactUsDataContent = {
   updatedAt: Date;
 };
 
+declare type WelcomeEmailContent = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  getStartedUrl: string;
+};
+
 declare type AccordionProps = {
   children: React.ReactNode;
   question: string;
