@@ -117,3 +117,9 @@
   width: 75px !important;
   height: 75px !important;
 }
+
+@layer utilities {
+  .animation-pause {
+    animation-play-state: paused;
+  }
+}

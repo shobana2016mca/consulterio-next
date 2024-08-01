@@ -1,11 +1,14 @@
 'use client';
 
 import { createContact } from '@/app/_lib/contact.actions';
+import { useTransition } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import FormError from '../../_components/FormError';
 
 export default function ContactForm() {
+  const [isPending, startTransition] = useTransition();
+
   const {
     register,
     handleSubmit,
@@ -36,15 +39,16 @@ export default function ContactForm() {
 
     // console.log(Object.fromEntries(formData.entries()));
 
-    const result = await createContact(formData);
-
-    if (result.status === 'success') {
-      toast.success(result.message);
-    } else if (result.status === 'error') {
-      toast.error('Something went wrong. Please try again.');
-    } else {
-      toast('Failed to send your query.');
-    }
+    startTransition(async () => {
+      const result = await createContact(formData);
+      if (result.status === 'success') {
+        toast.success(result.message);
+      } else if (result.status === 'fail') {
+        toast(result.message);
+      } else {
+        toast.error('Failed to send your query.');
+      }
+    });
 
     reset();
   };
@@ -159,8 +163,10 @@ export default function ContactForm() {
         {errors.message && <FormError error={errors.message.message} />}
       </div>
 
-      <button className='w-full h-12 text-white text-base font-semibold leading-6 rounded-full transition-all duration-700 hover:bg-indigo-800 bg-indigo-600 shadow-sm'>
-        Send
+      <button
+        disabled={isPending}
+        className='w-full h-12 text-white text-base font-semibold leading-6 rounded-full transition-all duration-700 hover:bg-indigo-800 bg-indigo-600 shadow-sm disabled:bg-blue-900 disabled:cursor-not-allowed'>
+        {isPending ? 'Sending...' : 'Send Message'}
       </button>
     </form>
   );

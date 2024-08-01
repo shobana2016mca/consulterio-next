@@ -1,8 +1,10 @@
 'use client';
 
+import FormError from '@/app/_components/FormError';
 import { createQuote } from '@/app/_lib/get.query.actions';
+import { calcTax } from '@/app/_lib/utils';
 import { PDFDownloadLink } from '@react-pdf/renderer';
-import { useState } from 'react';
+import { useState, useTransition } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import InvoicePDF from './InvoicePDF';
@@ -20,7 +22,8 @@ export default function QuoteForm() {
     // defaultValues: {
     //   enquirerName: 'Jhon Doe',
     //   companyName: 'XYZ Company',
-    //   email: 'jhondoe123@gmail.com',
+    //   // email: 'jhondoe123@gmail.com',
+    //   email: 'belocow407@orsbap.com',
     //   phoneNo: '9999911111',
     //   location: 'Chennai',
     //   jobRole: 'Project manager',
@@ -35,115 +38,16 @@ export default function QuoteForm() {
   const [invoiceBlob, setInvoiceBlob] = useState<Blob | undefined>();
   const [invoiceUrl, setInvoiceUrl] = useState<String | undefined>();
 
+  const [isPending, startTransition] = useTransition();
+
   const onSubmit: SubmitHandler<QuoteFormInputsType> = async (
     data: QuoteFormInputsType
   ) => {
     // console.log(data);
 
-    const monthlySalary = data.monthlySalary;
-    const annualSalary = 12 * monthlySalary;
-
-    const afterTaxMonthly = Number(((monthlySalary / 118) * 100).toFixed(2));
-    const totalMonthlyTax = monthlySalary - afterTaxMonthly;
-    const monthlyCGST = Number((totalMonthlyTax / 2).toFixed(2));
-    const monthlySGST = Number((totalMonthlyTax / 2).toFixed(2));
-
-    const afterTaxAnnually = Number(((annualSalary / 118) * 100).toFixed(2));
-    const totalAnnuallyTax = annualSalary - afterTaxAnnually;
-    const annualCGST = Number((totalAnnuallyTax / 2).toFixed(2));
-    const annualSGST = Number((totalAnnuallyTax / 2).toFixed(2));
-
-    // console.log('before monthly', monthlySalary);
-    // console.log('monthlyTax', monthlySalary - afterTaxMonthly);
-    // console.log('after paid monthly', afterTaxMonthly);
-
-    // console.log('before annual', annualSalary);
-    // console.log('annual tax', annualSalary - afterTaxAnnually);
-    // console.log('after paid annual', afterTaxAnnually);
-
-    const beforePayCommission = afterTaxAnnually; //101694.92
-    const commission = Number(
-      (afterTaxAnnually - (afterTaxAnnually / 108.33) * 100).toFixed(2)
-    );
-    const afterPayCommission = Number(
-      ((afterTaxAnnually / 108.33) * 100).toFixed(2)
-    );
-
-    const nettSalary = afterPayCommission;
-
-    //93,875.11 net salary
-    // 7,819.79 commision
-    // console.log(beforePayCommission);
-    // console.log(commission);
-    // console.log(afterPayCommission);
-
+    const calculatedTax = calcTax(data);
     setFormValues(data);
-    setCalculations({
-      afterTaxMonthly,
-      monthlyCGST,
-      monthlySGST,
-      totalMonthlyTax,
-      afterTaxAnnually,
-      annualCGST,
-      annualSGST,
-      totalAnnuallyTax,
-      beforePayCommission,
-      commission,
-      afterPayCommission,
-      nettSalary,
-    });
-
-    // console.log("monthlySalary:", data.monthlySalary); //10000
-    // console.log("monthlySalaryBeforeTax:", data.monthlySalary); // 8474.58 + 1525.42 /2
-    // console.log(
-    //   "monthlySalaryAfterTax:",
-    //   ((data.monthlySalary / 118) * 100).toFixed(2)
-    // ); //8474.58
-
-    // console.log("Annual Salary:", annualSalary); //120000
-    // console.log("Annual Salary Before Tax:", annualSalary); // 101694.92 + 18305.08 /2
-    // console.log(
-    //   "Annual Salary After Tax:",
-    //   ((data.annualSalary / 118) * 100).toFixed(2)
-    // ); //101694.92
-
-    // console.log("Tax Amount In total:", taxAmount);
-    // console.log("CTax:", CGST);
-    // console.log("STax:", SGST);
-    // console.log("Commission:", commission); // 9227.36 + 110772.64=> base
-    // console.log("Net Salary:", netSalary);
-    const emailContent = {
-      subject: 'New Quote Request',
-      text: ' New Quote Request from ' + data.enquirerName,
-      html: `
-      <h1>New Quote Request</h1>
-      <hr />
-
-      <p>Enquirer Name: ${data.enquirerName}</p>
-      <p>Company Name: ${data.companyName}</p>
-      <p>Email: ${data.email}</p>
-      <p>Phone No: ${data.phoneNo}</p>
-      <p>Location: ${data.location}</p>
-      <p>Job Role: ${data.jobRole}</p>
-      <p>Monthly Salary: ${data.monthlySalary}</p>
-      <p>People Count: ${data.noOfEmployees}</p>
-      <p>About: ${data.about}</p>
-      <hr />
-      <p>Annual Salary: ${annualSalary}</p>
-      <p>After Tax Monthly: ${afterTaxMonthly}</p>
-      <p>Monthly CGST: ${monthlyCGST}</p>
-      <p>Monthly SGST: ${monthlySGST}</p>
-      <p>Total Monthly Tax: ${totalMonthlyTax}</p>
-      <p>After Tax Annually: ${afterTaxAnnually}</p>
-      <p>Annual CGST: ${annualCGST}</p>
-      <p>Annual SGST: ${annualSGST}</p>
-      <p>Total Annually Tax: ${totalAnnuallyTax}</p>
-      <p>Before Pay Commission: ${beforePayCommission}</p>
-      <p>Commission: ${commission}</p>
-      <p>After Pay Commission: ${afterPayCommission}</p>
-      <p>Net Salary: ${nettSalary}</p>
-      `,
-    };
+    setCalculations(calculatedTax);
 
     const formData = new FormData();
     formData.append('enquirerName', data.enquirerName);
@@ -152,43 +56,72 @@ export default function QuoteForm() {
     formData.append('phoneNo', data.phoneNo);
     formData.append('location', data.location);
     formData.append('jobRole', data.jobRole);
-    formData.append('monthlySalary', data.monthlySalary.toString());
-    formData.append('annualSalary', annualSalary.toString());
+    formData.append('monthlySalary', calculatedTax.monthlySalary.toString());
+    formData.append('annualSalary', calculatedTax.annualSalary.toString());
     formData.append('noOfEmployees', data.noOfEmployees);
     formData.append('about', data.about);
 
-    formData.append('beforeMonthlySalary', monthlySalary.toString());
-    formData.append('totalMonthlyTax', totalMonthlyTax.toString());
-    formData.append('monthlyCGST', monthlyCGST.toString());
-    formData.append('monthlySGST', monthlySGST.toString());
-    formData.append('afterMonthlysalary', afterTaxMonthly.toString());
+    formData.append(
+      'beforeMonthlySalary',
+      calculatedTax.monthlySalary.toString()
+    );
+    formData.append(
+      'totalMonthlyTax',
+      calculatedTax.totalMonthlyTax.toString()
+    );
+    formData.append('monthlyCGST', calculatedTax.monthlyCGST.toString());
+    formData.append('monthlySGST', calculatedTax.monthlySGST.toString());
+    formData.append(
+      'afterMonthlysalary',
+      calculatedTax.afterTaxMonthly.toString()
+    );
 
-    formData.append('beforeAnnualSalary', annualSalary.toString());
-    formData.append('totalAnnuallyTax', totalAnnuallyTax.toString());
-    formData.append('annualCGST', annualCGST.toString());
-    formData.append('annualSGST', annualSGST.toString());
-    formData.append('afterAnnualSalary', afterTaxAnnually.toString());
+    formData.append(
+      'beforeAnnualSalary',
+      calculatedTax.annualSalary.toString()
+    );
+    formData.append(
+      'totalAnnuallyTax',
+      calculatedTax.totalAnnuallyTax.toString()
+    );
+    formData.append('annualCGST', calculatedTax.annualCGST.toString());
+    formData.append('annualSGST', calculatedTax.annualSGST.toString());
+    formData.append(
+      'afterAnnualSalary',
+      calculatedTax.afterTaxAnnually.toString()
+    );
 
-    formData.append('beforePayCommission', beforePayCommission.toString());
-    formData.append('commission', commission.toString());
-    formData.append('afterPayCommission', afterPayCommission.toString());
-    formData.append('nettSalary', nettSalary.toString());
+    formData.append(
+      'beforePayCommission',
+      calculatedTax.beforePayCommission.toString()
+    );
+    formData.append('commission', calculatedTax.commission.toString());
+    formData.append(
+      'afterPayCommission',
+      calculatedTax.afterPayCommission.toString()
+    );
+    formData.append('nettSalary', calculatedTax.nettSalary.toString());
 
-    const result = await createQuote(formData);
-    if (result.status === 'success') {
-      toast.success('Email sent successfully', {
-        position: 'bottom-right',
-        duration: 5000,
-        className: 'bg-green-500 text-white',
-      });
-    } else {
-      toast.error('Email sent failed', {
-        position: 'bottom-right',
-        duration: 5000,
-        className: 'bg-red-500 text-white',
-      });
-    }
+    startTransition(async () => {
+      const result = await createQuote(formData);
+      // const result = await createQuote(formData);
+      if (result.status === 'success') {
+        toast.success('Email sent successfully', {
+          position: 'top-center',
+          duration: 5000,
+          className: 'bg-green-500 text-white',
+        });
+      } else {
+        toast.error('Email sent failed', {
+          position: 'top-center',
+          duration: 5000,
+          className: 'bg-red-500 text-white',
+        });
+      }
+    });
+
     reset();
+
     // setFormValues(undefined);
     // setCalculations(undefined);
 
@@ -379,8 +312,10 @@ export default function QuoteForm() {
             {...register('about')}></textarea>
         </div>
         {!formValues && !calculations && (
-          <button className='w-full rounded-lg border border-blue-700 bg-blue-700 p-3 text-center font-medium text-white outline-none transition focus:ring hover:border-blue-700 hover:bg-blue-600 hover:text-white'>
-            Send
+          <button
+            disabled={isPending}
+            className='w-full rounded-lg ring-1 ring-blue-700 bg-blue-700 p-3 text-center font-medium text-white outline-none transition focus:ring hover:ring-blue-400 hover:bg-blue-600 hover:text-white disabled:bg-blue-800 disabled:cursor-not-allowed'>
+            {isPending ? 'Sending...' : 'Send'}
           </button>
         )}
         {/* <button className='w-full rounded-lg border border-blue-700 bg-blue-700 p-3 text-center font-medium text-white outline-none transition focus:ring hover:border-blue-700 hover:bg-blue-600 hover:text-white'>
@@ -418,8 +353,4 @@ export default function QuoteForm() {
       )} */}
     </>
   );
-}
-
-function FormError({ error }: { error: string | undefined }) {
-  return <p className={'text-xs text-red-500 font-normal'}>{error}</p>;
 }

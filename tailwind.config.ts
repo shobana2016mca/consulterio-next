@@ -259,6 +259,10 @@ const config: Config = {
       none: '0 0 #0000',
     },
     extend: {
+      animation: {
+        'infinite-scroll': 'infinite-scroll 25s linear infinite',
+        'slide-left': 'slide-left 8s linear infinite',
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
@@ -302,6 +306,16 @@ const config: Config = {
         },
         dropShadow: {
           three: '0px 5px 15px rgba(6, 8, 15, 0.05)',
+        },
+      },
+      keyframes: {
+        'infinite-scroll': {
+          from: { transform: 'translateX(0)' },
+          to: { transform: 'translateX(-100%)' },
+        },
+        'slide-left': {
+          from: { transform: 'translateX(0)' },
+          to: { transform: 'translateX(-100%)' },
         },
       },
     },

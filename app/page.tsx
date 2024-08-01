@@ -1,10 +1,10 @@
 import AboutSection from '@/app/_components/AboutSection';
-import Brands from '@/app/_components/Brands';
 import CTASection from '@/app/_components/CTASection';
 import HeroSection from '@/app/_components/HeroSection';
 import ServicesSection from '@/app/_components/ServicesSection';
 import Video from '@/app/_components/video';
 import { Metadata } from 'next';
+import OurClients from './_components/OurClients';
 import OurResultInNumbers from './_components/OurResultInNumbers';
 
 export const metadata: Metadata = {
@@ -24,7 +24,8 @@ export default async function Home() {
   return (
     <main className='space-y-8 lg:space-y-12 bg-white'>
       <HeroSection />
-      <Brands />
+      {/* <Brands /> */}
+      <OurClients />
       <AboutSection />
       <OurResultInNumbers />
       <ServicesSection />

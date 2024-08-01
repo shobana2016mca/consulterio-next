@@ -42,14 +42,14 @@ export const quotePageContent = [
     id: crypto.randomUUID(),
     title: 'Custom Support',
     description:
-      'Get custom support for your needs. We are committed to providing the best service possible. Our team works tirelessly to ensure customer satisfaction. We value your feedback and strive to improve our services based on it. Thank you for choosing us!',
+      'Get a quote for your custom support needs today! Our team at [Company Name] is dedicated to providing tailored solutions that meet your specific requirements. Whether you need technical assistance, personalized guidance, or specialized services, we’ve got you covered. Simply fill out our easy quote request form, and we’ll get back to you promptly with a comprehensive and competitive proposal. Let us help you achieve your goals efficiently and effectively.',
     icon: BiSupport,
   },
   {
     id: crypto.randomUUID(),
     title: 'Custom Requirements',
     description:
-      'Get custom requirements for your needs. We are committed to providing the best service possible. Our team works tirelessly to ensure customer satisfaction. We value your feedback and strive to improve our services based on it. Thank you for choosing us!',
+      "Get a quote for your custom requirements today! Our team at [Your Company Name] specializes in delivering tailored solutions to meet your unique needs. From initial consultation to final delivery, we ensure top-notch quality and personalized service. Whether it's a special project or a unique challenge, we're here to help you achieve your goals. Contact us now to discuss your specifications and receive a competitive quote.",
     icon: MdOutlineElectricalServices,
   },
   {
@@ -515,5 +515,48 @@ export const workshopBenefits = [
     title: 'Increased Success Rate',
     description:
       'Enhance your chances of clearing interviews by up to 70% with our comprehensive training and personalized feedback.',
+  },
+];
+
+export const ourClients = [
+  {
+    id: crypto.randomUUID(),
+    href: '#',
+    featureLogo: '/images/feature-images/feature-1.png',
+  },
+  {
+    id: crypto.randomUUID(),
+    href: '#',
+    featureLogo: '/images/feature-images/feature-2.png',
+  },
+  {
+    id: crypto.randomUUID(),
+    href: '#',
+    featureLogo: '/images/feature-images/feature-3.png',
+  },
+  {
+    id: crypto.randomUUID(),
+    href: '#',
+    featureLogo: '/images/feature-images/feature-4.svg',
+  },
+  {
+    id: crypto.randomUUID(),
+    href: '#',
+    featureLogo: '/images/feature-images/feature-5.png',
+  },
+  {
+    id: crypto.randomUUID(),
+    href: '#',
+    featureLogo: '/images/feature-images/feature-6.webp',
+  },
+  {
+    id: crypto.randomUUID(),
+    href: '#',
+    featureLogo: '/images/feature-images/feature-7.jpeg',
+  },
+  {
+    id: crypto.randomUUID(),
+    href: '#',
+    featureLogo: '/images/feature-images/feature-8.svg',
   },
 ];

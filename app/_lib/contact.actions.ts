@@ -3,12 +3,15 @@
 import Contact from '@/app/_lib/models/Contact.model';
 import User from '@/app/_lib/models/User.model';
 import { currentUser } from '@clerk/nextjs/server';
+import { connectDB } from './connectDB';
 import { sendMail } from './nodemailer';
 import { actionResponse } from './utils';
 
 export async function createContact(formData: FormData) {
   try {
     // console.log(Object.fromEntries(formData.entries()));
+
+    await connectDB();
 
     const user = await currentUser();
 
@@ -18,6 +21,16 @@ export async function createContact(formData: FormData) {
 
     const { fullName, email, phoneNo, communicationMethod, message } =
       Object.fromEntries(formData.entries());
+
+    // check the email already exists
+    const existingContact = await Contact.findOne({ email: email as string });
+    if (existingContact) {
+      return actionResponse(
+        'fail',
+        'Your mail already exists in our end. Please wait for our response.',
+        null
+      );
+    }
 
     const emailContent = {
       subject: 'New Contact Us Query',

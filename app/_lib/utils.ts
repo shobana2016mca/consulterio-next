@@ -26,6 +26,82 @@ export function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ');
 }
 
+export function calcTax(data: QuoteFormInputsType) {
+  const monthlySalary = data.monthlySalary;
+  const annualSalary = 12 * monthlySalary;
+
+  const afterTaxMonthly = Number(((monthlySalary / 118) * 100).toFixed(2));
+  const totalMonthlyTax = monthlySalary - afterTaxMonthly;
+  const monthlyCGST = Number((totalMonthlyTax / 2).toFixed(2));
+  const monthlySGST = Number((totalMonthlyTax / 2).toFixed(2));
+
+  const afterTaxAnnually = Number(((annualSalary / 118) * 100).toFixed(2));
+  const totalAnnuallyTax = annualSalary - afterTaxAnnually;
+  const annualCGST = Number((totalAnnuallyTax / 2).toFixed(2));
+  const annualSGST = Number((totalAnnuallyTax / 2).toFixed(2));
+
+  // console.log('before monthly', monthlySalary);
+  // console.log('monthlyTax', monthlySalary - afterTaxMonthly);
+  // console.log('after paid monthly', afterTaxMonthly);
+
+  // console.log('before annual', annualSalary);
+  // console.log('annual tax', annualSalary - afterTaxAnnually);
+  // console.log('after paid annual', afterTaxAnnually);
+
+  const beforePayCommission = afterTaxAnnually; //101694.92
+  const commission = Number(
+    (afterTaxAnnually - (afterTaxAnnually / 108.33) * 100).toFixed(2)
+  );
+  const afterPayCommission = Number(
+    ((afterTaxAnnually / 108.33) * 100).toFixed(2)
+  );
+
+  const nettSalary = afterPayCommission;
+
+  //93,875.11 net salary
+  // 7,819.79 commision
+  // console.log(beforePayCommission);
+  // console.log(commission);
+  // console.log(afterPayCommission);
+
+  // console.log("monthlySalary:", data.monthlySalary); //10000
+  // console.log("monthlySalaryBeforeTax:", data.monthlySalary); // 8474.58 + 1525.42 /2
+  // console.log(
+  //   "monthlySalaryAfterTax:",
+  //   ((data.monthlySalary / 118) * 100).toFixed(2)
+  // ); //8474.58
+
+  // console.log("Annual Salary:", annualSalary); //120000
+  // console.log("Annual Salary Before Tax:", annualSalary); // 101694.92 + 18305.08 /2
+  // console.log(
+  //   "Annual Salary After Tax:",
+  //   ((data.annualSalary / 118) * 100).toFixed(2)
+  // ); //101694.92
+
+  // console.log("Tax Amount In total:", taxAmount);
+  // console.log("CTax:", CGST);
+  // console.log("STax:", SGST);
+  // console.log("Commission:", commission); // 9227.36 + 110772.64=> base
+  // console.log("Net Salary:", netSalary);
+
+  return {
+    monthlySalary,
+    annualSalary,
+    afterTaxMonthly,
+    totalMonthlyTax,
+    monthlyCGST,
+    monthlySGST,
+    afterTaxAnnually,
+    totalAnnuallyTax,
+    annualCGST,
+    annualSGST,
+    beforePayCommission,
+    commission,
+    afterPayCommission,
+    nettSalary,
+  };
+}
+
 export function generateId(type: IdType) {
   if (type === 'customer') {
     const randomBytes = crypto.randomBytes(6).toString('hex');
