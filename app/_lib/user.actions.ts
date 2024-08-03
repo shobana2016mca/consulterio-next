@@ -1,17 +1,71 @@
 'use server';
 
-import SendGrid from '@sendgrid/mail';
+// import SendGrid from '@sendgrid/mail';
 import { revalidatePath } from 'next/cache';
+import nodemailer from 'nodemailer';
 
 import User from '@/app/_lib/models/User.model';
 import { connectDB } from './connectDB';
 // import { sendMail } from './nodemailer';
 import { actionResponse } from './utils';
 
-SendGrid.setApiKey(process.env.SENDGRID_API_KEY!);
+// SendGrid.setApiKey(process.env.SENDGRID_API_KEY!);
 
 // console.log('SendGrid', SendGrid);
 console.log('im here in user.actions.ts');
+
+const transporter = nodemailer.createTransport({
+  service: 'SendGrid',
+  // host: 'smtp.sendgrid.net',
+  // port: 587,
+  auth: {
+    user: process.env.SENDGRID_USERNAME!,
+    pass: process.env.SENDGRID_PASSWORD!,
+  },
+  // tls: {
+  //   rejectUnauthorized: false,
+  // },
+});
+
+export async function sgMail() {
+  try {
+    // send mail with defined transport object
+    const info = await transporter.sendMail({
+      from: `akarmakar84622@gmail.com`, // sender address
+      to: 'abhijit@mailsac.com', // list of receivers
+      subject: 'Hello ✔', // Subject line
+      text: 'Hello world?', // plain text body
+      html: '<b>Hello world?</b>', // html body
+    });
+
+    console.log('Message sent: %s', info.messageId);
+
+    // Preview only available when sending through an Ethereal account
+    console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+
+    // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
+  } catch (error) {
+    console.log('error', error);
+  }
+}
+
+// export async function sgEmail() {
+//   const msg = {
+//     to: 'abhijit@mailsac.com',
+//     from: 'akarmakar846@gmail.com',
+//     subject: 'Hello world',
+//     text: 'Hello world',
+//     html: '<h1>Hello world</h1>',
+//   };
+
+//   SendGrid.send(msg)
+//     .then(() => {
+//       console.log('Email sent');
+//     })
+//     .catch((error) => {
+//       console.error('Sendgrid error', error);
+//     });
+// }
 
 export async function createUser(user: UserType) {
   try {
@@ -29,21 +83,25 @@ export async function createUser(user: UserType) {
     // const welcome = await sendMail(emailContent, user.email, user, 'welcome');
     // console.log('welcome mail', welcome);
 
-    const msg = {
-      to: user.email,
-      from: 'akarmakar846@gmail.com',
-      subject: 'Welcome to our platform',
-      text: 'Welcome to our platform, ',
-      html: '<h1>Welcome to our platform</h1>',
-    };
+    // const msg = {
+    //   to: user.email,
+    //   from: 'akarmakar84622@gmail.com',
+    //   subject: 'Welcome to our platform',
+    //   text: 'Welcome to our platform, ',
+    //   html: '<h1>Welcome to our platform</h1>',
+    // };
 
-    SendGrid.send(msg)
-      .then(() => {
-        console.log('Email sent');
-      })
-      .catch((error) => {
-        console.error('Sendgrid error', error);
-      });
+    // SendGrid.send(msg)
+    //   .then(() => {
+    //     console.log('Email sent');
+    //   })
+    //   .catch((error) => {
+    //     console.error('Sendgrid error', error);
+    //   });
+
+    const info = await sgMail();
+
+    console.log('im executing in createUser function', info);
 
     return JSON.parse(JSON.stringify(newUser));
   } catch (error) {
@@ -76,6 +134,9 @@ export async function updateUser(clerkId: string, user: UserType) {
     //   'welcome'
     // );
     // console.log('profileupdate', profileUpdate);
+    const info = await sgMail();
+
+    console.log('im executing in updateUser function', info);
 
     if (!updatedUser) {
       throw new Error('User update failed');

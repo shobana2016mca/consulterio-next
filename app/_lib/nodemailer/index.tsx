@@ -1,3 +1,4 @@
+// Description: This file is used to send email using nodemailer.
 import ContactUsEmail from '@/eemail/ContactUsEmail';
 import QuoteReceiptEmail from '@/eemail/QuoteReceiptEmail';
 import WelcomeEmail from '@/emails/WelcomeEmail';
