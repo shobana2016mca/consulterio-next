@@ -31,7 +31,7 @@ export async function sgMail(receipientEmail: string) {
   try {
     // send mail with defined transport object
     const info = await transporter.sendMail({
-      from: `akarmakar84622@gmail.com`, // sender address
+      from: `marketingconsultero@gmail.com`, // sender address
       to: receipientEmail, // list of receivers
       subject: 'Hello ✔', // Subject line
       text: 'Hello world?', // plain text body
@@ -49,59 +49,11 @@ export async function sgMail(receipientEmail: string) {
   }
 }
 
-// export async function sgEmail() {
-//   const msg = {
-//     to: 'abhijit@mailsac.com',
-//     from: 'akarmakar846@gmail.com',
-//     subject: 'Hello world',
-//     text: 'Hello world',
-//     html: '<h1>Hello world</h1>',
-//   };
-
-//   SendGrid.send(msg)
-//     .then(() => {
-//       console.log('Email sent');
-//     })
-//     .catch((error) => {
-//       console.error('Sendgrid error', error);
-//     });
-// }
-
 export async function createUser(user: UserType) {
   try {
     await connectDB();
 
     const newUser = await User.create(user);
-
-    // send welcome email
-    // const emailContent = {
-    //   subject: 'Welcome to Consultero - Your Partner in Recruitment Excellence',
-    //   text: `Hello Dear, ${user.firstName},`,
-    //   html: `<h2>Hello ${user.firstName},</h2>`,
-    // };
-
-    // const welcome = await sendMail(emailContent, user.email, user, 'welcome');
-    // console.log('welcome mail', welcome);
-
-    // const msg = {
-    //   to: user.email,
-    //   from: 'akarmakar84622@gmail.com',
-    //   subject: 'Welcome to our platform',
-    //   text: 'Welcome to our platform, ',
-    //   html: '<h1>Welcome to our platform</h1>',
-    // };
-
-    // SendGrid.send(msg)
-    //   .then(() => {
-    //     console.log('Email sent');
-    //   })
-    //   .catch((error) => {
-    //     console.error('Sendgrid error', error);
-    //   });
-
-    const info = await sgMail(user.email);
-
-    console.log('im executing in createUser function');
 
     return JSON.parse(JSON.stringify(newUser));
   } catch (error) {
@@ -119,24 +71,6 @@ export async function updateUser(clerkId: string, user: UserType) {
     const updatedUser = await User.findOneAndUpdate({ clerkId }, user, {
       new: true,
     });
-
-    // send profile update email
-    // const emailContent = {
-    //   subject: 'Profile Update',
-    //   text: 'Your profile has been updated',
-    //   html: '<h1>Your profile has been updated</h1>',
-    // };
-
-    // const profileUpdate = await sendMail(
-    //   emailContent,
-    //   user.email,
-    //   user,
-    //   'welcome'
-    // );
-    // console.log('profileupdate', profileUpdate);
-    // const info = await sgMail();
-
-    // console.log('im executing in updateUser function', info);
 
     if (!updatedUser) {
       throw new Error('User update failed');

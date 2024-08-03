@@ -1,6 +1,8 @@
+import { readFile } from 'fs/promises';
 import Link from 'next/link';
+import { join } from 'path';
 import { getToken } from '../_lib/meeting.actions';
-// import { sgEmail } from '@/app/_lib/user.actions';
+// import { sgMail } from '@/app/_lib/user.actions';
 
 // import { validatePaymentVerification } from 'razorpay/dist/utils/razorpay-utils';
 
@@ -59,6 +61,17 @@ export default async function SuccessPage({
 }: PageParamsPropType) {
   const isDev = process.env.NODE_ENV === 'development';
 
+  const dir = join(process.cwd(), 'emails', 'WelcomeEmail.tsx');
+  console.log(dir);
+
+  const newDir = join(__dirname, '..', 'emails', 'WelcomeEmail.tsx');
+
+  console.log(join(__dirname, 'emails', 'WelcomeEmail.tsx'));
+
+  const temp = await readFile(dir, 'utf-8');
+
+  // console.log(temp);
+
   // await check();
   // function verifyPayment() {
   //   const validate = validatePaymentVerification(
@@ -104,8 +117,8 @@ export default async function SuccessPage({
               </Link>
             </div>
 
-            {/* {isDev ? <button>Get Token</button> : null} */}
-            <button>Send Email</button>
+            {isDev ? <button>Get Token</button> : null}
+            {/* <button>Send Email</button> */}
           </form>
 
           {/* <form action={createPdfFromDocx}>

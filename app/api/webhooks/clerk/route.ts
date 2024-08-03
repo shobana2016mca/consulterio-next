@@ -1,12 +1,10 @@
 /* eslint-disable camelcase */
+import { sendMail } from '@/app/_lib/nodemailer';
 import { createUser, updateUser } from '@/app/_lib/user.actions';
 import { clerkClient, WebhookEvent } from '@clerk/nextjs/server';
-import SendGrid from '@sendgrid/mail';
 import { headers } from 'next/headers';
 import { NextResponse } from 'next/server';
 import { Webhook } from 'svix';
-
-SendGrid.setApiKey(process.env.SENDGRID_API_KEY!);
 
 // import { createUser, deleteUser, updateUser } from '@/lib/user.actions';
 export async function POST(req: Request) {
@@ -86,21 +84,19 @@ export async function POST(req: Request) {
     };
 
     //  send the welcome mail
-    // const msg = {
-    //   to: email_addresses[0]?.email_address,
-    //   from: 'akarmakar846@gmail.com',
-    //   subject: 'Welcome to our platform',
-    //   text: 'Welcome to our platform, ',
-    //   html: '<h1>Welcome to our platform</h1>',
-    // };
-
-    // SendGrid.send(msg)
-    //   .then(() => {
-    //     console.log('Email sent');
-    //   })
-    //   .catch((error) => {
-    //     console.error(error);
-    //   });
+    await sendMail({
+      type: 'welcome',
+      sendTo: email_addresses[0]?.email_address,
+      subject: 'Welcome to our platform 🎉',
+      data: {
+        clerkId: id,
+        email: email_addresses[0]?.email_address,
+        username: username!,
+        firstName: first_name,
+        lastName: last_name,
+        avatar: image_url,
+      },
+    });
 
     // Create the user
     const newUser = await createUser(user as UserType);

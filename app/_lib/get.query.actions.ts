@@ -6,7 +6,6 @@ import User from '@/app/_lib/models/User.model';
 import { currentUser } from '@clerk/nextjs/server';
 
 import { connectDB } from './connectDB';
-import { sendMail } from './nodemailer';
 import { actionResponse } from './utils';
 
 function generateEmailContent(data: GenerateEmailContent) {
@@ -95,7 +94,7 @@ export async function createQuote(formData: FormData) {
     );
 
     // Send email to user with quote
-    await sendMail(emailContent, data.email, emailContentData, 'quote');
+    // await sendMail(emailContent, data.email, emailContentData, 'quote');
     return actionResponse('success', 'Successfully get quote', null);
   } catch (err) {
     if (err instanceof Error) {

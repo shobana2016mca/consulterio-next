@@ -165,7 +165,7 @@ declare type WelcomeEmailContent = {
   firstName: string;
   lastName: string;
   email: string;
-  getStartedUrl: string;
+  getStartedUrl?: string;
 };
 
 declare type AccordionProps = {

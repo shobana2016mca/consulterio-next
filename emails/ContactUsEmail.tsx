@@ -63,7 +63,7 @@ export function ContactUsEmail({
         <Body style={main}>
           <Container style={container}>
             <Section style={logo}>
-              <Img width={114} src={`${baseUrl}/invoice-logo.png`} />
+              <Img width={114} src={`${baseUrl}/email-logo/email-logo.png`} />
             </Section>
             <Section style={sectionsBorders}>
               <Row>

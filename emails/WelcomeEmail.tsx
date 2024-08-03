@@ -203,7 +203,7 @@ export default function WelcomeMail({
                 'font-sans font-medium text-center text-xs text-black'
               }>
               <Link
-                href='https://www.skyviewgeosolutions.com/'
+                href='https://consulterio.vercel.app'
                 className={'text-black'}>
                 Consultero.in
                 <span className={''}>&rarr;</span>

@@ -1,7 +1,7 @@
 'use server';
 
 import Enquiry from '@/app/_lib/models/Enquiry.model';
-import { sendMail } from './nodemailer';
+// import { sendMail } from './nodemailer';
 import { actionResponse } from './utils';
 
 export async function createEnquiry(formData: FormData) {
@@ -49,7 +49,7 @@ export async function createEnquiry(formData: FormData) {
       `,
     };
 
-    await sendMail(emailContent, data.email as string, data, 'enquiry');
+    // await sendMail(emailContent, data.email as string, data, 'enquiry');
 
     return actionResponse('success', 'Enquiry sent successfully', null);
   } catch (err) {
