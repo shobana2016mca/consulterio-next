@@ -27,13 +27,13 @@ export default function Accordion({
     <div className='py-2'>
       <h2>
         <button
-          className='flex items-center justify-between w-full text-left font-semibold py-2'
+          className='flex items-center justify-between w-full py-2 font-semibold text-left'
           onClick={toggleAccordion}
           aria-expanded={accordionOpen}
           aria-controls={`accordion-text-${id}`}>
           <span>{question}</span>
           <svg
-            className='fill-indigo-500 shrink-0 ml-8'
+            className='ml-8 fill-indigo-500 shrink-0'
             width='16'
             height='16'
             xmlns='http://www.w3.org/2000/svg'>

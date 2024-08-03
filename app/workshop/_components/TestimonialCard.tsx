@@ -71,16 +71,16 @@ export default function TestimonialCard() {
         className={''}>
         {testimonials.map((testimonial) => (
           <SwiperSlide key={testimonial.id} className={'w-full h-full my-16'}>
-            <div className='text-left shadow-lg p-4 rounded-md'>
+            <div className='p-4 text-left rounded-md shadow-lg'>
               <div className='mb-4 text-black aspect-[3/2] h-full w-full grid content-center'>
                 <BlockquoteIcon className='mb-2' />
                 <p className='mt-2 text-sm leading-6 line-clamp-5'>
                   {testimonial.content}
                 </p>
-                <div className='text-sm mt-5'>
+                <div className='mt-5 text-sm'>
                   <Link
                     href='#'
-                    className='font-medium leading-none text-indigo-600 hover:text-black transition duration-500 ease-in-out'>
+                    className='font-medium leading-none text-indigo-600 transition duration-500 ease-in-out hover:text-black'>
                     {testimonial.name}
                   </Link>
                   <p>{testimonial.designation}</p>

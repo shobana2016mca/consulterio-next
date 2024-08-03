@@ -15,10 +15,10 @@ export default function ContactUsPage() {
     <main>
       <section className='py-12'>
         <SectionWrapper>
-          <div className='grid lg:grid-cols-2 grid-cols-1'>
-            <div className='lg:mb-0 mb-10'>
-              <div className='group w-full h-full'>
-                <div className='relative h-full w-full aspect-square'>
+          <div className='grid grid-cols-1 lg:grid-cols-2'>
+            <div className='mb-10 lg:mb-0'>
+              <div className='w-full h-full group'>
+                <div className='relative w-full h-full aspect-square'>
                   {/* <Image
                   src='https://pagedone.io/asset/uploads/1696488602.png'
                   alt='ContactUs tailwind section'
@@ -31,7 +31,7 @@ export default function ContactUsPage() {
                   <ContactFormMap />
 
                   {/* heading */}
-                  {/* <h1 className='font-manrope text-white text-4xl font-bold leading-10 absolute top-11 left-11'>
+                  {/* <h1 className='absolute text-4xl font-bold leading-10 text-white font-manrope top-11 left-11'>
                     Contact us
                   </h1> */}
                   {/* info card */}
@@ -41,7 +41,7 @@ export default function ContactUsPage() {
             </div>
 
             {/* CONTACT ME */}
-            <div className='bg-gray-50 p-4 space-y-8 md:p-8 lg:p-12 lg:rounded-r-2xl rounded-2xl'>
+            <div className='p-4 space-y-8 bg-gray-50 md:p-8 lg:p-12 lg:rounded-r-2xl rounded-2xl'>
               <SectionHeading>Send Us A Message</SectionHeading>
               <ContactForm />
             </div>

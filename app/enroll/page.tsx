@@ -65,11 +65,11 @@ function Banner() {
     <section className='bg-gradient-to-r from-blue-700 to-[#B06AB3] font-sans'>
       <SectionWrapper>
         <div className='grid gap-y-4 items-center content-center text-center aspect-square sm:aspect-[20/9] md:aspect-[24/9] lg:aspect-[26/9] h-full w-full'>
-          <h2 className='text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4'>
+          <h2 className='mb-4 text-xl font-bold text-white sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl'>
             Congrats! You are just one step away from becoming an Interview
             Mastery workshop
           </h2>
-          <p className='text-white text-sm md:text-xl lg:text-2xl font-semibold animate-pulse text-center'>
+          <p className='text-sm font-semibold text-center text-white md:text-xl lg:text-2xl animate-pulse'>
             Enroll now to get started with the course and become an expert and
             crack the interviews.
           </p>

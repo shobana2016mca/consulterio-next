@@ -8,7 +8,7 @@ export default function TimerSection() {
     <section>
       <div>
         <SectionWrapper>
-          <div className='grid grid-cols-1 justify-items-center gap-x-8 w-full'>
+          <div className='grid w-full grid-cols-1 justify-items-center gap-x-8'>
             <div className='col-span-full'>
               <SectionSubHeading
                 iconLeft={<BiTimer className='fill-yellow' />}

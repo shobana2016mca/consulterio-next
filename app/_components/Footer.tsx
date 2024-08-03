@@ -14,8 +14,8 @@ export default function Footer() {
     <footer className='w-full bg-sky-950'>
       <SectionWrapper>
         {/* <!--Grid--> */}
-        <div className='grid grid-cols-1 lg:grid-cols-4 py-10 gap-4'>
-          <div className='col-span-full lg:col-span-1 lg:justify-self-center p-4 lg:p-0'>
+        <div className='grid grid-cols-1 gap-4 py-10 lg:grid-cols-4'>
+          <div className='p-4 col-span-full lg:col-span-1 lg:justify-self-center lg:p-0'>
             <Link
               href={'/'}
               className={
@@ -31,10 +31,10 @@ export default function Footer() {
             </Link>
             {/* <Link
               href='#'
-              className='cursor-pointer flex justify-center lg:justify-start'>
+              className='flex justify-center cursor-pointer lg:justify-start'>
               <PagedoneLogo className='w-40 h-8' />
             </Link> */}
-            <p className='py-8 text-sm text-gray-200 lg:max-w-xs text-center lg:text-left'>
+            <p className='py-8 text-sm text-center text-gray-200 lg:max-w-xs lg:text-left'>
               Trusted in 5 countries, 10k candidates & 250+ companies have taken
               our service.
             </p>
@@ -46,29 +46,29 @@ export default function Footer() {
           </div>
 
           {/* <!--End Col--> */}
-          <div className='col-span-full md:col-span-1 self-center justify-self-center p-4 lg:p-0 w-full'>
-            <h4 className='text-lg text-gray-300 font-medium mb-7 '>
+          <div className='self-center w-full p-4 col-span-full md:col-span-1 justify-self-center lg:p-0'>
+            <h4 className='text-lg font-medium text-gray-300 mb-7 '>
               Quick Links
             </h4>
-            <ul className='text-sm  transition-all duration-500'>
+            <ul className='text-sm transition-all duration-500'>
               <li className='mb-6'>
                 <Link
                   href='/'
-                  className='cursor-pointer text-gray-300 hover:text-gray-500'>
+                  className='text-gray-300 cursor-pointer hover:text-gray-500'>
                   Home
                 </Link>
               </li>
               <li className='mb-6'>
                 <Link
                   href='/about-us'
-                  className='cursor-pointer text-gray-300 hover:text-gray-500'>
+                  className='text-gray-300 cursor-pointer hover:text-gray-500'>
                   About
                 </Link>
               </li>
               <li>
                 <Link
                   href='/workshop'
-                  className='cursor-pointer text-gray-300 hover:text-gray-500'>
+                  className='text-gray-300 cursor-pointer hover:text-gray-500'>
                   Batch Details
                 </Link>
               </li>
@@ -76,27 +76,27 @@ export default function Footer() {
           </div>
 
           {/* <!--End Col--> */}
-          <div className='col-span-full md:col-span-1 self-center justify-self-center p-4 lg:p-0 w-full'>
-            <h4 className='text-lg text-gray-300 font-medium mb-7'>Support</h4>
-            <ul className='text-sm  transition-all duration-500'>
+          <div className='self-center w-full p-4 col-span-full md:col-span-1 justify-self-center lg:p-0'>
+            <h4 className='text-lg font-medium text-gray-300 mb-7'>Support</h4>
+            <ul className='text-sm transition-all duration-500'>
               <li className='mb-6'>
                 <Link
                   href='/customer-support'
-                  className='cursor-pointer text-gray-300 hover:text-gray-500'>
+                  className='text-gray-300 cursor-pointer hover:text-gray-500'>
                   Customer Support
                 </Link>
               </li>
               <li className='mb-6'>
                 <Link
                   href='/terms-of-conditions'
-                  className='cursor-pointer text-gray-300 hover:text-gray-500'>
+                  className='text-gray-300 cursor-pointer hover:text-gray-500'>
                   Terms & Conditions
                 </Link>
               </li>
               <li>
                 <Link
                   href='/privacy-policy'
-                  className='cursor-pointer text-gray-300 hover:text-gray-500'>
+                  className='text-gray-300 cursor-pointer hover:text-gray-500'>
                   Privacy Policy
                 </Link>
               </li>
@@ -104,31 +104,31 @@ export default function Footer() {
           </div>
 
           {/* <!--End Col--> */}
-          <div className='col-span-full lg:col-span-1 self-center justify-self-center p-4 lg:p-0 w-full'>
-            <h4 className='text-lg text-gray-300 font-medium mb-7'>
+          <div className='self-center w-full p-4 col-span-full lg:col-span-1 justify-self-center lg:p-0'>
+            <h4 className='text-lg font-medium text-gray-300 mb-7'>
               Subscribe
             </h4>
-            <p className='text-sm text-gray-300 leading-6 mb-7'>
+            <p className='text-sm leading-6 text-gray-300 mb-7'>
               Subscribe to get the latest news from us
             </p>
             <Link
               href='#!'
-              className='flex cursor-pointer items-center justify-center gap-2 border border-indigo-600 rounded-full py-3 px-6 w-fit text-sm text-indigo-600 font-semibold transition-all duration-500 hover:bg-indigo-50'>
+              className='flex items-center justify-center gap-2 px-6 py-3 text-sm font-semibold text-indigo-600 transition-all duration-500 border border-indigo-600 rounded-full cursor-pointer w-fit hover:bg-indigo-50'>
               Subscribe
               <ArrowRight />
             </Link>
           </div>
         </div>
         {/* <!--Grid--> */}
-        <div className='py-7 border-t border-gray-200'>
-          <div className='flex items-center justify-center flex-col lg:justify-between lg:flex-row'>
+        <div className='border-t border-gray-200 py-7'>
+          <div className='flex flex-col items-center justify-center lg:justify-between lg:flex-row'>
             <span className='text-sm text-gray-500 '>
               @Consultero {new Date().getFullYear()}, All rights reserved.
             </span>
             <div className='flex mt-4 space-x-4 sm:justify-center sm:mt-0 '>
               <Link
                 href='#'
-                className='w-8 cursor-pointer h-8 rounded-full transition-all duration-500 flex justify-center items-center bg-black/80 hover:bg-black'>
+                className='flex items-center justify-center w-8 h-8 transition-all duration-500 rounded-full cursor-pointer bg-black/80 hover:bg-black'>
                 <XLogo className='w-5 h-5 text-white group-hover:text-white' />
               </Link>
               <Link

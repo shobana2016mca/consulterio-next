@@ -19,9 +19,9 @@ export default function AboutSection() {
                 sizes='(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 592px'
               />
             </div>
-            <div className='grid gap-y-4 xl:gap-y-8 content-center col-span-full lg:col-span-1 order-1 xl:order-last'>
+            <div className='grid content-center order-1 gap-y-4 xl:gap-y-8 col-span-full lg:col-span-1 xl:order-last'>
               <SectionHeading>About Us</SectionHeading>
-              <p className='font-normal text-sm md:text-lg lg:text-xl leading-5 md:leading-6 lg:leading-8 text-gray-500'>
+              <p className='text-sm font-normal leading-5 text-gray-500 md:text-lg lg:text-xl md:leading-6 lg:leading-8'>
                 Welcome to Consultero, your trusted partner in HR recruitment
                 solutions for software-based and corporate companies.
                 Established in 2016, we specialize in connecting top talent with
@@ -35,11 +35,11 @@ export default function AboutSection() {
             </div>
           </div>
           <div className='grid grid-cols-1 lg:grid-cols-2 gap-9 '>
-            <div className='grid gap-y-4 xl:gap-y-8 content-center'>
+            <div className='grid content-center gap-y-4 xl:gap-y-8'>
               <SectionHeading>
                 Effective Recruitment Solutions Since 2018
               </SectionHeading>
-              <p className='font-normal text-sm md:text-lg lg:text-xl leading-5 md:leading-6 lg:leading-8 text-gray-500'>
+              <p className='text-sm font-normal leading-5 text-gray-500 md:text-lg lg:text-xl md:leading-6 lg:leading-8'>
                 Since our inception in 2018, Consultero has been committed to
                 revolutionizing the recruitment process for our clients. Our
                 expertise and dedication have consistently led to streamlined
@@ -48,7 +48,7 @@ export default function AboutSection() {
                 a personalized approach to each project, understanding the
                 unique needs of every client.
               </p>
-              <p className='font-normal text-sm md:text-lg lg:text-xl leading-5 md:leading-6 lg:leading-8 text-gray-500'>
+              <p className='text-sm font-normal leading-5 text-gray-500 md:text-lg lg:text-xl md:leading-6 lg:leading-8'>
                 By leveraging advanced recruitment strategies and our extensive
                 network, we significantly enhance the quality and speed of
                 hiring. Our goal is to make the recruitment process seamless,
@@ -58,7 +58,7 @@ export default function AboutSection() {
                 outcomes and a stronger, more capable workforce.
               </p>
             </div>
-            <div className='relative aspect-square h-full w-full'>
+            <div className='relative w-full h-full aspect-square'>
               <Image
                 src='https://pagedone.io/asset/uploads/1702034785.png'
                 alt='About Us tailwind page'

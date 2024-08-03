@@ -11,13 +11,13 @@ export default function ServiceSection() {
           <div className='flex flex-wrap'>
             <div className='w-full px-4'>
               <div className='mx-auto max-w-[510px] text-center'>
-                <span className='mb-2 block text-lg font-semibold text-primary'>
+                <span className='block mb-2 text-lg font-semibold text-primary'>
                   Our Services
                 </span>
                 <h2 className='mb-3 text-3xl font-bold leading-[1.2] text-dark sm:text-4xl md:text-[40px]'>
                   What We Offer
                 </h2>
-                <p className='font-normal text-sm md:text-lg lg:text-xl leading-5 md:leading-6 lg:leading-8 text-gray-500 text-center'>
+                <p className='text-sm font-normal leading-5 text-center text-gray-500 md:text-lg lg:text-xl md:leading-6 lg:leading-8'>
                   At Consultero, we offer a comprehensive suite of recruitment
                   services designed to meet your unique hiring needs. Our
                   dedicated team ensures a smooth and efficient process from
@@ -31,12 +31,12 @@ export default function ServiceSection() {
       </div> */}
 
       <SectionWrapper>
-        <span className='mb-2 text-center block text-lg font-semibold text-primary'>
+        <span className='block mb-2 text-lg font-semibold text-center text-primary'>
           Our Services
         </span>
         <div className={'space-y-4 md:space-y-6 lg:space-y-8'}>
           <SectionHeading center>What We Offer</SectionHeading>
-          <p className='font-normal text-sm md:text-lg lg:text-xl leading-5 md:leading-6 lg:leading-8 text-gray-500 text-center'>
+          <p className='text-sm font-normal leading-5 text-center text-gray-500 md:text-lg lg:text-xl md:leading-6 lg:leading-8'>
             At Consultero, we offer a comprehensive suite of recruitment
             services designed to meet your unique hiring needs. Our dedicated
             team ensures a smooth and efficient process from start to finish,
@@ -46,14 +46,14 @@ export default function ServiceSection() {
       </SectionWrapper>
 
       <SectionWrapper>
-        <div className='grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 py-8 gap-8 justify-items-center'>
+        <div className='grid grid-cols-1 gap-8 py-8 sm:grid-cols-2 xl:grid-cols-3 justify-items-center'>
           {services.map((service) => (
             <ServiceCard
               key={service.id}
               title={service.title}
               details={service.details}
               icon={
-                <service.icon className='size-4 md:size-6 lg:size-10 text-white' />
+                <service.icon className='text-white size-4 md:size-6 lg:size-10' />
               }
             />
           ))}

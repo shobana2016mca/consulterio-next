@@ -100,9 +100,9 @@ export default function AboutPage() {
                   sizes='(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 592px'
                 />
               </div>
-              <div className='grid gap-y-4 xl:gap-y-8 content-center col-span-full lg:col-span-1 order-1 xl:order-last'>
+              <div className='grid content-center order-1 gap-y-4 xl:gap-y-8 col-span-full lg:col-span-1 xl:order-last'>
                 <SectionHeading>About Us</SectionHeading>
-                <p className='font-normal text-sm md:text-lg lg:text-xl leading-5 md:leading-6 lg:leading-8 text-gray-500'>
+                <p className='text-sm font-normal leading-5 text-gray-500 md:text-lg lg:text-xl md:leading-6 lg:leading-8'>
                   Welcome to Consultero, your trusted partner in HR recruitment
                   solutions for software-based and corporate companies.
                   Established in 2016, we specialize in connecting top talent
@@ -116,11 +116,11 @@ export default function AboutPage() {
               </div>
             </div>
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-9 '>
-              <div className='grid gap-y-4 xl:gap-y-8 content-center'>
+              <div className='grid content-center gap-y-4 xl:gap-y-8'>
                 <SectionHeading>
                   Effective Recruitment Solutions Since 2018
                 </SectionHeading>
-                <p className='font-normal text-sm md:text-lg lg:text-xl leading-5 md:leading-6 lg:leading-8 text-gray-500'>
+                <p className='text-sm font-normal leading-5 text-gray-500 md:text-lg lg:text-xl md:leading-6 lg:leading-8'>
                   Since our inception in 2018, Consultero has been committed to
                   revolutionizing the recruitment process for our clients. Our
                   expertise and dedication have consistently led to streamlined
@@ -129,7 +129,7 @@ export default function AboutPage() {
                   take a personalized approach to each project, understanding
                   the unique needs of every client.
                 </p>
-                <p className='font-normal text-sm md:text-lg lg:text-xl leading-5 md:leading-6 lg:leading-8 text-gray-500'>
+                <p className='text-sm font-normal leading-5 text-gray-500 md:text-lg lg:text-xl md:leading-6 lg:leading-8'>
                   By leveraging advanced recruitment strategies and our
                   extensive network, we significantly enhance the quality and
                   speed of hiring. Our goal is to make the recruitment process
@@ -140,7 +140,7 @@ export default function AboutPage() {
                   workforce.
                 </p>
               </div>
-              <div className='relative aspect-square h-full w-full'>
+              <div className='relative w-full h-full aspect-square'>
                 <Image
                   src='https://pagedone.io/asset/uploads/1702034785.png'
                   alt='About Us tailwind page'
@@ -184,7 +184,7 @@ function AboutUs() {
               src={'/about-us-lady.png'}
               fill
               alt='About Us Person'
-              className='object-contain lg:object-cover w-full h-full'
+              className='object-contain w-full h-full lg:object-cover'
               sizes='(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 592px'
               priority
             />
@@ -194,7 +194,7 @@ function AboutUs() {
               'col-span-full lg:col-span-2 p-4 self-center grid gap-y-4'
             }>
             <SectionHeading>A New Experience in Human Resources</SectionHeading>
-            <p className='font-normal text-sm md:text-lg lg:text-xl leading-5 md:leading-6 lg:leading-8 text-gray-500'>
+            <p className='text-sm font-normal leading-5 text-gray-500 md:text-lg lg:text-xl md:leading-6 lg:leading-8'>
               Consultero is a leading provider of HR recruitment solutions for
               software-based and corporate companies. Our team of experts
               specializes in connecting top talent with leading organizations,
@@ -211,14 +211,14 @@ function AboutUs() {
                 {aboutUsLists.map((list) => (
                   <li key={list.id} className='flex items-center gap-2 mt-4'>
                     <FaRegCircleCheck className='text-blue-900 size-4 lg:size-6' />
-                    <span className='font-normal text-sm md:text-base lg:text-lg text-gray-500'>
+                    <span className='text-sm font-normal text-gray-500 md:text-base lg:text-lg'>
                       {list.listItem}
                     </span>
                   </li>
                 ))}
               </ul>
 
-              <p className='font-normal text-sm md:text-lg lg:text-xl leading-5 md:leading-6 lg:leading-8 text-gray-500 mt-4'>
+              <p className='mt-4 text-sm font-normal leading-5 text-gray-500 md:text-lg lg:text-xl md:leading-6 lg:leading-8'>
                 At Consultero, we understand the critical role that talent plays
                 in the success of any business. That&apos;s why our mission is
                 to provide unparalleled recruitment services, delivering the
@@ -247,16 +247,16 @@ function WhyChooseUs() {
             }>
             {whyChooseUsLists.map((list) => (
               <div
-                className='flex items-center gap-4 lg:gap-8 ring-1 ring-slate-300 p-4 rounded-lg shadow-md cursor-pointer transition-transform transform-gpu hover:scale-105'
+                className='flex items-center gap-4 p-4 transition-transform rounded-lg shadow-md cursor-pointer lg:gap-8 ring-1 ring-slate-300 transform-gpu hover:scale-105'
                 key={list.id}>
                 <div className={'bg-blue-500 rounded-full p-2 lg:p-4'}>
                   <list.icon className='text-white size-6 lg:size-12' />
                 </div>
                 <div>
-                  <h3 className='font-semibold text-base md:text-lg lg:text-xl text-gray-800'>
+                  <h3 className='text-base font-semibold text-gray-800 md:text-lg lg:text-xl'>
                     {list.title}
                   </h3>
-                  <p className='font-normal text-sm md:text-base text-gray-500'>
+                  <p className='text-sm font-normal text-gray-500 md:text-base'>
                     {list.description}
                   </p>
                 </div>
@@ -343,7 +343,7 @@ function WhoWeAre() {
 
             <Link
               href={'/contact-us'}
-              className='px-4 py-2 lg:px-8 lg:py-4 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-medium lg:font-bold rounded-full transition-transform transform-gpu hover:-translate-y-1 hover:shadow-lg justify-self-start text-sm md:text-base lg:text-xl'>
+              className='px-4 py-2 text-sm font-medium text-white transition-transform rounded-full lg:px-8 lg:py-4 bg-gradient-to-r from-blue-500 to-purple-500 lg:font-bold transform-gpu hover:-translate-y-1 hover:shadow-lg justify-self-start md:text-base lg:text-xl'>
               Contact Here!
             </Link>
           </div>

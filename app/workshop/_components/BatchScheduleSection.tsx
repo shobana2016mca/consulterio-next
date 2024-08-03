@@ -14,8 +14,8 @@ export default function BatchScheduleSection() {
           Batch Schedule
         </SectionSubHeading>
 
-        <div className='mt-4 grid grid-cols-1 justify-items-center content-center gap-4 md:grid-cols-2 p-4 max-w-2xl mx-auto'>
-          <div className='space-y-2 col-span-full md:col-span-1 w-full text-center'>
+        <div className='grid content-center max-w-2xl grid-cols-1 gap-4 p-4 mx-auto mt-4 justify-items-center md:grid-cols-2'>
+          <div className='w-full space-y-2 text-center col-span-full md:col-span-1'>
             <h3 className='font-bold'>Weekday Batch</h3>
             <p>
               <span className='font-semibold'>Time:</span>{' '}
@@ -34,7 +34,7 @@ export default function BatchScheduleSection() {
               {batchDetails.weekday.maxStudents}
             </p>
           </div>
-          <div className='space-y-2 col-span-full md:col-span-1 w-full text-center'>
+          <div className='w-full space-y-2 text-center col-span-full md:col-span-1'>
             <h3 className='font-bold'>Weekend Batch</h3>
             <p>
               <span className='font-semibold'>Time:</span>{' '}

@@ -2,8 +2,8 @@ import Link from 'next/link';
 
 export default function ContactInfoCard() {
   return (
-    <div className='absolute bottom-0 w-full lg:p-11 p-5'>
-      <div className='bg-white rounded-lg p-6 block'>
+    <div className='absolute bottom-0 w-full p-5 lg:p-11'>
+      <div className='block p-6 bg-white rounded-lg'>
         <Link href='tel:7397022565' className='flex items-center mb-6'>
           <svg
             width='30'
@@ -20,7 +20,7 @@ export default function ContactInfoCard() {
             />
           </svg>
 
-          <span className='text-black text-base font-normal leading-6 ml-5'>
+          <span className='ml-5 text-base font-normal leading-6 text-black'>
             {/* 470-601-1911 */}
             739-702-2565
           </span>
@@ -41,7 +41,7 @@ export default function ContactInfoCard() {
               strokeLinecap='round'
             />
           </svg>
-          <span className='text-black text-base font-normal leading-6 ml-5'>
+          <span className='ml-5 text-base font-normal leading-6 text-black'>
             {/* Pagedone1234@gmail.com */}
             marketingconsultero@gmail.com
           </span>
@@ -64,7 +64,7 @@ export default function ContactInfoCard() {
               strokeWidth='2'
             />
           </svg>
-          <span className='text-black text-base font-normal leading-6 ml-5'>
+          <span className='ml-5 text-base font-normal leading-6 text-black'>
             259/1, Om Sakthi Nagar, Mettukuppam, Vanagaram, Chennai,
             Adayalampattu, Tamil Nadu 600095
           </span>

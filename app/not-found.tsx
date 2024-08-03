@@ -3,8 +3,8 @@ import Link from 'next/link';
 
 export default function NotFound() {
   return (
-    <main className='h-screen w-full flex flex-col justify-center items-center bg-sky-900'>
-      <h1 className='text-9xl font-extrabold text-white tracking-widest'>
+    <main className='flex flex-col items-center justify-center w-full h-screen bg-sky-900'>
+      <h1 className='font-extrabold tracking-widest text-white text-9xl'>
         404
       </h1>
       <div className='bg-[#FF6A3D] px-2 text-sm rounded rotate-12 absolute animate__animated animate__hinge'>

@@ -22,7 +22,7 @@ export default async function Home() {
   // }
 
   return (
-    <main className='space-y-8 lg:space-y-12 bg-white'>
+    <main className='space-y-8 bg-white lg:space-y-12'>
       <HeroSection />
       {/* <Brands /> */}
       <OurClients />

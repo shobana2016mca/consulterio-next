@@ -130,19 +130,19 @@ export default function SwiperAbout() {
   return (
     <>
       <section className='py-14 lg:py-24 '>
-        <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
+        <div className='px-4 mx-auto max-w-7xl sm:px-6 lg:px-8'>
           <div className='mb-24'>
-            <h2 className='font-manrope text-4xl text-center font-bold text-gray-900 mb-6'>
+            <h2 className='mb-6 text-4xl font-bold text-center text-gray-900 font-manrope'>
               Meet our soldier of finance
             </h2>
-            <p className='text-lg text-gray-500 text-center'>
+            <p className='text-lg text-center text-gray-500'>
               We provide all the advantage that can simplify all your financial
               and banking support without any further issues
             </p>
           </div>
 
           {/* <!--Slider Wrapper--> */}
-          <div className='swiper teamswiper pb-10'>
+          <div className='pb-10 swiper teamswiper'>
             <div className='swiper-wrapper'>
               <Swiper
                 spaceBetween={32}
@@ -165,34 +165,34 @@ export default function SwiperAbout() {
                     return (
                       <Fragment key={idx}>
                         <div className='swiper-slide'>
-                          <div className='group w-full flex-wrap flex items-center gap-8  transition-all duration-500 p-8  lg:flex-nowrap'>
-                            <div className=' w-full lg:w-48 h-64'>
+                          <div className='flex flex-wrap items-center w-full gap-8 p-8 transition-all duration-500 group lg:flex-nowrap'>
+                            <div className='w-full h-64 lg:w-48'>
                               <Image
                                 src={slide.imgUrl}
                                 alt='image'
-                                className='rounded-2xl h-full object-cover mx-auto lg:mx-0 lg:w-full'
+                                className='object-cover h-full mx-auto rounded-2xl lg:mx-0 lg:w-full'
                                 width={408}
                                 height={511}
                                 priority
                               />
                             </div>
-                            <div className='text-center lg:text-left lg:max-w-xs flex-1'>
-                              <div className='mb-5 pb-5 border-b border-solid border-gray-300'>
-                                <h6 className='text-lg text-gray-900 font-semibold mb-1'>
+                            <div className='flex-1 text-center lg:text-left lg:max-w-xs'>
+                              <div className='pb-5 mb-5 border-b border-gray-300 border-solid'>
+                                <h6 className='mb-1 text-lg font-semibold text-gray-900'>
                                   {slide.name}
                                 </h6>
                                 <span className='text-sm text-gray-500 group-hover:text-indigo-600'>
                                   {slide.role}
                                 </span>
                               </div>
-                              <p className='text-gray-500 leading-6 mb-7'>
+                              <p className='leading-6 text-gray-500 mb-7'>
                                 {slide.message}
                               </p>
-                              <div className='flex items-center gap-4 justify-center lg:justify-start'>
+                              <div className='flex items-center justify-center gap-4 lg:justify-start'>
                                 {slide.icons.map((Icon, idx) => {
                                   return (
                                     <Fragment key={idx}>
-                                      <p className='cursor-pointer  text-gray-900 hover:text-white group w-12 h-12 rounded-full flex justify-center items-center bg-gray-100 transition-all duration-500 hover:bg-indigo-600'>
+                                      <p className='flex items-center justify-center w-12 h-12 text-gray-900 transition-all duration-500 bg-gray-100 rounded-full cursor-pointer hover:text-white group hover:bg-indigo-600'>
                                         {<Icon />}
                                       </p>
                                     </Fragment>

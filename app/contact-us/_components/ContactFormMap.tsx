@@ -1,6 +1,6 @@
 export default function ContactFormMap() {
   return (
-    <div className='bg-gray-300 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start h-full w-full'>
+    <div className='flex items-end justify-start w-full h-full p-10 overflow-hidden bg-gray-300 rounded-lg sm:mr-10'>
       <iframe
         width={'100%'}
         height={'100%'}

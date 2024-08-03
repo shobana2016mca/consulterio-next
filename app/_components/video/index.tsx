@@ -25,7 +25,7 @@ const SectionTitle = ({
         className={`w-full ${center ? 'mx-auto text-center space-y-4' : ''}`}
         style={{ maxWidth: width }}>
         <SectionHeading center>{title}</SectionHeading>
-        <p className='font-normal text-sm md:text-lg lg:text-xl leading-5 md:leading-6 lg:leading-8 text-gray-500 text-center'>
+        <p className='text-sm font-normal leading-5 text-center text-gray-500 md:text-lg lg:text-xl md:leading-6 lg:leading-8'>
           {paragraph}
         </p>
       </div>
@@ -37,7 +37,7 @@ const Video = () => {
   // const [isOpen, setOpen] = useState(false);
 
   return (
-    <section className='relative z-10 pb-4 md:pb-6 lg:pb-8 w-full'>
+    <section className='relative z-10 w-full pb-4 md:pb-6 lg:pb-8'>
       <div className='space-y-4 md:space-y-8 lg:space-y-12'>
         <SectionTitle
           title='We are ready to help'
@@ -58,7 +58,7 @@ const Video = () => {
                   fill
                   sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
                 />
-                <div className='absolute right-0 top-0 flex h-full w-full items-center justify-center'>
+                <div className='absolute top-0 right-0 flex items-center justify-center w-full h-full'>
                   <button
                     aria-label='video play button'
                     // onClick={() => setOpen(true)}

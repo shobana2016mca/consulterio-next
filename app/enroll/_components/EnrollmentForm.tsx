@@ -100,7 +100,7 @@ export default function EnrollmentForm() {
     <FormProvider {...methods}>
       <form onSubmit={methods.handleSubmit(onSubmit)}>
         <div className={'grid gap-y-4'}>
-          <ul className='grid grid-flow-col text-center text-gray-500 bg-gray-100 rounded-lg p-1'>
+          <ul className='grid grid-flow-col p-1 text-center text-gray-500 bg-gray-100 rounded-lg'>
             <li>
               <button
                 type='button'
@@ -138,7 +138,7 @@ export default function EnrollmentForm() {
             <button
               type='button'
               onClick={back}
-              className='rounded border-0 bg-blue-950 py-2 px-6 text-lg text-white hover:bg-blue-900 focus:outline-none'>
+              className='px-6 py-2 text-lg text-white border-0 rounded bg-blue-950 hover:bg-blue-900 focus:outline-none'>
               Back
             </button>
           )} */}
@@ -146,7 +146,7 @@ export default function EnrollmentForm() {
         <div className={'w-full mt-4'}>
           <button
             type='submit'
-            className='rounded w-full border-0 bg-blue-950 py-2 px-6 text-lg text-white hover:bg-blue-900 focus:outline-none'>
+            className='w-full px-6 py-2 text-lg text-white border-0 rounded bg-blue-950 hover:bg-blue-900 focus:outline-none'>
             {isLastStep ? (
               <>{isLoading ? 'Processing...' : 'Pay Fees & Register'}</>
             ) : (
@@ -161,7 +161,7 @@ export default function EnrollmentForm() {
   );
 }
 
-/* <ul className='grid grid-flow-col text-center text-gray-500 bg-gray-100 rounded-lg p-1'>
+/* <ul className='grid grid-flow-col p-1 text-center text-gray-500 bg-gray-100 rounded-lg'>
         <li>
           <button
             className={classNames(
@@ -182,7 +182,7 @@ export default function EnrollmentForm() {
                 : 'text-gray-700',
               'flex w-full justify-center py-4'
             )}
-            // className='flex w-full justify-center py-4 bg-white rounded-lg shadow text-indigo-600'
+            // className='flex justify-center w-full py-4 text-indigo-600 bg-white rounded-lg shadow'
             onClick={() => handleActiveTab('titan')}>
             Titan maintenance
           </button>
@@ -195,7 +195,7 @@ export default function EnrollmentForm() {
                 : 'text-gray-700',
               'flex w-full justify-center py-4'
             )}
-            // className='flex w-full justify-center py-4'
+            // className='flex justify-center w-full py-4'
             onClick={() => handleActiveTab('load')}>
             Loadout
           </button>
@@ -208,7 +208,7 @@ export default function EnrollmentForm() {
                 : 'text-gray-700',
               'flex w-full justify-center py-4'
             )}
-            // className='flex w-full justify-center py-4'
+            // className='flex justify-center w-full py-4'
             onClick={() => handleActiveTab('server')}>
             Server Browser
           </button>
@@ -221,7 +221,7 @@ export default function EnrollmentForm() {
                 : 'text-gray-700',
               'flex w-full justify-center py-4'
             )}
-            // className='flex w-full justify-center py-4'
+            // className='flex justify-center w-full py-4'
             onClick={() => handleActiveTab('setting')}>
             Settings
           </button>
@@ -231,7 +231,7 @@ export default function EnrollmentForm() {
 /* <div>
         <div className='grid grid-cols-3 gap-5'>
           <button
-            // className='p-4 rounded shadow-md text-white bg-indigo-500'
+            // className='p-4 text-white bg-indigo-500 rounded shadow-md'
             className={classNames(
               selected === 'home'
                 ? 'bg-indigo-500 text-white'
@@ -263,19 +263,19 @@ export default function EnrollmentForm() {
           </button>
         </div>
         {selected === 'home' && (
-          <div className='shadow-xl border border-gray-100 font-light p-8 rounded text-gray-500 bg-white mt-6'>
+          <div className='p-8 mt-6 font-light text-gray-500 bg-white border border-gray-100 rounded shadow-xl'>
             Im in the {selected} tab
           </div>
         )}
 
         {selected === 'profile' && (
-          <div className='shadow-xl border border-gray-100 font-light p-8 rounded text-gray-500 bg-white mt-6'>
+          <div className='p-8 mt-6 font-light text-gray-500 bg-white border border-gray-100 rounded shadow-xl'>
             Im in the {selected} tab
           </div>
         )}
 
         {selected === 'message' && (
-          <div className='shadow-xl border border-gray-100 font-light p-8 rounded text-gray-500 bg-white mt-6'>
+          <div className='p-8 mt-6 font-light text-gray-500 bg-white border border-gray-100 rounded shadow-xl'>
             Im in the {selected} tab
           </div>
         )}

@@ -11,7 +11,7 @@ export default function ServicesSection() {
           <SectionHeading center>
             Key Job Roles In Various Departments.
           </SectionHeading>
-          <p className='font-normal text-sm md:text-lg lg:text-xl leading-5 md:leading-6 lg:leading-8 text-gray-500 text-center'>
+          <p className='text-sm font-normal leading-5 text-center text-gray-500 md:text-lg lg:text-xl md:leading-6 lg:leading-8'>
             Beyond technical roles, both SAS companies and product software
             companies have a variety of important positions across other
             departments.

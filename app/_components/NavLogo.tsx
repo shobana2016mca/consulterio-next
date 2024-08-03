@@ -5,7 +5,7 @@ export default function NavLogo() {
   return (
     <Link href='/' className={'h-8 w-full'}>
       <Image
-        className='w-full h-full object-contain'
+        className='object-contain w-full h-full'
         src='/logo.png'
         alt='Your Company'
         width={100}

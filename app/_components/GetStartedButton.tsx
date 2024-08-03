@@ -15,7 +15,7 @@ export default function GetStartedButton() {
           signUpForceRedirectUrl={'/sign-up'}>
           <button
             disabled={!isLoaded}
-            className='flex items-center justify-center space-x-2 rounded-md ring-1 ring-sky-900 px-2 py-1 md:px-4 md:py-2 text-sky-600 transition bg-sky-950 hover:bg-sky-700 hover:text-white group'>
+            className='flex items-center justify-center px-2 py-1 space-x-2 transition rounded-md ring-1 ring-sky-900 md:px-4 md:py-2 text-sky-600 bg-sky-950 hover:bg-sky-700 hover:text-white group'>
             <span
               className={
                 'text-sm md:text-base lg:text-lg font-normal md:font-medium'
@@ -23,7 +23,7 @@ export default function GetStartedButton() {
               Get Started
             </span>
             <span className={'hidden sm:block'}>
-              <ArrowRight className='w-3 h-3 transform group-hover:translate-x-1 transition-transform ' />
+              <ArrowRight className='w-3 h-3 transition-transform transform group-hover:translate-x-1 ' />
             </span>
           </button>
         </SignInButton>

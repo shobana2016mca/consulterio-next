@@ -5,11 +5,11 @@ export default function CTASection() {
   return (
     <section className='pb-12'>
       <SectionWrapper>
-        <div className='bg-indigo-600 rounded-2xl p-8 xl:p-11 space-y-4 md:space-y-6 lg:space-y-8'>
+        <div className='p-8 space-y-4 bg-indigo-600 rounded-2xl xl:p-11 md:space-y-6 lg:space-y-8'>
           <SectionHeading center color='text-white'>
             Subscribe to the latest offer
           </SectionHeading>
-          <p className='text-indigo-200 text-center font-normal text-sm md:text-lg lg:text-xl leading-5 md:leading-6 lg:leading-8'>
+          <p className='text-sm font-normal leading-5 text-center text-indigo-200 md:text-lg lg:text-xl md:leading-6 lg:leading-8'>
             Join our community of subscribers and receive regular updates
             delivered straight to your inbox. It&apos;s quick, easy, and free
           </p>
@@ -23,12 +23,12 @@ export default function CTASection() {
                 id='ctaEmail'
                 name='ctaEmail'
                 autoComplete='email'
-                className='py-2 px-6 bg-transparent rounded-full max-lg:border border-gray-300  text-gray-100 max-lg:text-center placeholder:text-gray-400 focus:outline-none flex-1 w-full lg:w-auto lg:py-2 lg:px-6 lg:bg-transparent'
+                className='flex-1 w-full px-6 py-2 text-gray-100 bg-transparent border-gray-300 rounded-full max-lg:border max-lg:text-center placeholder:text-gray-400 focus:outline-none lg:w-auto lg:py-2 lg:px-6 lg:bg-transparent'
                 placeholder='Enter your email..'
               />
               <button
                 type='button'
-                className='py-2 px-5 text-sm bg-indigo-500 shadow-md rounded-full  text-white font-semibold hover:bg-indigo-700'>
+                className='px-5 py-2 text-sm font-semibold text-white bg-indigo-500 rounded-full shadow-md hover:bg-indigo-700'>
                 Subscribe
               </button>
             </div>

@@ -1,11 +1,11 @@
 export default function PriceTable() {
   return (
     <div className={'w-full'}>
-      <div className='overflow-x-clip bg-white w-full'>
+      <div className='w-full bg-white overflow-x-clip'>
         {/* <!-- Table --> */}
-        <table className='min-w-full whitespace-nowrap text-left text-xs'>
+        <table className='min-w-full text-xs text-left whitespace-nowrap'>
           {/* <!-- Table head --> */}
-          <thead className='border-b-2 bg-blue-50 uppercase tracking-wider'>
+          <thead className='tracking-wider uppercase border-b-2 bg-blue-50'>
             <tr>
               <th scope='col' className='px-6 py-3'>
                 Product

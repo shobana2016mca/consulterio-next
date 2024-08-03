@@ -10,11 +10,11 @@ export default function UserInfoForm() {
 
   return (
     <FormWrapper title='User Details'>
-      <div className='grid gap-y-4 w-full flex-col border rounded-lg bg-white p-8'>
-        <h2 className='title-font mb-1 text-lg font-medium text-gray-900'>
+      <div className='grid flex-col w-full p-8 bg-white border rounded-lg gap-y-4'>
+        <h2 className='mb-1 text-lg font-medium text-gray-900 title-font'>
           Unlock Your Potential
         </h2>
-        <p className='leading-relaxed text-gray-600 text-sm'>
+        <p className='text-sm leading-relaxed text-gray-600'>
           This is your chance to invest in yourself and take your career to the
           next level. Secure your spot today and get ready to ace your next job
           interview!
@@ -28,7 +28,7 @@ export default function UserInfoForm() {
             id='fullName'
             autoComplete='name'
             placeholder='Ex: John Doe'
-            className='w-full rounded border border-gray-300 bg-white py-1 px-3 text-base leading-8 text-gray-700 outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200'
+            className='w-full px-3 py-1 text-base leading-8 text-gray-700 transition-colors duration-200 ease-in-out bg-white border border-gray-300 rounded outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200'
             {...register('fullName', { required: 'Full name is required' })}
           />
           {errors.fullName && <FormError error={errors.fullName.message} />}
@@ -42,7 +42,7 @@ export default function UserInfoForm() {
             id='phone'
             autoComplete='tel-country-code'
             placeholder='Ex: 123-456-7890'
-            className='w-full rounded border border-gray-300 bg-white py-1 px-3 text-base leading-8 text-gray-700 outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200'
+            className='w-full px-3 py-1 text-base leading-8 text-gray-700 transition-colors duration-200 ease-in-out bg-white border border-gray-300 rounded outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200'
             {...register('phone', {
               required: 'Phone number is required',
               pattern: {
@@ -62,7 +62,7 @@ export default function UserInfoForm() {
             id='email'
             autoComplete='email'
             placeholder='Ex: someone@example.com'
-            className='w-full rounded border border-gray-300 bg-white py-1 px-3 text-base leading-8 text-gray-700 outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200'
+            className='w-full px-3 py-1 text-base leading-8 text-gray-700 transition-colors duration-200 ease-in-out bg-white border border-gray-300 rounded outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200'
             {...register('email', {
               required: 'Email is required',
               pattern: {

@@ -12,8 +12,8 @@ const JobOpening: React.FC<JobOpeningProps> = ({
         <h3 className='text-2xl font-bold tracking-widest'>{title}</h3>
         <div className='mt-4'>{location}</div>
         <div className='mt-10'>{salary}</div>
-        <p className='mt-9 text-lg tracking-wider'>{description}</p>{' '}
-        <div className='mt-14 text-lg tracking-wider underline capitalize'>
+        <p className='text-lg tracking-wider mt-9'>{description}</p>{' '}
+        <div className='text-lg tracking-wider underline capitalize mt-14'>
           view job
         </div>{' '}
       </article>

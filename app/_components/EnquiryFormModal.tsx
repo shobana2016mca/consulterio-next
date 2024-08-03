@@ -34,7 +34,7 @@ export default function EnquiryFormModal() {
         </TransitionChild>
 
         <div className='fixed inset-0 overflow-y-auto'>
-          <div className='flex min-h-full items-center justify-center p-4 text-center'>
+          <div className='flex items-center justify-center min-h-full p-4 text-center'>
             <TransitionChild
               as={'div'}
               // enter='ease-out duration-300'
@@ -50,7 +50,7 @@ export default function EnquiryFormModal() {
                 // 'animate__animated animate__fadeOutUpBig',
                 'animate__animated animate__fadeInUpBig'
               )}>
-              <DialogPanel className='w-full max-w-5xl transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all mt-20'>
+              <DialogPanel className='w-full max-w-5xl p-6 mt-20 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl'>
                 <div className={'w-full flex items-center justify-between'}>
                   <DialogTitle
                     as='h3'
@@ -62,14 +62,12 @@ export default function EnquiryFormModal() {
                   </button>
                 </div>
                 <div className='mt-2'>
-                  <div
-                    className='grid md:grid-cols-2 items-center lg:grid-cols-3 max-w-6xl mx-auto py-6 
-      bg-white font-manrope'>
+                  <div className='grid items-center max-w-6xl py-6 mx-auto bg-white md:grid-cols-2 lg:grid-cols-3 font-manrope'>
                     <div>
                       <h2 className='text-[#333] text-xl font-semibold'>
                         Enquiry Form
                       </h2>
-                      <div className='px-4 space-y-10 mt-8'>
+                      <div className='px-4 mt-8 space-y-10'>
                         <div className='flex'>
                           <div className='w-8 h-8 flex items-center shrink-0 rounded border p-1.5'>
                             {<MessageIcon className='w-full' />}
@@ -81,7 +79,7 @@ export default function EnquiryFormModal() {
                             <p className='text-xs'>
                               Chat with our team to help.
                             </p>
-                            <p className='text-sm font-semibold mt-4'>
+                            <p className='mt-4 text-sm font-semibold'>
                               macmillanhr@gmail.com
                             </p>
                           </div>
@@ -95,7 +93,7 @@ export default function EnquiryFormModal() {
                               Visit us
                             </h4>
                             <p className='text-xs'>Visit our office HQ.</p>
-                            <p className='text-sm font-semibold mt-4'>
+                            <p className='mt-4 text-sm font-semibold'>
                               chennai
                             </p>
                           </div>
@@ -109,7 +107,7 @@ export default function EnquiryFormModal() {
                               Call us
                             </h4>
                             <p className='text-xs'>Monday to Friday.</p>
-                            <p className='text-sm font-semibold mt-4'>
+                            <p className='mt-4 text-sm font-semibold'>
                               +91-7397022565
                             </p>
                           </div>
@@ -121,10 +119,10 @@ export default function EnquiryFormModal() {
                   </div>
                 </div>
 
-                {/* <div className='mt-4 flex items-center justify-center w-full'>
+                {/* <div className='flex items-center justify-center w-full mt-4'>
                   <button
                     type='button'
-                    className='inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2'
+                    className='inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2'
                     onClick={onToogle}>
                     Send
                   </button>

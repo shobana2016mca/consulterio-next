@@ -58,7 +58,7 @@ export default function ContactForm() {
       <div className={'flex flex-col gap-y-2'}>
         <input
           type='text'
-          className='w-full h-12 text-gray-600 placeholder-gray-400  shadow-sm bg-transparent text-lg font-normal leading-7 rounded-full border border-gray-200 focus:outline-none pl-4'
+          className='w-full h-12 pl-4 text-lg font-normal leading-7 text-gray-600 placeholder-gray-400 bg-transparent border border-gray-200 rounded-full shadow-sm focus:outline-none'
           placeholder='Full name'
           autoComplete='given-name'
           {...register('fullName', {
@@ -72,7 +72,7 @@ export default function ContactForm() {
       <div className={'flex flex-col gap-y-2'}>
         <input
           type='email'
-          className='w-full h-12 text-gray-600 placeholder-gray-400 shadow-sm bg-transparent text-lg font-normal leading-7 rounded-full border border-gray-200 focus:outline-none pl-4'
+          className='w-full h-12 pl-4 text-lg font-normal leading-7 text-gray-600 placeholder-gray-400 bg-transparent border border-gray-200 rounded-full shadow-sm focus:outline-none'
           placeholder='Email'
           autoComplete='email'
           {...register('email', {
@@ -89,7 +89,7 @@ export default function ContactForm() {
       <div className={'flex flex-col gap-y-2'}>
         <input
           type='tel'
-          className='w-full h-12 text-gray-600 placeholder-gray-400 shadow-sm bg-transparent text-lg font-normal leading-7 rounded-full border border-gray-200 focus:outline-none pl-4'
+          className='w-full h-12 pl-4 text-lg font-normal leading-7 text-gray-600 placeholder-gray-400 bg-transparent border border-gray-200 rounded-full shadow-sm focus:outline-none'
           placeholder='Phone'
           autoComplete='tel'
           {...register('phoneNo', {
@@ -105,7 +105,7 @@ export default function ContactForm() {
 
       <div>
         <div className='p-4'>
-          <h4 className='text-gray-500 text-lg font-normal leading-7'>
+          <h4 className='text-lg font-normal leading-7 text-gray-500'>
             Preferred method of communication
           </h4>
           <fieldset className='space-y-4'>
@@ -114,7 +114,7 @@ export default function ContactForm() {
             <input
               id='email'
               value={'email'}
-              className='peer/email mr-2'
+              className='mr-2 peer/email'
               type='radio'
               {...register('communicationMethod', {
                 required: 'This field is required',
@@ -122,14 +122,14 @@ export default function ContactForm() {
             />
             <label
               htmlFor='email'
-              className='peer-checked/email:text-sky-500 mr-4'>
+              className='mr-4 peer-checked/email:text-sky-500'>
               Email
             </label>
 
             <input
               id='phone'
               value={'phone'}
-              className='peer/phone mr-2'
+              className='mr-2 peer/phone'
               type='radio'
               {...register('communicationMethod', {
                 required: 'This field is required',
@@ -139,10 +139,10 @@ export default function ContactForm() {
               Phone
             </label>
 
-            <div className='hidden peer-checked/email:block text-sm'>
+            <div className='hidden text-sm peer-checked/email:block'>
               You choose email option.
             </div>
-            <div className='hidden peer-checked/phone:block text-sm'>
+            <div className='hidden text-sm peer-checked/phone:block'>
               You choose phone option.
             </div>
           </fieldset>
@@ -154,7 +154,7 @@ export default function ContactForm() {
 
       <div className={'flex flex-col gap-y-2'}>
         <textarea
-          className='w-full text-gray-600 placeholder-gray-400 bg-transparent shadow-sm font-normal leading-tight rounded-md border border-gray-200 focus:outline-none p-2 text-base resize-y'
+          className='w-full p-2 text-base font-normal leading-tight text-gray-600 placeholder-gray-400 bg-transparent border border-gray-200 rounded-md shadow-sm resize-y focus:outline-none'
           rows={6}
           placeholder='Message'
           {...register('message', {
@@ -165,7 +165,7 @@ export default function ContactForm() {
 
       <button
         disabled={isPending}
-        className='w-full h-12 text-white text-base font-semibold leading-6 rounded-full transition-all duration-700 hover:bg-indigo-800 bg-indigo-600 shadow-sm disabled:bg-blue-900 disabled:cursor-not-allowed'>
+        className='w-full h-12 text-base font-semibold leading-6 text-white transition-all duration-700 bg-indigo-600 rounded-full shadow-sm hover:bg-indigo-800 disabled:bg-blue-900 disabled:cursor-not-allowed'>
         {isPending ? 'Sending...' : 'Send Message'}
       </button>
     </form>

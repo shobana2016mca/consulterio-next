@@ -62,31 +62,31 @@ export default function TestimonialSection() {
         }}
         navigation={true}
         modules={[Autoplay, Pagination, Navigation]}
-        className='mySwiper h-screen w-full'>
+        className='w-full h-screen mySwiper'>
         {testimonials.map((testimonial, i) => (
           <SwiperSlide key={testimonial.id}>
-            <section className='relative isolate overflow-hidden bg-white px-6 py-24 sm:py-32 lg:px-8'>
+            <section className='relative px-6 py-24 overflow-hidden bg-white isolate sm:py-32 lg:px-8'>
               <div className='absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,theme(colors.indigo.100),white)] opacity-20' />
               <div className='absolute inset-y-0 right-1/2 -z-10 mr-16 w-[200%] origin-bottom-left skew-x-[-30deg] bg-white shadow-xl shadow-indigo-600/10 ring-1 ring-indigo-50 sm:mr-28 lg:mr-0 xl:mr-16 xl:origin-center' />
-              <div className='mx-auto max-w-2xl lg:max-w-4xl'>
+              <div className='max-w-2xl mx-auto lg:max-w-4xl'>
                 <img
-                  className='mx-auto h-12'
+                  className='h-12 mx-auto'
                   src='https://tailwindui.com/img/logos/workcation-logo-indigo-600.svg'
                   alt=''
                 />
                 <figure className='mt-10'>
-                  <blockquote className='text-center text-xl font-semibold leading-8 text-gray-900 sm:text-2xl sm:leading-9'>
+                  <blockquote className='text-xl font-semibold leading-8 text-center text-gray-900 sm:text-2xl sm:leading-9'>
                     <p>“{testimonial.message}”</p>
                   </blockquote>
                   <figcaption className='mt-10'>
                     <Image
-                      className='mx-auto h-10 w-10 rounded-full'
+                      className='w-10 h-10 mx-auto rounded-full'
                       src={testimonial.image}
                       alt={testimonial.username}
                       width={32}
                       height={32}
                     />
-                    <div className='mt-4 flex items-center justify-center space-x-3 text-base'>
+                    <div className='flex items-center justify-center mt-4 space-x-3 text-base'>
                       <div className='font-semibold text-gray-900'>
                         {testimonial.username}
                       </div>
@@ -127,26 +127,26 @@ function TestimonialCard() {
 
   return (
     <section className='py-24 '>
-      <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
-        <div className='flex justify-center items-center gap-y-8 lg:gap-y-0 flex-wrap md:flex-wrap lg:flex-nowrap lg:flex-row lg:justify-between lg:gap-x-8 max-w-sm sm:max-w-2xl lg:max-w-full mx-auto'>
+      <div className='px-4 mx-auto max-w-7xl sm:px-6 lg:px-8'>
+        <div className='flex flex-wrap items-center justify-center max-w-sm mx-auto gap-y-8 lg:gap-y-0 md:flex-wrap lg:flex-nowrap lg:flex-row lg:justify-between lg:gap-x-8 sm:max-w-2xl lg:max-w-full'>
           <div className='w-full lg:w-2/5'>
-            <span className='text-sm text-gray-500 font-medium mb-4 block'>
+            <span className='block mb-4 text-sm font-medium text-gray-500'>
               Testimonial
             </span>
             <h2 className='text-4xl font-bold text-gray-900 leading-[3.25rem] mb-8'>
               23k+ Customers gave their{' '}
-              <span className=' text-transparent bg-clip-text bg-gradient-to-tr from-indigo-600 to-violet-600'>
+              <span className='text-transparent bg-clip-text bg-gradient-to-tr from-indigo-600 to-violet-600'>
                 Feedback
               </span>
             </h2>
             {/* <!-- Slider controls --> */}
-            <div className='flex items-center justify-center lg:justify-start gap-4'>
+            <div className='flex items-center justify-center gap-4 lg:justify-start'>
               <button
                 id='slider-button-left'
-                className='group flex justify-center items-center border border-solid border-indigo-600 w-12 h-12 transition-all duration-500 rounded-lg hover:bg-indigo-600'
+                className='flex items-center justify-center w-12 h-12 transition-all duration-500 border border-indigo-600 border-solid rounded-lg group hover:bg-indigo-600'
                 onClick={() => handlePrev()}>
                 <svg
-                  className='h-6 w-6 text-indigo-600 group-hover:text-white'
+                  className='w-6 h-6 text-indigo-600 group-hover:text-white'
                   viewBox='0 0 24 24'
                   fill='none'
                   xmlns='http://www.w3.org/2000/svg'>
@@ -161,10 +161,10 @@ function TestimonialCard() {
               </button>
               <button
                 id='slider-button-right'
-                className='group flex justify-center items-center border border-solid border-indigo-600 w-12 h-12 transition-all duration-500 rounded-lg hover:bg-indigo-600'
+                className='flex items-center justify-center w-12 h-12 transition-all duration-500 border border-indigo-600 border-solid rounded-lg group hover:bg-indigo-600'
                 onClick={() => handleNext()}>
                 <svg
-                  className='h-6 w-6 text-indigo-600 group-hover:text-white'
+                  className='w-6 h-6 text-indigo-600 group-hover:text-white'
                   viewBox='0 0 24 24'
                   fill='none'
                   xmlns='http://www.w3.org/2000/svg'>
@@ -193,7 +193,7 @@ function TestimonialCard() {
                 disableOnInteraction: false,
               }}>
               <SwiperSlide>
-                <div className='bg-white border border-solid border-gray-300 rounded-2xl max-sm:max-w-sm max-sm:mx-auto p-6 transition-all duration-500 hover:border-indigo-600'>
+                <div className='p-6 transition-all duration-500 bg-white border border-gray-300 border-solid rounded-2xl max-sm:max-w-sm max-sm:mx-auto hover:border-indigo-600'>
                   <div className='flex items-center gap-5 mb-5 sm:mb-9'>
                     <Image
                       src='https://pagedone.io/asset/uploads/1696229969.png'
@@ -202,7 +202,7 @@ function TestimonialCard() {
                       height={56}
                     />
                     <div className='grid gap-1'>
-                      <h5 className='text-gray-900 font-medium transition-all duration-500  '>
+                      <h5 className='font-medium text-gray-900 transition-all duration-500 '>
                         Jane D
                       </h5>
                       <span className='text-sm leading-6 text-gray-500'>
@@ -210,7 +210,7 @@ function TestimonialCard() {
                       </span>
                     </div>
                   </div>
-                  <div className='flex items-center mb-5 sm:mb-9 gap-2 text-amber-500 transition-all duration-500  '>
+                  <div className='flex items-center gap-2 mb-5 transition-all duration-500 sm:mb-9 text-amber-500 '>
                     <svg
                       className='w-5 h-5'
                       viewBox='0 0 18 17'
@@ -257,14 +257,14 @@ function TestimonialCard() {
                         fill='currentColor'></path>
                     </svg>
                   </div>
-                  <p className='text-sm text-gray-500 leading-6 transition-all duration-500 min-h-24  group-hover:text-gray-800'>
+                  <p className='text-sm leading-6 text-gray-500 transition-all duration-500 min-h-24 group-hover:text-gray-800'>
                     The user interface of this pagedone is so intuitive, I was
                     able to start using it without any guidance.
                   </p>
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className='bg-white border border-solid border-gray-300 rounded-2xl max-sm:max-w-sm max-sm:mx-auto p-6 transition-all duration-500 hover:border-indigo-600'>
+                <div className='p-6 transition-all duration-500 bg-white border border-gray-300 border-solid rounded-2xl max-sm:max-w-sm max-sm:mx-auto hover:border-indigo-600'>
                   <div className='flex items-center gap-5 mb-5 sm:mb-9'>
                     <Image
                       src='	https://pagedone.io/asset/uploads/1696229994.png'
@@ -273,7 +273,7 @@ function TestimonialCard() {
                       height={56}
                     />
                     <div className='grid gap-1'>
-                      <h5 className='text-gray-900 font-medium transition-all duration-500  '>
+                      <h5 className='font-medium text-gray-900 transition-all duration-500 '>
                         Harsh P.
                       </h5>
                       <span className='text-sm leading-6 text-gray-500'>
@@ -281,7 +281,7 @@ function TestimonialCard() {
                       </span>
                     </div>
                   </div>
-                  <div className='flex items-center mb-5 sm:mb-9 gap-2 text-amber-500 transition-all duration-500  '>
+                  <div className='flex items-center gap-2 mb-5 transition-all duration-500 sm:mb-9 text-amber-500 '>
                     <svg
                       className='w-5 h-5'
                       viewBox='0 0 18 17'
@@ -328,14 +328,14 @@ function TestimonialCard() {
                         fill='currentColor'></path>
                     </svg>
                   </div>
-                  <p className='text-sm text-gray-500 leading-6 transition-all duration-500 min-h-24 group-hover:text-gray-800'>
+                  <p className='text-sm leading-6 text-gray-500 transition-all duration-500 min-h-24 group-hover:text-gray-800'>
                     I used to dread doing my taxes every year, but pagedone has
                     made the process so much simpler and stress-free.
                   </p>
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className='bg-white border border-solid border-gray-300 rounded-2xl max-sm:max-w-sm max-sm:mx-auto p-6 transition-all duration-500 hover:border-indigo-600'>
+                <div className='p-6 transition-all duration-500 bg-white border border-gray-300 border-solid rounded-2xl max-sm:max-w-sm max-sm:mx-auto hover:border-indigo-600'>
                   <div className='flex items-center gap-5 mb-5 sm:mb-9'>
                     <Image
                       src='https://pagedone.io/asset/uploads/1696229969.png'
@@ -344,7 +344,7 @@ function TestimonialCard() {
                       height={56}
                     />
                     <div className='grid gap-1'>
-                      <h5 className='text-gray-900 font-medium transition-all duration-500  '>
+                      <h5 className='font-medium text-gray-900 transition-all duration-500 '>
                         Jane D
                       </h5>
                       <span className='text-sm leading-6 text-gray-500'>
@@ -352,7 +352,7 @@ function TestimonialCard() {
                       </span>
                     </div>
                   </div>
-                  <div className='flex items-center mb-5 sm:mb-9 gap-2 text-amber-500 transition-all duration-500  '>
+                  <div className='flex items-center gap-2 mb-5 transition-all duration-500 sm:mb-9 text-amber-500 '>
                     <svg
                       className='w-5 h-5'
                       viewBox='0 0 18 17'
@@ -399,14 +399,14 @@ function TestimonialCard() {
                         fill='currentColor'></path>
                     </svg>
                   </div>
-                  <p className='text-sm text-gray-500 leading-6 transition-all duration-500 min-h-24 group-hover:text-gray-800'>
+                  <p className='text-sm leading-6 text-gray-500 transition-all duration-500 min-h-24 group-hover:text-gray-800'>
                     The user interface of this pagedone is so intuitive, I was
                     able to start using it without any guidance.
                   </p>
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className='bg-white border border-solid border-gray-300 rounded-2xl max-sm:max-w-sm max-sm:mx-auto p-6 transition-all duration-500 hover:border-indigo-600'>
+                <div className='p-6 transition-all duration-500 bg-white border border-gray-300 border-solid rounded-2xl max-sm:max-w-sm max-sm:mx-auto hover:border-indigo-600'>
                   <div className='flex items-center gap-5 mb-5 sm:mb-9'>
                     <Image
                       src='	https://pagedone.io/asset/uploads/1696229994.png'
@@ -415,7 +415,7 @@ function TestimonialCard() {
                       height={56}
                     />
                     <div className='grid gap-1'>
-                      <h5 className='text-gray-900 font-medium transition-all duration-500  '>
+                      <h5 className='font-medium text-gray-900 transition-all duration-500 '>
                         Harsh P.
                       </h5>
                       <span className='text-sm leading-6 text-gray-500'>
@@ -423,7 +423,7 @@ function TestimonialCard() {
                       </span>
                     </div>
                   </div>
-                  <div className='flex items-center mb-5 sm:mb-9 gap-2 text-amber-500 transition-all duration-500  '>
+                  <div className='flex items-center gap-2 mb-5 transition-all duration-500 sm:mb-9 text-amber-500 '>
                     <svg
                       className='w-5 h-5'
                       viewBox='0 0 18 17'
@@ -470,7 +470,7 @@ function TestimonialCard() {
                         fill='currentColor'></path>
                     </svg>
                   </div>
-                  <p className='text-sm text-gray-500 leading-6 transition-all duration-500 min-h-24 group-hover:text-gray-800'>
+                  <p className='text-sm leading-6 text-gray-500 transition-all duration-500 min-h-24 group-hover:text-gray-800'>
                     I used to dread doing my taxes every year, but pagedone has
                     made the process so much simpler and stress-free.
                   </p>

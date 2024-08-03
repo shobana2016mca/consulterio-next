@@ -1,9 +1,12 @@
 /* eslint-disable camelcase */
 import { createUser, updateUser } from '@/app/_lib/user.actions';
 import { clerkClient, WebhookEvent } from '@clerk/nextjs/server';
+import SendGrid from '@sendgrid/mail';
 import { headers } from 'next/headers';
 import { NextResponse } from 'next/server';
 import { Webhook } from 'svix';
+
+SendGrid.setApiKey(process.env.SENDGRID_API_KEY!);
 
 // import { createUser, deleteUser, updateUser } from '@/lib/user.actions';
 export async function POST(req: Request) {
@@ -94,6 +97,21 @@ export async function POST(req: Request) {
     }
 
     //  send the welcome mail
+    const msg = {
+      to: email_addresses[0]?.email_address,
+      from: 'akarmakar846@gmail.com',
+      subject: 'Welcome to our platform',
+      text: 'Welcome to our platform, ',
+      html: '<h1>Welcome to our platform</h1>',
+    };
+
+    SendGrid.send(msg)
+      .then(() => {
+        console.log('Email sent');
+      })
+      .catch((error) => {
+        console.error(error);
+      });
     // const emailData = {
     //   enquirerName: first_name,
     //   email: email_addresses[0]?.email_address,
@@ -120,7 +138,8 @@ export async function POST(req: Request) {
     console.log(evt.data);
     // return NextResponse.json({ message: 'OK' });
 
-    const { id, image_url, first_name, last_name, username } = evt.data;
+    const { id, image_url, first_name, last_name, username, email_addresses } =
+      evt.data;
 
     const user = {
       firstName: first_name,
@@ -132,6 +151,21 @@ export async function POST(req: Request) {
     const updatedUser = await updateUser(id, user as UserType);
 
     //  send the welcome mail
+    const msg = {
+      to: email_addresses[0]?.email_address,
+      from: 'akarmakar846@gmail.com',
+      subject: 'Welcome to our platform',
+      text: 'Welcome to our platform, ',
+      html: '<h1>Welcome to our platform</h1>',
+    };
+
+    SendGrid.send(msg)
+      .then(() => {
+        console.log('Email sent in Update');
+      })
+      .catch((error) => {
+        console.error(error);
+      });
     // const emailData = {
     //   enquirerName: first_name,
     //   email: updatedUser.email,

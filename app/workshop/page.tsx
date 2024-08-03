@@ -10,10 +10,10 @@ import FaqSection from './_components/FaqSection';
 import TestimonialSection from './_components/TestimonialSection';
 import TimerSection from './_components/TimerSection';
 
-export const metadata:Metadata = {
+export const metadata: Metadata = {
   title: 'Consultero | Workshop',
   description: 'Join our premium workshop and upgrade your skills',
-}
+};
 
 export default function WorkshopPage() {
   return (
@@ -47,11 +47,11 @@ export default function WorkshopPage() {
 
 function EnrollSection() {
   return (
-    <div className='bg-red-600 text-white py-16 px-8 font-sans'>
+    <div className='px-8 py-16 font-sans text-white bg-red-600'>
       <SectionWrapper>
-        <div className='flex flex-col md:flex-row justify-between items-center gap-x-6 gap-y-8'>
-          <div className='md:w-1/2 text-center md:text-left'>
-            <h2 className='text-3xl font-semibold mb-4'>
+        <div className='flex flex-col items-center justify-between md:flex-row gap-x-6 gap-y-8'>
+          <div className='text-center md:w-1/2 md:text-left'>
+            <h2 className='mb-4 text-3xl font-semibold'>
               Unlock Your Potential
             </h2>
             <p className='text-base text-gray-100'>
@@ -60,10 +60,10 @@ function EnrollSection() {
             </p>
           </div>
 
-          <div className='md:w-1/2 flex justify-center'>
+          <div className='flex justify-center md:w-1/2'>
             <Link
               href='/enroll'
-              className='bg-white text-red-500 py-3 px-6 font-semibold rounded-full shadow-lg hover:shadow-sm hover:text-white hover:bg-red-500 transition-all delay-150 duration-500 ease-in-out'>
+              className='px-6 py-3 font-semibold text-red-500 transition-all duration-500 ease-in-out delay-150 bg-white rounded-full shadow-lg hover:shadow-sm hover:text-white hover:bg-red-500'>
               Enroll Now
             </Link>
           </div>

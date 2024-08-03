@@ -6,7 +6,7 @@ export default function TermsOfConditionsPage() {
       <section>
         <SectionWrapper>
           {/* <!-- Heading --> */}
-          <div className='text-center pt-24 pb-6'>
+          <div className='pt-24 pb-6 text-center'>
             <h1 className='mb-2 text-2xl font-bold md:text-4xl'>
               Terms &amp; Conditions
             </h1>
@@ -32,7 +32,7 @@ export default function TermsOfConditionsPage() {
                   services, you agree to comply with these Terms.
                 </p>
 
-                <h2 className='text-lg font-semibold mb-2'>
+                <h2 className='mb-2 text-lg font-semibold'>
                   1. Agreement Initiation:
                 </h2>
                 <p className='mb-5'>
@@ -41,7 +41,7 @@ export default function TermsOfConditionsPage() {
                   services.
                 </p>
 
-                <h2 className='text-lg font-semibold mb-2'>2. Services:</h2>
+                <h2 className='mb-2 text-lg font-semibold'>2. Services:</h2>
                 <p className='mb-5'>
                   We provide recruitment services to help you find suitable
                   candidates for your organization. Our services include but are
@@ -49,14 +49,14 @@ export default function TermsOfConditionsPage() {
                   providing replacement support.
                 </p>
 
-                <h2 className='text-lg font-semibold mb-2'>3. Fees:</h2>
+                <h2 className='mb-2 text-lg font-semibold'>3. Fees:</h2>
                 <p className='mb-5'>
                   You agree to pay the fees associated with our services as
                   outlined in the agreement. Fees may vary depending on the
                   scope of services provided.
                 </p>
 
-                <h2 className='text-lg font-semibold mb-2'>
+                <h2 className='mb-2 text-lg font-semibold'>
                   4. Confidentiality:
                 </h2>
                 <p className='mb-5'>
@@ -66,7 +66,7 @@ export default function TermsOfConditionsPage() {
                   criteria.
                 </p>
 
-                <h2 className='text-lg font-semibold mb-2'>
+                <h2 className='mb-2 text-lg font-semibold'>
                   5. Intellectual Property:
                 </h2>
                 <p className='mb-5'>
@@ -77,7 +77,7 @@ export default function TermsOfConditionsPage() {
                   consent.
                 </p>
 
-                <h2 className='text-lg font-semibold mb-2'>
+                <h2 className='mb-2 text-lg font-semibold'>
                   6. Limitation of Liability:
                 </h2>
                 <p className='mb-5'>
@@ -88,14 +88,14 @@ export default function TermsOfConditionsPage() {
                   services.
                 </p>
 
-                <h2 className='text-lg font-semibold mb-2'>7. Termination:</h2>
+                <h2 className='mb-2 text-lg font-semibold'>7. Termination:</h2>
                 <p className='mb-5'>
                   Either party may terminate the agreement with written notice
                   if the other party breaches these Terms. Upon termination, any
                   outstanding fees are due and payable.
                 </p>
 
-                <h2 className='text-lg font-semibold mb-2'>
+                <h2 className='mb-2 text-lg font-semibold'>
                   8. Governing Law:*
                 </h2>
                 <p className='mb-5'>
@@ -105,7 +105,7 @@ export default function TermsOfConditionsPage() {
                   [your arbitration organization].
                 </p>
 
-                <h2 className='text-lg font-semibold mb-2'>9. Amendments:</h2>
+                <h2 className='mb-2 text-lg font-semibold'>9. Amendments:</h2>
                 <p className='mb-5'>
                   We reserve the right to update or modify these Terms at any
                   time. Any changes will be effective upon posting on our
@@ -113,7 +113,7 @@ export default function TermsOfConditionsPage() {
                   constitute acceptance of the updated Terms.
                 </p>
 
-                <h2 className='text-lg font-semibold mb-2'>10. Contact Us:</h2>
+                <h2 className='mb-2 text-lg font-semibold'>10. Contact Us:</h2>
                 <p className='mb-5'>
                   If you have any questions or concerns about these Terms,
                   please contact us at [contact email or address].

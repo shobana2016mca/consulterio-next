@@ -6,7 +6,7 @@ export default function PrivacyPolicyPage() {
       <section className=''>
         <SectionWrapper>
           <div className='py-8'>
-            <h1 className='text-3xl text-center font-bold mb-4'>
+            <h1 className='mb-4 text-3xl font-bold text-center'>
               Privacy Policy
             </h1>
 
@@ -17,11 +17,11 @@ export default function PrivacyPolicyPage() {
               services.
             </p>
 
-            <h2 className='text-2xl font-bold mb-2'>Information We Collect</h2>
+            <h2 className='mb-2 text-2xl font-bold'>Information We Collect</h2>
 
             <p className='mb-4'>We may collect the following information:</p>
 
-            <ul className='list-disc list-inside mb-4'>
+            <ul className='mb-4 list-disc list-inside'>
               <li>
                 Personal Information: We may collect personal information such
                 as your name, email address, phone number, and other contact
@@ -34,7 +34,7 @@ export default function PrivacyPolicyPage() {
               </li>
             </ul>
 
-            <h2 className='text-2xl font-bold mb-2'>
+            <h2 className='mb-2 text-2xl font-bold'>
               How We Use Your Information:
             </h2>
 
@@ -44,7 +44,7 @@ export default function PrivacyPolicyPage() {
               reasons:
             </p>
 
-            <ul className='list-disc list-inside mb-4'>
+            <ul className='mb-4 list-disc list-inside'>
               <li>
                 To provide and improve our services: We use the information we
                 collect to deliver our recruitment services and improve the user
@@ -68,7 +68,7 @@ export default function PrivacyPolicyPage() {
               </li>
             </ul>
 
-            <h2 className='text-2xl font-bold mb-2'>Data Security:</h2>
+            <h2 className='mb-2 text-2xl font-bold'>Data Security:</h2>
 
             <p className='mb-4'>
               We are committed to ensuring that your information is secure. In
@@ -77,7 +77,7 @@ export default function PrivacyPolicyPage() {
               safeguard and secure the information we collect online.
             </p>
 
-            <ul className='list-disc list-inside mb-4'>
+            <ul className='mb-4 list-disc list-inside'>
               <li>
                 We implement appropriate security measures to protect your
                 personal information from unauthorized access, disclosure,
@@ -85,8 +85,8 @@ export default function PrivacyPolicyPage() {
               </li>
             </ul>
 
-            <h2 className='text-2xl font-bold mb-2'>Your Choices:</h2>
-            <ul className='list-disc list-inside mb-4'>
+            <h2 className='mb-2 text-2xl font-bold'>Your Choices:</h2>
+            <ul className='mb-4 list-disc list-inside'>
               <li>
                 You may choose to opt-out of receiving marketing communications
                 from us by contacting us directly.
@@ -97,7 +97,7 @@ export default function PrivacyPolicyPage() {
               </li>
             </ul>
 
-            <h2 className='text-2xl font-bold mb-2'>
+            <h2 className='mb-2 text-2xl font-bold'>
               Changes to This Privacy Policy:
             </h2>
 
@@ -108,7 +108,7 @@ export default function PrivacyPolicyPage() {
               website.
             </p>
 
-            <h2 className='text-2xl font-bold mb-2'>Cookies</h2>
+            <h2 className='mb-2 text-2xl font-bold'>Cookies</h2>
 
             <p className='mb-4'>
               A cookie is a small file that asks permission to be placed on your
@@ -128,9 +128,9 @@ export default function PrivacyPolicyPage() {
               with us.
             </p>
 
-            <h2 className='text-2xl font-bold mb-2'>Contact Us:</h2>
+            <h2 className='mb-2 text-2xl font-bold'>Contact Us:</h2>
 
-            <ul className='list-disc list-inside mb-4'>
+            <ul className='mb-4 list-disc list-inside'>
               <li>
                 If you have any questions or concerns about this Privacy Policy
                 or our data practices, please contact us at [contact email or
@@ -138,7 +138,7 @@ export default function PrivacyPolicyPage() {
               </li>
             </ul>
 
-            {/* <h2 className='text-2xl font-bold mb-2'>Links to Other Websites</h2>
+            {/* <h2 className='mb-2 text-2xl font-bold'>Links to Other Websites</h2>
 
           <p className='mb-4'>
             Our website may contain links to other websites of interest.
@@ -151,7 +151,7 @@ export default function PrivacyPolicyPage() {
             website in question.
           </p>
 
-          <h2 className='text-2xl font-bold mb-2'>
+          <h2 className='mb-2 text-2xl font-bold'>
             Controlling Your Personal Information
           </h2>
 
@@ -160,7 +160,7 @@ export default function PrivacyPolicyPage() {
             information in the following ways:
           </p>
 
-          <ul className='list-disc list-inside mb-4'>
+          <ul className='mb-4 list-disc list-inside'>
             <li>
               If you have previously agreed to us using your personal
               information for direct marketing purposes, you may change your

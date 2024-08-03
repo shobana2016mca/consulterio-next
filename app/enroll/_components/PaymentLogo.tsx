@@ -11,7 +11,7 @@ export default function PaymentLogo() {
           // height={46}
           fill
           sizes='100% 100%'
-          className='object-contain h-full w-full shadow-sm'
+          className='object-contain w-full h-full shadow-sm'
         />
       </div>
       <p className={'text-xs text-center'}>

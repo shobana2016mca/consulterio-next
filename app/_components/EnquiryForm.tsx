@@ -67,16 +67,16 @@ export default function EnquiryForm() {
   };
 
   return (
-    <div className='bg-gray-800 rounded-3xl lg:col-span-2 p-10 max-sm:px-6 flex flex-col justify-center max-md:mt-12'>
-      <h2 className='text-2xl text-blue-500 font-bold'>
+    <div className='flex flex-col justify-center p-10 bg-gray-800 rounded-3xl lg:col-span-2 max-sm:px-6 max-md:mt-12'>
+      <h2 className='text-2xl font-bold text-blue-500'>
         Product or Service Inquiry
       </h2>
-      <p className='text-sm text-gray-400 mt-4'>
+      <p className='mt-4 text-sm text-gray-400'>
         Have some big idea or brand to develop and need help? Then reach out
         we&apos;d love to hear about your project and provide help.
       </p>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className='space-y-4 mt-8'>
+        <div className='mt-8 space-y-4'>
           <div>
             <label htmlFor='fullName' className='sr-only'>
               Full Name
@@ -85,7 +85,7 @@ export default function EnquiryForm() {
               type='text'
               id='fullName'
               placeholder='Full Name'
-              className='px-2 py-3 bg-transparent text-white w-full text-sm border-b border-gray-400 focus:border-white outline-none'
+              className='w-full px-2 py-3 text-sm text-white bg-transparent border-b border-gray-400 outline-none focus:border-white'
               {...register('fullName', {
                 required: 'This field is required',
               })}
@@ -101,7 +101,7 @@ export default function EnquiryForm() {
               type='text'
               id='companyName'
               placeholder='Company Name'
-              className='px-2 py-3 bg-transparent text-white w-full text-sm border-b border-gray-400 focus:border-white outline-none'
+              className='w-full px-2 py-3 text-sm text-white bg-transparent border-b border-gray-400 outline-none focus:border-white'
               {...register('companyName', {
                 required: 'This field is required',
               })}
@@ -119,7 +119,7 @@ export default function EnquiryForm() {
               type='email'
               id='email'
               placeholder='Email'
-              className='px-2 py-3 bg-transparent text-white w-full text-sm border-b border-gray-400 focus:border-white outline-none'
+              className='w-full px-2 py-3 text-sm text-white bg-transparent border-b border-gray-400 outline-none focus:border-white'
               autoComplete='email'
               {...register('email', {
                 required: 'This field is required',
@@ -140,7 +140,7 @@ export default function EnquiryForm() {
               type='tel'
               id='phoneNo'
               placeholder='Phone No.'
-              className='px-2 py-3 bg-transparent text-white w-full text-sm border-b border-gray-400 focus:border-white outline-none'
+              className='w-full px-2 py-3 text-sm text-white bg-transparent border-b border-gray-400 outline-none focus:border-white'
               autoComplete='tel'
               {...register('phoneNo', {
                 required: 'This field is required',
@@ -155,7 +155,7 @@ export default function EnquiryForm() {
 
           {/* <textarea
             placeholder='Write Message'
-            className='px-2 pt-3 bg-transparent text-white w-full text-sm border-b border-gray-400 focus:border-white outline-none'></textarea> */}
+            className='w-full px-2 pt-3 text-sm text-white bg-transparent border-b border-gray-400 outline-none focus:border-white'></textarea> */}
         </div>
         <button
           type='submit'

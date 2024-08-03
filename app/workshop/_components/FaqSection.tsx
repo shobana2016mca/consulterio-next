@@ -8,7 +8,7 @@ export default function FaqSection() {
   return (
     <section>
       <SectionWrapper>
-        <div className='w-full max-w-5xl mx-auto px-4 md:px-6'>
+        <div className='w-full max-w-5xl px-4 mx-auto md:px-6'>
           <SectionSubHeading
             iconLeft={<FaQuestion className='fill-yellow' />}
             iconRight={<FaQuestion className='fill-yellow' />}>

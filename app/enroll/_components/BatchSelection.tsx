@@ -22,7 +22,7 @@ function Example() {
         {batches.map((batch) => (
           <div
             key={batch.id}
-            className='relative w-full flex items-start bg-slate-100 p-2 rounded-md shadow'>
+            className='relative flex items-start w-full p-2 rounded-md shadow bg-slate-100'>
             <div className='flex items-center h-5'>
               <input
                 id={batch.id}
@@ -30,7 +30,7 @@ function Example() {
                 name='plan'
                 type='radio'
                 defaultChecked={batch.id === 'small'}
-                className='focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300'
+                className='w-4 h-4 text-indigo-600 border-gray-300 focus:ring-indigo-500'
               />
             </div>
             <div className='ml-3 text-sm'>
@@ -57,14 +57,14 @@ export default function BatchSelection() {
 
   return (
     <fieldset>
-      <legend className='sr-onlyy text-sm font-medium mb-2'>
+      <legend className='mb-2 text-sm font-medium sr-onlyy'>
         Select Batch on your preference
       </legend>
       <div className='flex flex-wrap items-center justify-between gap-4'>
         {batches.map((batch) => (
           <div
             key={batch.id}
-            className='relative w-full flex items-start bg-slate-100 p-2 rounded-md shadow'>
+            className='relative flex items-start w-full p-2 rounded-md shadow bg-slate-100'>
             <div className='flex items-center h-5'>
               <input
                 id={batch.id}
@@ -73,7 +73,7 @@ export default function BatchSelection() {
                 defaultValue={batch.id}
                 type='radio'
                 defaultChecked={batch.id === 'small'}
-                className='focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300'
+                className='w-4 h-4 text-indigo-600 border-gray-300 focus:ring-indigo-500'
                 {...register('batch', { required: 'Please select a batch' })}
               />
             </div>
@@ -109,7 +109,7 @@ export default function BatchSelection() {
   //         />
   //         <label
   //           htmlFor='weekdayBatch'
-  //           className='flex flex-row-reverse p-3 w-full bg-white border border-gray-200 rounded-md text-sm '>
+  //           className='flex flex-row-reverse w-full p-3 text-sm bg-white border border-gray-200 rounded-md '>
   //           <span className='border border-gray-300  rounded-full mr-2 w-4 h-4 mt-0.5 ml-auto'></span>
   //           <h5 className='text-sm text-gray-500'>Weekday Batch (Mon-Fri)</h5>
   //         </label>
@@ -127,7 +127,7 @@ export default function BatchSelection() {
   //         />
   //         <label
   //           htmlFor='weekendBatch'
-  //           className='flex flex-row-reverse p-3 w-full bg-white border border-gray-200 rounded-md text-sm '>
+  //           className='flex flex-row-reverse w-full p-3 text-sm bg-white border border-gray-200 rounded-md '>
   //           <span className='border border-gray-300  rounded-full mr-2 w-4 h-4 mt-0.5 ml-auto'></span>
   //           <h5 className='text-sm text-gray-500'>Weenend Batch (Sat-Sun)</h5>
   //         </label>

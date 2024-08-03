@@ -8,9 +8,9 @@ export default function NavMenu() {
 
   return (
     <DisclosurePanel className='lg:hidden'>
-      {/* <DisclosurePanel className='lg:hidden relative w-full h-full'> */}
-      <div className='space-y-1 px-2 pb-3 pt-2 grid'>
-        {/* <div className='space-y-1 px-2 pb-3 pt-2 grid absolute h-min transition w-full bg-blue-500'> */}
+      {/* <DisclosurePanel className='relative w-full h-full lg:hidden'> */}
+      <div className='grid px-2 pt-2 pb-3 space-y-1'>
+        {/* <div className='absolute grid w-full px-2 pt-2 pb-3 space-y-1 transition bg-blue-500 h-min'> */}
         <NavLinks />
 
         <div className={'block sm:hidden'}>
@@ -23,7 +23,7 @@ export default function NavMenu() {
               signInFallbackRedirectUrl={'/'}>
               <button
                 disabled={!isLoaded}
-                className='flex items-center justify-center space-x-2 rounded-md ring-1 ring-sky-900 px-2 py-1 md:px-4 md:py-2 text-sky-600 transition bg-sky-950 hover:bg-sky-700 hover:text-white group'>
+                className='flex items-center justify-center px-2 py-1 space-x-2 transition rounded-md ring-1 ring-sky-900 md:px-4 md:py-2 text-sky-600 bg-sky-950 hover:bg-sky-700 hover:text-white group'>
                 <span
                   className={
                     'text-sm md:text-base lg:text-lg font-normal md:font-medium'
@@ -31,7 +31,7 @@ export default function NavMenu() {
                   Get Started
                 </span>
                 <span>
-                  <ArrowRight className='w-3 h-3 transform group-hover:translate-x-1 transition-transform ' />
+                  <ArrowRight className='w-3 h-3 transition-transform transform group-hover:translate-x-1 ' />
                 </span>
               </button>
             </SignUpButton>

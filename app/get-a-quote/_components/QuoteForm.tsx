@@ -134,7 +134,7 @@ export default function QuoteForm() {
   // console.log(instance);
   return (
     <>
-      <form onSubmit={handleSubmit(onSubmit)} className='p-4 sm:p-8 space-y-4'>
+      <form onSubmit={handleSubmit(onSubmit)} className='p-4 space-y-4 sm:p-8'>
         <div className={'grid grid-cols-1 sm:grid-cols-2 gap-2'}>
           <div className={'flex flex-col gap-2'}>
             <label htmlFor='enquirerName' className={'text-sm font-semibold'}>
@@ -143,7 +143,7 @@ export default function QuoteForm() {
             <input
               id='enquirerName'
               type='text'
-              className='w-full resize-y overflow-auto rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:border-blue-500 focus:outline-none hover:border-blue-500'
+              className='w-full px-4 py-2 overflow-auto border border-gray-300 rounded-lg shadow-sm resize-y focus:border-blue-500 focus:outline-none hover:border-blue-500'
               placeholder='Ex: Jhon Doe'
               {...register('enquirerName', {
                 required: 'This field is required',
@@ -161,7 +161,7 @@ export default function QuoteForm() {
             <input
               id='companyName'
               type='text'
-              className='w-full resize-y overflow-auto rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:border-blue-500 focus:outline-none hover:border-blue-500'
+              className='w-full px-4 py-2 overflow-auto border border-gray-300 rounded-lg shadow-sm resize-y focus:border-blue-500 focus:outline-none hover:border-blue-500'
               placeholder='Ex: XYZ Company'
               {...register('companyName', {
                 required: 'This field is required',
@@ -182,7 +182,7 @@ export default function QuoteForm() {
               id='email'
               type='email'
               autoComplete='email'
-              className='w-full resize-y overflow-auto rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:border-blue-500 focus:outline-none hover:border-blue-500'
+              className='w-full px-4 py-2 overflow-auto border border-gray-300 rounded-lg shadow-sm resize-y focus:border-blue-500 focus:outline-none hover:border-blue-500'
               placeholder='Ex: example@gmail.com'
               {...register('email', {
                 required: 'This field is required',
@@ -197,7 +197,7 @@ export default function QuoteForm() {
             <input
               id='phoneNo'
               type='tel'
-              className='w-full resize-y overflow-auto rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:border-blue-500 focus:outline-none hover:border-blue-500'
+              className='w-full px-4 py-2 overflow-auto border border-gray-300 rounded-lg shadow-sm resize-y focus:border-blue-500 focus:outline-none hover:border-blue-500'
               placeholder='Ex: example@gmail.com'
               {...register('phoneNo', {
                 required: 'This field is required',
@@ -215,7 +215,7 @@ export default function QuoteForm() {
             <input
               id='location'
               type='text'
-              className='w-full resize-y overflow-auto rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:border-blue-500 focus:outline-none hover:border-blue-500'
+              className='w-full px-4 py-2 overflow-auto border border-gray-300 rounded-lg shadow-sm resize-y focus:border-blue-500 focus:outline-none hover:border-blue-500'
               placeholder='Ex: Chennai'
               {...register('location', {
                 required: 'This field is required',
@@ -230,7 +230,7 @@ export default function QuoteForm() {
             <input
               id='jobRole'
               type='text'
-              className='w-full resize-y overflow-auto rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:border-blue-500 focus:outline-none hover:border-blue-500'
+              className='w-full px-4 py-2 overflow-auto border border-gray-300 rounded-lg shadow-sm resize-y focus:border-blue-500 focus:outline-none hover:border-blue-500'
               placeholder='Ex: Project manager'
               {...register('jobRole', {
                 required: 'This field is required',
@@ -248,7 +248,7 @@ export default function QuoteForm() {
             <input
               id='monthlySalary'
               type='number'
-              className='w-full resize-y overflow-auto rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:border-blue-500 focus:outline-none hover:border-blue-500'
+              className='w-full px-4 py-2 overflow-auto border border-gray-300 rounded-lg shadow-sm resize-y focus:border-blue-500 focus:outline-none hover:border-blue-500'
               placeholder='Ex: 120000'
               {...register('monthlySalary', {
                 required: 'This field is required',
@@ -271,7 +271,7 @@ export default function QuoteForm() {
               id='annualSalary'
               type='number'
               disabled
-              className='w-full resize-y overflow-auto rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:border-blue-500 focus:outline-none hover:border-blue-500 select-none'
+              className='w-full px-4 py-2 overflow-auto border border-gray-300 rounded-lg shadow-sm resize-y select-none focus:border-blue-500 focus:outline-none hover:border-blue-500'
               {...register('annualSalary')}
             />
           </div>
@@ -282,7 +282,7 @@ export default function QuoteForm() {
             How many people in your office ?
           </label>
           <select
-            className='rounded-lg border px-2 py-2 shadow-sm outline-none focus:ring'
+            className='px-2 py-2 border rounded-lg shadow-sm outline-none focus:ring'
             id='peopleCount'
             {...register('noOfEmployees', {
               validate: (value) => {
@@ -308,17 +308,17 @@ export default function QuoteForm() {
           <textarea
             id='about'
             rows={5}
-            className='mb-8 w-full resize-none overflow-auto rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:border-blue-500 focus:outline-none hover:border-blue-500'
+            className='w-full px-4 py-2 mb-8 overflow-auto border border-gray-300 rounded-lg shadow-sm resize-none focus:border-blue-500 focus:outline-none hover:border-blue-500'
             {...register('about')}></textarea>
         </div>
         {!formValues && !calculations && (
           <button
             disabled={isPending}
-            className='w-full rounded-lg ring-1 ring-blue-700 bg-blue-700 p-3 text-center font-medium text-white outline-none transition focus:ring hover:ring-blue-400 hover:bg-blue-600 hover:text-white disabled:bg-blue-800 disabled:cursor-not-allowed'>
+            className='w-full p-3 font-medium text-center text-white transition bg-blue-700 rounded-lg outline-none ring-1 ring-blue-700 focus:ring hover:ring-blue-400 hover:bg-blue-600 hover:text-white disabled:bg-blue-800 disabled:cursor-not-allowed'>
             {isPending ? 'Sending...' : 'Send'}
           </button>
         )}
-        {/* <button className='w-full rounded-lg border border-blue-700 bg-blue-700 p-3 text-center font-medium text-white outline-none transition focus:ring hover:border-blue-700 hover:bg-blue-600 hover:text-white'>
+        {/* <button className='w-full p-3 font-medium text-center text-white transition bg-blue-700 border border-blue-700 rounded-lg outline-none focus:ring hover:border-blue-700 hover:bg-blue-600 hover:text-white'>
           Send
         </button> */}
 
@@ -328,7 +328,7 @@ export default function QuoteForm() {
               <InvoicePDF data={formValues} calculations={calculations} />
             }
             fileName='invoice.pdf'
-            className='w-full flex justify-center items-center rounded-lg border border-blue-700 bg-blue-700 p-3 text-center font-medium text-white outline-none transition focus:ring hover:border-blue-700 hover:bg-blue-600 hover:text-white'
+            className='flex items-center justify-center w-full p-3 font-medium text-center text-white transition bg-blue-700 border border-blue-700 rounded-lg outline-none focus:ring hover:border-blue-700 hover:bg-blue-600 hover:text-white'
             onChange={(e) => {
               console.log(e);
             }}>
@@ -347,7 +347,7 @@ export default function QuoteForm() {
         <a
           href={instance.url}
           download={'invoice.pdf'}
-          className='w-full rounded-lg border border-blue-700 bg-blue-700 p-3 text-center font-medium text-white outline-none transition focus:ring hover:border-blue-700 hover:bg-blue-600 hover:text-white'>
+          className='w-full p-3 font-medium text-center text-white transition bg-blue-700 border border-blue-700 rounded-lg outline-none focus:ring hover:border-blue-700 hover:bg-blue-600 hover:text-white'>
           Download PDF
         </a>
       )} */}

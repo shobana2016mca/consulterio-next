@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export default function BatchDetailsCard() {
   return (
-    <div className='shadow-lg rounded-md p-4 grid md:grid-cols-3 lg:grid-cols-1 gap-y-4 m-4 lg:m-0'>
+    <div className='grid p-4 m-4 rounded-md shadow-lg md:grid-cols-3 lg:grid-cols-1 gap-y-4 lg:m-0'>
       <h3 className='font-bold'>
         <span className={'block'}>Duration</span>
         <span className={'block font-semibold'}>{batchDetails.duration}</span>
@@ -38,7 +38,7 @@ export default function BatchDetailsCard() {
         href={batchDetails.registrationLink}
         // target='_blank'
         rel='noopener noreferrer'
-        className='bg-red-600 col-span-full font-medium text-center text-white px-4 py-2 rounded-full shadow-lg hover:shadow-sm hover:bg-red-500 transition-all delay-150 duration-500 ease-in-out'>
+        className='px-4 py-2 font-medium text-center text-white transition-all duration-500 ease-in-out delay-150 bg-red-600 rounded-full shadow-lg col-span-full hover:shadow-sm hover:bg-red-500'>
         Register Now
       </Link>
     </div>
