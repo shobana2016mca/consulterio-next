@@ -42,7 +42,7 @@ export async function createUser(user: UserType) {
         console.log('Email sent');
       })
       .catch((error) => {
-        console.error(error);
+        console.error('Sendgrid error', error);
       });
 
     return JSON.parse(JSON.stringify(newUser));
