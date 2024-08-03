@@ -27,12 +27,12 @@ const transporter = nodemailer.createTransport({
   // },
 });
 
-export async function sgMail() {
+export async function sgMail(receipientEmail: string) {
   try {
     // send mail with defined transport object
     const info = await transporter.sendMail({
       from: `akarmakar84622@gmail.com`, // sender address
-      to: 'abhijit@mailsac.com', // list of receivers
+      to: receipientEmail, // list of receivers
       subject: 'Hello ✔', // Subject line
       text: 'Hello world?', // plain text body
       html: '<b>Hello world?</b>', // html body
@@ -99,9 +99,9 @@ export async function createUser(user: UserType) {
     //     console.error('Sendgrid error', error);
     //   });
 
-    const info = await sgMail();
+    const info = await sgMail(user.email);
 
-    console.log('im executing in createUser function', info);
+    console.log('im executing in createUser function');
 
     return JSON.parse(JSON.stringify(newUser));
   } catch (error) {
@@ -134,9 +134,9 @@ export async function updateUser(clerkId: string, user: UserType) {
     //   'welcome'
     // );
     // console.log('profileupdate', profileUpdate);
-    const info = await sgMail();
+    // const info = await sgMail();
 
-    console.log('im executing in updateUser function', info);
+    // console.log('im executing in updateUser function', info);
 
     if (!updatedUser) {
       throw new Error('User update failed');

@@ -1,6 +1,5 @@
 import Link from 'next/link';
-import { sgMail } from '../_lib/user.actions';
-// import { getToken } from '../_lib/meeting.actions';
+import { getToken } from '../_lib/meeting.actions';
 // import { sgEmail } from '@/app/_lib/user.actions';
 
 // import { validatePaymentVerification } from 'razorpay/dist/utils/razorpay-utils';
@@ -94,7 +93,7 @@ export default async function SuccessPage({
             Payment Link Reference ID:{' '}
             {searchParams.razorpay_payment_link_reference_id}
           </p>
-          <form action={sgMail}>
+          <form action={getToken}>
             <div className={'flex items-center justify-center'}>
               <Link
                 href={'/'}
