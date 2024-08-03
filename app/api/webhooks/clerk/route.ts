@@ -86,21 +86,21 @@ export async function POST(req: Request) {
     };
 
     //  send the welcome mail
-    const msg = {
-      to: email_addresses[0]?.email_address,
-      from: 'akarmakar846@gmail.com',
-      subject: 'Welcome to our platform',
-      text: 'Welcome to our platform, ',
-      html: '<h1>Welcome to our platform</h1>',
-    };
+    // const msg = {
+    //   to: email_addresses[0]?.email_address,
+    //   from: 'akarmakar846@gmail.com',
+    //   subject: 'Welcome to our platform',
+    //   text: 'Welcome to our platform, ',
+    //   html: '<h1>Welcome to our platform</h1>',
+    // };
 
-    SendGrid.send(msg)
-      .then(() => {
-        console.log('Email sent');
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    // SendGrid.send(msg)
+    //   .then(() => {
+    //     console.log('Email sent');
+    //   })
+    //   .catch((error) => {
+    //     console.error(error);
+    //   });
 
     // Create the user
     const newUser = await createUser(user as UserType);
@@ -134,21 +134,21 @@ export async function POST(req: Request) {
     };
 
     //  send the welcome mail
-    const msg = {
-      to: email_addresses[0]?.email_address,
-      from: 'akarmakar846@gmail.com',
-      subject: 'Welcome to our platform',
-      text: 'Welcome to our platform, ',
-      html: '<h1>Welcome to our platform</h1>',
-    };
+    // const msg = {
+    //   to: email_addresses[0]?.email_address,
+    //   from: 'akarmakar846@gmail.com',
+    //   subject: 'Welcome to our platform',
+    //   text: 'Welcome to our platform, ',
+    //   html: '<h1>Welcome to our platform</h1>',
+    // };
 
-    SendGrid.send(msg)
-      .then(() => {
-        console.log('Email sent in Update');
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    // SendGrid.send(msg)
+    //   .then(() => {
+    //     console.log('Email sent in Update');
+    //   })
+    //   .catch((error) => {
+    //     console.error(error);
+    //   });
 
     // Update the user
     const updatedUser = await updateUser(id, user as UserType);

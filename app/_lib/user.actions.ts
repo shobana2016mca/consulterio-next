@@ -29,21 +29,21 @@ export async function createUser(user: UserType) {
     // const welcome = await sendMail(emailContent, user.email, user, 'welcome');
     // console.log('welcome mail', welcome);
 
-    // const msg = {
-    //   to: user.email,
-    //   from: 'akarmakar846@gmail.com',
-    //   subject: 'Welcome to our platform',
-    //   text: 'Welcome to our platform, ',
-    //   html: '<h1>Welcome to our platform</h1>',
-    // };
+    const msg = {
+      to: user.email,
+      from: 'akarmakar846@gmail.com',
+      subject: 'Welcome to our platform',
+      text: 'Welcome to our platform, ',
+      html: '<h1>Welcome to our platform</h1>',
+    };
 
-    // SendGrid.send(msg)
-    //   .then(() => {
-    //     console.log('Email sent');
-    //   })
-    //   .catch((error) => {
-    //     console.error(error);
-    //   });
+    SendGrid.send(msg)
+      .then(() => {
+        console.log('Email sent');
+      })
+      .catch((error) => {
+        console.error(error);
+      });
 
     return JSON.parse(JSON.stringify(newUser));
   } catch (error) {
