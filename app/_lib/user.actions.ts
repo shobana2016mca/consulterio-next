@@ -5,10 +5,13 @@ import { revalidatePath } from 'next/cache';
 
 import User from '@/app/_lib/models/User.model';
 import { connectDB } from './connectDB';
-import { sendMail } from './nodemailer';
+// import { sendMail } from './nodemailer';
 import { actionResponse } from './utils';
 
 SendGrid.setApiKey(process.env.SENDGRID_API_KEY!);
+
+// console.log('SendGrid', SendGrid);
+console.log('im here in user.actions.ts');
 
 export async function createUser(user: UserType) {
   try {
@@ -17,30 +20,30 @@ export async function createUser(user: UserType) {
     const newUser = await User.create(user);
 
     // send welcome email
-    const emailContent = {
-      subject: 'Welcome to Consultero - Your Partner in Recruitment Excellence',
-      text: `Hello Dear, ${user.firstName},`,
-      html: `<h2>Hello ${user.firstName},</h2>`,
-    };
+    // const emailContent = {
+    //   subject: 'Welcome to Consultero - Your Partner in Recruitment Excellence',
+    //   text: `Hello Dear, ${user.firstName},`,
+    //   html: `<h2>Hello ${user.firstName},</h2>`,
+    // };
 
-    const welcome = await sendMail(emailContent, user.email, user, 'welcome');
-    console.log('welcome mail', welcome);
+    // const welcome = await sendMail(emailContent, user.email, user, 'welcome');
+    // console.log('welcome mail', welcome);
 
-    const msg = {
-      to: user.email,
-      from: 'akarmakar846@gmail.com',
-      subject: 'Welcome to our platform',
-      text: 'Welcome to our platform, ',
-      html: '<h1>Welcome to our platform</h1>',
-    };
+    // const msg = {
+    //   to: user.email,
+    //   from: 'akarmakar846@gmail.com',
+    //   subject: 'Welcome to our platform',
+    //   text: 'Welcome to our platform, ',
+    //   html: '<h1>Welcome to our platform</h1>',
+    // };
 
-    SendGrid.send(msg)
-      .then(() => {
-        console.log('Email sent');
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    // SendGrid.send(msg)
+    //   .then(() => {
+    //     console.log('Email sent');
+    //   })
+    //   .catch((error) => {
+    //     console.error(error);
+    //   });
 
     return JSON.parse(JSON.stringify(newUser));
   } catch (error) {
@@ -60,19 +63,19 @@ export async function updateUser(clerkId: string, user: UserType) {
     });
 
     // send profile update email
-    const emailContent = {
-      subject: 'Profile Update',
-      text: 'Your profile has been updated',
-      html: '<h1>Your profile has been updated</h1>',
-    };
+    // const emailContent = {
+    //   subject: 'Profile Update',
+    //   text: 'Your profile has been updated',
+    //   html: '<h1>Your profile has been updated</h1>',
+    // };
 
-    const profileUpdate = await sendMail(
-      emailContent,
-      user.email,
-      user,
-      'welcome'
-    );
-    console.log('profileupdate', profileUpdate);
+    // const profileUpdate = await sendMail(
+    //   emailContent,
+    //   user.email,
+    //   user,
+    //   'welcome'
+    // );
+    // console.log('profileupdate', profileUpdate);
 
     if (!updatedUser) {
       throw new Error('User update failed');
