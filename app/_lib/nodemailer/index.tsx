@@ -1,123 +1,21 @@
-import WelcomeEmail from '@/emails/WelcomeEmail';
 import { render } from '@react-email/render';
-// import { readFile } from 'fs/promises';
 import nodemailer from 'nodemailer';
-// import { join } from 'path';
+
+import ContactUsEmail from '@/emails/ContactUsEmail';
+import MeetingLinkEmail from '@/emails/MeetingLinkEmail';
+import PaymentConfirmationEmail from '@/emails/PaymentConfirmation';
+import QuoteReceiptEmail from '@/emails/QuoteReceiptEmail';
+import WelcomeEmail from '@/emails/WelcomeEmail';
+
 import { actionResponse } from '../utils';
 
-type TemplateType = 'welcome' | 'contact' | 'quote' | 'enquiry';
-
-class Email {
-  to: string;
-  from: string;
-  url: string;
-
-  firstName: string;
-  lastName: string;
-  email: string;
-  getStartedUrl: string;
-
-  constructor(user: UserType, url: string) {
-    this.to = user.email;
-    this.from = `Consultero <${process.env.EMAIL_FROM!}>`;
-    this.url = url;
-    this.firstName = user.firstName || user.username;
-    this.lastName = user.lastName || '';
-    this.email = user.email;
-    this.getStartedUrl = url;
-  }
-
-  isDev = process.env.NODE_ENV === 'development';
-
-  newTransport() {
-    if (this.isDev) {
-      return nodemailer.createTransport({
-        host: process.env.MAILTRAP_HOST,
-        port: parseInt(process.env.MAILTRAP_PORT!),
-        auth: {
-          user: process.env.MAILTRAP_USERNAME,
-          pass: process.env.MAILTRAP_PASSWORD,
-        },
-      });
-    }
-
-    // Sendgrid
-    return nodemailer.createTransport({
-      service: 'SendGrid',
-      auth: {
-        user: process.env.SENDGRID_USERNAME,
-        pass: process.env.SENDGRID_PASSWORD,
-      },
-    });
-  }
-
-  // Send the actual email
-  async send(template: TemplateType, subject: string) {
-    const mailOptions = {
-      from: this.from,
-      to: this.to,
-      subject,
-      // html,
-      // text: htmlToText.fromString(html),
-    };
-
-    switch (template) {
-      case 'welcome':
-        // await this.sendWelcome(subject);
-        render(
-          <WelcomeEmail
-            data={{
-              firstName: this.firstName,
-              lastName: this.lastName,
-              email: this.email,
-              getStartedUrl: this.url,
-            }}
-          />
-        );
-        break;
-
-      case 'contact':
-        // render(<ContactUsEmail data={this.url} />);
-        break;
-
-      case 'quote':
-        // render(<QuoteReceiptEmail data={this.url} />);
-        break;
-
-      case 'enquiry':
-        break;
-
-      default:
-        throw new Error('Invalid template type');
-    }
-
-    // 3) Create a transport and send email
-    await this.newTransport().sendMail(mailOptions);
-  }
-
-  async sendWelcome() {
-    await this.send('welcome', 'Welcome to Consultero');
-  }
-
-  async sendContact() {
-    await this.send('contact', 'Thank you for contacting us');
-  }
-
-  async sendQuote() {
-    await this.send('quote', 'Thank you for your quote request');
-  }
-}
-
-// const transporter = nodemailer.createTransport({
-//   // service: 'gmail',
-//   // auth: {
-//   //   user: process.env.EMAIL_ADDRESS,
-//   //   pass: process.env.EMAIL_PASSWORD,
-//   // },
-//   // tls: {
-//   //   rejectUnauthorized: false,
-//   // },
-// });
+type TemplateType =
+  | 'welcome'
+  | 'contact'
+  | 'quote'
+  | 'enquiry'
+  | 'payment_confirmation'
+  | 'meeting_link';
 
 function newTransport() {
   if (process.env.NODE_ENV === 'development') {
@@ -142,10 +40,14 @@ function newTransport() {
 }
 
 type sendMailPropsTypes = {
-  type: string;
+  type: TemplateType;
   sendTo: string;
   subject: string;
-  data: UserType;
+  user?: UserType;
+  contactUsData?: ContactUsDataContent;
+  quoteData?: QuoteDataContent;
+  workshopData?: PaymentConfirmationContent;
+  meetingData?: MeetingLinkContent;
 };
 
 export async function sendMail(emailContent: sendMailPropsTypes) {
@@ -153,13 +55,15 @@ export async function sendMail(emailContent: sendMailPropsTypes) {
     switch (emailContent.type) {
       case 'welcome':
         // send mail with defined transport object
-        const html = render(
+        const welcomeHtml = render(
           <WelcomeEmail
             data={{
               firstName:
-                emailContent.data.firstName || emailContent.data.username,
-              lastName: emailContent.data.lastName || '',
-              email: emailContent.data.email,
+                emailContent?.user?.firstName ||
+                emailContent?.user?.username ||
+                '',
+              lastName: emailContent?.user?.lastName || '',
+              email: emailContent.user ? emailContent.user.email : '',
               getStartedUrl: 'https://consulterio.vercel.app',
             }}
           />
@@ -172,15 +76,17 @@ export async function sendMail(emailContent: sendMailPropsTypes) {
             <WelcomeEmail
               data={{
                 firstName:
-                  emailContent.data.firstName || emailContent.data.username,
-                lastName: emailContent.data.lastName || '',
-                email: emailContent.data.email,
+                  emailContent?.user?.firstName ||
+                  emailContent?.user?.username ||
+                  '',
+                lastName: emailContent?.user?.lastName || '',
+                email: emailContent.user ? emailContent.user.email : '',
                 getStartedUrl: 'https://consulterio.vercel.app',
               }}
             />,
             { plainText: true }
           ), // plain text body
-          html: html, // html body
+          html: welcomeHtml, // html body
         });
 
         console.log('Welcome Message sent...📨', email.messageId);
@@ -189,22 +95,214 @@ export async function sendMail(emailContent: sendMailPropsTypes) {
         break;
 
       case 'contact':
-        // render(<ContactUsEmail />);
+        const contactHtml = render(
+          <ContactUsEmail
+            data={{
+              enquirerName: emailContent.contactUsData
+                ? emailContent.contactUsData.enquirerName
+                : '',
+              message: emailContent.contactUsData
+                ? emailContent.contactUsData.message
+                : '',
+              updatedAt: emailContent.contactUsData
+                ? emailContent.contactUsData.updatedAt
+                : new Date(),
+            }}
+          />
+        );
+
+        const contactEmail = await newTransport().sendMail({
+          from: `${process.env.EMAIL_ADDRESS}`, // sender address company mail
+          to: `${process.env.EMAIL_ADDRESS}, ${emailContent.sendTo}`, // list of receivers
+          subject: emailContent.subject, // Subject line
+          text: render(
+            <ContactUsEmail
+              data={{
+                enquirerName: emailContent.contactUsData
+                  ? emailContent.contactUsData.enquirerName
+                  : '',
+                message: emailContent.contactUsData
+                  ? emailContent.contactUsData.message
+                  : '',
+                updatedAt: emailContent.contactUsData
+                  ? emailContent.contactUsData.updatedAt
+                  : new Date(),
+              }}
+            />,
+            { plainText: true }
+          ), // plain text body
+          html: contactHtml, // html body
+        });
+
+        console.log('Contact Message sent...📨', contactEmail.messageId);
+        console.log('Contact Email Sent...📨');
         break;
 
       case 'quote':
-        // render(<QuoteReceiptEmail />);
+        const quoteHtml = render(
+          <QuoteReceiptEmail
+            data={{
+              enquirerName: emailContent.contactUsData?.enquirerName || '',
+              companyName: emailContent.quoteData?.companyName || '',
+              email: emailContent.sendTo,
+              phoneNo: emailContent.quoteData?.phoneNo || '',
+              location: emailContent.quoteData?.location || '',
+              jobRole: emailContent.quoteData?.jobRole || '',
+              afterMonthlysalary:
+                emailContent.quoteData?.afterMonthlysalary || '',
+              beforeMonthlySalary:
+                emailContent.quoteData?.beforeMonthlySalary || '',
+              totalMonthlyTax: emailContent.quoteData?.totalMonthlyTax || '',
+              monthlyCGST: emailContent.quoteData?.monthlyCGST || '',
+              monthlySGST: emailContent.quoteData?.monthlySGST || '',
+              afterAnnualSalary:
+                emailContent.quoteData?.afterAnnualSalary || '',
+              beforeAnnualSalary:
+                emailContent.quoteData?.beforeAnnualSalary || '',
+              totalAnnuallyTax: emailContent.quoteData?.totalAnnuallyTax || '',
+              annualCGST: emailContent.quoteData?.annualCGST || '',
+              annualSGST: emailContent.quoteData?.annualSGST || '',
+              afterPayCommission:
+                emailContent.quoteData?.afterPayCommission || '',
+              beforePayCommission:
+                emailContent.quoteData?.beforePayCommission || '',
+              commission: emailContent.quoteData?.commission || '',
+              nettSalary: emailContent.quoteData?.nettSalary || '',
+              userId: emailContent.quoteData?.userId || '',
+              quoteId: emailContent.quoteData?.quoteId || '',
+            }}
+          />
+        );
+
+        const quoteEmail = await newTransport().sendMail({
+          from: `${process.env.EMAIL_ADDRESS}`, // sender address company mail
+          to: `${process.env.EMAIL_ADDRESS}, ${emailContent.sendTo}`, // list of receivers
+          subject: emailContent.subject, // Subject line
+          text: render(
+            <QuoteReceiptEmail
+              data={{
+                enquirerName: emailContent.contactUsData?.enquirerName || '',
+                companyName: emailContent.quoteData?.companyName || '',
+                email: emailContent.sendTo,
+                phoneNo: emailContent.quoteData?.phoneNo || '',
+                location: emailContent.quoteData?.location || '',
+                jobRole: emailContent.quoteData?.jobRole || '',
+                afterMonthlysalary:
+                  emailContent.quoteData?.afterMonthlysalary || '',
+                beforeMonthlySalary:
+                  emailContent.quoteData?.beforeMonthlySalary || '',
+                totalMonthlyTax: emailContent.quoteData?.totalMonthlyTax || '',
+                monthlyCGST: emailContent.quoteData?.monthlyCGST || '',
+                monthlySGST: emailContent.quoteData?.monthlySGST || '',
+                afterAnnualSalary:
+                  emailContent.quoteData?.afterAnnualSalary || '',
+                beforeAnnualSalary:
+                  emailContent.quoteData?.beforeAnnualSalary || '',
+                totalAnnuallyTax:
+                  emailContent.quoteData?.totalAnnuallyTax || '',
+                annualCGST: emailContent.quoteData?.annualCGST || '',
+                annualSGST: emailContent.quoteData?.annualSGST || '',
+                afterPayCommission:
+                  emailContent.quoteData?.afterPayCommission || '',
+                beforePayCommission:
+                  emailContent.quoteData?.beforePayCommission || '',
+                commission: emailContent.quoteData?.commission || '',
+                nettSalary: emailContent.quoteData?.nettSalary || '',
+                userId: emailContent.quoteData?.userId || '',
+                quoteId: emailContent.quoteData?.quoteId || '',
+              }}
+            />,
+            { plainText: true }
+          ), // plain text body
+          html: quoteHtml, // html body
+        });
+
+        console.log('Quote Message sent...📨', quoteEmail.messageId);
+        console.log('Quote Email Sent...📨');
+
         break;
 
       case 'enquiry':
         // render(<ContactUsEmail />);
         break;
 
+      case 'payment_confirmation':
+        const paymentConfirmationHtml = render(
+          <PaymentConfirmationEmail
+            data={{
+              userFirstname: emailContent.workshopData?.userFirstname || '',
+              meetingLink: emailContent.workshopData?.meetingLink || '',
+            }}
+          />
+        );
+
+        const paymentConfirmationEmail = await newTransport().sendMail({
+          from: `${process.env.EMAIL_ADDRESS}`, // sender address company mail
+          to: `${process.env.EMAIL_ADDRESS}, ${emailContent.sendTo}`, // list of receivers
+          subject: emailContent.subject, // Subject line
+          text: render(
+            <PaymentConfirmationEmail
+              data={{
+                userFirstname: emailContent.workshopData?.userFirstname || '',
+                meetingLink: emailContent.workshopData?.meetingLink || '',
+              }}
+            />,
+            { plainText: true }
+          ), // plain text body
+          html: paymentConfirmationHtml, // html body
+        });
+
+        console.log(
+          'Payment Confirmation Message sent...📨',
+          paymentConfirmationEmail.messageId
+        );
+        console.log('Payment Confirmation Email Sent...📨');
+        break;
+
+      case 'meeting_link':
+        const meetingLinkHtml = render(
+          <MeetingLinkEmail
+            data={{
+              username: emailContent.meetingData?.username || '',
+              email: emailContent.meetingData?.email || '',
+              meetingId: emailContent.meetingData?.meetingId || 0,
+              joinUrl: emailContent.meetingData?.joinUrl || '',
+            }}
+          />
+        );
+
+        const meetingLinkEmail = await newTransport().sendMail({
+          from: `${process.env.EMAIL_ADDRESS}`, // sender address company mail
+          to: `${process.env.EMAIL_ADDRESS}, ${emailContent.sendTo}`, // list of receivers
+          subject: emailContent.subject, // Subject line
+          text: render(
+            <MeetingLinkEmail
+              data={{
+                username: emailContent.meetingData?.username || '',
+                email: emailContent.meetingData?.email || '',
+                meetingId: emailContent.meetingData?.meetingId || 0,
+                joinUrl: emailContent.meetingData?.joinUrl || '',
+              }}
+            />,
+            { plainText: true }
+          ), // plain text body
+          html: meetingLinkHtml, // html body
+        });
+
+        console.log(
+          'Meeting Link Message sent...📨',
+          meetingLinkEmail.messageId
+        );
+
+        console.log('Meeting Link Email Sent...📨');
+
+        break;
+
       default:
         throw new Error('Invalid template type');
     }
     // console.log('Message sent: %s', info.messageId);
-    console.log('Email Sent...📨');
+    // console.log('Email Sent...📨');
     return actionResponse('success', 'Message sent', null);
   } catch (err: any) {
     return actionResponse('fail', err.message, null);

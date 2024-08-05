@@ -2,7 +2,10 @@
 
 import { cookies } from 'next/headers';
 import qs from 'query-string';
+import { sendMail } from './nodemailer';
 import { endDate, startDate } from './utils';
+
+const isDev = process.env.NODE_ENV === 'development';
 
 export async function getToken() {
   const cookie = cookies();
@@ -47,11 +50,15 @@ export async function getToken() {
       // sameSite: 'strict',
       expires: new Date(Date.now() + 3599 * 1000),
       // priority: 'medium',
+      httpOnly: isDev ? false : true,
+      secure: isDev ? false : true,
+      sameSite: isDev ? 'lax' : 'strict',
+      // path:
     });
 
-    await createMeeting();
+    // await createMeeting();
 
-    return access_token;
+    return { access_token, expires_in };
     // return null;
   } catch (error) {
     if (error instanceof Error) {
@@ -71,8 +78,13 @@ export async function getToken() {
 // polling for the generate token
 // setTimeout(async () => {
 //   const cookie = cookies();
-//   const token = await getToken();
+//   const { access_token: token, expires_in } = await getToken();
 //   console.log('polling', token);
+
+//   const expiryTime = expires_in;
+
+//   console.log('expiryTime', expiryTime);
+
 //   if (token) {
 //     cookie.set('zoom_token', token.access_token, {
 //       maxAge: token.expires_in,
@@ -158,11 +170,45 @@ export async function createMeeting() {
 
   if (res.status === 201) {
     const data = await res.json();
-    console.log('id', data.id);
-    console.log('join_url', data.join_url);
+    // console.log('id', data.id);
+    // console.log('join_url', data.join_url);
     // console.log('zoom-meeting response', data);
-    // send email
+
+    return data;
   }
+}
+
+export async function generateMeetingLink(username: string, email: string) {
+  await getToken();
+
+  // console.log('token', token);
+
+  const cookie = cookies();
+  const token = cookie.get('zoom_token')?.value;
+
+  if (!token) {
+    throw new Error('Token not found');
+  }
+
+  if (!username || !email) {
+    throw new Error('Credentials not found');
+  }
+
+  // create meeting
+  const data = await createMeeting();
+
+  // send email
+  await sendMail({
+    type: 'meeting_link',
+    sendTo: email,
+    subject: `${username}, Your join url for Interview Mastery Workshop`,
+    meetingData: {
+      username: username,
+      email: email,
+      meetingId: data.id,
+      joinUrl: data.join_url,
+    },
+  });
 }
 
 export async function fixDate() {

@@ -99,32 +99,6 @@ declare type EmailContent = {
 
 declare type SendTo = string | string[];
 
-declare type GenerateEmailContent = {
-  enquirerName: string;
-  companyName: string;
-  email: string;
-  phoneNo: string;
-  location: string;
-  jobRole: string;
-  noOfEmployees: string;
-  about?: string;
-
-  beforeMonthlySalary: string;
-  totalMonthlyTax: string;
-  monthlyCGST: string;
-  monthlySGST: string;
-  afterMonthlysalary: string;
-  beforeAnnualSalary: string;
-  totalAnnuallyTax: string;
-  annualCGST: string;
-  annualSGST: string;
-  afterAnnualSalary: string;
-  beforePayCommission: string;
-  commission: string;
-  afterPayCommission: string;
-  nettSalary: string;
-};
-
 declare type QuoteDataContent = {
   enquirerName: string;
   companyName: string;
@@ -132,8 +106,6 @@ declare type QuoteDataContent = {
   phoneNo: string;
   location: string;
   jobRole: string;
-  noOfEmployees: string;
-  about?: string;
 
   beforeMonthlySalary: string;
   totalMonthlyTax: string;
@@ -150,13 +122,11 @@ declare type QuoteDataContent = {
   afterPayCommission: string;
   nettSalary: string;
   userId: string;
+  quoteId: string;
 };
 
 declare type ContactUsDataContent = {
   enquirerName: string;
-  email: string;
-  phoneNo: string;
-  communicationMethod: string;
   message: string;
   updatedAt: Date;
 };
@@ -166,6 +136,18 @@ declare type WelcomeEmailContent = {
   lastName: string;
   email: string;
   getStartedUrl?: string;
+};
+
+declare type PaymentConfirmationContent = {
+  userFirstname: string;
+  meetingLink: string;
+};
+
+declare type MeetingLinkContent = {
+  username: string;
+  email: string;
+  meetingId: number;
+  joinUrl: string;
 };
 
 declare type AccordionProps = {

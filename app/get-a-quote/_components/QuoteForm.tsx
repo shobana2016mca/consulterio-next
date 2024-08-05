@@ -23,7 +23,7 @@ export default function QuoteForm() {
     //   enquirerName: 'Jhon Doe',
     //   companyName: 'XYZ Company',
     //   // email: 'jhondoe123@gmail.com',
-    //   email: 'belocow407@orsbap.com',
+    //   email: 'xavijin567@eixdeal.com',
     //   phoneNo: '9999911111',
     //   location: 'Chennai',
     //   jobRole: 'Project manager',
@@ -106,13 +106,13 @@ export default function QuoteForm() {
       const result = await createQuote(formData);
       // const result = await createQuote(formData);
       if (result.status === 'success') {
-        toast.success('Email sent successfully', {
+        toast.success('Quote sent successfully', {
           position: 'top-center',
           duration: 5000,
           className: 'bg-green-500 text-white',
         });
       } else {
-        toast.error('Email sent failed', {
+        toast.error('Quote sent failed', {
           position: 'top-center',
           duration: 5000,
           className: 'bg-red-500 text-white',

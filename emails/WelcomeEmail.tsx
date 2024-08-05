@@ -21,21 +21,15 @@ const baseUrl =
     : process.env.NEXT_EMAIL_SERVER_URL;
 
 WelcomeMail.PreviewProps = {
-  firstName: 'Abhijit',
-  lastName: 'Kumar',
-  email: 'marketingconsultero@gmail.com',
-  getStartedUrl: 'https://consulterio.vercel.app',
-} satisfies WelcomeEmailContent;
+  data: {
+    firstName: 'Abhijit',
+    lastName: 'Kumar',
+    email: 'marketingconsultero@gmail.com',
+    getStartedUrl: 'https://consulterio.vercel.app',
+  },
+};
 
-export default function WelcomeMail({
-  data,
-}: {
-  data: WelcomeEmailContent;
-  // firstName: string;
-  // lastName: string;
-  // email: string;
-  // getStartedUrl: string;
-}) {
+export default function WelcomeMail({ data }: { data: WelcomeEmailContent }) {
   return (
     <Html>
       <Head>
@@ -61,11 +55,11 @@ export default function WelcomeMail({
                 width='200'
                 height='80'
                 alt='Consultero Logo'
-                className='object-top object-cover w-full h-full'
+                className='object-cover object-top w-full h-full'
               />
             </Section>
             <Section className='mt-[32px]'>
-              <Heading as='h1' className='text-base font-sans'>
+              <Heading as='h1' className='font-sans text-base'>
                 Dear <strong>{data?.firstName}</strong>, <br /> Welcome to
                 Interview Mastery!
               </Heading>
@@ -79,7 +73,7 @@ export default function WelcomeMail({
             </Section>
             <Hr className='border border-solid border-[#eaeaea] my-[26px] mx-0 w-full' />
             <Section>
-              <Text className='text-lg font-semibold font-sans'>
+              <Text className='font-sans text-lg font-semibold'>
                 What to Expect:
               </Text>
               <ul className={'font-sans'}>
@@ -122,7 +116,7 @@ export default function WelcomeMail({
                 </li>
               </ul>
               <Hr className='border border-solid border-[#eaeaea] my-[26px] mx-0 w-full' />
-              <Text className='text-lg font-semibold font-sans'>
+              <Text className='font-sans text-lg font-semibold'>
                 Next Steps:
               </Text>
               <ul>
@@ -159,7 +153,7 @@ export default function WelcomeMail({
             <Hr className='border border-solid border-[#eaeaea] my-[26px] mx-0 w-full' />
 
             <Section>
-              <Text className='text-sm font-semibold font-sans'>
+              <Text className='font-sans text-sm font-semibold'>
                 We are excited to help you unlock your full potential and
                 achieve your career aspirations. If you have any questions or
                 need assistance, please do not hesitate to contact us at{' '}

@@ -1,7 +1,9 @@
+import config from '@/tailwind.config';
 import {
   Body,
   Column,
   Container,
+  Font,
   Head,
   Html,
   Img,
@@ -13,54 +15,45 @@ import {
   Text,
 } from '@react-email/components';
 
-// declare type ContactUsDataContent = {
-//   enquirerName: string;
-//   email: string;
-//   phoneNo: string;
-//   communicationMethod: string;
-//   message: string;
-//   updatedAt: Date;
-// };
-
 const baseUrl =
   process.env.NODE_ENV === 'development'
     ? process.env.NEXT_EMAIL_PUBLIC_SERVER_URL
     : process.env.NEXT_EMAIL_SERVER_URL;
 
 ContactUsEmail.PreviewProps = {
-  enquirerName: 'Abhijit Kumar',
-  email: 'abhijitkumar@gmail.com',
-  phoneNo: '1234567890',
-  communicationMethod: 'Email',
-  message: 'I have a query regarding the services you provide.',
-  updatedAt: new Date('June 23, 2022 4:06:00 pm UTC'),
-} as ContactUsDataContent;
+  data: {
+    enquirerName: 'Abhijit Kumar',
+    message: 'I have a query regarding the services you provide.',
+    updatedAt: new Date('June 23, 2022 4:06:00 pm UTC'),
+  },
+};
 
-export function ContactUsEmail({
-  data,
-  enquirerName,
-  email,
-}: {
-  data: ContactUsDataContent;
-  enquirerName: string;
-  email: string;
-  phoneNo: string;
-  communicationMethod: string;
-  message: string;
-  updatedAt: Date;
-}) {
-  //
+export function ContactUsEmail({ data }: { data: ContactUsDataContent }) {
   const formattedDate = new Intl.DateTimeFormat('en', {
     dateStyle: 'medium',
     timeStyle: 'medium',
   }).format(data?.updatedAt || new Date());
 
   return (
-    <Html>
-      <Head />
-      <Preview>You updated the password for your Twitch account</Preview>
-      <Tailwind>
-        <Body style={main}>
+    <Html lang='en'>
+      <Head>
+        <Font
+          fontFamily='Roboto'
+          fallbackFontFamily='Verdana'
+          webFont={{
+            url: 'https://fonts.gstatic.com/s/roboto/v27/KFOmCnqEu92Fr1Mu4mxKKTU1Kg.woff2',
+            format: 'woff2',
+          }}
+          fontWeight={400}
+          fontStyle='normal'
+        />
+      </Head>
+      <Preview>Contact us Preview</Preview>
+      <Tailwind config={config}>
+        <Body
+          className={
+            'bg-[#eeeff1] h-screen flex flex-col items-center justify-items-center'
+          }>
           <Container style={container}>
             <Section style={logo}>
               <Img width={114} src={`${baseUrl}/email-logo/email-logo.png`} />
@@ -73,9 +66,7 @@ export function ContactUsEmail({
               </Row>
             </Section>
             <Section style={content}>
-              <Text style={paragraph}>
-                Hi {data?.enquirerName || enquirerName},
-              </Text>
+              <Text style={paragraph}>Hi {data?.enquirerName},</Text>
               <Text style={paragraph}>
                 Thank you for contacting us on {formattedDate}. We have received
                 your query and will get back to you soon.
@@ -87,15 +78,11 @@ export function ContactUsEmail({
                   Consultero Support
                 </Link>
               </Text>
-              {/* <Text style={paragraph}>
-              Thanks,
-              <br />
-              Consultero Support Team
-            </Text> */}
+
               <Text style={paragraph}>
                 Regards,
                 <br />
-                Support Team.
+                Consultero Support Team.
               </Text>
             </Section>
           </Container>
@@ -105,7 +92,7 @@ export function ContactUsEmail({
               <Text style={{ textAlign: 'center', color: '#706a7b' }}>
                 © {new Date().getFullYear()} Consultero, All Rights Reserved{' '}
                 <br />
-                Chennai, India
+                1/259, 1st St, Shekmaniyam, Porur, Chennai, Tamil Nadu 600116
               </Text>
             </Row>
           </Section>
@@ -127,6 +114,11 @@ const fontFamily = 'HelveticaNeue,Helvetica,Arial,sans-serif';
 const main = {
   backgroundColor: '#efeef1',
   fontFamily,
+  height: '100dvh',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center',
 };
 
 const paragraph = {

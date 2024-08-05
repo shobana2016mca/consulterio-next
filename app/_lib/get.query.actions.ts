@@ -6,46 +6,35 @@ import User from '@/app/_lib/models/User.model';
 import { currentUser } from '@clerk/nextjs/server';
 
 import { connectDB } from './connectDB';
+import { sendMail } from './nodemailer';
 import { actionResponse } from './utils';
 
-function generateEmailContent(data: GenerateEmailContent) {
-  // console.log('data:', data);
-
-  return {
-    subject: 'New Quote Request',
-    text: ' New Quote Request from ' + data.enquirerName,
-    html: `
-      <h1>New Quote Request</h1>
-      <hr />
-
-      <p>Enquirer Name: ${data.enquirerName}</p>
-      <p>Company Name: ${data.companyName}</p>
-      <p>Email: ${data.email}</p>
-      <p>Phone No: ${data.phoneNo}</p>
-      <p>Location: ${data.location}</p>
-      <p>Job Role: ${data.jobRole}</p>
-      <p>No of Employees: ${data.noOfEmployees}</p>
-      <p>About: ${data?.about}</p>
-      <hr />
-      <p>Monthly Salary: ${data.beforeMonthlySalary}</p>
-      <p>Total Monthly Tax: ${data.totalMonthlyTax}</p>
-      <p>Monthly CGST: ${data.monthlyCGST}</p>
-      <p>Monthly SGST: ${data.monthlySGST}</p>
-      <p>After Monthly Salary: ${data.afterMonthlysalary}</p>
-      <hr />
-      <p>Before Annual Salary: ${data.beforeAnnualSalary}</p>
-      <p>Total Annually Tax: ${data.totalAnnuallyTax}</p>
-      <p>Annual CGST: ${data.annualCGST}</p>
-      <p>Annual SGST: ${data.annualSGST}</p>
-      <p>After Annual Salary: ${data.afterAnnualSalary}</p>
-      <hr />
-      <p>Before pay commission: ${data.beforePayCommission}</p>
-      <p>Commission: ${data.commission}</p>
-      <p>After pay commission: ${data.afterPayCommission}</p>
-      <p>Nett Salary: ${data.nettSalary}</p>
-      `,
-  };
-}
+type FormdataType = {
+  enquiryName: string;
+  companyName: string;
+  email: string;
+  phoneNo: string;
+  location: string;
+  jobRole: string;
+  monthlySalary: number;
+  annualSalary: number;
+  noOfEmployees: string;
+  about: string;
+  beforeMonthlySalary: string;
+  totalMonthlyTax: string;
+  monthlyCGST: string;
+  monthlySGST: string;
+  afterMonthlysalary: string;
+  beforeAnnualSalary: string;
+  totalAnnuallyTax: string;
+  annualCGST: string;
+  annualSGST: string;
+  afterAnnualSalary: string;
+  beforePayCommission: string;
+  commission: string;
+  afterPayCommission: string;
+  nettSalary: string;
+};
 
 export async function createQuote(formData: FormData) {
   try {
@@ -67,16 +56,8 @@ export async function createQuote(formData: FormData) {
 
     const data = Object.fromEntries(
       formData.entries()
-    ) as unknown as GenerateEmailContent;
-
-    const emailContentData = {
-      ...data,
-      // userId: existingUser?._id,
-      userId: user.id,
-    };
-
-    // Generate email content
-    const emailContent = generateEmailContent(data);
+      // ) as Record<string, string>;
+    ) as QuoteDataContent;
 
     // Create new quote
     const newQuote = await Quote.create({
@@ -95,6 +76,40 @@ export async function createQuote(formData: FormData) {
 
     // Send email to user with quote
     // await sendMail(emailContent, data.email, emailContentData, 'quote');
+    const quoteMail = await sendMail({
+      type: 'quote',
+      sendTo: data.email,
+      subject: `${
+        data.enquirerName
+      }, Your Quote Request. Ref: ${newQuote._id.toString()}`,
+      quoteData: {
+        enquirerName: `${data.enquirerName}`,
+        companyName: data.companyName,
+        email: data.email,
+        phoneNo: data.phoneNo,
+        location: data.location,
+        jobRole: data.jobRole,
+        afterMonthlysalary: data.afterMonthlysalary,
+        beforeMonthlySalary: data.beforeMonthlySalary,
+        totalMonthlyTax: data.totalMonthlyTax,
+        monthlyCGST: data.monthlyCGST,
+        monthlySGST: data.monthlySGST,
+        afterAnnualSalary: data.afterAnnualSalary,
+        beforeAnnualSalary: data.beforeAnnualSalary,
+        totalAnnuallyTax: data.totalAnnuallyTax,
+        annualCGST: data.annualCGST,
+        annualSGST: data.annualSGST,
+        afterPayCommission: data.afterPayCommission,
+        beforePayCommission: data.beforePayCommission,
+        commission: data.commission,
+        nettSalary: data.nettSalary,
+        userId: user.id,
+        quoteId: newQuote._id.toString(),
+      },
+    });
+
+    // console.log('Quote Message sent...📨', quoteMail);
+
     return actionResponse('success', 'Successfully get quote', null);
   } catch (err) {
     if (err instanceof Error) {

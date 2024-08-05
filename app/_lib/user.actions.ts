@@ -1,59 +1,34 @@
 'use server';
 
-// import SendGrid from '@sendgrid/mail';
 import { revalidatePath } from 'next/cache';
-import nodemailer from 'nodemailer';
 
 import User from '@/app/_lib/models/User.model';
 import { connectDB } from './connectDB';
-// import { sendMail } from './nodemailer';
+
+import { sendMail } from './nodemailer';
 import { actionResponse } from './utils';
-
-// SendGrid.setApiKey(process.env.SENDGRID_API_KEY!);
-
-// console.log('SendGrid', SendGrid);
-console.log('im here in user.actions.ts');
-
-const transporter = nodemailer.createTransport({
-  service: 'SendGrid',
-  // host: 'smtp.sendgrid.net',
-  // port: 587,
-  auth: {
-    user: process.env.SENDGRID_USERNAME!,
-    pass: process.env.SENDGRID_PASSWORD!,
-  },
-  // tls: {
-  //   rejectUnauthorized: false,
-  // },
-});
-
-export async function sgMail(receipientEmail: string) {
-  try {
-    // send mail with defined transport object
-    const info = await transporter.sendMail({
-      from: `marketingconsultero@gmail.com`, // sender address
-      to: receipientEmail, // list of receivers
-      subject: 'Hello ✔', // Subject line
-      text: 'Hello world?', // plain text body
-      html: '<b>Hello world?</b>', // html body
-    });
-
-    console.log('Message sent: %s', info.messageId);
-
-    // Preview only available when sending through an Ethereal account
-    console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
-
-    // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
-  } catch (error) {
-    console.log('error', error);
-  }
-}
 
 export async function createUser(user: UserType) {
   try {
     await connectDB();
 
     const newUser = await User.create(user);
+
+    const welcomeEmail = await sendMail({
+      type: 'welcome',
+      sendTo: user.email,
+      subject: 'Welcome to our platform 🎉',
+      user: {
+        clerkId: user.clerkId,
+        email: user.email,
+        username: user.username!,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        avatar: user.avatar,
+      },
+    });
+
+    console.log('Send mail', welcomeEmail);
 
     return JSON.parse(JSON.stringify(newUser));
   } catch (error) {

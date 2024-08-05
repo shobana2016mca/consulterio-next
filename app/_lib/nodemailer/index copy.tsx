@@ -1,6 +1,6 @@
 // Description: This file is used to send email using nodemailer.
-import ContactUsEmail from '@/eemail/ContactUsEmail';
-import QuoteReceiptEmail from '@/eemail/QuoteReceiptEmail';
+import ContactUsEmail from '@/emails/ContactUsEmail';
+import QuoteReceiptEmail from '@/emails/QuoteReceiptEmail';
 import WelcomeEmail from '@/emails/WelcomeEmail';
 import { render } from '@react-email/render';
 import nodemailer from 'nodemailer';

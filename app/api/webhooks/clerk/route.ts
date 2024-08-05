@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-import { sendMail } from '@/app/_lib/nodemailer';
+// import { sendMail } from '@/app/_lib/nodemailer';
 import { createUser, updateUser } from '@/app/_lib/user.actions';
 import { clerkClient, WebhookEvent } from '@clerk/nextjs/server';
 import { headers } from 'next/headers';
@@ -71,7 +71,7 @@ export async function POST(req: Request) {
       has_image,
     } = evt.data;
 
-    console.log('event', evt.data);
+    console.log('created_event', evt.data);
 
     const user = {
       clerkId: id,
@@ -82,21 +82,6 @@ export async function POST(req: Request) {
       hasImage: has_image,
       avatar: image_url,
     };
-
-    //  send the welcome mail
-    await sendMail({
-      type: 'welcome',
-      sendTo: email_addresses[0]?.email_address,
-      subject: 'Welcome to our platform 🎉',
-      data: {
-        clerkId: id,
-        email: email_addresses[0]?.email_address,
-        username: username!,
-        firstName: first_name,
-        lastName: last_name,
-        avatar: image_url,
-      },
-    });
 
     // Create the user
     const newUser = await createUser(user as UserType);
@@ -110,13 +95,28 @@ export async function POST(req: Request) {
       });
     }
 
+    //  send the welcome mail
+    // await sendMail({
+    //   type: 'welcome',
+    //   sendTo: email_addresses[0]?.email_address,
+    //   subject: 'Welcome to our platform 🎉',
+    //   user: {
+    //     clerkId: id,
+    //     email: email_addresses[0]?.email_address,
+    //     username: username!,
+    //     firstName: first_name,
+    //     lastName: last_name,
+    //     avatar: image_url,
+    //   },
+    // });
+
     // return NextResponse.json({ message: 'OK' });
     return NextResponse.json({ message: 'OK', user: newUser });
   }
 
   // UPDATE
   if (eventType === 'user.updated') {
-    console.log(evt.data);
+    console.log('update_evt', evt.data);
     // return NextResponse.json({ message: 'OK' });
 
     const { id, image_url, first_name, last_name, username, email_addresses } =
@@ -129,23 +129,6 @@ export async function POST(req: Request) {
       avatar: image_url,
     };
 
-    //  send the welcome mail
-    // const msg = {
-    //   to: email_addresses[0]?.email_address,
-    //   from: 'akarmakar846@gmail.com',
-    //   subject: 'Welcome to our platform',
-    //   text: 'Welcome to our platform, ',
-    //   html: '<h1>Welcome to our platform</h1>',
-    // };
-
-    // SendGrid.send(msg)
-    //   .then(() => {
-    //     console.log('Email sent in Update');
-    //   })
-    //   .catch((error) => {
-    //     console.error(error);
-    //   });
-
     // Update the user
     const updatedUser = await updateUser(id, user as UserType);
 
@@ -155,7 +138,7 @@ export async function POST(req: Request) {
 
   // DELETE
   if (eventType === 'user.deleted') {
-    console.log(evt.data);
+    console.log('deleted_event', evt.data);
     return NextResponse.json({ message: 'OK' });
     const { id } = evt.data;
 
