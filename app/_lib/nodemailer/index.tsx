@@ -17,6 +17,19 @@ type TemplateType =
   | 'payment_confirmation'
   | 'meeting_link';
 
+type sendMailPropsTypes = {
+  type: TemplateType;
+  sendTo: string;
+  subject: string;
+  user?: UserType;
+  contactUsData?: ContactUsDataContent;
+  quoteData?: QuoteDataContent;
+  workshopData?: PaymentConfirmationContent;
+  meetingData?: MeetingLinkContent;
+};
+
+const EMAIL_FROM = process.env.EMAIL_FROM;
+
 function newTransport() {
   if (process.env.NODE_ENV === 'development') {
     return nodemailer.createTransport({
@@ -39,17 +52,6 @@ function newTransport() {
   });
 }
 
-type sendMailPropsTypes = {
-  type: TemplateType;
-  sendTo: string;
-  subject: string;
-  user?: UserType;
-  contactUsData?: ContactUsDataContent;
-  quoteData?: QuoteDataContent;
-  workshopData?: PaymentConfirmationContent;
-  meetingData?: MeetingLinkContent;
-};
-
 export async function sendMail(emailContent: sendMailPropsTypes) {
   try {
     switch (emailContent.type) {
@@ -69,8 +71,8 @@ export async function sendMail(emailContent: sendMailPropsTypes) {
           />
         );
         const email = await newTransport().sendMail({
-          from: `${process.env.EMAIL_ADDRESS}`, // sender address company mail
-          to: `${process.env.EMAIL_ADDRESS}, ${emailContent.sendTo}`, // list of receivers
+          from: `${EMAIL_FROM}`, // sender address company mail
+          to: `${emailContent.sendTo}`, // list of receivers
           subject: emailContent.subject, // Subject line
           text: render(
             <WelcomeEmail
@@ -112,8 +114,8 @@ export async function sendMail(emailContent: sendMailPropsTypes) {
         );
 
         const contactEmail = await newTransport().sendMail({
-          from: `${process.env.EMAIL_ADDRESS}`, // sender address company mail
-          to: `${process.env.EMAIL_ADDRESS}, ${emailContent.sendTo}`, // list of receivers
+          from: `${EMAIL_FROM}`, // sender address company mail
+          to: `${EMAIL_FROM}, ${emailContent.sendTo}`, // list of receivers
           subject: emailContent.subject, // Subject line
           text: render(
             <ContactUsEmail
@@ -175,8 +177,8 @@ export async function sendMail(emailContent: sendMailPropsTypes) {
         );
 
         const quoteEmail = await newTransport().sendMail({
-          from: `${process.env.EMAIL_ADDRESS}`, // sender address company mail
-          to: `${process.env.EMAIL_ADDRESS}, ${emailContent.sendTo}`, // list of receivers
+          from: `${EMAIL_FROM}`, // sender address company mail
+          to: `${EMAIL_FROM}, ${emailContent.sendTo}`, // list of receivers
           subject: emailContent.subject, // Subject line
           text: render(
             <QuoteReceiptEmail
@@ -237,8 +239,8 @@ export async function sendMail(emailContent: sendMailPropsTypes) {
         );
 
         const paymentConfirmationEmail = await newTransport().sendMail({
-          from: `${process.env.EMAIL_ADDRESS}`, // sender address company mail
-          to: `${process.env.EMAIL_ADDRESS}, ${emailContent.sendTo}`, // list of receivers
+          from: `${EMAIL_FROM}`, // sender address company mail
+          to: `${emailContent.sendTo}`, // list of receivers
           subject: emailContent.subject, // Subject line
           text: render(
             <PaymentConfirmationEmail
@@ -272,8 +274,8 @@ export async function sendMail(emailContent: sendMailPropsTypes) {
         );
 
         const meetingLinkEmail = await newTransport().sendMail({
-          from: `${process.env.EMAIL_ADDRESS}`, // sender address company mail
-          to: `${process.env.EMAIL_ADDRESS}, ${emailContent.sendTo}`, // list of receivers
+          from: `${EMAIL_FROM}`, // sender address company mail
+          to: ` ${emailContent.sendTo}`, // list of receivers
           subject: emailContent.subject, // Subject line
           text: render(
             <MeetingLinkEmail

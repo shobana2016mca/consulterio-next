@@ -33,8 +33,8 @@ const instance = new Razorpay({
 
 const callbackURL =
   process.env.NODE_ENV === 'development'
-    ? process.env.NEXT_EMAIL_PUBLIC_SERVER_URL
-    : process.env.NEXT_EMAIL_SERVER_URL;
+    ? process.env.NEXT_PUBLIC_URL
+    : process.env.NEXT_SERVER_URL;
 
 const isDev = process.env.NODE_ENV === 'development';
 
