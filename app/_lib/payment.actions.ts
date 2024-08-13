@@ -6,7 +6,8 @@ import { redirect } from 'next/navigation';
 import Razorpay from 'razorpay';
 import { validatePaymentVerification } from 'razorpay/dist/utils/razorpay-utils';
 import { generateMeetingLink } from './meeting.actions';
-import { sendMail } from './nodemailer';
+// import { sendMail } from './nodemailer';
+import { createStudent } from './student.action';
 
 /*
 1.1 Install Razorpay Node.js SDK. ✅
@@ -39,7 +40,7 @@ const callbackURL =
 const isDev = process.env.NODE_ENV === 'development';
 
 export async function createOrder(formData: FormData) {
-  const cookie = cookies();
+  // const cookie = cookies();
 
   if (!instance) {
     throw new Error('Razorpay instance could not be created.');
@@ -50,14 +51,14 @@ export async function createOrder(formData: FormData) {
   }
 
   // Store the form data
-  cookie.set({
-    name: 'form_data',
-    value: JSON.stringify(Object.fromEntries(formData.entries())),
-    expires: new Date(Date.now() + 3599 * 1000),
-    httpOnly: isDev ? false : true,
-    secure: isDev ? false : true,
-    sameSite: isDev ? 'lax' : 'strict',
-  });
+  // cookie.set({
+  //   name: 'form_data',
+  //   value: JSON.stringify(Object.fromEntries(formData.entries())),
+  //   expires: new Date(Date.now() + 3599 * 1000),
+  //   httpOnly: isDev ? false : true,
+  //   secure: isDev ? false : true,
+  //   sameSite: isDev ? 'lax' : 'strict',
+  // });
   // form_data.set('fullName', formData.get('fullName') as string);
   // form_data.set('email', formData.get('email') as string);
   // form_data.set('phone', formData.get('phone') as string);
@@ -95,7 +96,7 @@ export async function createOrder(formData: FormData) {
     throw new Error('Order could not be created.');
   }
 
-  console.log('order: ', orderCreateResponse);
+  // console.log('order: ', orderCreateResponse);
 
   // 3. Return the response
   const checkout = await checkoutSession({
@@ -154,7 +155,7 @@ export async function checkoutSession(orderDetails: checkoutType) {
     throw new Error('Payment link could not be created.');
   }
 
-  console.log('payment: ', checkoutResponse);
+  // console.log('payment: ', checkoutResponse);
 
   // Generate meeting link
   // const meetingLink = await generateMeetingLink({
@@ -173,15 +174,15 @@ export async function checkoutSession(orderDetails: checkoutType) {
   // console.log('meeting: ', meetingLink);
 
   // Send payment confirmation email
-  const paymentConfirmationEmail = await sendMail({
-    type: 'payment_confirmation',
-    sendTo: formData.get('email') as string,
-    subject: 'Payment Confirmation Email - Interview Mastery Workshop',
-    workshopData: {
-      userFirstname: formData.get('fullName') as string,
-      meetingLink: '',
-    },
-  });
+  // const paymentConfirmationEmail = await sendMail({
+  //   type: 'payment_confirmation',
+  //   sendTo: formData.get('email') as string,
+  //   subject: 'Payment Confirmation Email - Interview Mastery Workshop',
+  //   workshopData: {
+  //     userFirstname: formData.get('fullName') as string,
+  //     meetingLink: '',
+  //   },
+  // });
 
   // i need to capture the payment also
   // GET /success?razorpay_payment_id=pay_OTTDL2tgIiWU2K&razorpay_payment_link_id=plink_OTTCYieAgfD5gO&razorpay_payment_link_reference_id=d2b0395d271cf3&razorpay_payment_link_status=paid&razorpay_signature=da6aa470065fe1038ac5a643cb5c521d523bc6cf6c7c97a08f12cc0e1da7aa98 200 in 453ms
@@ -190,6 +191,22 @@ export async function checkoutSession(orderDetails: checkoutType) {
   // console.log(_headers);
 
   // await verifyPayment(orderId);
+
+  const newStudent = new FormData();
+  newStudent.append('fullName', formData.get('fullName') as string);
+  newStudent.append('email', formData.get('email') as string);
+  newStudent.append(
+    'phone',
+    (formData.get('phone') as string).replace('-', '')
+  );
+
+  await createStudent(newStudent);
+
+  // await Student.create({
+  //   name: formData.get('fullName') as string,
+  //   email: formData.get('email') as string,
+  //   contact: formData.get('phone') as string,
+  // });
 
   return checkoutResponse;
 }

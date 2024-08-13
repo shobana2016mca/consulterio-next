@@ -1,16 +1,6 @@
-import { verifyPayment } from '../_lib/payment.actions';
+import Link from 'next/link';
+// import { verifyPayment } from '../_lib/payment.actions';
 import SuccessAnimation from './_components/SuccessAnimation';
-
-type SuccessPageProps = {
-  params: any;
-  searchParams: {
-    razorpay_payment_id: string;
-    razorpay_payment_link_id: string;
-    razorpay_payment_link_reference_id: string;
-    razorpay_payment_link_status: string;
-    razorpay_signature: string;
-  };
-};
 
 export default async function SuccessPage({
   params,
@@ -61,7 +51,7 @@ export default async function SuccessPage({
             </p>
           </div>
 
-          <form
+          {/* <form
             action={async () => {
               'use server';
               await verifyPayment({
@@ -84,8 +74,17 @@ export default async function SuccessPage({
               </button>
             </div>
 
-            {/* {isDev ? <button>Get Token</button> : null} */}
-          </form>
+          </form> */}
+          {/* {isDev ? <button>Get Token</button> : null} */}
+          <div className={'flex items-center justify-center'}>
+            <Link
+              href={'/'}
+              className={
+                'px-6 py-4 rounded-lg shadow-lg bg-blue-500 text-white text-sm'
+              }>
+              Go back to home
+            </Link>
+          </div>
         </div>
       </section>
     </main>

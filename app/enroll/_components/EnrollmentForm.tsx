@@ -50,9 +50,9 @@ const batchDetails: BatchDetails = {
   duration: '3 months',
   startDate: '15th August 2022',
   endDate: '15th November 2022',
-  fees: 999,
-  discount: 400,
-  finalFees: 499,
+  fees: 1499,
+  discount: 500,
+  finalFees: 999,
   registrationLink: '/enroll',
 };
 
@@ -61,11 +61,11 @@ export default function EnrollmentForm() {
   const router = useRouter();
 
   const methods = useForm<EnrollmentInputs>({
-    defaultValues: {
-      fullName: 'John Doe',
-      phone: '123-456-7890',
-      email: 'someone@example.com',
-    },
+    // defaultValues: {
+    //   fullName: 'John Doe',
+    //   phone: '123-456-7890',
+    //   email: 'someone@example.com',
+    // },
   });
 
   const { steps, currentStepIndex, step, isFirstStep, isLastStep, back, next } =

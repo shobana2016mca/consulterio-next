@@ -41,12 +41,12 @@ export default function UserInfoForm() {
             type='tel'
             id='phone'
             autoComplete='tel-country-code'
-            placeholder='Ex: 123-456-7890'
+            placeholder='Ex: 1234567890'
             className='w-full px-3 py-1 text-base leading-8 text-gray-700 transition-colors duration-200 ease-in-out bg-white border border-gray-300 rounded outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200'
             {...register('phone', {
               required: 'Phone number is required',
               pattern: {
-                value: /^\d{3}-\d{3}-\d{4}$/,
+                value: /^[0-9]{3}[0-9]{3}[0-9]{4}$/,
                 message: 'Invalid phone number',
               },
             })}

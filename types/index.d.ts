@@ -211,3 +211,74 @@ declare type QuoteServicesProps = {
     icon: (props: React.SVGProps<SVGSVGElement>) => JSX.Element;
   };
 };
+
+declare type SuccessPageProps = {
+  params: any;
+  searchParams: {
+    razorpay_payment_id: string;
+    razorpay_payment_link_id: string;
+    razorpay_payment_link_reference_id: string;
+    razorpay_payment_link_status: string;
+    razorpay_signature: string;
+  };
+};
+
+declare interface IStudent {
+  name: string;
+  email: string;
+  contact: string;
+  orderId?: string;
+  paymentId?: string;
+  paymentAmount?: number;
+  expectedSignature?: string;
+  razorpaySignature?: string;
+  transactionId?: typeof ObjectId;
+}
+
+declare interface ITransaction {
+  id: string;
+  entity: string;
+  amount: number;
+  currency: string;
+  status: string;
+  order_id: string;
+  invoice_id: string | null;
+  international: boolean;
+  method: string;
+  amount_refunded: number;
+  refund_status: string | null;
+  captured: boolean;
+  description: string;
+  card_id: string;
+  card: {
+    id: string;
+    entity: string;
+    name: string;
+    last4: string;
+    network: string;
+    type: string;
+    issuer: string | null;
+    international: boolean;
+    emi: boolean;
+    sub_type: string;
+    token_iin: string | null;
+  };
+  bank?: string | null;
+  wallet?: string | null;
+  vpa?: string | null;
+  email: string;
+  contact: string;
+  notes: {
+    workshop: string;
+  };
+  fee: number;
+  tax: number;
+  error_code?: string | null;
+  error_description?: string | null;
+  error_source?: string | null;
+  error_step?: string | null;
+  error_reason?: string | null;
+  acquirer_data: { auth_code: string };
+  created_at: number;
+  studentId: typeof ObjectId;
+}
